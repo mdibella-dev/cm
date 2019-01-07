@@ -1,0 +1,58 @@
+/**
+ * Mobile First Media Queries
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @version 1.0.0
+ **/
+
+
+
+/**
+ * Breakpoints
+ *
+ * Die nachfolgenden Breakpoints entsprechen den Breitenangaben für Viewports,
+ * wie sie (auch) im Bootstrap-Framework zu Anwendung kommen.
+ *
+ * - extra small    die Standardgröße (mobile first)
+ * - small          >= 576 px
+ * - medium         >= 768 px
+ * - large          >= 992 px
+ * - extra large    >= 1200 px
+ *
+ * Alternativ können auch die entsprechenden Zahlenwerte verwendet werden.
+ *
+ * @source: https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
+ * @source: https://github.com/twbs/bootstrap/issues/14894
+ */
+
+$breakpoints: (
+  xs:   0,
+  sm:   576px,
+  md:   768px,
+  lg:   992px,
+  xl:   1200px,
+  576:  576px,
+  768:  768px,
+  992:  992px,
+  1200: 1200px,
+) !default;
+
+
+
+/**
+ * Media Mixins
+ *
+ * @source:  https://davidwalsh.name/write-media-queries-sass
+ * @source:  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source: https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ */
+
+@mixin respond-to( $breakpoint ) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $value: map-get($breakpoints, $breakpoint);
+
+        @media (min-width: #{$value}) {
+            @content;
+        }
+    }
+}
