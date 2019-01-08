@@ -9,5 +9,64 @@ Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First
 */
 
 
+// Imports
 
 @import "_media-queries";
+
+
+// Variablen
+
+//$font-sans:			'Oswald', Arial, sans-serif;
+//$font-slab:           'Neuton', 'Georgia', 'Times New', Times, serif;
+
+$space:				    10px; //0.625rem;
+$color-gray:            #888;
+$color-lightgray:       #eee;
+$color-white:           #fff;
+
+
+
+/* ------------------------------------ *
+   Allgemeine Einstellungen
+ * ------------------------------------ */
+
+html,
+body {
+    height: 100%;
+   	//font-family: $font-sans;
+   	font-size: 16px;
+	font-weight: 300;
+    line-height: 1.5;
+	-moz-osx-font-smoothing: darkscale;
+
+    @include respond-to(576) {
+        font-size: 18px;
+    }
+}
+
+html {
+    margin: 0 !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $color-lightgray;
+    color: $color-white;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@import "_elements"
