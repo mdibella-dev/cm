@@ -1,6 +1,6 @@
 <?php
 /**
- * module-class-html
+ * module-standard
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-theme
@@ -14,20 +14,13 @@
  * Variablen setzen
  */
 
-$content = '';
-$args    = array(
-           'class'            => get_row_layout(),
-           'additional_class' => get_sub_field( 'module-additional-class' ),
-           'id'               => get_sub_field( 'module-id' ),
-           'title'            => get_sub_field( 'module-title' )
-           );
-
-
-/**
- * Moduloutput generieren
- */
-
-$content .= get_sub_field( 'module-content' );
+$klasse[]   = 'module';
+$klasse[]   = get_row_layout();
+$klasse[]   = get_sub_field( 'modul-zusatzklasse' );
+$id         = get_sub_field( 'modul-id' );
+$titel      = get_sub_field( 'modul-titel' );
+$untertitel = get_sub_field( 'modul-untertitel' );
+$content    = 'test'; //get_sub_field( 'module-content' );
 
 
 
@@ -36,5 +29,25 @@ $content .= get_sub_field( 'module-content' );
  */
 
 if( $content != '' ) :
-    echo mdb_get_module( $args, $content );
+    // Modulzusammenbau beginnen
+    $ausgabe = sprintf( '<section class="%1$s"%2$s>',
+                        implode( ' ', $klasse ),
+                        ( $id != '' )? sprintf( ' id="%1$s"', $id ) : ''
+                      );
+
+    // Titelbereich
+    if( $titel != '' ) :
+        $ausgabe .= sprintf( '<div class="module-title">%1$s%2$s></div>',
+                             sprintf( '<h2>%1$s</h2>', $titel ),
+                             ( $untertitel != '' )? sprintf( '<h3>%1$s</h3>', $untertitel ) : ''
+                           );
+    endif;
+
+    // Inhaltsbereich
+    $ausgabe .= sprintf( '<div class="module-content">%1$s</div>', $content );
+
+    // Modulzusammenbau beenden
+    $ausgabe .= '</section>';
+
+    return $ausgabe;
 endif;

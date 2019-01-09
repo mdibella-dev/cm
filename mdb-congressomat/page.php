@@ -1,6 +1,6 @@
 <?php
 /**
- * Template für (modulare) Seiten
+ * Seite mit einem modularen Layout
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -15,23 +15,14 @@
 while( have_posts() ) :
     the_post();
 
-    if( have_rows( 'modules' ) ) :
-        while( have_rows( 'modules' ) ) :
+    if( have_rows( 'module' ) ) :
+        while( have_rows( 'module' ) ) :
             the_row();
 
             switch( get_row_layout() ) :
-                case 'module-standard' :
+                case 'modul-standard' :
                     get_template_part( 'inc/modules/module-standard' );
                 break;
-/*
-                case 'module-vortrag' :
-                    get_template_part( 'inc/modules/module-vortrag' );
-                break;
-
-                case 'module-publikation' :
-                    get_template_part( 'inc/modules/module-publikation' );
-                break;
-*/
             endswitch;
 
         endwhile;
