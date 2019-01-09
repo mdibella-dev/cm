@@ -23,21 +23,16 @@ $untertitel = get_sub_field( 'modul-untertitel' );
 $content    = 'test'; //get_sub_field( 'module-content' );
 
 
-
 /**
  * Zentrale Ausgabe
  */
 
 if( $content != '' ) :
-    // Modulzusammenbau beginnen
-    $ausgabe = sprintf( '<section class="%1$s"%2$s>',
-                        implode( ' ', $klasse ),
-                        ( $id != '' )? sprintf( ' id="%1$s"', $id ) : ''
-                      );
+    $ausgabe = '';
 
     // Titelbereich
     if( $titel != '' ) :
-        $ausgabe .= sprintf( '<div class="module-title">%1$s%2$s></div>',
+        $ausgabe .= sprintf( '<div class="module-title">%1$s%2$s</div>',
                              sprintf( '<h2>%1$s</h2>', $titel ),
                              ( $untertitel != '' )? sprintf( '<h3>%1$s</h3>', $untertitel ) : ''
                            );
@@ -46,8 +41,11 @@ if( $content != '' ) :
     // Inhaltsbereich
     $ausgabe .= sprintf( '<div class="module-content">%1$s</div>', $content );
 
-    // Modulzusammenbau beenden
-    $ausgabe .= '</section>';
 
-    return $ausgabe;
+    // Modul zusammenbauen und ausgeben
+    echo sprintf( '<section class="%1$s"%2$s><div class="module-wrapper">%3$s</div></section>',
+                  implode( ' ', $klasse ),
+                  ( $id != '' )? sprintf( ' id="%1$s"', $id ) : '',
+                  $ausgabe
+                );
 endif;
