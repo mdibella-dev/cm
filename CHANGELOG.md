@@ -1,4 +1,5 @@
 # 0.0.1
 
 **Hinzugefügt**
-Grundlegende Ordnerstruktur des Themes
+- Unterstützung von QuadMenu-Plugin (https://quadmenu.com/)
+- Grundlegende Ordnerstruktur des Themes

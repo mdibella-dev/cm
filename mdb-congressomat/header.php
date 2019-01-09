@@ -23,18 +23,14 @@
 </head>
 <body <?php body_class( 'dayshift' ); ?>>
 <header id="header">
-<div id="ground"></div>
-<button id="hamburger" type="button" class="">
-<span></span>
-<span></span>
-</button>
 <?php
-wp_nav_menu( array( 'theme_location'    => 'primary',
-                    'container'         => 'nav',
-                    'container_id'      => 'primary',
-                    'container_class'   => '', // wird ignoriert
-                    'menu_class'        => '', // erzeugt class=""
-                    'menu_id'           => '', // wird ignoriert
-                   ) );
+
+/**
+ * Integration von QuadMenu MegaMenu
+ *
+ * @since 0.0.1
+ */
+
+quadmenu( array( 'theme_location' => 'primary') );
 ?>
 </header>
