@@ -1,0 +1,27 @@
+/**
+ * Simple Grid
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @source  http://flexboxgrid.com/
+ * @source  http://hugeinc.github.io/flexboxgrid-sass/
+ * @uses    _media-queries.scss
+ **/
+
+
+
+$grid-columns: 12;
+
+
+@each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $value: nth($breakpoint, 2);
+
+    @include respond-to($value) {
+        @for $i from 1 through $grid-columns {
+            .col-#{$name}-#{$i} {
+                width: 100% / $grid-columns * $i;
+                float: left;
+            }
+        }
+    }
+}

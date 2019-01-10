@@ -3,15 +3,16 @@ Theme Name:   	mdb-congressomat
 Author:       	Marco Di Bella
 Author URI:     https://www.marcodibella.de
 Description:  	Webseitenthema zum Aufbau von Kongressseiten
-Version:      	0.0.1
+Version:      	0.0.2
 Text Domain:  	mdb-congressomat
-Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First, Translation-Ready
+Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First, Translation-Ready, Grid, Custom Post Types
 */
 
 
 // Imports
 
 @import "_media-queries";
+@import "_simple-grid";
 
 
 // Variablen

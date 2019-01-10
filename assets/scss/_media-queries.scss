@@ -2,6 +2,7 @@
  * Mobile First Media Queries
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @since   0.0.1
  * @version 1.0.0
  **/
 
@@ -21,16 +22,11 @@
  *
  * Alternativ können auch die entsprechenden Zahlenwerte verwendet werden.
  *
- * @source: https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
- * @source: https://github.com/twbs/bootstrap/issues/14894
+ * @source https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
+ * @source https://github.com/twbs/bootstrap/issues/14894
  */
 
 $breakpoints: (
-  xs:   0,
-  sm:   576px,
-  md:   768px,
-  lg:   992px,
-  xl:   1200px,
   576:  576px,
   768:  768px,
   992:  992px,
@@ -42,9 +38,9 @@ $breakpoints: (
 /**
  * Media Mixins
  *
- * @source:  https://davidwalsh.name/write-media-queries-sass
- * @source:  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
- * @source: https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ * @source  https://davidwalsh.name/write-media-queries-sass
+ * @source  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
  */
 
 @mixin respond-to( $breakpoint ) {

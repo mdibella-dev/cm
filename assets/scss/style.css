@@ -4,9 +4,9 @@ Theme Name:   	mdb-congressomat
 Author:       	Marco Di Bella
 Author URI:     https://www.marcodibella.de
 Description:  	Webseitenthema zum Aufbau von Kongressseiten
-Version:      	0.0.1
+Version:      	0.0.2
 Text Domain:  	mdb-congressomat
-Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First, Translation-Ready
+Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First, Translation-Ready, Grid, Custom Post Types
 */
 /**
  * Mobile First Media Queries
@@ -28,16 +28,25 @@ Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First
  *
  * Alternativ können auch die entsprechenden Zahlenwerte verwendet werden.
  *
- * @source: https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
- * @source: https://github.com/twbs/bootstrap/issues/14894
+ * @source https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
+ * @source https://github.com/twbs/bootstrap/issues/14894
  */
 /**
  * Media Mixins
  *
- * @source:  https://davidwalsh.name/write-media-queries-sass
- * @source:  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
- * @source: https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ * @source  https://davidwalsh.name/write-media-queries-sass
+ * @source  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
  */
+/**
+ * Simple Grid
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @version 1.0.0
+ * @source  http://flexboxgrid.com/
+ * @source  http://hugeinc.github.io/flexboxgrid-sass/
+ * @uses    _media-queries.scss
+ **/
 /* ------------------------------------ *
    Allgemeine Einstellungen
  * ------------------------------------ */
@@ -87,5 +96,5 @@ a {
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  * @since   0.0.1
- * @version 0.0.1
+ * @version 0.0.2
  **/

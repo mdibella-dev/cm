@@ -1,5 +1,11 @@
-# 0.0.1
+# 0.0.2
+**Geändert**
+- Media-Queries
 
 **Hinzugefügt**
-- Unterstützung von QuadMenu-Plugin (https://quadmenu.com/)
+- Einfache Gitterstruktur
+
+# 0.0.1
+**Hinzugefügt**
+- Initiales Commit
 - Grundlegende Ordnerstruktur des Themes
