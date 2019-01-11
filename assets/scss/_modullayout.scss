@@ -10,23 +10,26 @@
 .module {
     background: #fff;
     width: 100%;
-}
 
-.module-wrapper {
-    margin: 0 auto;
-    padding: 2*$space;
-
-    @include respond-to(768) {
-        width: 750px;
+    .module-title {
     }
 
-    @include respond-to(992) {
-        width: 970px;
-        padding: 4*$space;
-    }
+    .module-wrapper {
+        margin: 0 auto;
+        padding: 2*$space;
 
-    @include respond-to(1200) {
-        width: 1170px;
-        padding: 6*$space;
+        @include respond-to(768) {
+            width: 750px;
+        }
+
+        @include respond-to(992) {
+            width: 970px;
+            padding: 4*$space;
+        }
+
+        @include respond-to(1200) {
+            width: 1170px;
+            padding: 6*$space;
+        }
     }
 }

@@ -44,3 +44,16 @@ function mdb_enqueue_scripts()
 	// Eigenes Stylesheet in komprimierter Form laden
 	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/style.min.css' );
 }
+
+
+
+/**
+ * Lädt die Datei admin.min.css mit diversen Style-Modifikationen für das Backend
+ *
+ * @since 1.0.0
+ */
+
+function mdb_admin_head()
+{
+    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/stylesheets/admin.min.css" type="text/css" media="all" />';
+}

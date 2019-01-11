@@ -10,6 +10,7 @@
 // theme-setup.php
 add_action( 'after_setup_theme', 'mdb_theme_setup' );
 add_action( 'wp_enqueue_scripts', 'mdb_enqueue_scripts', 9999 );
+add_action( 'admin_head', 'mdb_admin_head' );
 
 // theme-performance.php
 add_action( 'wp_enqueue_scripts', 'mdb_remove_styles_scripts', 9998 );
