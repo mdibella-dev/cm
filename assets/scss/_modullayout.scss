@@ -1,0 +1,32 @@
+/**
+ * Modulares Layout
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.module {
+    background: #fff;
+    width: 100%;
+}
+
+.module-wrapper {
+    margin: 0 auto;
+    padding: 2*$space;
+
+    @include respond-to(768) {
+        width: 750px;
+    }
+
+    @include respond-to(992) {
+        width: 970px;
+        padding: 4*$space;
+    }
+
+    @include respond-to(1200) {
+        width: 1170px;
+        padding: 6*$space;
+    }
+}
