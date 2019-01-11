@@ -4,8 +4,6 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- * @since   0.0.1
- * @version 0.0.1
  */
 ?>
 <!DOCTYPE html>
@@ -28,7 +26,7 @@
 /**
  * Integration von QuadMenu MegaMenu
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 quadmenu( array( 'theme_location' => 'primary') );

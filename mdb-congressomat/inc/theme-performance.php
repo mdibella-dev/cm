@@ -4,8 +4,6 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- * @since   0.0.1
- * @version 0.0.1
  */
 
 
@@ -13,7 +11,7 @@
 /**
  * Entfernt Höhen- und Breiten-Angaben bei Thumbnails
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 function mdb_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
@@ -27,8 +25,8 @@ function mdb_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id,
 /**
  * Entfernt die Skriptversionen
  *
+ * @since 1.0.0
  * @source http://diywpblog.com/wordpress-optimization-remove-query-strings-from-static-resources/
- * @since 0.0.1
  */
 
 function mdb_remove_script_version( $src )
@@ -42,7 +40,7 @@ function mdb_remove_script_version( $src )
 /**
  * Entfernt diversen Ballast
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 function mdb_remove_styles_scripts()
@@ -60,7 +58,7 @@ function mdb_remove_styles_scripts()
 /**
  * Entfernt unnötige Beitrags-Klassen, wie .has-post-thumbnail, .sticky, .category-, .tags-, .status
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 function mdb_remove_post_classes( $classes, $class, $post_id )

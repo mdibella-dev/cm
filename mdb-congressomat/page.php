@@ -4,8 +4,6 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- * @since   0.0.1
- * @version 0.0.1
  * @uses    Plugin ACF
  */
 ?>

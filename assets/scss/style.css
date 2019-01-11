@@ -4,7 +4,7 @@ Theme Name:   	mdb-congressomat
 Author:       	Marco Di Bella
 Author URI:     https://www.marcodibella.de
 Description:  	Webseitenthema zum Aufbau von Kongressseiten
-Version:      	0.0.2
+Version:      	1.0.0
 Text Domain:  	mdb-congressomat
 Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First, Translation-Ready, Grid, Custom Post Types
 */
@@ -12,7 +12,7 @@ Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First
  * Mobile First Media Queries
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @version 1.0.0
+ * @version 1.1.0
  **/
 /**
  * Breakpoints
@@ -42,10 +42,10 @@ Tags:           Google Fonts, SCSS, Responsive Design, Flat Design, Mobile First
  * Simple Grid
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @version 1.0.0
  * @source  http://flexboxgrid.com/
  * @source  http://hugeinc.github.io/flexboxgrid-sass/
  * @uses    _media-queries.scss
+ * @version 1.1.0
  **/
 /* ------------------------------------ *
    Allgemeine Einstellungen
@@ -56,7 +56,9 @@ body {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
-  -moz-osx-font-smoothing: darkscale;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
 }
 
 @media (min-width: 576px) {
@@ -95,6 +97,39 @@ a {
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- * @since   0.0.1
- * @version 0.0.2
  **/
+/**
+ * Modulares Layout
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+.module {
+  background: #fff;
+  width: 100%;
+}
+
+.module-wrapper {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .module-wrapper {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .module-wrapper {
+    width: 970px;
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .module-wrapper {
+    width: 1170px;
+    padding: 60px;
+  }
+}
