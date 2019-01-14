@@ -4,7 +4,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- */
+ **/
 
 
 
@@ -12,7 +12,7 @@
  * Führt grundlegende Einstellungen für das Thema durch.
  *
  * @since 1.0.0
- */
+ **/
 
  function mdb_theme_setup()
  {
@@ -29,7 +29,7 @@
  * (Ent-)Lädt eine Reihe von notwendigen JS-Scripts und Stylesheets.
  *
  * @since 1.0.0
- */
+ **/
 
 function mdb_enqueue_scripts()
 {
@@ -42,18 +42,18 @@ function mdb_enqueue_scripts()
 	//wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/js/mdb-theme.js', 'jquery', false, true );
 
 	// Eigenes Stylesheet in komprimierter Form laden
-	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/style.min.css' );
+	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/frontend.min.css' );
 }
 
 
 
 /**
- * Lädt die Datei admin.min.css mit diversen Style-Modifikationen für das Backend
+ * Lädt die Datei backend.min.css mit diversen Style-Modifikationen für den Administrationsbereich
  *
  * @since 1.0.0
- */
+ **/
 
 function mdb_admin_head()
 {
-    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/stylesheets/admin.min.css" type="text/css" media="all" />';
+    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/stylesheets/backend.min.css" type="text/css" media="all" />';
 }

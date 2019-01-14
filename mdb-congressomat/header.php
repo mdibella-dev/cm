@@ -4,7 +4,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- */
+ **/
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -27,7 +27,7 @@
  * Integration von QuadMenu MegaMenu
  *
  * @since 1.0.0
- */
+ **/
 
 quadmenu( array( 'theme_location' => 'primary') );
 ?>

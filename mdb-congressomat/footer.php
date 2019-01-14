@@ -4,7 +4,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- */
+ **/
 ?>
 <footer id="footer">
 </footer>

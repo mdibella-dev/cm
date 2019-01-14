@@ -5,7 +5,7 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  * @uses    Plugin ACF
- */
+ **/
 ?>
 <?php get_header(); ?>
 <main id="main">

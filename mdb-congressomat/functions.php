@@ -5,11 +5,12 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- */
+ **/
+
 
 
 // Notices ausschalten
-error_reporting( E_ALL ^  E_NOTICE );
+error_reporting( E_ALL ^ E_NOTICE );
 
 
 // Konstanten
