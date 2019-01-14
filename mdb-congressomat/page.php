@@ -20,6 +20,8 @@ while( have_posts() ) :
             switch( get_row_layout() ) :
                 case 'modul-standard' :
                     get_template_part( 'inc/modules/module-standard' );
+
+                    testio();
                 break;
             endswitch;
 

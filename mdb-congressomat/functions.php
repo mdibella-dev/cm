@@ -22,3 +22,4 @@ define( 'PATH_THEME_TEMPLATE', get_template_directory() );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-setup.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-hooks.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/session.php' );
