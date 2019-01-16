@@ -9,14 +9,10 @@
 
 
 // Imports
+@import "vars";
 @import "_media-queries";
 @import "_simple-grid";
 
-// Variablen
-$space:				    10px; //0.625rem;
-$color-gray:            #888;
-$color-lightgray:       #eee;
-$color-white:           #fff;
 
 
 
@@ -29,6 +25,7 @@ body {
     height: 100%;
    	font-size: 16px;
 	font-weight: 300;
+    font-family: $font-sans;
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
      -webkit-font-smoothing: subpixel-antialiased;
@@ -47,7 +44,7 @@ body {
     margin: 0;
     padding: 0;
     background: $color-lightgray;
-    color: $color-white;
+    color: $color-gray;
 }
 
 *,
@@ -66,3 +63,4 @@ a {
 
 @import "_elements";
 @import "_modullayout";
+@import "_programm";

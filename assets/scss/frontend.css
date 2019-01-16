@@ -7,6 +7,12 @@
 * @version 1.0.0
 **/
 /**
+ * Variablen
+ *
+* @author  Marco Di Bella <mdb@marcodibella.de>
+* @package mdb-congressomat
+**/
+/**
  * Mobile First Media Queries
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -53,6 +59,7 @@ body {
   height: 100%;
   font-size: 16px;
   font-weight: 300;
+  font-family: "Roboto Condensed";
   line-height: 1.5;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -74,7 +81,7 @@ body {
   margin: 0;
   padding: 0;
   background: #eee;
-  color: #fff;
+  color: #888;
 }
 
 *,
@@ -107,6 +114,18 @@ a {
   width: 100%;
 }
 
+.module .module-title.module-title-left {
+  text-align: left;
+}
+
+.module .module-title.module-title-center {
+  text-align: center;
+}
+
+.module .module-title.module-title-right {
+  text-align: right;
+}
+
 .module .module-wrapper {
   margin: 0 auto;
   padding: 20px;
@@ -130,4 +149,30 @@ a {
     width: 1170px;
     padding: 60px;
   }
+}
+
+/**
+ * Programm-Tabelle
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+table tbody > tr {
+  background-color: #f9f9f9;
+}
+
+table tbody > tr > td {
+  border-top: 1px solid #efefef;
+}
+
+table td {
+  padding: 20px 30px;
+  vertical-align: middle;
 }
