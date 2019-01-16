@@ -12,6 +12,17 @@
     width: 100%;
 
     .module-title {
+        &.module-title-left {
+            text-align: left;
+        }
+
+        &.module-title-center {
+            text-align: center;
+        }
+
+        &.module-title-right {
+            text-align: right;
+        }
     }
 
     .module-wrapper {
