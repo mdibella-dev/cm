@@ -19,8 +19,11 @@
     // Theme unterstützt: Lokalisation
 	load_theme_textdomain( 'mdb-congressomat', PATH_THEME_TEMPLATE . '/lang' );
 
+    // Theme unterstützt: Betragsbilder
+    add_theme_support( 'post-thumbnails' );
+
 	// Menüs registrieren
-	register_nav_menu( 'primary', __( 'Primäre Navigation', 'mdb-congressomat' ) );
+	register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
 }
 
 
@@ -35,11 +38,11 @@ function mdb_enqueue_scripts()
 {
 	// jQuery in den Footer verlegen
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, false, true );
+    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
     wp_enqueue_script( 'jquery' );
 
     // Eigene Scripts laden
-	//wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/js/mdb-theme.js', 'jquery', false, true );
+	//wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/js/mdb-theme.js', 'jquery', FALSE, TRUE );
 
 	// Eigenes Stylesheet in komprimierter Form laden
 	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/frontend.min.css' );

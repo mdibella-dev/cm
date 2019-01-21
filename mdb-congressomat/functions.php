@@ -16,6 +16,7 @@ error_reporting( E_ALL ^ E_NOTICE );
 // Konstanten
 define( 'PATH_THEME_URL',      get_template_directory_uri() );
 define( 'PATH_THEME_TEMPLATE', get_template_directory() );
+define( 'TEXT_DOMAIN',         'mdb-congressomat' );
 
 
 // Funktionsbibliothek einbinden
@@ -23,4 +24,5 @@ require_once( PATH_THEME_TEMPLATE . '/inc/theme-setup.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-hooks.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/session.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcode-program-table.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcode-event-table.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcode-speaker-table.php' );
