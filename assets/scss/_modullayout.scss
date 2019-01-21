@@ -42,5 +42,9 @@
             width: 1170px;
             padding: 6*$space;
         }
+
+        @include respond-to(1600) {
+            width: 1400px;
+        }
     }
 }
