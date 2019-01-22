@@ -7,17 +7,27 @@
 */
 
 
-/*.postbox,
-.stuffbox {
-    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
-            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
 
-    .inside {
-        background: $color-inside;
+// Änderung der Abstände 
+.postbox .inside {
+    margin: 0;
+
+    & > p.hide-if-no-js {
+        margin-top: 0;
+        padding-top: 1em;
     }
 }
-*/
 
+#poststuff .inside {
+    margin: 0;
+}
+
+#dashboard_right_now .main {
+    padding-top: 1em;
+}
+
+
+// Mache es bunt
 .postbox .inside {
     background: #f8f8f8;
 }
