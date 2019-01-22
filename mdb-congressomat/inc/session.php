@@ -148,6 +148,7 @@ function mdb_get_speaker_info( $speaker_id )
     $speaker_info[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ),$speaker_info[ 'name' ] ) );
     $speaker_info[ 'position' ]    = get_field( 'referent-position', $post );
     $speaker_info[ 'description' ] = get_field( 'referent-beschreibung', $post );
+    $speaker_info[ 'permalink' ]   = get_post_permalink( $speaker_id );
 
     return $speaker_info;
 }
