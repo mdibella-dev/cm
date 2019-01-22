@@ -81,8 +81,13 @@ function mdb_shortcode_event_table( $atts, $content = null )
                             unset( $speakers_list );
 
                             foreach( $speakers as $speaker_id ) :
-                                $speaker_info    = mdb_get_speaker_info( $speaker_id );
-                                $speakers_list[] = $speaker_info[ 'title_name' ];
+                                $speaker         = mdb_get_speaker_info( $speaker_id );
+                                $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
+                                                            $speaker[ 'permalink' ],
+                                                            sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
+                                                            //get_the_post_thumbnail( $speaker[ 'id' ], 'full' )
+                                                            $speaker[ 'title_name' ]
+                                                        );
                             endforeach;
 
                             $cells[] = implode( ', ', $speakers_list );

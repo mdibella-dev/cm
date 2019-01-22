@@ -25,7 +25,7 @@ function mdb_shortcode_speaker_table( $atts, $content = null )
         $output .= '<article class="speaker-block">';
         $output .= '<div class="speaker-image squared">';
         $output .= sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-                            get_the_permalink( $post->ID ),
+                            $speaker[ 'permalink' ],
                             sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
                             get_the_post_thumbnail( $speaker[ 'id' ], 'full' ) );
         $output .= '</div>';
