@@ -17,7 +17,7 @@
  function mdb_theme_setup()
  {
     // Theme unterstützt: Lokalisation
-	load_theme_textdomain( 'mdb-congressomat', PATH_THEME_TEMPLATE . '/lang' );
+	load_theme_textdomain( TEXT_DOMAIN, PATH_THEME_TEMPLATE . '/lang' );
 
     // Theme unterstützt: Betragsbilder
     add_theme_support( 'post-thumbnails' );
