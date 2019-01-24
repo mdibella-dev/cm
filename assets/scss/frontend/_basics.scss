@@ -1,29 +1,17 @@
 /**
- * Frontend-Styles für dieses Thema
+ * Grundlegende Formatierungen und Einstellungen
  *
-* @author  Marco Di Bella <mdb@marcodibella.de>
-* @package mdb-congressomat
-* @version 1.0.0
-**/
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
 
 
-
-// Imports
-@import "vars";
-@import "_media-queries";
-
-
-
-
-/* ------------------------------------ *
-   Allgemeine Einstellungen
- * ------------------------------------ */
 
 html,
 body {
     height: 100%;
    	font-size: 16px;
-	font-weight: 300;
+	font-weight: 400;
     font-family: $font-sans;
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
@@ -59,8 +47,8 @@ a {
     text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
 
-@import "_elements";
-@import "_modullayout";
-@import "_programm"; //vorläufig
-@import "_speaker";
+}

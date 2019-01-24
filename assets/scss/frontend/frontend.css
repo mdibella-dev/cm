@@ -7,12 +7,6 @@
 * @version 1.0.0
 **/
 /**
- * Variablen
- *
-* @author  Marco Di Bella <mdb@marcodibella.de>
-* @package mdb-congressomat
-**/
-/**
  * Mobile First Media Queries
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -34,22 +28,31 @@
  *
  * @source https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
  * @source https://github.com/twbs/bootstrap/issues/14894
- */
+ **/
 /**
  * Media Mixins
  *
  * @source https://davidwalsh.name/write-media-queries-sass
  * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
  * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
- */
-/* ------------------------------------ *
-   Allgemeine Einstellungen
- * ------------------------------------ */
+ **/
+/**
+ * Variablen
+ *
+* @author  Marco Di Bella <mdb@marcodibella.de>
+* @package mdb-congressomat
+**/
+/**
+ * Grundlegende Formatierungen und Einstellungen
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
 html,
 body {
   height: 100%;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Roboto Condensed";
   line-height: 1.5;
   -moz-osx-font-smoothing: grayscale;
@@ -102,6 +105,10 @@ a {
  **/
 .module {
   width: 100%;
+}
+
+.module .module-title {
+  padding: 40px 0;
 }
 
 .module .module-title.module-title-left {

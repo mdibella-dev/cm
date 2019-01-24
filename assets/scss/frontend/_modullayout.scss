@@ -11,6 +11,8 @@
     width: 100%;
 
     .module-title {
+        padding: 4*$space 0;
+        
         &.module-title-left {
             text-align: left;
         }
