@@ -71,7 +71,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #eee;
+  background: #fff;
   color: #888;
 }
 
@@ -101,7 +101,6 @@ a {
  * @package mdb-congressomat
  **/
 .module {
-  background: #fff;
   width: 100%;
 }
 
