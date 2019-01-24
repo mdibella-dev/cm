@@ -62,3 +62,50 @@
         margin-top: $space;
     }
 }
+
+
+.speaker-profile {
+
+    @include respond-to(768) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        & > div:first-of-type {
+            width: 40%;
+            max-width: 250px;
+            margin-right: 4*$space;
+        }
+
+        & > div:last-of-type {
+            width: 60%;
+        }
+    }
+
+    .speaker-title-name {
+        font-size: 36px;
+    }
+
+    .speaker-position {
+        font-size: 21px;
+    }
+
+    .speaker-position,
+    .speaker-social-media {
+        margin-bottom: 2*$space;
+    }
+
+    .speaker-social-media {
+        ul,
+        ul li {
+            list-style: none;
+        }
+
+        ul li {
+            float: left;
+            margin-right: $space;
+        }
+    }
+
+    .speaker-description {}
+}

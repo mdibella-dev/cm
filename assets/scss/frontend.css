@@ -38,19 +38,10 @@
 /**
  * Media Mixins
  *
- * @source  https://davidwalsh.name/write-media-queries-sass
- * @source  https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://davidwalsh.name/write-media-queries-sass
+ * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
  * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
  */
-/**
- * Simple Grid
- *
- * @author  Marco Di Bella <mdb@marcodibella.de>
- * @source  http://flexboxgrid.com/
- * @source  http://hugeinc.github.io/flexboxgrid-sass/
- * @uses    _media-queries.scss
- * @version 1.1.0
- **/
 /* ------------------------------------ *
    Allgemeine Einstellungen
  * ------------------------------------ */
@@ -151,6 +142,12 @@ a {
   }
 }
 
+@media (min-width: 1600px) {
+  .module .module-wrapper {
+    width: 1400px;
+  }
+}
+
 /**
  * Programm-Tabelle
  *
@@ -175,4 +172,113 @@ table tbody > tr > td {
 table td {
   padding: 20px 30px;
   vertical-align: middle;
+}
+
+/**
+ * Speaker
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+.speaker-block-list {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+.speaker-block-list .speaker-block {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+@media (min-width: 576px) {
+  .speaker-block-list .speaker-block {
+    width: calc( 50% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .speaker-block-list .speaker-block {
+    width: calc( 33% - 20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .speaker-block-list .speaker-block {
+    width: calc( 25% - 20px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .speaker-block-list .speaker-block {
+    width: calc( 25% - 40px);
+    margin: 20px;
+  }
+}
+
+.speaker-block-list .speaker-image,
+.speaker-block-list .speaker-image > a > img {
+  width: 100%;
+  height: 100%;
+}
+
+.speaker-block-list .speaker-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+
+.speaker-block-list .speaker-caption {
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .speaker-profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .speaker-profile > div:first-of-type {
+    width: 40%;
+    max-width: 250px;
+    margin-right: 40px;
+  }
+  .speaker-profile > div:last-of-type {
+    width: 60%;
+  }
+}
+
+.speaker-profile .speaker-title-name {
+  font-size: 36px;
+}
+
+.speaker-profile .speaker-position {
+  font-size: 21px;
+}
+
+.speaker-profile .speaker-position,
+.speaker-profile .speaker-social-media {
+  margin-bottom: 20px;
+}
+
+.speaker-profile .speaker-social-media ul,
+.speaker-profile .speaker-social-media ul li {
+  list-style: none;
+}
+
+.speaker-profile .speaker-social-media ul li {
+  float: left;
+  margin-right: 10px;
 }
