@@ -91,7 +91,7 @@
     }
 
     .speaker-position,
-    .speaker-social-media {
+    .speaker-social-media ul li {
         margin-bottom: 2*$space;
     }
 
@@ -107,5 +107,7 @@
         }
     }
 
-    .speaker-description {}
+    .speaker-description {
+        clear: both;
+    }
 }

@@ -275,7 +275,7 @@ table td {
 }
 
 .speaker-profile .speaker-position,
-.speaker-profile .speaker-social-media {
+.speaker-profile .speaker-social-media ul li {
   margin-bottom: 20px;
 }
 
@@ -287,4 +287,8 @@ table td {
 .speaker-profile .speaker-social-media ul li {
   float: left;
   margin-right: 10px;
+}
+
+.speaker-profile .speaker-description {
+  clear: both;
 }
