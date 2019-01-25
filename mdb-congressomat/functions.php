@@ -23,6 +23,7 @@ define( 'TEXT_DOMAIN',         'mdb-congressomat' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-setup.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-hooks.php' );
+//require_once( PATH_THEME_TEMPLATE . '/inc/class-navigationbar-walker.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/session.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcode-event-table.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcode-speaker-table.php' );

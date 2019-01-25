@@ -1,0 +1,90 @@
+/**
+ * Hauptnavigationsleiste mit Megamenu-Integration
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+.menubar-wrapper {
+    display: block;
+
+    &::after {
+        clear: both;
+    }
+}
+
+.menubar {
+    // ul
+    list-style: none;
+    display: block;
+    font-family: $font-sans;
+    font-weight: 500;
+    font-size: 16px;
+
+    @include respond-to(768) {
+        float: left;
+    }
+
+    &::after {
+        clear: both;
+    }
+
+    // li
+    & > .menu-item {
+        list-style: none;
+        display: inline-block;
+        width: auto;
+
+        @include respond-to(768) {
+            float: left;
+            height: $menu-height;
+        }
+    }
+
+    // Top-Level-Links
+    & > .menu-item > a {
+
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-gray;
+        -webkit-transition: all .3s ease-out;
+                transition: all .3s ease-out;
+
+        position: relative;
+        direction: initial;
+        height: 100%;
+        width: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+
+        @include respond-to(768) {
+            padding: 2*$space;
+        }
+
+        &:active,
+        &:hover {
+            background: $color-lightgray;
+        }
+    }
+
+    .menu-item-mega > .sub-menu {
+        display: none;
+        
+        display: block;
+        width: 100%;
+        height: auto;
+        background: $color-lightgray;
+        position: absolute;
+        left: 0;
+        padding: 20px;
+    }
+}

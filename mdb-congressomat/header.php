@@ -19,16 +19,20 @@
 <meta name="ICBM" content="50.957827, 7.017787" />
 <?php wp_head(); ?>
 </head>
-<body <?php body_class( 'dayshift' ); ?>>
+<body <?php body_class(); ?>>
 <header id="header">
+<nav id="primary" class="menubar-wrapper">
 <?php
 
-/**
- * Integration von QuadMenu MegaMenu
- *
- * @since 1.0.0
- **/
-
-quadmenu( array( 'theme_location' => 'primary') );
+// Hauptmenü
+if( has_nav_menu( 'primary' ) ) :
+	wp_nav_menu( array(
+				 'menu'       	  => ' ',
+                 'menu_class'     => 'menubar',
+        		 'theme_location' => 'primary',
+        		 'container'  	  => FALSE,
+             /*'walker'         => new Navigationbar_Walker() */ ) );
+endif;
 ?>
+</nav>
 </header>

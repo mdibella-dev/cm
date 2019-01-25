@@ -53,7 +53,7 @@ function mdb_enqueue_scripts()
 /**
  * Lädt die Datei backend.min.css mit diversen Style-Modifikationen für den Administrationsbereich
  *
- * @since 1.0.0
+ * @since 1.0.0  ----> THEME_BACKEND + GutenbergMODS
  **/
 
 function mdb_admin_head()

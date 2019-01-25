@@ -9,13 +9,18 @@
 
 // Größenangaben
 $space:				10px; //0.625rem;
+$menu-height:       60px;
+$header-height:     $menu-height;
 
 
 // Farben
 $color-gray:        #888;
 $color-lightgray:   #eee;
 $color-white:       #fff;
-$color-red:         #cc020c;
+
+
+// Hausfarben
+$color-highlight:   #cc020c; // Rot
 
 
 // Schriftarten

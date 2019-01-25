@@ -9,10 +9,23 @@
 
 // Kopfzeile (#header)
 #header {
+    display: block;
+    witdh: 100%;
+    height: $header-height;
+    border-bottom: 2*$space solid $color-highlight;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
 }
 
 
 // Hauptinhaltsbereich (#main)
 #main {
     //padding-top: $header-height;
+    width: 100%;
+}
+
+
+
+#primary {
+    //border-bottom: 2*$space solid $color-highlight;
 }
