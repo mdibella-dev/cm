@@ -24,7 +24,6 @@ function mdb_add_megamenu_metabox( $object )
 
 
 
-
 /**
  * Zeigt die Metabox für die MegaMenu-Items an
  *
