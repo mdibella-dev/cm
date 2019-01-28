@@ -13,9 +13,10 @@ jQuery(function($) {
     	});
 */
 
-    $( '.menu-item-mega > a').click( function() {
+    $( '.menu-item-mega' ).hover( function() {
         //$(this).children( '.sub-menu' ).classList.toggle( 'open' );
-        $(this).parent().toggleClass('open' );
+        //$(this).parent().toggleClass('open' );
+        $(this).toggleClass( 'open' );
     } );
 
 } );

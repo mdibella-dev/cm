@@ -75,16 +75,18 @@
             background: $color-lightgray;
         }
     }
+}
 
-    .menu-item-mega > .sub-menu {
-        display: none;
-        
-        display: block;
-        width: 100%;
-        height: auto;
-        background: $color-lightgray;
-        position: absolute;
-        left: 0;
-        padding: 20px;
-    }
+.menu-item-mega > .sub-menu {
+    display: none;
+}
+
+.menu-item-mega.open > .sub-menu {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: $color-lightgray;
+    position: absolute;
+    left: 0;
+    padding: 20px;
 }
