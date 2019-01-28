@@ -42,21 +42,8 @@ function mdb_enqueue_scripts()
     wp_enqueue_script( 'jquery' );
 
     // Eigene Scripts laden
-	//wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/js/mdb-theme.js', 'jquery', FALSE, TRUE );
+	wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/scripts/frontend.js', 'jquery', FALSE, TRUE );
 
 	// Eigenes Stylesheet in komprimierter Form laden
 	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/frontend.min.css' );
-}
-
-
-
-/**
- * Lädt die Datei backend.min.css mit diversen Style-Modifikationen für den Administrationsbereich
- *
- * @since 1.0.0  ----> THEME_BACKEND + GutenbergMODS
- **/
-
-function mdb_admin_head()
-{
-    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/stylesheets/backend.min.css" type="text/css" media="all" />';
 }
