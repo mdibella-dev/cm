@@ -1,8 +1,6 @@
 jQuery(function($) {
 
 
-} );
-
 
 
 var cbpHorizontalMenu = (function() {
@@ -45,4 +43,8 @@ var cbpHorizontalMenu = (function() {
 
     return { init : init };
 
-} )();
+})();
+
+cbpHorizontalMenu.init();
+
+} );
