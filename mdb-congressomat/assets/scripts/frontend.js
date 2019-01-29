@@ -1,22 +1,48 @@
 jQuery(function($) {
-    /**
-     * MegaMenu
-     ***/
 
-/*    //duplicate hover state for parent menu when dropdown.
-    $( '#header-wrapper ul.dropdown' ).hover(
-        function() {
-    		$(this).parent().find('> a').addClass('expanded-menu');
-    	},
-        function(){
-    		$(this).parent().find('> a').removeClass('expanded-menu');
-    	});
-*/
-
-    $( '.menu-item-mega' ).hover( function() {
-        //$(this).children( '.sub-menu' ).classList.toggle( 'open' );
-        //$(this).parent().toggleClass('open' );
-        $(this).toggleClass( 'open' );
-    } );
 
 } );
+
+
+
+var cbpHorizontalMenu = (function() {
+
+    var $listItems = $( '#primary > ul > li' ),
+        $menuItems = $listItems.children( 'a' ),
+        $body = $( 'body' ),
+        current = -1;
+
+    function init() {
+        $menuItems.on( 'click', open );
+        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
+    }
+
+    function open( event ) {
+
+        if( current !== -1 ) {
+            $listItems.eq( current ).removeClass( 'open' );
+        }
+
+        var $item = $( event.currentTarget ).parent( 'li' ),
+            idx = $item.index();
+
+        if( current === idx ) {
+            $item.removeClass( 'open' );
+            current = -1;
+        }
+        else {
+            $item.addClass( 'open' );
+            current = idx;
+            $body.off( 'click' ).on( 'click', close );
+        }
+        return false;
+    }
+
+    function close( event ) {
+        $listItems.eq( current ).removeClass( 'open' );
+        current = -1;
+    }
+
+    return { init : init };
+
+} )();
