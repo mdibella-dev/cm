@@ -13,16 +13,16 @@
 	width: 100%;
 	margin-top: 2em;
 	border-bottom: 4px solid #47a3da;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
 }
 
-/* general ul style */
-.megamenu ul {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
 
-/* first level ul style */
+// Toplevel-Menüpunke
 .megamenu > ul,
 .megamenu .sub-menu-inner {
 	width: 90%;
@@ -52,7 +52,7 @@
 	background: #47a3da;
 }
 
-/* sub-menu */
+// Ausklappbares Submenu
 .megamenu .submenu {
 	display: none;
 	position: absolute;
@@ -101,7 +101,9 @@
     }
 }
 
-.megamenu .download::before {
+
+// Downloadlink
+.megamenu .download > a::before {
 	display: inline-block;
 	font-style: normal;
 	font-variant: normal;

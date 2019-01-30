@@ -34,9 +34,14 @@ class MegaMenu_Walker extends Walker_Nav_Menu
         $title   = apply_filters( 'the_title', $item->title, $item->ID );
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+        $output .= '<li'.$class_names .'>';
+
         switch( $classes[0] ):
             case 'header':
-                $output .= '<li><h4>' . $title . '</h4>';
+                $output .= '<h4>' . $title . '</h4>';
             break;
 
             default:
@@ -63,7 +68,7 @@ class MegaMenu_Walker extends Walker_Nav_Menu
         		$item_output .= '</a>';
         		$item_output .= $args->after;
 
-                $output .= '<li>'.apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+                $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
             break;
         endswitch;
     }
