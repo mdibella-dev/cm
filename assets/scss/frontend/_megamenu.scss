@@ -1,8 +1,10 @@
 /**
- * Hauptnavigationsleiste mit Megamenu-Integration
+ * Hauptnavigationsleiste mit MegaMenu-Integration
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
+ * @source	https://tympanus.net/codrops/2013/03/05/horizontal-drop-down-menu/
+ * @see		frontend.js, class-megamenu-walker.php
  **/
 
 
@@ -97,14 +99,26 @@
 	        line-height: 2em;
         }
     }
+}
 
+.megamenu .download::before {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 500;
+	content: "\f358";
+	padding-right: $space;
+}
 
 
 /* Examples for media queries */
 /*
 @media screen and (max-width: 52.75em) {
 
-	.cbp-hrmenu {
+	.megamenu {
 		font-size: 80%;
 	}
 
@@ -155,4 +169,3 @@
 		padding: 0 2em;
 	}
 } */
-}
