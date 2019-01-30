@@ -41,6 +41,9 @@ function mdb_enqueue_scripts()
     wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
     wp_enqueue_script( 'jquery' );
 
+    // FontAwesome5 integrieren
+	wp_enqueue_style( 'fontawesome', PATH_THEME_URL . '/assets/3rd/fontawesome5/css/fontawesome-all.min.css' );
+
     // Eigene Scripts laden
 	wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/scripts/frontend.js', 'jquery', FALSE, TRUE );
 
