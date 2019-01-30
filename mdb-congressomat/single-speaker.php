@@ -8,76 +8,96 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<section class="module">
-<div class="module-wrapper">
-<div class="module-content">
 <?php
-while( have_posts() ) :
-    the_post();
+if ( have_posts() ) :
+    // Ausgabe puffern
+    ob_start();
 
-    // Referentendaten holen
-    $speaker = mdb_get_speaker_info( get_the_ID() );
+    while( have_posts() ) :
+        the_post();
+
+        // Referentendaten holen
+        $speaker = mdb_get_speaker_info( get_the_ID() );
 ?>
 <article class="speaker-profile">
 <div><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></div>
 <div>
 <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
-    // Position oder Berufstitel bekannt?
-    if( !empty( $speaker[ 'position' ] ) ) :
+        // Position oder Berufstitel bekannt?
+        if( !empty( $speaker[ 'position' ] ) ) :
 ?>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
 <?php
-endif;
+        endif;
 
-    // Links zu Soziale Medien vorhanden?
-    if( have_rows( 'referent-social-media' ) ) :
+        // Links zu Soziale Medien vorhanden?
+        if( have_rows( 'referent-social-media' ) ) :
 ?>
 <div class="speaker-social-media">
 <ul>
 <?php
-        while( have_rows( 'referent-social-media' ) ) :
-            the_row();
+            while( have_rows( 'referent-social-media' ) ) :
+                the_row();
 
-            $services = array(
-                        '1' => array( 'name' => 'Facebook' ),
-                        '2' => array( 'name' => 'Twitter' ),
-                        '3' => array( 'name' => 'Instagram' ),
-                        '4' => array( 'name' => 'YouTube' ),
-                        '5' => array( 'name' => 'XING' ),
-                        '6' => array( 'name' => 'LinkedIn' ), );
+                $services = array(
+                            '1' => array(
+                                   'name' => 'Facebook',
+                                   'icon' => 'fab fa-facebook-f' ),
+                            '2' => array(
+                                    'name' => 'Twitter',
+                                    'icon' =>'fab fa-twitter' ),
+                            '3' => array(
+                                    'name' => 'Instagram',
+                                    'icon' => 'fab fa-instagram' ),
+                            '4' => array(
+                                    'name' => 'YouTube',
+                                    'icon' => 'fab fa-youtube' ),
+                            '5' => array(
+                                    'name' => 'XING',
+                                    'icon' => 'fab fa-xing' ),
+                            '6' => array(
+                                    'name' => 'LinkedIn',
+                                    'icon' => 'fab fa-linkedin-in' ), );
 
+                $service = get_sub_field( 'referent-web-service' );
 
-            $service = get_sub_field( 'referent-web-service' );
-
-            echo sprintf( '<li><a href="%1$s" target="_blank" title="%2$s">%3$s</a></li>',
-                          get_sub_field( 'referent-web-service-url' ),
-                          sprintf( __( 'Profil von %1$s auf %2$s', TEXT_DOMAIN ),
-                                   $speaker[ 'name' ],
-                                   $services[ $service ][ 'name' ] ),
-                                   $services[ $service ][ 'name' ]
-                      /* icon-button */ );
-        endwhile;
+                echo sprintf( '<li><a href="%1$s" target="_blank" title="%2$s">%3$s</a></li>',
+                              get_sub_field( 'referent-web-service-url' ),
+                              sprintf( __( 'Profil von %1$s auf %2$s', TEXT_DOMAIN ),
+                                       $speaker[ 'name' ],
+                                       $services[ $service ][ 'name' ] ),
+                              sprintf( '<i class="%1$s"></i>',
+                                       $services[ $service ][ 'icon' ] ) );
+            endwhile;
 ?>
 </ul>
 </div>
 <?php
-    endif;
+        endif;
 
-    // Ausführliche Beschreibung vorhanden?
-    if( !empty( $speaker[ 'description' ] ) ) :
+        // Ausführliche Beschreibung vorhanden?
+        if( !empty( $speaker[ 'description' ] ) ) :
 ?>
 <div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
 <?php
-    endif;
+        endif;
 ?>
 </div>
 </article>
 <?php
-endwhile;
+        // Ausgabenpuffer sichern; Pufferung beenden
+        $buffer = ob_get_contents();
+        ob_end_clean();
+
+        // Modul generieren
+        $args = array(
+                'class' => 'module-standard',
+                'title' => ''
+                );
+        echo mdb_get_module( $args, $buffer );
+    endwhile;
+endif;
 ?>
-</div>
-</div>
-</section>
 </main>
 <?php get_footer(); ?>
