@@ -11,8 +11,11 @@ var cbpHorizontalMenu = (function() {
         current = -1;
 
     function init() {
+        $menuItems.on( 'mouseenter', open );
+        $listItems.on( 'mouseenter', function( event ) { event.stopPropagation(); } );
+    /*
         $menuItems.on( 'click', open );
-        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
+        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );*/
     }
 
     function open( event ) {

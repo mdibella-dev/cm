@@ -5,138 +5,53 @@
  * @package mdb-congressomat
  **/
 
-/*
-.menubar-wrapper {
-    display: block;
-
-    &::after {
-        clear: both;
-    }
-}
-
-.menubar {
-    // ul
-    list-style: none;
-    display: block;
-    font-family: $font-sans;
-    font-weight: 500;
-    font-size: 16px;
-
-    @include respond-to(768) {
-        float: left;
-    }
-
-    &::after {
-        clear: both;
-    }
-
-    // li
-    & > .menu-item {
-        list-style: none;
-        display: inline-block;
-        width: auto;
-
-        @include respond-to(768) {
-            float: left;
-            height: $menu-height;
-        }
-    }
-
-    // Top-Level-Links
-    & > .menu-item > a {
-
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $color-gray;
-        -webkit-transition: all .3s ease-out;
-                transition: all .3s ease-out;
-
-        position: relative;
-        direction: initial;
-        height: 100%;
-        width: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-
-        @include respond-to(768) {
-            padding: 2*$space;
-        }
-
-        &:active,
-        &:hover {
-            background: $color-lightgray;
-        }
-    }
-}
-
-.menu-item-mega > .sub-menu {
-    display: none;
-}
-
-.menu-item-mega.open > .sub-menu {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: $color-lightgray;
-    position: absolute;
-    left: 0;
-    padding: 20px;
-} */
 
 
-.cbp-hrmenu {
+.megamenu {
 	width: 100%;
 	margin-top: 2em;
 	border-bottom: 4px solid #47a3da;
 }
 
 /* general ul style */
-.cbp-hrmenu ul {
+.megamenu ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
 /* first level ul style */
-.cbp-hrmenu > ul,
-.cbp-hrmenu .cbp-hrsub-inner {
+.megamenu > ul,
+.megamenu .sub-menu-inner {
 	width: 90%;
 	max-width: 70em;
 	margin: 0 auto;
 	padding: 0 1.875em;
 }
 
-.cbp-hrmenu > ul > li {
+.megamenu > ul > li {
 	display: inline-block;
 }
 
-.cbp-hrmenu > ul > li > a {
+.megamenu > ul > li > a {
 	font-weight: 700;
 	padding: 1em 2em;
 	color: #999;
 	display: inline-block;
+
+	&:hover {
+		color: #47a3da;
+	}
 }
 
-.cbp-hrmenu > ul > li > a:hover {
-	color: #47a3da;
-}
-
-.cbp-hrmenu > ul > li.open a,
-.cbp-hrmenu > ul > li.open > a:hover {
+.megamenu > ul > li.open a,
+.megamenu > ul > li.open > a:hover {
 	color: #fff;
 	background: #47a3da;
 }
 
 /* sub-menu */
-.cbp-hrmenu .sub-menu {
+.megamenu .submenu {
 	display: none;
 	position: absolute;
 	background: #47a3da;
@@ -152,12 +67,12 @@
     }
 }
 
-.open .sub-menu {
+.open .submenu {
 	display: block;
 	padding-bottom: 3em;
 }
 
-.cbp-hrmenu .sub-menu-inner {
+.megamenu .submenu-inner {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -197,44 +112,44 @@
 
 @media screen and (max-width: 43em) {
 
-	.cbp-hrmenu {
+	.megamenu {
 		font-size: 120%;
 		border: none;
 	}
 
-	.cbp-hrmenu > ul,
-	.cbp-hrmenu .cbp-hrsub-inner {
+	.megamenu > ul,
+	.megamenu .submenu-inner {
 		width: 100%;
 		padding: 0;
 	}
 
-	.cbp-hrmenu .cbp-hrsub-inner {
+	.megamenu .submenu-inner {
 		padding: 0 2em;
 		font-size: 75%;
 	}
 
-	.cbp-hrmenu > ul > li {
+	.megamenu > ul > li {
 		display: block;
 		border-bottom: 4px solid #47a3da;
 	}
 
-	.cbp-hrmenu > ul > li > a {
+	.megamenu > ul > li > a {
 		display: block;
 		padding: 1em 3em;
 	}
 
-	.cbp-hrmenu .cbp-hrsub {
+	.megamenu .submenu {
 		position: relative;
 	}
 
-	.cbp-hrsub h4 {
+	.megamenu h4 {
 		padding-top: 0.6em;
 	}
 
 }
 
 @media screen and (max-width: 36em) {
-	.cbp-hrmenu .cbp-hrsub-inner > div {
+	.megamenu .submenu-inner > div {
 		width: 100%;
 		float: none;
 		padding: 0 2em;

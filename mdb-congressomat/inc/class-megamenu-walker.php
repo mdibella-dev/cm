@@ -14,7 +14,7 @@ class MegaMenu_Walker extends Walker_Nav_Menu
     public function start_lvl( &$output, $depth = 0, $args = array() )
     {
         if( $depth == 0 ) :
-            $output .= '<div class="sub-menu"><ul class="sub-menu-inner">';
+            $output .= '<div class="submenu"><ul class="submenu-inner">';
         else :
             $output .= '<ul>';
         endif;

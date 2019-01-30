@@ -21,17 +21,17 @@
 </head>
 <body <?php body_class(); ?>>
 <header id="header">
-<nav id="primary" class="cbp-hrmenu">
+<nav id="primary" class="megamenu">
 <?php
 
 // Hauptmenü
 if( has_nav_menu( 'primary' ) ) :
 	wp_nav_menu( array(
 				 'menu'       	  => ' ',
-                 'menu_class'     => ' ',
+                 'menu_class'     => '',
         		 'theme_location' => 'primary',
         		 'container'  	  => FALSE,
-			 'walker'             => new MegaMenu_Walker() ) );
+			 	 'walker'         => new MegaMenu_Walker() ) );
 endif;
 ?>
 </nav>
