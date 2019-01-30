@@ -32,13 +32,12 @@ function mdb_admin_head()
 
 function mdb_disable_gutenberg( $current_status, $post_type )
 {
-/*
-    if( ( $post_type == 'vortrag' ) or
-        ( $post_type == 'publikation' ) or
-        ( $post_type == 'page' ) ) :
+    if( ( $post_type == 'session' ) or
+        ( $post_type == 'exhibitor' ) or
+        ( $post_type == 'speaker' ) ) :
         return false;
     endif;
-*/
+
     return $current_status;
 }
 

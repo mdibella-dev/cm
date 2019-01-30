@@ -8,7 +8,13 @@
 
 
 
-.edit-post-visual-editor .editor-block-list__block {
-    margin: 0 auto;
-    max-width: 1200px;
+.edit-post-visual-editor {
+    .editor-block-list__block {
+        margin: 0 auto;
+    }
+
+    .editor-post-title__block,
+    .editor-block-list__block {
+        max-width: 1200px;
+    }
 }
