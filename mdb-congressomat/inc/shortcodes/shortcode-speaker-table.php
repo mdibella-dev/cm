@@ -38,7 +38,6 @@ function mdb_shortcode_speaker_table( $atts, $content = null )
     $output .= '</div>';
 
 
-
     // Ausgabe
     return $output;
 }
