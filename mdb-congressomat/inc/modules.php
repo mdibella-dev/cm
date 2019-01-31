@@ -45,7 +45,7 @@ function mdb_get_module( $args, $content )
             $module_head = sprintf( '<div class="module-title %1$s">%2$s%3$s</div>',
                                     $alignments[ $alignment ],
                                     sprintf( '<h2>%1$s</h2>', $title ),
-                                    ( $subtitle != '' )? sprintf( '<h3>%1$s</h3>', $subtitle ) : '' );
+                                    ( $subtitle != '' )? sprintf( '<span class="subheading">%1$s</span>', $subtitle ) : '' );
         endif;
 
         // Inhaltsbereich generieren

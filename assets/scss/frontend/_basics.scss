@@ -50,5 +50,18 @@ a {
 h1,
 h2,
 h3 {
+    -webkit-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none;
+    font-weight: 300;
+    font-size: 2rem;
+}
 
+.subheading {
+    display:block;
+    -webkit-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none;
+    font-weight: normal;
+    font-size: 1rem;
 }

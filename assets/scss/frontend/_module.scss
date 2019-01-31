@@ -1,0 +1,65 @@
+/**
+ * Modulares Layout
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.module {
+    width: 100%;
+
+    .module-title {
+        padding-bottom: 2*$space;
+
+        @include respond-to(1200) {
+            padding-bottom: 4*$space;
+        }
+
+        &.module-title-left {
+            text-align: left;
+        }
+
+        &.module-title-center {
+            text-align: center;
+        }
+
+        &.module-title-right {
+            text-align: right;
+        }
+    }
+
+    .module-wrapper {
+        margin: 0 auto;
+        padding: 2*$space;
+
+        @include respond-to(768) {
+            width: 750px;
+        }
+
+        @include respond-to(992) {
+            width: 970px;
+            padding: 4*$space;
+        }
+
+        @include respond-to(1200) {
+            width: 1170px;
+            padding: 6*$space;
+        }
+
+        @include respond-to(1600) {
+            width: 1400px;
+        }
+    }
+}
+
+
+
+/**
+ * Farbversionen
+ **/
+
+.module-lightgray {
+    background: $color-lightgray;
+}
