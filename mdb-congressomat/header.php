@@ -21,6 +21,9 @@
 </head>
 <body <?php body_class(); ?>>
 <header id="header">
+<button id="logo" type="button">
+	<span>A</span>
+</button>
 <nav id="primary" class="megamenu">
 <?php
 
@@ -35,4 +38,9 @@ if( has_nav_menu( 'primary' ) ) :
 endif;
 ?>
 </nav>
+<?php
+if ( function_exists('yoast_breadcrumb') ) :
+	yoast_breadcrumb( '<nav id="breadcrumb">','</nav>' );
+endif;
+?>
 </header>
