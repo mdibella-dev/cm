@@ -11,9 +11,37 @@
 #header {
     display: block;
     witdh: 100%;
-//    height: $header-height;
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
+}
+
+#logo {
+
+}
+
+#breadcrumb {
+    display: block;
+    width: 100%;
+    padding: 2*$space $space;
+    background: #fafafa; //$color-lightgray;
+
+    & > span {
+        // Angaben analog .megamenu
+        display: block;
+        width: 90%;
+        max-width: 70em;
+        margin: 0 auto;
+        padding: 0 1.875em;
+
+        & > * {
+            font-size: 90%;
+            color: #888;
+        }
+
+        a {
+            color: #888 !important;
+        }
+    }
 }
 
 

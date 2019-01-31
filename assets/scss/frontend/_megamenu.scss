@@ -7,12 +7,12 @@
  * @see		frontend.js, class-megamenu-walker.php
  **/
 
+$color-megamenu-background:	#eee;
 
 
 .megamenu {
 	width: 100%;
-	margin-top: 2em;
-	border-bottom: 4px solid #47a3da;
+	//margin-top: 2em;
 
 	ul {
 		margin: 0;
@@ -36,32 +36,28 @@
 }
 
 .megamenu > ul > li > a {
-	font-weight: 700;
-	padding: 1em 2em;
-	color: #999;
+	font-weight: 400;
+	padding: 2em;
+	color: $color-highlight;
 	display: inline-block;
-
-	&:hover {
-		color: #47a3da;
-	}
 }
 
 .megamenu > ul > li.open a,
 .megamenu > ul > li.open > a:hover {
-	color: #fff;
-	background: #47a3da;
+	color: #888;
+	background: $color-megamenu-background;
 }
 
 // Ausklappbares Submenu
 .megamenu .submenu {
 	display: none;
 	position: absolute;
-	background: #47a3da;
+	background: $color-megamenu-background;
 	width: 100%;
 	left: 0;
 
     h4 {
-    	color: #afdefa;
+    	color: #aaa;
     	padding: 2em 0 0.6em;
     	margin: 0;
     	font-size: 160%;
