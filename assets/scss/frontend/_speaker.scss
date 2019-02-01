@@ -65,7 +65,6 @@
 
 
 .speaker-profile {
-
     @include respond-to(768) {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -88,6 +87,7 @@
 
     .speaker-position {
         font-size: 21px;
+        font-weight: 500;
     }
 
     .speaker-position,

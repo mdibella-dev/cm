@@ -7,12 +7,11 @@
  * @see		frontend.js, class-megamenu-walker.php
  **/
 
-$color-megamenu-background:	#eee;
 
 
+// Grundlegendes
 .megamenu {
 	width: 100%;
-	//margin-top: 2em;
 
 	ul {
 		margin: 0;
@@ -22,46 +21,69 @@ $color-megamenu-background:	#eee;
 }
 
 
-// Toplevel-Menüpunke
-.megamenu > ul,
-.megamenu .sub-menu-inner {
-	width: 90%;
-	max-width: 70em;
+// Toplevel
+.megamenu > ul {
 	margin: 0 auto;
-	padding: 0 1.875em;
+	width: 100%;
+
+	@include respond-to( 992 ) {
+		width: 90%;
+	}
+
+	& > li {
+		display: block;
+		border-bottom: 1px solid #ddd;
+
+		@include respond-to( 992 ) {
+			display: inline-block;
+			border-bottom: 0;
+		}
+	}
+
+	& > li > a {
+		display: block;
+		padding: 1em;
+		width: 100%;
+		font-weight: 400;
+		color: #888;
+
+		@include respond-to( 992 ) {
+			display: block;
+			width: unset;
+			padding: 2em 1em;
+		}
+
+		@include respond-to(1200) {
+			padding: 2em;
+		}
+	}
+
+	& > li.open a,
+	& > li.open > a:hover {
+		color: #888;
+		background: #e8e8e8;
+	}
 }
 
-.megamenu > ul > li {
-	display: inline-block;
-}
-
-.megamenu > ul > li > a {
-	font-weight: 400;
-	padding: 2em;
-	color: $color-highlight;
-	display: inline-block;
-}
-
-.megamenu > ul > li.open a,
-.megamenu > ul > li.open > a:hover {
-	color: #888;
-	background: $color-megamenu-background;
-}
 
 // Ausklappbares Submenu
 .megamenu .submenu {
 	display: none;
 	position: absolute;
-	background: $color-megamenu-background;
+	background: #e8e8e8;
 	width: 100%;
 	left: 0;
 
     h4 {
     	color: #aaa;
-    	padding: 2em 0 0.6em;
+    	padding: 1em 0 0.6em;
     	margin: 0;
     	font-size: 160%;
     	font-weight: 300;
+
+		@include respond-to( 992 ) {
+			padding: 2em 0 0.6em;
+		}
     }
 }
 
@@ -71,32 +93,46 @@ $color-megamenu-background:	#eee;
 }
 
 .megamenu .submenu-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 1.875em;
 
-    &:after {
+	@include respond-to( 992 ) {
+		width: 90%;
+		max-width: 70em;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+			-ms-flex-direction: row;
+				flex-direction: row;
+		-webkit-box-pack: center;
+		   -ms-flex-pack: center;
+		 justify-content: center;
+		-ms-flex-wrap: nowrap;
+		    flex-wrap: nowrap;
+	}
+
+	&:after {
 	    clear: both;
-    }
+	}
 
-    & > li {
-    	width: 33%;
+	& > li {
+		width: 100%;
         display: inline-block;
-    	padding: 0 2em 0;
+    	padding: 0 1em 0;
+
+		@include respond-to( 992 ) {
+			width: 33%;
+			padding: 0 2em 0;
+		}
 
         a {
 	        line-height: 2em;
         }
     }
 }
-
 
 // Downloadlink
 .megamenu .download > a::before {
@@ -110,60 +146,3 @@ $color-megamenu-background:	#eee;
 	content: "\f358";
 	padding-right: $space;
 }
-
-
-/* Examples for media queries */
-/*
-@media screen and (max-width: 52.75em) {
-
-	.megamenu {
-		font-size: 80%;
-	}
-
-}
-
-@media screen and (max-width: 43em) {
-
-	.megamenu {
-		font-size: 120%;
-		border: none;
-	}
-
-	.megamenu > ul,
-	.megamenu .submenu-inner {
-		width: 100%;
-		padding: 0;
-	}
-
-	.megamenu .submenu-inner {
-		padding: 0 2em;
-		font-size: 75%;
-	}
-
-	.megamenu > ul > li {
-		display: block;
-		border-bottom: 4px solid #47a3da;
-	}
-
-	.megamenu > ul > li > a {
-		display: block;
-		padding: 1em 3em;
-	}
-
-	.megamenu .submenu {
-		position: relative;
-	}
-
-	.megamenu h4 {
-		padding-top: 0.6em;
-	}
-
-}
-
-@media screen and (max-width: 36em) {
-	.megamenu .submenu-inner > div {
-		width: 100%;
-		float: none;
-		padding: 0 2em;
-	}
-} */

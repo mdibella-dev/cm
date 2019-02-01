@@ -13,17 +13,62 @@
     witdh: 100%;
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
+    background: #f4f4f4;
+    border-top: 4px solid $color-highlight;
 }
+
+#header-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+    & > div:nth-child(1) {
+        width: 100%;
+    }
+
+    & > div:nth-child(2) {
+        width: 100%;
+    }
+
+    @include respond-to( 992 ) {
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+
+        & > div:nth-child(1) {
+            width: 25%;
+        }
+
+        & > div:nth-child(2) {
+            width: 75%;
+        }
+    }
+}
+
 
 #logo {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: 0 !important;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 
+    svg {
+        width: auto;
+        height: 32px; //
+    }
 }
+
 
 #breadcrumb {
     display: block;
     width: 100%;
     padding: 2*$space $space;
-    background: #fafafa; //$color-lightgray;
 
     & > span {
         // Angaben analog .megamenu
