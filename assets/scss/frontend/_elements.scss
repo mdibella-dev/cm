@@ -68,18 +68,13 @@
 #breadcrumb {
     display: block;
     width: 100%;
-    padding: 2*$space $space;
 
     & > span {
         // Angaben analog .megamenu
         display: block;
-        width: 90%;
-        max-width: 70em;
-        margin: 0 auto;
-        padding: 0 1.875em;
 
         & > * {
-            font-size: 90%;
+            font-size: 80%;
             color: #888;
         }
 

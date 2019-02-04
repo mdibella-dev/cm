@@ -21,6 +21,10 @@ while( have_posts() ) :
                 case 'modul-standard' :
                     get_template_part( 'inc/modules/module-standard' );
                 break;
+
+                case 'modul-breadcrumb' :
+                    get_template_part( 'inc/modules/module-breadcrumb' );
+                break;
             endswitch;
 
         endwhile;

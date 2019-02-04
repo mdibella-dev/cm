@@ -9,6 +9,8 @@
 <?php get_header(); ?>
 <main id="main">
 <?php
+get_template_part( 'inc/modules/module-breadcrumb' );
+
 if ( have_posts() ) :
     // Ausgabe puffern
     ob_start();

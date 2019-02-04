@@ -44,9 +44,3 @@ endif;
 </div>
 </div>
 </header>
-<?php
-// Breadcrumb
-if( function_exists('yoast_breadcrumb') ) :
-	yoast_breadcrumb( '<nav id="breadcrumb">','</nav>' );
-endif;
-?>
