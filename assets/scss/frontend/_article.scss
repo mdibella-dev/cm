@@ -8,15 +8,10 @@
 
 
 .article {
-//    font-family: $font-slab;
     font-weight: normal;
     font-size: 22px;
-    letter-spacing: 0.3px;
     line-height: 1.5;
     color: #777;
-    -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-            hyphens: auto;
 
     @include respond-to(992) {
         font-size: 18px;
@@ -34,14 +29,12 @@
     }
 
     & > p {
+        @include p-tag-settings();
         color: inherit;
         margin-bottom: 1rem;
-        text-align: justify;
 
         &.lead {
-            color: #555;
-            font-size: 1.3em;
-            line-height: 1.4;
+            font-weight: 500;
         }
     }
 
@@ -65,6 +58,7 @@
         font-size: 1.3em;
         margin-top: 3rem;
         margin-bottom: 1rem;
+        color: $color-highlight;
     }
 
     .wp-block-image {
@@ -79,16 +73,6 @@
     }
 
     a {
-        padding: 0 2px;
-        -webkit-transition: all .25s linear;
-                transition: all .25s linear;
-        color: $color-highlight;
-
-        &:hover,
-        &:focus {
-    //        color: $color-blue;
-    //        background: $color-white;
-            text-decoration: underline;
-        }
+        @include a-tag-settings();
     }
 }

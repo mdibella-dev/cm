@@ -13,7 +13,6 @@ body {
    	font-size: 16px;
 	font-weight: 400;
     font-family: $font-sans;
-    line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
      -webkit-font-smoothing: subpixel-antialiased;
              text-rendering: geometricPrecision;
@@ -55,6 +54,7 @@ h3 {
             hyphens: none;
     font-weight: 300;
     font-size: 2rem;
+    line-height: 1.2;
 }
 
 .subheading {
@@ -64,4 +64,5 @@ h3 {
             hyphens: none;
     font-weight: normal;
     font-size: 1rem;
+    margin-top: .5em;
 }

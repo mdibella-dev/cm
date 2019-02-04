@@ -110,5 +110,13 @@
 
     .speaker-description {
         clear: both;
+
+        p {
+            @include p-tag-settings();
+        }
+
+        a {
+            @include a-tag-settings();
+        }
     }
 }

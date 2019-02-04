@@ -1,0 +1,33 @@
+/**
+ * Mixins
+ *
+* @author  Marco Di Bella <mdb@marcodibella.de>
+* @package mdb-congressomat
+**/
+
+
+
+@mixin a-tag-settings() {
+    padding: 0 2px;
+    -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+    color: #666;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 2px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        background: #f0f0f0;
+        border-bottom: 1px solid transparent;
+    }
+}
+
+@mixin p-tag-settings() {
+    text-align: justify;
+    line-height: 1.5;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    letter-spacing: -0.5px;
+}
