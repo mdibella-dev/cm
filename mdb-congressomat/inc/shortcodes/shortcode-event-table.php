@@ -55,15 +55,15 @@ function mdb_shortcode_event_table( $atts, $content = null )
             foreach( $field_keys as $field_key ) :
                 switch( $field_key ) :
                     case 'DATUM':
-                        $cells[] = get_field( 'programmpunkt-datum', $session->ID );
+                        $cells[ 'session-date' ] = get_field( 'programmpunkt-datum', $session->ID );
                     break;
 
                     case 'VON':
-                        $cells[] = get_field( 'programmpunkt-von', $session->ID );
+                        $cells[ 'session-begin' ] = get_field( 'programmpunkt-von', $session->ID );
                     break;
 
                     case 'VONBIS':
-                        $cells[] = sprintf( '%1$s-%2$s',
+                        $cells[ 'session-time' ] = sprintf( '%1$s-%2$s',
                                             get_field( 'programmpunkt-von', $session->ID ),
                                             get_field( 'programmpunkt-bis', $session->ID ) );
                     break;
@@ -71,7 +71,9 @@ function mdb_shortcode_event_table( $atts, $content = null )
                     case 'TITEL':
                         $title    = $session->post_title;
                         $subtitle = get_the_subtitle( $session->ID, '', '', FALSE );
-                        $cells[]  = $title.'<br>'.$subtitle;
+                        $cells[ 'session-title' ] = sprintf( '<span class="title">%1$s</span><span class="subtitle">%2$s</span>',
+                                                             $title,
+                                                             $subtitle );
                     break;
 
                     case 'REFERENT':
@@ -85,19 +87,17 @@ function mdb_shortcode_event_table( $atts, $content = null )
                                 $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
                                                             $speaker[ 'permalink' ],
                                                             sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
-                                                            //get_the_post_thumbnail( $speaker[ 'id' ], 'full' )
-                                                            $speaker[ 'title_name' ]
-                                                        );
+                                                            get_the_post_thumbnail( $speaker[ 'id' ], 'full' ) );
                             endforeach;
 
-                            $cells[] = implode( ', ', $speakers_list );
+                            $cells[ 'session-speaker' ] = implode( ' ', $speakers_list );
                         else :
-                            $cells[] = '';
+                            $cells[ 'session-speaker' ] = '';
                         endif;
                     break;
 
                     case 'ORT':
-                        $cells[] = mdb_get_location( get_field( 'programmpunkt-location', $session->ID ) );
+                        $cells[ 'session-location' ] = mdb_get_location( get_field( 'programmpunkt-location', $session->ID ) );
                     break;
                 endswitch;
             endforeach;
@@ -105,8 +105,8 @@ function mdb_shortcode_event_table( $atts, $content = null )
             // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
             $row_content = '';
 
-            foreach( $cells as $cell) :
-                $row_content .= sprintf( '<td>%1$s</td>', $cell );
+            foreach( $cells as $class => $cell ) :
+                $row_content .= sprintf( '<td class="%1$s">%2$s</td>', $class, $cell );
             endforeach;
 
             $rows[] = sprintf( '<tr>%1$s</tr>', $row_content );
@@ -125,27 +125,27 @@ function mdb_shortcode_event_table( $atts, $content = null )
         foreach( $field_keys as $field_key ) :
             switch( $field_key ) :
                 case 'DATUM':
-                    $cells[] = __( 'Datum', TEXT_DOMAIN );
+                    $cells[ 'session-date' ] = __( 'Datum', TEXT_DOMAIN );
                 break;
 
                 case 'VON':
-                    $cells[] = __( 'von', TEXT_DOMAIN );
+                    $cells[ 'session-begin' ] = __( 'von', TEXT_DOMAIN );
                 break;
 
                 case 'VONBIS':
-                    $cells[] = __( 'von/bis', TEXT_DOMAIN );
+                    $cells[ 'session-time' ] = __( 'von/bis', TEXT_DOMAIN );
                 break;
 
                 case 'TITEL':
-                    $cells[] = __( 'Titel', TEXT_DOMAIN );
+                    $cells[ 'session-title' ] = __( 'Titel', TEXT_DOMAIN );
                 break;
 
                 case 'REFERENT':
-                    $cells[] = __( 'Referent(en)', TEXT_DOMAIN );
+                    $cells[ 'session-speaker' ] = __( 'Referent(en)', TEXT_DOMAIN );
                 break;
 
                 case 'ORT':
-                    $cells[] = __( 'Ort', TEXT_DOMAIN );
+                    $cells[ 'session-location' ] = __( 'Ort', TEXT_DOMAIN );
                 break;
             endswitch;
         endforeach;
@@ -153,8 +153,8 @@ function mdb_shortcode_event_table( $atts, $content = null )
         // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
         $row_content = '';
 
-        foreach( $cells as $cell) :
-            $row_content .= sprintf( '<td>%1$s</td>', $cell );
+        foreach( $cells as $class => $cell ) :
+            $row_content .= sprintf( '<td class="%1$s">%2$s</td>', $class, $cell );
         endforeach;
 
         $row = sprintf( '<tr>%1$s</tr>', $row_content );
@@ -165,7 +165,7 @@ function mdb_shortcode_event_table( $atts, $content = null )
          * Ausgabe vorbereiten
          **/
 
-        $output .= '<table class="programm">';
+        $output .= '<table class="event-table">';
         $output .= sprintf( '<thead>%1$s</thead>', $row );
         $output .= '<tbody>';
 
