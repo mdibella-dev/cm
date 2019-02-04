@@ -44,19 +44,23 @@ function mdb_shortcode_teaserlist( $atts, $content = null )
         // Ausgabe puffern
         ob_start();
 ?>
-<div class="teaser-block">
+<div class="teaser-list">
 <?php
         foreach( $articles as $post ) :
             setup_postdata( $post );
 ?>
 <article class="<?php echo implode( ' ', get_post_class( 'teaser', $post->ID ) ); ?>">
 <div class="teaser-image">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr', TEXT_DOMAIN ); ?>">
+<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>">
 <?php the_post_thumbnail( $post->ID, 'full' ); ?>
 </a>
 </div>
-<div class="teaser-caption">
+<div class="teaser-content">
 <h2><?php the_title(); ?></h2>
+<?php the_excerpt(); ?>
+<p class="teaser-more">
+<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a>
+</p>
 </div>
 </article>
 <?php
