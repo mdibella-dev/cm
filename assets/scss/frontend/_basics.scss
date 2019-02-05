@@ -76,10 +76,10 @@ table {
     }
 
     tbody > tr {
-        background-color: #f9f9f9;
+        background-color: #f4d5d5; // highlight light
 
         &:not(:first-of-type) {
-            border-top: 2px solid #fff;
+            border-top: 3px solid #fff;
         }
     }
 
