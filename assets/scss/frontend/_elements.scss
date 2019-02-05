@@ -79,7 +79,7 @@
         }
 
         a {
-            @include a-tag-settings();
+            @include a-tag-basic-settings();
             color: #888 !important;
         }
     }

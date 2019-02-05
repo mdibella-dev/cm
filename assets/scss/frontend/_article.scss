@@ -9,13 +9,8 @@
 
 .article {
     font-weight: normal;
-    font-size: 22px;
-    line-height: 1.5;
+    font-size: 18px;
     color: #777;
-
-    @include respond-to(992) {
-        font-size: 18px;
-    }
 
     p::not(.wc-responsive-video),
     ol,
@@ -29,9 +24,14 @@
     }
 
     & > p {
-        @include p-tag-settings();
+        @include p-tag-basic-settings();
         color: inherit;
         margin-bottom: 1rem;
+        line-height: 1.3;
+
+        @include respond-to(992) {
+            line-height: 1.5;
+        }
 
         &.lead {
             font-weight: 500;
@@ -39,26 +39,35 @@
     }
 
     & > header {
-        margin-bottom: 3em;
+        margin-bottom: 2em;
+
+        @include respond-to(992) {
+            margin-bottom: 3em;
+        }
 
         h1 {
-            font-size: 2em;
-            font-weight: 300;
-            line-height: 1.3;
+            font-size: 1.5rem;
+
+            @include respond-to(992) {
+                font-size: 2rem;
+            }
         }
     }
 
-    h1, h2 {
-        -webkit-hyphens: none;
-            -ms-hyphens: none;
-                hyphens: none;
-    }
-
     & > h2 {
-        font-size: 1.3em;
-        margin-top: 3rem;
         margin-bottom: 1rem;
+        margin-top: 2rem;
+
+        @include respond-to(992) {
+            margin-top: 3em;
+        }
+
         color: $color-highlight;
+        font-size: 1.25rem;
+
+        @include respond-to(992) {
+            font-size: 1.3rem;
+        }
     }
 
     .wp-block-image {
@@ -67,12 +76,17 @@
 
         figcaption {
             background: #f0f0f0;
-            padding: 3*$space;
             margin: 0;
+            line-height: 1.2;
+            padding: 2*$space;
+
+            @include respond-to(992) {
+                padding: 3*$space;
+            }
         }
     }
 
     a {
-        @include a-tag-settings();
+        @include a-tag-basic-settings();
     }
 }

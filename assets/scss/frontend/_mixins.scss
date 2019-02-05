@@ -7,8 +7,7 @@
 
 
 
-@mixin a-tag-settings() {
-    padding: 0 2px;
+@mixin a-tag-basic-settings() {
     -webkit-transition: all .3s ease-out;
             transition: all .3s ease-out;
     color: #666;
@@ -23,11 +22,15 @@
     }
 }
 
-@mixin p-tag-settings() {
-    text-align: justify;
-    line-height: 1.5;
+@mixin p-tag-basic-settings() {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
     letter-spacing: -0.5px;
+    line-height: 1.5;
+    text-align: left;
+
+    @include respond-to(992) {
+        text-align: justify;
+    }
 }

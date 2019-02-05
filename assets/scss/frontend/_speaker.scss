@@ -112,11 +112,11 @@
         clear: both;
 
         p {
-            @include p-tag-settings();
+            @include p-tag-basic-settings();
         }
 
         a {
-            @include a-tag-settings();
+            @include a-tag-basic-settings();
         }
     }
 }
