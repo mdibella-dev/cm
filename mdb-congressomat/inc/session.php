@@ -66,14 +66,13 @@ function mdb_get_sessions( $args )
                             array(
                             'event_id'       => '0',
                             'speaker_id'     => '0',
-                            'posts_per_page' => -1,
-                            ) ) );
-
+                            'posts_per_page' => -1 ) ) );
 
     // Suchparameter setzen
-    $query[ 'posts_per_page' ] = $posts_per_page;
-    $query[ 'post_status']     = 'publish';
-    $query[ 'post_type' ]      = 'session';
+    $query = array(
+             'posts_per_page' => $posts_per_page,
+             'post_status'    => 'publish',
+             'post_type'      => 'session' );
 
     // Nach Event filtern?
     if( !empty( $event_id ) and is_numeric( $event_id ) ) :
@@ -101,7 +100,7 @@ function mdb_get_sessions( $args )
 
 
 /**
- * Liefert ein Array mit Sessions eines bestimmten Events
+ * Liefert ein Array mit den Sessions eines bestimmten Events
  *
  * Wrapper für mdb_get_sessions(). Optional kann nach einem bestimmten Referenten gefiltert werden
  *
@@ -115,42 +114,33 @@ function mdb_get_sessions_by_event( $event_id, $speaker_id = 0 )
 {
     return mdb_get_sessions( array(
                              'event_id'   => $event_id,
-                             'speaker_id' => $speaker_id
-                             ) );
+                             'speaker_id' => $speaker_id ) );
 }
 
 
 
-
-
-function mdb_get_location( $location_id )
-{
-    $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' );
-
-    if( $term === false ) :
-        return '';
-    endif;
-
-    return $term->name;
-}
-
-
-
+/**
+ * Liefert ein Array mit allen Daten eines bestimmten Referenten
+ *
+ * @param  int    $speaker_id  Der zu Referent
+ * @return array  Die zum Referenten gehörenden Daten
+ * @since  1.0.0
+ **/
 
 function mdb_get_speaker_info( $speaker_id )
 {
     $post = get_post( $speaker_id );
 
-    $speaker_info[ 'id' ]          = $speaker_id;
-    $speaker_info[ 'firstname' ]   = get_field( 'referent-vorname', $post );
-    $speaker_info[ 'lastname' ]    = get_field( 'referent-nachname', $post );
-    $speaker_info[ 'name' ]        = trim( sprintf( '%1$s %2$s', $speaker_info[ 'firstname' ], $speaker_info[ 'lastname' ] ) );
-    $speaker_info[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ),$speaker_info[ 'name' ] ) );
-    $speaker_info[ 'position' ]    = get_field( 'referent-position', $post );
-    $speaker_info[ 'description' ] = get_field( 'referent-beschreibung', $post );
-    $speaker_info[ 'permalink' ]   = get_post_permalink( $speaker_id );
+    $data[ 'id' ]          = $speaker_id;
+    $data[ 'firstname' ]   = get_field( 'referent-vorname', $post );
+    $data[ 'lastname' ]    = get_field( 'referent-nachname', $post );
+    $data[ 'name' ]        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
+    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ), $data[ 'name' ] ) );
+    $data[ 'position' ]    = get_field( 'referent-position', $post );
+    $data[ 'description' ] = get_field( 'referent-beschreibung', $post );
+    $data[ 'permalink' ]   = get_post_permalink( $speaker_id );
 
-    return $speaker_info;
+    return $data;
 }
 
 
@@ -158,7 +148,8 @@ function mdb_get_speaker_info( $speaker_id )
 /**
  * Ermittelt alle Referenten aus allen Sessions von einem oder mehreren Events
  *
- * @param  string $events  Eine kommaseparierte Liste mit event_ids
+ * @param  string $events  Eine kommaseparierte Liste mit event_ids;
+ *                         werden keine Werte übergeben, so werden die aktiven Events herausgesucht
  * @return array  Ein Array mit den Daten der Referenten
  * @since  1.0.0
  **/
@@ -166,16 +157,21 @@ function mdb_get_speaker_info( $speaker_id )
 function mdb_get_speakers( $events )
 {
     // Suchparameter setzen
-    $query[ 'posts_per_page' ] = -1;
-    $query[ 'post_status']     = 'publish';
-    $query[ 'post_type' ]      = 'session';
-    $query[ 'meta_query' ]     = array( array(
+    $query = array(
+             'posts_per_page' => -1,
+             'post_status'    => 'publish',
+             'post_type'      => 'session',
+             'meta_query'     => array( array(
                                         'key'     => 'programmpunkt-referenten',
-                                        'compare' => 'EXISTS' ) );
-    $query[ 'tax_query' ]      = array( 'relation' => 'OR' );
+                                        'compare' => 'EXISTS' ) ),
+             'tax_query'      => array( 'relation' => 'OR' ) );
 
     // tax_query komplettieren
-    $event_ids = explode( ',', str_replace(" ", "", $events ) );
+    if( !empty( $events ) ) :
+        $event_ids = explode( ',', str_replace(" ", "", $events ) );
+    else :
+        $event_ids = mdb_get_active_events();
+    endif;
 
     foreach( $event_ids as $event_id ) :
         $query[ 'tax_query' ][] = array(
@@ -209,8 +205,8 @@ function mdb_get_speakers( $events )
 
         // Referenten nach Vor- und Nachnamen sortieren
         foreach( $speakers_list as $key => $row ) :
-            $forename[$key] = $row['forename'];
-            $lastname[$key] = $row['lastname'];
+            $forename[$key] = $row[ 'forename' ];
+            $lastname[$key] = $row[ 'lastname' ];
         endforeach;
         array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speakers_list );
 
@@ -218,4 +214,52 @@ function mdb_get_speakers( $events )
     endif;
 
     return NULL;
+}
+
+
+
+function mdb_get_active_events()
+{
+    // Suchparameter setzen
+    $query = array(
+             'taxonomy'   => 'event',
+             'hide_empty' => 'false',
+             'meta_query' => array(
+                             'key'   => 'event_status',
+                             'value' => '1' ) );
+        //     'meta_key'   => 'event_status',
+    	//     'meta_value' => '1' );
+
+    // Passende Events ermitteln
+    $terms = get_terms( $query );
+
+    if( $terms === FALSE ) :
+        return NULL;
+    endif;
+
+    // Rückgabedaten erstellen
+    $events = array();
+
+    foreach( $terms as $term) :
+        $events[] = $term->term_taxonomy_id;
+    endforeach;
+
+    return $events;
+}
+
+
+
+
+
+
+
+function mdb_get_location( $location_id )
+{
+    $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' );
+
+    if( $term === FALSE ) :
+        return '';
+    endif;
+
+    return $term->name;
 }

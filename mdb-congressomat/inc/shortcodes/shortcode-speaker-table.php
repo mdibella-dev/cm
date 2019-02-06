@@ -8,16 +8,18 @@
 
 
 
+
+
 function mdb_shortcode_speaker_table( $atts, $content = null )
 {
     // Parameter auslesen
     extract( shortcode_atts( array( 'event' => '' ), $atts ) );
 
+    $event = get_field( 'congressomat-event', 'option' );
+
     // Ausgabe vorbereiten
     $output = '';
     $speakers_list = mdb_get_speakers( $event );
-
-
 
     $output .= '<div class="speaker-block-list">';
 
