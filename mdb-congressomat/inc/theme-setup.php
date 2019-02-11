@@ -42,11 +42,11 @@ function mdb_enqueue_scripts()
     wp_enqueue_script( 'jquery' );
 
     // FontAwesome5 integrieren
-	wp_enqueue_style( 'fontawesome', PATH_THEME_URL . '/assets/3rd/fontawesome5/css/fontawesome-all.min.css' );
+	wp_enqueue_style( 'fontawesome', PATH_THEME_URL . '/assets/fa5/css/fontawesome-all.min.css' );
 
     // Eigene Scripts laden
-	wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/scripts/frontend.js', 'jquery', FALSE, TRUE );
+	wp_enqueue_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/js/frontend.js', 'jquery', FALSE, TRUE );
 
 	// Eigenes Stylesheet in komprimierter Form laden
-	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/stylesheets/frontend.min.css' );
+	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/css/frontend.min.css' );
 }

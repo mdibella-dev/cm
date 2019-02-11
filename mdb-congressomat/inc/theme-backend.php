@@ -16,7 +16,7 @@
 
 function mdb_admin_head()
 {
-    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/stylesheets/backend.min.css" type="text/css" media="all" />';
+    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/css/backend.min.css" type="text/css" media="all" />';
 }
 
 
@@ -53,5 +53,5 @@ function mdb_disable_gutenberg( $current_status, $post_type )
 
 function mdb_add_gutenberg_styles()
 {
-    wp_enqueue_style( 'gutenberg-css', PATH_THEME_URL . '/assets/stylesheets/gutenberg.min.css' );
+    wp_enqueue_style( 'gutenberg-css', PATH_THEME_URL . '/assets/css/gutenberg.min.css' );
 }
