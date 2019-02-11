@@ -7,6 +7,10 @@
 
 
 
+/**
+ * Blockliste mit den Referenten
+ **/
+
 .speaker-block-list {
     width: 100%;
     margin: 0 auto;
@@ -60,9 +64,26 @@
 
     .speaker-caption {
         margin-top: $space;
+
+        .speaker-title-name {
+            @include a-tag-basic-settings();
+            line-height: 1.9em;
+            padding: 0 2px;
+        }
+
+        .speaker-position {
+            font-weight: 500;
+            font-size: 90%;
+        }
+
     }
 }
 
+
+
+/**
+ * Profilseite
+ **/
 
 .speaker-profile {
     @include respond-to(768) {

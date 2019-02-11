@@ -65,7 +65,7 @@
  **/
 
 .module-lightgray {
-    background: $color-lightgray;
+    background: #fcfcfc;
 }
 
 
@@ -76,11 +76,11 @@
 
 .module-breadcrumb {
     .module-wrapper {
-        padding: 2*$space;
+        padding: 2*$space 0;
 
         @include respond-to(768) {
             width: calc( 750px - 2*2*#{$space} );
-            padding: 3*$space 0 0 !important;
+            //padding: 3*$space 0 0 !important;
         }
 
         @include respond-to(992) {

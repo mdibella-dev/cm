@@ -15,6 +15,6 @@ $args[ 'id ' ]              = get_sub_field( 'modul-id' );
 $args[ 'title' ]            = get_sub_field( 'modul-titel' );
 $args[ 'subtitle' ]         = get_sub_field( 'modul-untertitel' );
 $args[ 'alignment' ]        = get_sub_field( 'modul-titel-ausrichtung' );
-$content                    = get_sub_field( 'module-content' );
+$content                    = get_sub_field( 'module-content' ); // inkonsequent?
 
 echo mdb_get_module( $args, $content );

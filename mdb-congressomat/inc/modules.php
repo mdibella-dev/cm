@@ -41,7 +41,9 @@ function mdb_get_module( $args, $content )
 
         // Titelbereich generieren
         if( !empty( $title ) ) :
-            $alignments  = array( 0 => 'module-title-left', 1 => 'module-title-center', 2 => 'module-title-right' );
+            $alignments  = array( 0 => 'module-title-left',
+                                  1 => 'module-title-center',
+                                  2 => 'module-title-right' );
             $module_head = sprintf( '<div class="module-title %1$s">%2$s%3$s</div>',
                                     $alignments[ $alignment ],
                                     sprintf( '<h2>%1$s</h2>', $title ),

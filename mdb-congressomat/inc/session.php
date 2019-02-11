@@ -184,8 +184,8 @@ function mdb_get_speakers( $events )
     $sessions = get_posts( $query );
 
     if( $sessions ) :
-        $found_ids     = array();
-        $speakers_list = array();
+        $found_ids    = array();
+        $speaker_list = array();
 
         foreach( $sessions as $session ) :
             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
@@ -196,24 +196,30 @@ function mdb_get_speakers( $events )
 
                     // Nur hinzufügen, wenn nicht bereits zuvor gefunden
                     if( in_array( $speaker_id, $found_ids ) == FALSE ) :
-                        $speakers_list[] = mdb_get_speaker_info( $speaker_id );
-                        $found_ids[]     = $speaker_id;
+                        $speaker_list[] = mdb_get_speaker_info( $speaker_id );
+                        $found_ids[]    = $speaker_id;
                     endif;
                 endforeach;
             endif;
         endforeach;
 
         // Referenten nach Vor- und Nachnamen sortieren
-        foreach( $speakers_list as $key => $row ) :
-            $forename[$key] = $row[ 'forename' ];
-            $lastname[$key] = $row[ 'lastname' ];
-        endforeach;
-        array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speakers_list );
-
-        return $speakers_list;
+        return mdb_sort_speakerlist( $speaker_list );
     endif;
 
     return NULL;
+}
+
+
+function mdb_sort_speakerlist( $speaker_list )
+{
+    foreach( $speaker_list as $key => $row ) :
+        $forename[$key] = $row[ 'forename' ];
+        $lastname[$key] = $row[ 'lastname' ];
+    endforeach;
+    array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
+
+    return $speaker_list;
 }
 
 

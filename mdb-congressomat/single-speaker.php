@@ -100,5 +100,33 @@ if ( have_posts() ) :
     endwhile;
 endif;
 ?>
+<?php
+/**
+ * Weitere Referenten anzeigen
+ *
+ * @since 1.0.0
+ **/
+
+// Ausgabe puffern
+ob_start();
+
+// Aktuell angezeigten Speaker ermitteln
+// Shortcode generieren, der den aktuellen Speaker ausschließt und vier Speaker maximal anzeigt
+$speaker = mdb_get_speaker_info( get_the_ID() );
+echo do_shortcode( sprintf( '[speaker-table exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
+
+// Ausgabenpuffer sichern; Pufferung beenden
+$buffer  = ob_get_contents();
+ob_end_clean();
+
+// Modul generieren
+$args    = array(
+           'class'            => 'module-standard',
+           'additional_class' => 'module-lightgray',
+           'title'            => __( 'Weitere Referenten', TEXT_DOMAIN ),
+           'alignment'        => 1
+           );
+echo mdb_get_module( $args, $buffer );
+?>
 </main>
 <?php get_footer(); ?>
