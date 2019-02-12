@@ -30,5 +30,6 @@ require_once( PATH_THEME_TEMPLATE . '/inc/session.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/class-megamenu-walker.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-speaker-table.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaserlist.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaserpage.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaser-list.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaser-page.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-exhibitor-list.php' );
