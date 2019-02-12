@@ -45,22 +45,24 @@
 		padding: 1em;
 		width: 100%;
 		font-weight: 400;
-		color: #888;
+		color: $color-darkgray;
 
 		@include respond-to( 992 ) {
 			display: block;
 			width: unset;
-			padding: 2em 1em;
+		//	padding: 2em 1em;
+		padding: 2*$space;
 		}
 
 		@include respond-to(1200) {
-			padding: 2em;
+		//	padding: 2em;
+		padding: 3*$space;
 		}
 	}
 
 	& > li.open a,
 	& > li.open > a:hover {
-		color: #888;
+		color: $color-darkergray;
 		background: #e8e8e8;
 	}
 }

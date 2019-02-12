@@ -28,12 +28,8 @@
     .speaker-block {
         width: 100%;
         height: auto;
-        margin: $space 0;
-
-        @include respond-to(576) {
-            width: calc( 50% - #{2*$space} );
-            margin: $space;
-        }
+        margin: $space;
+        width: calc( 50% - #{2*$space} );
 
         @include respond-to(768) {
             width: calc( 33% - #{2*$space} );
@@ -86,6 +82,10 @@
  **/
 
 .speaker-profile {
+    & > div:last-of-type {
+        padding: 2*$space 0;
+    }
+
     @include respond-to(768) {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -94,11 +94,26 @@
         & > div:first-of-type {
             width: 40%;
             max-width: 250px;
-            margin-right: 4*$space;
         }
 
         & > div:last-of-type {
             width: 60%;
+            margin-left: 4*$space;
+        }
+    }
+
+    .speaker-image {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            @include respond-to(576) {
+                width: auto;
+                height: auto;
+            }
         }
     }
 
@@ -106,14 +121,27 @@
         font-size: 36px;
     }
 
+    .speaker-description,
+    .speaker-position {
+        margin-bottom: 2*$space;
+    }
+
+    .speaker-description {
+        clear: both;
+        display: inline-block;
+
+        p {
+            @include p-tag-basic-settings();
+        }
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+
     .speaker-position {
         font-size: 21px;
         font-weight: 500;
-    }
-
-    .speaker-position,
-    .speaker-social-media ul li {
-        margin-bottom: 2*$space;
     }
 
     .speaker-social-media {
@@ -125,19 +153,13 @@
         ul li {
             float: left;
             margin-right: $space;
+            margin-bottom: $space;
         }
 
-    }
-
-    .speaker-description {
-        clear: both;
-
-        p {
-            @include p-tag-basic-settings();
-        }
-
-        a {
+        ul li > a {
             @include a-tag-basic-settings();
+            border-bottom-color: transparent;
         }
     }
+
 }

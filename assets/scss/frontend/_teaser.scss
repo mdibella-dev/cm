@@ -33,8 +33,7 @@
         }
 
         @include respond-to(992) {
-            width: 40%;
-            max-width: 400px;
+            width: 30%;
         }
 
         img {
@@ -55,7 +54,7 @@
         }
 
         @include respond-to(992) {
-            width: 60%;
+            width: 70%;
             padding-left: 4*$space;
         }
 
@@ -82,4 +81,8 @@
     .teaser + .teaser {
         margin-top: 3*$space;
     }
+}
+
+.teaser-list-pagination {
+    text-align: center;
 }

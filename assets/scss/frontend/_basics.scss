@@ -30,7 +30,7 @@ body {
     margin: 0;
     padding: 0;
     background: $color-white;
-    color: #555;
+    color: $color-darkgray;
 }
 
 *,
@@ -76,10 +76,10 @@ table {
     }
 
     tbody > tr {
-        background-color: #f4d5d5; // highlight light
+        background-color: $color-notsohighlight; // highlight light
 
         &:not(:first-of-type) {
-            border-top: 3px solid #fff;
+            border-top: 3px solid $color-white;
         }
     }
 
@@ -97,6 +97,12 @@ table {
     }
 }
 
+
+
+/**
+ * Diverse wiederkehrende Klassen
+ **/
+
 .subheading {
     display:block;
     -webkit-hyphens: none;
@@ -105,4 +111,18 @@ table {
     font-weight: normal;
     font-size: 1rem;
     margin-top: .5em;
+}
+
+.btn {
+    @include a-tag-basic-settings();
+
+    color: #555;
+    padding: 2*$space 3*$space;
+    margin: 2px;
+    border-bottom: none !important;
+
+    &.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
 }
