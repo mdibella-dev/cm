@@ -26,21 +26,21 @@ function mdb_shortcode_event_table( $atts, $content = null )
     // Parameter auslesen
     extract( shortcode_atts( array(
                              'event'    => '',
-                             'referent' => '',
-							 'felder'   => 'VONBIS,TITEL,REFERENT,ORT'
-                         ), $atts ) );
+                             'speaker'  => '',
+							 'fieldset' => 'VONBIS,TITEL,REFERENT,ORT'
+                             ), $atts ) );
 
     // Ausgabe vorbereiten
     $output = '';
 
     // Daten holen
-    $sessions = mdb_get_sessions_by_event( $event, $referent );
+    $sessions = mdb_get_sessions_by_event( $event, $speaker );
 
     if( $sessions ) :
         // Variablen setzen
         $rows       = array();
-        $field_keys = explode( ',', strtoupper( str_replace(" ", "", $felder ) ) );
-
+        $field_keys = explode( ',', strtoupper( str_replace(" ", "", $fieldset ) ) );
+        unset( $speaker );
 
         /**
          * Schritt 1
@@ -181,4 +181,4 @@ function mdb_shortcode_event_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'event-tabelle', 'mdb_shortcode_event_table' );
+add_shortcode( 'event-table', 'mdb_shortcode_event_table' );
