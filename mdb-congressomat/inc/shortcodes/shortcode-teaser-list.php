@@ -10,12 +10,12 @@
 
 /**
  * Shortcode [teaserlist]
- * Erzeugt einee Teaserliste mit den zuletzt veröffentlichten Artikeln.
+ * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
  *
  * @since 1.0.0
  **/
 
-function mdb_shortcode_teaserlist( $atts, $content = null )
+function mdb_shortcode_teaser_list( $atts, $content = null )
 {
     // Variablen setzen
     global $post;
@@ -77,4 +77,4 @@ function mdb_shortcode_teaserlist( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'teaserlist', 'mdb_shortcode_teaserlist' );
+add_shortcode( 'teaserlist', 'mdb_shortcode_teaser_list' );

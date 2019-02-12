@@ -11,12 +11,12 @@
 
 /**
  * Shortcode [teaserpage]
- * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
+ * Erzeugt eine modifizierte Teaserliste mit den zuletzt veröffentlichten Artikeln und einer Pagnination.
  *
  * @since 1.0.0
  **/
 
-function mdb_shortcode_teaserpage( $atts, $content = null )
+function mdb_shortcode_teaser_page( $atts, $content = null )
 {
     // Variablen setzen
     global $post;
@@ -58,7 +58,7 @@ function mdb_shortcode_teaserpage( $atts, $content = null )
         ob_start();
 
         // Einführende Pagination
-        mdb_get_teaserlist_pagination( $current_page, $max_page );
+        mdb_get_teaser_pagination( $current_page, $max_page );
 ?>
 <div class="teaser-list">
 <?php
@@ -86,7 +86,7 @@ function mdb_shortcode_teaserpage( $atts, $content = null )
 </div>
 <?php
         // Abschließende Pagination
-        mdb_get_teaserlist_pagination( $current_page, $max_page );
+        mdb_get_teaser_pagination( $current_page, $max_page );
 
         // Ausgabenpuffer sichern; Pufferung beenden
         $buffer = ob_get_contents();
@@ -96,7 +96,7 @@ function mdb_shortcode_teaserpage( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'teaserpage', 'mdb_shortcode_teaserpage' );
+add_shortcode( 'teaserpage', 'mdb_shortcode_teaser_page' );
 
 
 
@@ -106,7 +106,7 @@ add_shortcode( 'teaserpage', 'mdb_shortcode_teaserpage' );
  * @since 1.0.0
  **/
 
-function mdb_get_teaserlist_pagination( $current_page, $max_page )
+function mdb_get_teaser_pagination( $current_page, $max_page )
 {
     echo '<nav class="teaser-list-pagination">';
 
