@@ -21,7 +21,7 @@ if ( have_posts() ) :
         $speaker = mdb_get_speaker_info( get_the_ID() );
 ?>
 <article class="speaker-profile">
-<div><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></div>
+<div class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></div>
 <div>
 <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
@@ -29,6 +29,13 @@ if ( have_posts() ) :
         if( !empty( $speaker[ 'position' ] ) ) :
 ?>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
+<?php
+        endif;
+
+        // Ausführliche Beschreibung vorhanden?
+        if( !empty( $speaker[ 'description' ] ) ) :
+?>
+<div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
 <?php
         endif;
 
@@ -74,13 +81,6 @@ if ( have_posts() ) :
 ?>
 </ul>
 </div>
-<?php
-        endif;
-
-        // Ausführliche Beschreibung vorhanden?
-        if( !empty( $speaker[ 'description' ] ) ) :
-?>
-<div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
 <?php
         endif;
 ?>
