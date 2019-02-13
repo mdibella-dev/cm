@@ -7,7 +7,10 @@
 
 
 
-// Kopfzeile (#header)
+/**
+ * Kopfzeile
+ **/
+
 #header {
     display: block;
     witdh: 100%;
@@ -16,35 +19,72 @@
 }
 
 
+/**
+ * Wrapper für die Kopfzeilenelemente #logo, #toggle, #primary
+ **/
+
 #header-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
-    & > div:nth-child(1) {
+    & > div {
         width: 100%;
     }
 
     & > div:nth-child(2) {
-        width: 100%;
+        text-align: center;
+    }
+
+    @include respond-to( 768 ) {
+        // Bereich mit dem Logo (#logo)
+        & > div:nth-child(1) {
+            width: 50%;
+        }
+
+        // Bereich mit dem Menüumschalter (#toggle)
+        & > div:nth-child(2) {
+            width: 50%;
+            text-align: right;
+        }
+
+        // Bereich des Hauptmenüs (#primary)
+        & > div:nth-child(3) {
+            width: 100%;
+        }
     }
 
     @include respond-to( 992 ) {
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
 
+        // Bereich mit dem Logo (#logo)
         & > div:nth-child(1) {
             width: 25%;
         }
 
+        // Bereich mit dem Menüumschalter (#toggle)
         & > div:nth-child(2) {
+            display: none;
+            width: 0;
+        }
+
+        // Bereich des Hauptmenüs (#primary)
+        & > div:nth-child(3) {
             width: 75%;
         }
     }
 }
 
+
+/**
+ * Logo in der Kopfzeile
+ **/
 
 #logo {
     display: inline-block;
@@ -64,38 +104,15 @@
 
     svg {
         width: auto;
-        height: 32px; //
+        height: 32px;
     }
 }
 
 
-#breadcrumb {
-    display: block;
-    width: 100%;
-    padding: 0 2*$space;
+/**
+ * Hauptinhaltsbereich (#main)
+ **/
 
-    @include respond-to(768) {
-        padding: 0;
-    }
-
-    & > span {
-        // Angaben analog .megamenu
-        display: block;
-
-        & > * {
-            font-size: 80%;
-            color: $color-darkgray;
-        }
-
-        a {
-            @include a-tag-basic-settings();
-            color: $color-darkergray !important;
-        }
-    }
-}
-
-
-// Hauptinhaltsbereich (#main)
 #main {
     width: 100%;
 }
