@@ -75,10 +75,14 @@
 // Ausklappbares Submenu
 .megamenu .submenu {
 	display: none;
-	position: absolute;
 	background: #e8e8e8;
 	width: 100%;
 	left: 0;
+	position: relative;
+
+	@include respond-to( 992 ) {
+		position: absolute;
+	}
 
     h4 {
     	color: #aaa;
@@ -129,7 +133,7 @@
         display: inline-block;
     	padding: 0 1em 0;
 
-		@include respond-to( 768 ) {
+		@include respond-to( 992 ) {
 			width: 33%;
 			padding: 0 2em 0;
 		}
