@@ -1,24 +1,18 @@
 <?php
 /**
- * Shortcodes für besondere redaktionelle Zwecke
- *
- * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
- */
-
-
-
-/**
- * Shortcode [event-tabelle]
+ * Shortcode [event-table]
  * Erzeugt eine Tabelle mit dem Zeitplan eines bestimmten Events
  *
  * Folgende Parameter können verwendet werden:
- * - event       Die Identifikationsnummer des Events
- * - referent    Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten (optional)
- * - felder      Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
- *               Folgende Werte sind derzeit möglich: VON, VONBIS, DATUM, TITEL, REFERENT, ORT
+ * - event      Die Identifikationsnummer des Events
+ * - speaker    Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten (optional)
+ * - fieldset   Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
+ *              Folgende Werte sind derzeit möglich:
+ *              VON, VONBIS, DATUM, TITEL, REFERENT, ORT
  *
  * @since 1.0.0
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
  */
 
 function mdb_shortcode_event_table( $atts, $content = null )
@@ -30,11 +24,12 @@ function mdb_shortcode_event_table( $atts, $content = null )
 							 'fieldset' => 'VONBIS,TITEL,REFERENT,ORT'
                              ), $atts ) );
 
-    // Ausgabe vorbereiten
-    $output = '';
-
     // Daten holen
     $sessions = mdb_get_sessions_by_event( $event, $speaker );
+
+
+    // Ausgabe vorbereiten
+    $output = '';
 
     if( $sessions ) :
         // Variablen setzen
