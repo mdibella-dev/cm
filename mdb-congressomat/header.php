@@ -28,6 +28,9 @@
 </button>
 </div>
 <div>
+<button id="toggle" type="button">MENUE</button>	
+</div>
+<div>
 <nav id="primary" class="megamenu">
 <?php
 // Hauptmenü

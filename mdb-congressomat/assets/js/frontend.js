@@ -1,6 +1,10 @@
 jQuery(function($) {
 
 
+$( '#toggle' ).click( function() {
+    $( this ).toggleClass( 'on' );
+    $( '#primary' ).toggleClass( 'on' );
+} );
 
 
 var cbpHorizontalMenu = (function() {
