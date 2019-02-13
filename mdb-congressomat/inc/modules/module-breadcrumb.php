@@ -12,7 +12,7 @@ if( function_exists('yoast_breadcrumb') ) :
 	// Ausgabe puffern
 	ob_start();
 
-	yoast_breadcrumb( '<nav id="breadcrumb">','</nav>' );
+	yoast_breadcrumb( '<nav class="breadcrumb">','</nav>' );
 
 	// Ausgabenpuffer sichern; Pufferung beenden
 	$buffer = ob_get_contents();

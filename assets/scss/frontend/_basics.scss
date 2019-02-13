@@ -126,3 +126,28 @@ table {
         cursor: default;
     }
 }
+
+.breadcrumb {
+    display: block;
+    width: 100%;
+    padding: 0 2*$space;
+
+    @include respond-to(768) {
+        padding: 0;
+    }
+
+    & > span {
+        // Angaben analog .megamenu
+        display: block;
+
+        & > * {
+            font-size: 80%;
+            color: $color-darkgray;
+        }
+
+        a {
+            @include a-tag-basic-settings();
+            color: $color-darkergray !important;
+        }
+    }
+}
