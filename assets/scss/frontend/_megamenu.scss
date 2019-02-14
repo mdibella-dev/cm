@@ -49,7 +49,7 @@
 		padding: 1em;
 		width: 100%;
 		font-weight: 400;
-		color: $color-darkgray;
+		color: #777;
 
 		@include respond-to( 992 ) {
 			display: -webkit-box;
@@ -66,8 +66,8 @@
 
 	& > li.open a,
 	& > li.open > a:hover {
-		color: $color-darkergray;
-		background: #e8e8e8;
+		color: #555;
+		background: #ddd;
 	}
 }
 
@@ -75,7 +75,7 @@
 // Ausklappbares Submenu
 .megamenu .submenu {
 	display: none;
-	background: #e8e8e8;
+	background: #ddd;
 	width: 100%;
 	left: 0;
 	position: relative;
@@ -85,7 +85,7 @@
 	}
 
     h4 {
-    	color: #aaa;
+    	color: #999;
     	padding: 1em 0 0.6em;
     	margin: 0;
     	font-size: 160%;

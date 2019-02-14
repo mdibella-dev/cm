@@ -29,8 +29,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: $color-white;
-    color: $color-darkgray;
+    background: #fff;
+    color: #777;
 }
 
 *,
@@ -108,12 +108,12 @@ h3 {
 
         & > * {
             font-size: 80%;
-            color: $color-darkgray;
+            color: #777;
         }
 
         a {
             @include a-tag-basic-settings();
-            color: $color-darkergray !important;
+            color: #555 !important;
         }
     }
 }

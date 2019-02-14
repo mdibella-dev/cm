@@ -10,14 +10,14 @@
 @mixin a-tag-basic-settings() {
     -webkit-transition: all .3s ease-out;
             transition: all .3s ease-out;
-    color: $color-darkergray;
-    border-bottom: 1px solid $color-notsolightgray;
+    color: #555;
+    border-bottom: 1px solid #eee;
     padding: 2px;
     text-decoration: none;
 
     &:hover,
     &:focus {
-        background: $color-notsolightgray;
+        background: #eee;
         border-bottom: 1px solid transparent;
     }
 }

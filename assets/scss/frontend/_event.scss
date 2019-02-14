@@ -48,7 +48,7 @@
         background-color: $color-notsohighlight; // highlight light
 
         &:not(:first-of-type) {
-            border-top: 3px solid $color-white;
+            border-top: 3px solid #fff;
         }
     }
 

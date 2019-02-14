@@ -10,7 +10,7 @@
 .article {
     font-weight: normal;
     font-size: 18px;
-    color: $color-darkgray;
+    color: #777;
 
     p::not(.wc-responsive-video),
     ol,
@@ -75,7 +75,7 @@
         line-height: 0;
 
         figcaption {
-            background: $color-notsolightgray;
+            background: #f4f4f4;
             margin: 0;
             line-height: 1.2;
             padding: 2*$space;
