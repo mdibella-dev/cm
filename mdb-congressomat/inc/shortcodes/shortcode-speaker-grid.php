@@ -6,9 +6,9 @@
  *
  * Folgende Parameter können verwendet werden:
  * - event      (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
- *              Die Events werden in Form ihrer Identifikationsnummer eingetragen.
+ *              Die Events werden in Form ihrer Identifikationsnummer eingetragen werden.
  * - exclude    (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
- *              Die Referenten werden in Form ihrer Identifikationsnummer eingetragen.
+ *              Die Referenten werden in Form ihrer Identifikationsnummer eingetragen werden.
  * - show       (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
  * - shuffle    (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
  *
