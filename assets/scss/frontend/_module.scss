@@ -49,7 +49,6 @@
 
         @include respond-to(1200) {
             width: 1170px;
-            padding: 6*$space;
         }
 
         @include respond-to(1600) {
@@ -88,11 +87,11 @@
         }
 
         @include respond-to(1200) {
-            width: calc( 1170px - 2*6*#{$space} );
+            width: calc( 1170px - 2*4*#{$space} );
         }
 
         @include respond-to(1600) {
-            width: calc( 1400px - 2*6*#{$space} );
+            width: calc( 1400px - 2*4*#{$space} );
         }
     }
 }
