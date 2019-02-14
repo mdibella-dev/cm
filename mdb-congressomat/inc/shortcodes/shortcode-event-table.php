@@ -5,7 +5,7 @@
  *
  * Folgende Parameter können verwendet werden:
  * - event      Die Identifikationsnummer des Events
- * - speaker    Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten (optional)
+ * - speaker    (optional) Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
  * - fieldset   Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *              Folgende Werte sind derzeit möglich:
  *              VON, VONBIS, DATUM, TITEL, REFERENT, ORT

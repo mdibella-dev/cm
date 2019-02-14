@@ -29,7 +29,6 @@ require_once( PATH_THEME_TEMPLATE . '/inc/modules.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/session.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/classes/class-megamenu-walker.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-event-table.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-speaker-table.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaser-list.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaser-page.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-partner-table.php' );

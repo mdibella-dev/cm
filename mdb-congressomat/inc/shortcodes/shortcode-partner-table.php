@@ -1,11 +1,18 @@
 <?php
 /**
- * Shortcodes für besondere redaktionelle Zwecke
+ * Shortcode [partner-table]
+ * Erzeugt eine Tabelle mit den Kooperationspartnern
  *
- * @author Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-theme
- **/
-
+ * Folgende Parameter können verwendet werden:
+ * - partnership    (optional) Die Kooperationsform nach der gefiltert werden soll.
+ * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
+ *                  Folgende Werte sind derzeit möglich:
+ *                  LOGO, BESCHREIBUNG
+ *
+ * @since 1.0.0
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ */
 
 
 /**
