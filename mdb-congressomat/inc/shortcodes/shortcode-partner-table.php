@@ -5,6 +5,7 @@
  *
  * Folgende Parameter können verwendet werden:
  * - partnership    (optional) Die Kooperationsform nach der gefiltert werden soll.
+ *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
  * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                  Folgende Werte sind derzeit möglich:
  *                  LOGO, BESCHREIBUNG
@@ -30,16 +31,24 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                              'fieldset'    => '',
                              ), $atts ) );
 
-    // Daten holen
-    // @todo: nach partnership filtern
-    $partners = get_posts( array(
-                           'post_type'      => 'partner',
-                           'post_status'    => 'publish',
-                           'posts_per_page' => '-1',
-                           'order'          => 'ASC',
-                           'orderby'        => 'title'
-                           ) );
+    // Abfrage zusammenstellen
+    $query = array(
+             'post_type'      => 'partner',
+             'post_status'    => 'publish',
+             'posts_per_page' => '-1',
+             'order'          => 'ASC',
+             'orderby'        => 'title' );
 
+    // Nach Kooperationsform filtern
+    if( !empty( $partnership ) and is_numeric( $partnership ) ) :
+        $query[ 'tax_query' ] = array( array(
+                                       'taxonomy' => 'partnership',
+                                       'field'    => 'term_id',
+                                       'terms'    => $partnership ) );
+    endif;
+
+    // Daten holen
+    $partners = get_posts( $query );
 
     // Ausgabe vorbereiten
     $output = '';
