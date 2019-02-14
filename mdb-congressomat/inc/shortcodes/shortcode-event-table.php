@@ -59,16 +59,23 @@ function mdb_shortcode_event_table( $atts, $content = null )
 
                     case 'VONBIS':
                         $cells[ 'session-time' ] = sprintf( '%1$s-%2$s',
-                                            get_field( 'programmpunkt-von', $session->ID ),
-                                            get_field( 'programmpunkt-bis', $session->ID ) );
+                                                            get_field( 'programmpunkt-von', $session->ID ),
+                                                            get_field( 'programmpunkt-bis', $session->ID ) );
                     break;
 
                     case 'TITEL':
                         $title    = $session->post_title;
                         $subtitle = get_the_subtitle( $session->ID, '', '', FALSE );
-                        $cells[ 'session-title' ] = sprintf( '<span class="title">%1$s</span><span class="subtitle">%2$s</span>',
-                                                             $title,
-                                                             $subtitle );
+
+                        if( !empty( $title ) ) :
+                            $cells[ 'session-title' ] .= sprintf( '<span class="title">%1$s</span>', $title );
+
+                            if( !empty( $subtitle ) ) :
+                                $cells[ 'session-title' ] .= sprintf( '<span class="subtitle">%1$s</span>', $subtitle );
+                            endif;
+                        else :
+                            $cells[ 'session-title' ] = '';
+                        endif;
                     break;
 
                     case 'REFERENT':

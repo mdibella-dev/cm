@@ -135,12 +135,12 @@ function mdb_get_teaser_pagination( $current_page, $max_page )
 {
     echo '<nav class="teaser-list-pagination">';
 
-    echo sprintf( '<a href="%1$s" class="btn%3$s" title="%2$s"><i class="far fa-chevron-left"></i></a>',
+    echo sprintf( '<a href="%1$s" class="btn%3$s" title="%2$s" rel="prev"><i class="far fa-chevron-left"></i></a>',
                   add_query_arg( 'prt', $current_page - 1 ),
                   __( 'Vorhergehende Seite', TEXT_DOMAIN ),
                   ( $current_page != 1 )? '' : ' disabled' );
 
-    echo sprintf( '<a href="%1$s" class="btn%3$s" title="%2$s"><i class="far fa-chevron-right"></i></a>',
+    echo sprintf( '<a href="%1$s" class="btn%3$s" title="%2$s" rel="next"><i class="far fa-chevron-right"></i></a>',
                   add_query_arg( 'prt', $current_page + 1 ),
                   __( 'Nächste Seite', TEXT_DOMAIN ),
                   ( $current_page != $max_page )? '' : ' disabled' );

@@ -261,7 +261,7 @@ function mdb_get_active_events()
 
 function mdb_get_location( $location_id )
 {
-    $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' );
+    $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' ); // term_taxonomy_id
 
     if( $term === FALSE ) :
         return '';

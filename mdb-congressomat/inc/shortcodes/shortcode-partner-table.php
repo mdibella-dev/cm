@@ -15,14 +15,6 @@
  * @package mdb-congressomat
  */
 
-
-/**
- * Shortcode [...]
- * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
- *
- * @since 1.0.0
- **/
-
 function mdb_shortcode_partner_table( $atts, $content = null )
 {
     // Parameter auslesen
@@ -69,41 +61,73 @@ function mdb_shortcode_partner_table( $atts, $content = null )
 
             // Alle Feldschlüssel in der designierten Reihenfolge durchlaufen
             foreach( $field_keys as $field_key ) :
+
                 switch( $field_key ) :
                     case 'LOGO':
-                        $cells[ 'partner-logo' ] = get_the_post_thumbnail( $partner->ID, 'full' );
+                        $link  = get_field( 'partner-webseite', $partner->ID );
+                        $image = get_the_post_thumbnail( $partner->ID, 'full' );
+
+                        if( !empty( $link ) ) :
+                            $cells[ 'partner-logo' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
+                                                                $link,
+                                                                __( 'Externen Link aufrufen', TEXT_DOMAIN ),
+                                                                $image );
+                        else :
+                            $cells[ 'partner-logo' ] = $image;
+                        endif;
                     break;
 
                     case 'BESCHREIBUNG':
+                        // Alle möglichen Inhalte holen
                         $title       = get_the_title( $partner->ID);
                         $description = get_field( 'partner-beschreibung', $partner->ID );
                         $link        = get_field( 'partner-webseite', $partner->ID );
+                        $exhibition  = get_field( 'messestand', $partner->ID );
+                        $location    = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
+                        $number      = $exhibition[ 'partner-messestand-nummer' ];
 
+                        // Ausgabe erstellen
                         $cells[ 'partner-description' ] = '';
+                        $link_string                    = '';
+                        $exhib_string                   = '';
 
                         if( !empty( $title ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="title">%1$s</span>',
-                                                                        $title );
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="title">%1$s</span>', $title );
                         endif;
 
                         if( !empty( $description ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="description">%1$s</span>',
-                                                                        $description );
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="description">%1$s</span>', $description );
                         endif;
 
                         if( !empty( $link ) ) :
-                            $url = parse_url( $link );
-
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="link">%1$s</span>',
-                                                                        sprintf( '<a href="%1$s" target="_blank" title="%2$s">%1$s</a>',
-                                                                                 $url[ 'host' ],
-                                                                                 __( 'Externen Link aufrufen', TEXT_DOMAIN ) ) );
+                            $url         = parse_url( $link );
+                            $link_string = sprintf( '<span class="link">%1$s</span>',
+                                                    sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
+                                                             $link,
+                                                             __( 'Externen Link aufrufen', TEXT_DOMAIN ),
+                                                             $url[ 'host' ] ) );
                         endif;
+
+                        if( !empty( $location ) ) :
+                            $exhib_string = sprintf( '<span class="exhibtion">%1$s, %2$s</span>',
+                                                     sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number ),
+                                                     $location );
+                        endif;
+
+                        if( !empty( $exhib_string ) and !empty( $link_string ) ) :
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s|%2$s</span>', $exhib_string, $link_string );
+                        elseif( !empty( $link_string ) and empty( $exhib_string ) ) :
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $link_string );
+                        elseif( !empty( $exhib_string ) and empty( $link_string ) ) :
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $exhib_string );
+                        endif;
+
                     break;
 
                     case 'MESSESTAND':
-                        $location = get_field( 'partner-messestand-ort', $partner->ID );
-                        $number   = get_field( 'partner-messestand-nummer', $partner->ID );
+                        $exhibition = get_field( 'messestand', $partner->ID );
+                        $location   = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
+                        $number     = $exhibition[ 'partner-messestand-nummer' ];
 
                         if( 1==1 /*$location and $number*/ ) :
                             $cells[ 'partner-exhibition' ] = sprintf( '<span class="number">%1$s</span><span class="location">%2$s</span>',
