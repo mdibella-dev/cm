@@ -33,7 +33,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
      **/
 
     if( $paged == 1 ) :
-        $show     = empty ( $show )? get_option( 'posts_per_page' ) :  $show;
+        $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $max_page = round( sizeof( get_posts( array(
                                               'post_type'      => 'post',
                                               'post_status'    => 'publish',
@@ -53,7 +53,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
         // Startpunkt ermitteln
         $offset = ($current_page - 1) * $show;
     else :
-        $show   = empty ( $show )? get_option( 'posts_per_page' ) :  $show;
+        $show   = empty ( $show )? 4 : $show;
         $offset = 0;
     endif;
 
