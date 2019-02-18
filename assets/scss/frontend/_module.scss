@@ -13,6 +13,10 @@
 
 .module {
     width: 100%;
+    // Für Hero-Grafiken
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 
     .module-title {
         padding-bottom: 2*$space;
