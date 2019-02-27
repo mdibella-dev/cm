@@ -31,15 +31,15 @@
         margin: $space;
         width: calc( 50% - #{2*$space} );
 
-        @include respond-to(768) {
+        @include respond-to( 768 ) {
             width: calc( 33% - #{2*$space} );
         }
 
-        @include respond-to(1200) {
+        @include respond-to( 1200 ) {
             width: calc( 25% - #{2*$space} );
         }
 
-        @include respond-to(1600) {
+        @include respond-to( 1600 ) {
             width: calc( 25% - #{4*$space} );
             margin: 2*$space;
         }
@@ -68,7 +68,7 @@
         }
 
         .speaker-position {
-            font-weight: 500;
+            font-weight: 400;
             font-size: 90%;
         }
 
@@ -85,7 +85,7 @@
         padding: 2*$space 0;
     }
 
-    @include respond-to(768) {
+    @include respond-to( 768 ) {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -98,6 +98,7 @@
         & > div:last-of-type {
             width: 60%;
             margin-left: 4*$space;
+            padding: 0;
         }
     }
 
@@ -109,7 +110,7 @@
             width: 100%;
             height: 100%;
 
-            @include respond-to(576) {
+            @include respond-to( 576 ) {
                 width: auto;
                 height: auto;
             }
@@ -117,12 +118,16 @@
     }
 
     .speaker-title-name {
-        font-size: 36px;
+        font-size: 1.5rem;
     }
 
     .speaker-description,
     .speaker-position {
         margin-bottom: 2*$space;
+
+        @include respond-to( 768 ) {
+            margin-bottom: 4*$space;
+        }
     }
 
     .speaker-description {
@@ -139,11 +144,13 @@
     }
 
     .speaker-position {
-        font-size: 21px;
-        font-weight: 500;
+        font-size: 1.2rem;
+        font-weight: 400;
     }
 
     .speaker-social-media {
+        display: inline-block;
+
         ul,
         ul li {
             list-style: none;
@@ -151,13 +158,14 @@
 
         ul li {
             float: left;
-            margin-right: $space;
-            margin-bottom: $space;
+            margin-right: .5*$space;
+            margin-bottom: .5*$space;
         }
 
-        ul li > a {
-            @include a-tag-basic-settings();
-            border-bottom-color: transparent;
+        .btn {
+            width: 5*$space;
+            height: 5*$space;
+
         }
     }
 
