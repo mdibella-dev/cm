@@ -109,13 +109,13 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         endif;
 
                         if( !empty( $location ) ) :
-                            $exhib_string = sprintf( '<span class="exhibtion">%1$s, %2$s</span>',
+                            $exhib_string = sprintf( '<span class="exhibition">%1$s, %2$s</span>',
                                                      sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number ),
                                                      $location );
                         endif;
 
                         if( !empty( $exhib_string ) and !empty( $link_string ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s|%2$s</span>', $exhib_string, $link_string );
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s%2$s</span>', $exhib_string, $link_string );
                         elseif( !empty( $link_string ) and empty( $exhib_string ) ) :
                             $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $link_string );
                         elseif( !empty( $exhib_string ) and empty( $link_string ) ) :
