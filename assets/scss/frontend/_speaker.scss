@@ -121,15 +121,6 @@
         font-size: 1.5rem;
     }
 
-    .speaker-description,
-    .speaker-position {
-        margin-bottom: 2*$space;
-
-        @include respond-to( 768 ) {
-            margin-bottom: 4*$space;
-        }
-    }
-
     .speaker-description {
         clear: both;
         display: inline-block;
@@ -169,4 +160,12 @@
         }
     }
 
+    .speaker-position,
+    .speaker-social-media {
+        margin-bottom: 2*$space;
+
+        @include respond-to( 768 ) {
+            margin-bottom: 4*$space;
+        }
+    }
 }

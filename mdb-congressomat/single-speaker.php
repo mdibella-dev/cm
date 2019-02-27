@@ -21,7 +21,7 @@ if ( have_posts() ) :
         $speaker = mdb_get_speaker_info( get_the_ID() );
 ?>
 <article class="speaker-profile">
-<div class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></div>
+<div class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></div>
 <div>
 <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
@@ -29,13 +29,6 @@ if ( have_posts() ) :
         if( !empty( $speaker[ 'position' ] ) ) :
 ?>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
-<?php
-        endif;
-
-        // Ausführliche Beschreibung vorhanden?
-        if( !empty( $speaker[ 'description' ] ) ) :
-?>
-<div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
 <?php
         endif;
 
@@ -53,20 +46,20 @@ if ( have_posts() ) :
                                    'name' => 'Facebook',
                                    'icon' => 'fab fa-facebook-f' ),
                             '2' => array(
-                                    'name' => 'Twitter',
-                                    'icon' =>'fab fa-twitter' ),
+                                   'name' => 'Twitter',
+                                   'icon' =>'fab fa-twitter' ),
                             '3' => array(
-                                    'name' => 'Instagram',
-                                    'icon' => 'fab fa-instagram' ),
+                                   'name' => 'Instagram',
+                                   'icon' => 'fab fa-instagram' ),
                             '4' => array(
-                                    'name' => 'YouTube',
-                                    'icon' => 'fab fa-youtube' ),
+                                   'name' => 'YouTube',
+                                   'icon' => 'fab fa-youtube' ),
                             '5' => array(
-                                    'name' => 'XING',
-                                    'icon' => 'fab fa-xing' ),
+                                   'name' => 'XING',
+                                   'icon' => 'fab fa-xing' ),
                             '6' => array(
-                                    'name' => 'LinkedIn',
-                                    'icon' => 'fab fa-linkedin-in' ), );
+                                   'name' => 'LinkedIn',
+                                   'icon' => 'fab fa-linkedin-in' ), );
 
                 $service = get_sub_field( 'referent-web-service' );
 
@@ -81,6 +74,13 @@ if ( have_posts() ) :
 ?>
 </ul>
 </div>
+<?php
+        endif;
+
+        // Ausführliche Beschreibung vorhanden?
+        if( !empty( $speaker[ 'description' ] ) ) :
+?>
+<div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
 <?php
         endif;
 ?>
