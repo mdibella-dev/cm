@@ -80,16 +80,38 @@ h3 {
 }
 
 .btn {
-    @include a-tag-basic-settings();
+    text-decoration: none;
+    padding: 2*$space; // 3*$space;
+    display: inline-block;
+    border: 2px solid #999;
+    color: #999;
+    -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
 
-    color: #555;
-    padding: 2*$space 3*$space;
-    margin: 2px;
-    border-bottom: none !important;
+    &:hover,
+    &:focus {
+        background: #999;
+        color: #fff;
+    }
 
     &.disabled {
         pointer-events: none;
         cursor: default;
+        color: #ddd;
+        border-color: transparent;
+    }
+
+    &.btn-flex {
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+           -ms-flex-pack: center;
+         justify-content: center;
+        -webkit-box-align: center;
+           -ms-flex-align: center;
+              align-items: center;
     }
 }
 
@@ -98,7 +120,7 @@ h3 {
     width: 100%;
     padding: 0 2*$space;
 
-    @include respond-to(768) {
+    @include respond-to( 768 ) {
         padding: 0;
     }
 

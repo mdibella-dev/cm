@@ -70,7 +70,7 @@ if ( have_posts() ) :
 
                 $service = get_sub_field( 'referent-web-service' );
 
-                echo sprintf( '<li><a href="%1$s" target="_blank" title="%2$s">%3$s</a></li>',
+                echo sprintf( '<li><a href="%1$s" class="btn btn-flex" rel="external nofollow" target="_blank" title="%2$s">%3$s</a></li>',
                               get_sub_field( 'referent-web-service-url' ),
                               sprintf( __( 'Profil von %1$s auf %2$s', TEXT_DOMAIN ),
                                        $speaker[ 'name' ],

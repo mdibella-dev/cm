@@ -98,9 +98,9 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <div class="teaser-content">
 <h2><?php the_title(); ?></h2>
 <?php the_excerpt(); ?>
-<p class="teaser-more">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a>
-</p>
+<div class="teaser-more">
+<a href="<?php the_permalink(); ?>" class="btn" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a>
+</div>
 </div>
 </article>
 <?php
