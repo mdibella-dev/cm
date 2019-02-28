@@ -20,7 +20,7 @@ var cbpHorizontalMenu = (function() {
         $listItems.on( 'mouseenter', function( event ) { event.stopPropagation(); } );
     */
         $menuItems.on( 'click', open );
-        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );*/
+        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
     }
 
     function open( event ) {
