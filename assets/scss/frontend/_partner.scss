@@ -99,7 +99,7 @@
     .partner-logo {
         vertical-align: top;
 
-        @include respond-to(768) {
+        @include respond-to( 768 ) {
             width: 270px;
         }
 
@@ -108,7 +108,7 @@
             height: 100%;
             background: #f0f0f0;
 
-            @include respond-to(768) {
+            @include respond-to( 768 ) {
                 min-width: 150px;
             }
         }

@@ -49,13 +49,14 @@
 		padding: 1em;
 		width: 100%;
 		font-weight: 400;
-		color: #777;
+		color: #555;
 
 		@include respond-to( 992 ) {
 			display: -webkit-box;
 			display: -ms-flexbox;
 			display: flex;
 			width: unset;
+			font-size: 18px;
 			padding: 3*$space 2*$space;
 		}
 
