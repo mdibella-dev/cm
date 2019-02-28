@@ -18,10 +18,10 @@
     ol,
     ul {
         padding: $space 0;
+    }
 
-        & > strong {
-            font-weight: bold;
-        }
+    strong {
+        font-weight: 500; // nicht zu fett
     }
 
     & > p {
