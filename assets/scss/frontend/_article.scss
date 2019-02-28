@@ -41,10 +41,6 @@
     & > header {
         margin-bottom: 2em;
 
-        @include respond-to(992) {
-            margin-bottom: 3em;
-        }
-
         h1 {
             font-size: 1.5rem;
 
@@ -57,10 +53,6 @@
     & > h2 {
         margin-bottom: 1rem;
         margin-top: 2rem;
-
-        @include respond-to(992) {
-            margin-top: 3em;
-        }
 
         color: $color-highlight;
         font-size: 1.25rem;
