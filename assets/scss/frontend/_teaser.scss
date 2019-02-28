@@ -64,12 +64,12 @@
         @include respond-to( 992 ) {
             -ms-flex-preferred-size: 70%;
                 flex-basis: 70%;
-            padding-left: 3*$space;
+            padding-left: 4*$space;
         }
 
         h2 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.3em;
+            margin-bottom: 1em;
         }
 
         p {

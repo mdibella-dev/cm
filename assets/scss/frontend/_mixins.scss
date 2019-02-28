@@ -10,7 +10,7 @@
 @mixin a-tag-basic-settings() {
     -webkit-transition: all .3s ease-out;
             transition: all .3s ease-out;
-    color: #555;
+    color: #777;
     border-bottom: 1px solid #eee;
     padding: 2px;
     text-decoration: none;
@@ -26,9 +26,9 @@
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
-    //letter-spacing: -0.5px;
-    line-height: 1.5;
+    line-height: 1.65;
     text-align: left;
+    margin-bottom: 1em;
 
     @include respond-to(992) {
         text-align: justify;
