@@ -29,7 +29,7 @@
 <button id="toggle" type="button">MENUE</button>
 </div>
 <div>
-<nav id="primary" class="megamenu">
+<nav id="primary">
 <?php
 // Hauptmenü
 if( has_nav_menu( 'primary' ) ) :
