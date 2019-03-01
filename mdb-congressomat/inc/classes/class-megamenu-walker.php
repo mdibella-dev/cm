@@ -14,7 +14,7 @@ class MegaMenu_Walker extends Walker_Nav_Menu
     public function start_lvl( &$output, $depth = 0, $args = array() )
     {
         if( $depth == 0 ) :
-            $output .= '<div class="submenu"><ul class="submenu-inner">';
+            $output .= '<div class="dropdown-wrapper"><ul class="dropdown-content">';
         else :
             $output .= '<ul>';
         endif;
@@ -62,7 +62,7 @@ class MegaMenu_Walker extends Walker_Nav_Menu
         		endforeach;
 
                 // Link aufbauen
-                $item_output = $args->before;
+                $item_output  = $args->before;
         		$item_output .= '<a'. $attributes .'>';
         		$item_output .= $args->link_before . $title . $args->link_after;
         		$item_output .= '</a>';
