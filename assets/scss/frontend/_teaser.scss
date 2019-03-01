@@ -26,6 +26,7 @@
 
     .teaser-image {
         display: block;
+        overflow: hidden;
 
         @include respond-to( 768 ) {
             display: inline-block;
@@ -41,6 +42,10 @@
         img {
             width: 100%;
             height: auto;
+        }
+
+        a {
+            display: block;
         }
     }
 
