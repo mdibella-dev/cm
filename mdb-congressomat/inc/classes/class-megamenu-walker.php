@@ -14,7 +14,7 @@ class MegaMenu_Walker extends Walker_Nav_Menu
     public function start_lvl( &$output, $depth = 0, $args = array() )
     {
         if( $depth == 0 ) :
-            $output .= '<div class="dropdown-wrapper"><ul class="dropdown-content">';
+            $output .= '<div class="megamenu-wrapper"><ul class="megamenu-content">';
         else :
             $output .= '<ul>';
         endif;

@@ -9,7 +9,7 @@ $( '#toggle' ).click( function() {
 
 var cbpHorizontalMenu = (function() {
 
-    var $listItems = $( '#primary > ul > li.dropdown' ),
+    var $listItems = $( '#primary > ul > li.megamenu' ),
         $menuItems = $listItems.children( 'a' ),
         $body = $( 'body' ),
         current = -1;

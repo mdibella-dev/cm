@@ -189,7 +189,7 @@
     }
 
     // Ausklappbares Dropdown im MegaMenu-Stil
-    .dropdown .dropdown-wrapper {
+    .megamenu .megamenu-wrapper {
 		display: none;
 		background: #ddd;
 		width: 100%;
@@ -203,12 +203,12 @@
 		}
 	}
 
-	.dropdown.open .dropdown-wrapper {
+	.megamenu.open .megamenu-wrapper {
 		display: block;
 		padding-bottom: 3em;
 	}
 
-    .dropdown .dropdown-content {
+    .megamenu .megamenu-content {
     	width: 100%;
     	margin: 0 auto;
     	padding: 0 1.875em;
