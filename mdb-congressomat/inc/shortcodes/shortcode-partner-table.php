@@ -8,7 +8,7 @@
  *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
  * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                  Folgende Werte sind derzeit möglich:
- *                  LOGO, BESCHREIBUNG, MESSESTAND
+ *                  LOGO, BESCHREIBUNG, KURZBESCHREIBUNG, MESSESTAND
  *
  * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
