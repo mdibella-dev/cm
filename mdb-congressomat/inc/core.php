@@ -224,6 +224,7 @@ function mdb_sort_speakerlist( $speaker_list )
 
 
 
+
 function mdb_get_active_events()
 {
     // Suchparameter setzen
@@ -261,11 +262,13 @@ function mdb_get_active_events()
 
 function mdb_get_location( $location_id )
 {
-    $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' ); // term_taxonomy_id
+    if( !empty( $location_id ) ) :
+        $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' );
 
-    if( $term === FALSE ) :
-        return '';
+        if( $term !== FALSE ) :
+            return $term->name;
+        endif;
     endif;
 
-    return $term->name;
+    return '';
 }
