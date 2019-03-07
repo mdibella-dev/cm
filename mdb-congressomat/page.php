@@ -25,10 +25,6 @@ while( have_posts() ) :
                 case 'module-breadcrumb' :
                     get_template_part( 'inc/modules/module-breadcrumb' );
                 break;
-
-                case 'module-anmeldung' :
-                    get_template_part( 'inc/modules/module-registration' );
-                break;
             endswitch;
 
         endwhile;
