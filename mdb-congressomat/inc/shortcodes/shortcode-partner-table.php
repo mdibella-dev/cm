@@ -8,7 +8,7 @@
  *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
  * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                  Folgende Werte sind derzeit möglich:
- *                  LOGO, BESCHREIBUNG
+ *                  LOGO, BESCHREIBUNG, MESSESTAND
  *
  * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -78,6 +78,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                     break;
 
                     case 'BESCHREIBUNG':
+                    case 'KURZBESCHREIBUNG':
                         // Alle möglichen Inhalte holen
                         $title       = get_the_title( $partner->ID);
                         $description = get_field( 'partner-beschreibung', $partner->ID );
@@ -85,12 +86,10 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         $exhibition  = get_field( 'messestand', $partner->ID );
                         $location    = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
                         $number      = $exhibition[ 'partner-messestand-nummer' ];
+                        $additional  = '';
 
                         // Ausgabe erstellen
-                        $cells[ 'partner-description' ] = '';
-                        $link_string                    = '';
-                        $exhib_string                   = '';
-
+                        // Dieser Abschnitt gilt für BESCHREIBUNG/KURZBESCHREIBUNG
                         if( !empty( $title ) ) :
                             $cells[ 'partner-description' ] .= sprintf( '<span class="title">%1$s</span>', $title );
                         endif;
@@ -100,39 +99,51 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         endif;
 
                         if( !empty( $link ) ) :
-                            $url         = parse_url( $link );
-                            $link_string = sprintf( '<span class="link">%1$s</span>',
-                                                    sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
-                                                             $link,
-                                                             __( 'Externen Link aufrufen', TEXT_DOMAIN ),
-                                                             $url[ 'host' ] ) );
+                            $url        = parse_url( $link );
+                            $additional = sprintf( '<span class="link">%1$s</span>',
+                                                                        sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
+                                                                                 $link,
+                                                                                 __( 'Externen Link aufrufen', TEXT_DOMAIN ),
+                                                                                 $url[ 'host' ] ) );
                         endif;
 
-                        if( !empty( $location ) ) :
-                            $exhib_string = sprintf( '<span class="exhibition">%1$s, %2$s</span>',
-                                                     sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number ),
-                                                     $location );
+                        // Dieser Abschnitt gilt nur für KURZBESCHREIBUNG
+                        if( ( $field_key == 'BESCHREIBUNG' ) and ( !empty( $number ) or !empty( $location ) ) ) :
+                            $strings = array();
+
+                            if( !empty( $number ) ) :
+                                $strings[] = sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number );
+                            endif;
+
+                            if( !empty( $location ) ) :
+                                $strings[] = $location;
+                            endif;
+
+                            $additional .= sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
                         endif;
 
-                        if( !empty( $exhib_string ) and !empty( $link_string ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s%2$s</span>', $exhib_string, $link_string );
-                        elseif( !empty( $link_string ) and empty( $exhib_string ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $link_string );
-                        elseif( !empty( $exhib_string ) and empty( $link_string ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $exhib_string );
-                        endif;
-
+                        $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $additional );
                     break;
 
                     case 'MESSESTAND':
+                        // Alle möglichen Inhalte holen
                         $exhibition = get_field( 'messestand', $partner->ID );
                         $location   = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
                         $number     = $exhibition[ 'partner-messestand-nummer' ];
 
-                        if( 1==1 /*$location and $number*/ ) :
-                            $cells[ 'partner-exhibition' ] = sprintf( '<span class="number">%1$s</span><span class="location">%2$s</span>',
-                                                             $number,
-                                                             $location );
+                        // Ausgabe erstellen
+                        if( !empty( $number ) or !empty( $location ) ) :
+                            $strings = array();
+
+                            if( !empty( $number ) ) :
+                                $strings[] = sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number );
+                            endif;
+
+                            if( !empty( $location ) ) :
+                                $strings[] = $location;
+                            endif;
+
+                            $cells[ 'partner-exhibition' ] = sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
                         else :
                             $cells[ 'partner-exhibition' ] = '';
                         endif;
