@@ -82,20 +82,20 @@
         padding: 2*$space 0;
 
         @include respond-to(768) {
-            width: calc( 750px - 2*2*#{$space} );
+            width: calc(750px - 2*2*#{$space});
             //padding: 3*$space 0 0 !important;
         }
 
         @include respond-to(992) {
-            width: calc( 970px - 2*4*#{$space} );
+            width: calc(970px - 2*4*#{$space});
         }
 
         @include respond-to(1200) {
-            width: calc( 1170px - 2*4*#{$space} );
+            width: calc(1170px - 2*4*#{$space});
         }
 
         @include respond-to(1600) {
-            width: calc( 1400px - 2*4*#{$space} );
+            width: calc(1400px - 2*4*#{$space});
         }
     }
 }

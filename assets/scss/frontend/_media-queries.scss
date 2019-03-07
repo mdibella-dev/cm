@@ -21,7 +21,7 @@
  *                           - 1600 (extra extra large)
  **/
 
-@mixin respond-to( $breakpoint ) {
+@mixin respond-to($breakpoint) {
 
     /**
      * Liste der möglichen Breakpoints
@@ -35,7 +35,7 @@
         992:  992px,
         1200: 1200px,
         1600: 1600px,
-    ) !default;
+   ) !default;
 
     @if map-has-key($breakpoints, $breakpoint) {
         $value: map-get($breakpoints, $breakpoint);
@@ -55,7 +55,7 @@
  * @source https://gist.github.com/ddemaree/5470343
  **/
 
-@mixin retina( $ratio: 1.5 ) {
+@mixin retina($ratio: 1.5) {
     $dpi: $ratio * 96;
     $opera-ratio: $ratio * 100;
 

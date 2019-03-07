@@ -10,7 +10,7 @@
 .article {
     font-weight: normal;
 
-    @include respond-to( 768 ) {
+    @include respond-to(768) {
         font-size: 18px;
     }
 
