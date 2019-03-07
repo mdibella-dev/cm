@@ -18,12 +18,16 @@ while( have_posts() ) :
             the_row();
 
             switch( get_row_layout() ) :
-                case 'modul-standard' :
+                case 'module-standard' :
                     get_template_part( 'inc/modules/module-standard' );
                 break;
 
-                case 'modul-breadcrumb' :
+                case 'module-breadcrumb' :
                     get_template_part( 'inc/modules/module-breadcrumb' );
+                break;
+
+                case 'module-anmeldung' :
+                    get_template_part( 'inc/modules/module-registration' );
                 break;
             endswitch;
 
