@@ -33,7 +33,6 @@ function mdb_get_module( $args, $content )
     $classes[] = $class;
     $classes[] = $additional_class;
 
-
     // Bearbeitung erfolgt nur bei vorhandenem Inhalt
     if( !empty( $content) ) :
         $module_head = '';
@@ -62,4 +61,25 @@ function mdb_get_module( $args, $content )
     endif;
 
     return $output;
+}
+
+
+/**
+ * Ergänzt im Backend die standardmäßige Angabe des Modultyps im Titel um einen individuellen Bezeichner mit mehr Aussagekraft
+ *
+ * @since 1.0.0
+ **/
+
+function mdb_set_module_title( $title, $field, $layout, $i )
+{
+	if( $field[ 'key' ] == 'field_5c35e946eacd2' ) :
+        $text = get_sub_field( 'module-description' );
+
+		if( !empty ($text ) ) :
+			$title = sprintf( '%1$s (%2$s)', $text, $title );
+		endif;
+	endif;
+
+	// Rückgabe
+	return $title;
 }

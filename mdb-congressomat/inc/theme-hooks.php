@@ -31,3 +31,7 @@ add_action( 'enqueue_block_editor_assets', 'mdb_add_gutenberg_styles' );
 // snippets.php
 add_filter( 'excerpt_length', 'mdb_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'mdb_excerpt_more' );
+
+
+// modules.php
+add_filter( 'acf/fields/flexible_content/layout_title/key=field_5c35e946eacd2', 'mdb_set_module_title', 10, 4 );
