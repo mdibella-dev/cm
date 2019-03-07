@@ -64,6 +64,7 @@ function mdb_get_module( $args, $content )
 }
 
 
+
 /**
  * Ergänzt im Backend die standardmäßige Angabe des Modultyps im Titel um einen individuellen Bezeichner mit mehr Aussagekraft
  *
