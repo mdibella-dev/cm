@@ -28,20 +28,24 @@
     .speaker-block {
         width: 100%;
         height: auto;
-        margin: $space;
+        margin: 0 #{2*$space} #{2*$space} 0;
         width: calc(50% - #{2*$space});
 
         @include respond-to(768) {
-            width: calc(33% - #{2*$space});
+            margin: 0 #{4*$space} #{4*$space} 0;
+            width: calc(50% - #{4*$space});
+        }
+
+        @include respond-to(992) {
+            margin: 0 #{2*$space} #{2*$space} 0;
+            width: calc(25% - #{2*$space});
+
         }
 
         @include respond-to(1200) {
-            width: calc(25% - #{2*$space});
-        }
-
-        @include respond-to(1600) {
+            margin: 0 #{4*$space} #{4*$space} 0;
             width: calc(25% - #{4*$space});
-            margin: 2*$space;
+
         }
     }
 
