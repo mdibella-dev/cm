@@ -80,7 +80,7 @@ if ( have_posts() ) :
         // Ausführliche Beschreibung vorhanden?
         if( !empty( $speaker[ 'description' ] ) ) :
 ?>
-<div class="speaker-description"><?php echo $speaker[ 'description' ]; ?></div>
+<div class="speaker-description"><?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
 <?php
         endif;
 ?>
