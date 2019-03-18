@@ -5,13 +5,13 @@
  *
  * Folgende Parameter können verwendet werden:
  * - paged      (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- *              Stadardwert: 0 (non-paged)
+ *              Standardwert: 0 (non-paged)
  * - show       (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
  *              Standardwerte:  non-paged:  4
  *                              paged:      die im Backend hinterlegte Angabe für Archivseiten
  * - exclude    (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
  * - shuffle    (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
- *              Stadardwert: 0
+ *              Standardwert: 0
  *
  * @since 1.0.0
  * @author Marco Di Bella <mdb@marcodibella.de>
