@@ -64,8 +64,8 @@ function mdb_shortcode_event_table( $atts, $content = null )
                     break;
 
                     case 'TITEL':
-                        $title    = $session->post_title;
-                        $subtitle = get_the_subtitle( $session->ID, '', '', FALSE );
+                        $title    = apply_filters( 'the_content', $session->post_title );
+                        $subtitle = apply_filters( 'the_content', get_the_subtitle( $session->ID, '', '', FALSE ) );
 
                         if( !empty( $title ) ) :
                             $cells[ 'session-title' ] .= sprintf( '<span class="title">%1$s</span>', $title );
