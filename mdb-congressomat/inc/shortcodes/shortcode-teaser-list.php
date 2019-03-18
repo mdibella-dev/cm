@@ -4,11 +4,14 @@
  * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
  *
  * Folgende Parameter können verwendet werden:
- * - paged  (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- *          Stadardwert: 0 (non-paged)
- * - show   (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *          Standardwerte:  non-paged:  4
- *                          paged:      die im Backend hinterlegte Angabe für Archivseiten
+ * - paged      (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ *              Stadardwert: 0 (non-paged)
+ * - show       (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
+ *              Standardwerte:  non-paged:  4
+ *                              paged:      die im Backend hinterlegte Angabe für Archivseiten
+ * - exclude    (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ * - shuffle    (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ *              Stadardwert: 0
  *
  * @since 1.0.0
  * @author Marco Di Bella <mdb@marcodibella.de>
@@ -24,8 +27,14 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
     // Parameter auslesen
     extract( shortcode_atts( array(
                              'show'    => '',
-                             'paged'   => '0'
+                             'paged'   => '0',
+                             'exclude' => '',
+                             'shuffle' => '0',
                              ), $atts ) );
+
+    // Bestimmte Artikel ausschließen wenn gewünscht
+    $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
+
 
     /**
      * Schritt 1
@@ -35,6 +44,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
     if( $paged == 1 ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $max_page = round( sizeof( get_posts( array(
+                                              'exclude'        => $exclude_ids,
                                               'post_type'      => 'post',
                                               'post_status'    => 'publish',
                                               'posts_per_page' => -1 ) ) ) / $show ) ;
@@ -51,10 +61,17 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
         endif;
 
         // Startpunkt ermitteln
-        $offset = ($current_page - 1) * $show;
+        $offset  = ($current_page - 1) * $show;
+        $orderby = 'date';
     else :
         $show   = empty ( $show )? 4 : $show;
         $offset = 0;
+
+        if( $shuffle == 1 ) :
+            $orderby = 'rand';
+        else :
+            $orderby = 'date';
+        endif;
     endif;
 
 
@@ -64,10 +81,11 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
      **/
 
     $articles = get_posts( array(
+                           'exclude'        => $exclude_ids,
                            'post_type'      => 'post',
                            'post_status'    => 'publish',
                            'order'          => 'DESC',
-                           'orderby'        => 'date',
+                           'orderby'        => $orderby,
                            'posts_per_page' => $show,
                            'offset'         => $offset ) );
 
