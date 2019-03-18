@@ -31,6 +31,10 @@ add_action( 'enqueue_block_editor_assets', 'mdb_add_gutenberg_styles' );
 // snippets.php
 add_filter( 'excerpt_length', 'mdb_excerpt_length', 999 );
 add_filter( 'excerpt_more', 'mdb_excerpt_more' );
+add_filter( 'the_content' , 'mdb_special_replacements' , 12);
+add_filter( 'the_title', 'mdb_special_replacements', 12 );
+add_filter( 'the_title_rss', 'mdb_special_replacements', 12 );
+add_filter( 'the_content_feed', 'mdb_special_replacements', 12 );
 
 
 // modules.php

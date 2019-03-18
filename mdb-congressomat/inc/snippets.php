@@ -31,3 +31,21 @@ function mdb_excerpt_more( $more )
 {
 	return '...';
 }
+
+
+
+/**
+ * Erzeugt eine korrekte deutsche Typografie
+ *
+ * @source https://reussmedia.de/wordpress-deutsche-anfuehrungszeichen/
+ * @since  1.0.0
+ **/
+
+function mdb_special_replacements( $text )
+{
+    $text = str_replace( '&#8220;' , '&#8222;' , $text );
+    $text = str_replace( '&#8221;' , '&#8220;' , $text );
+    $text = str_replace( '&#8216;' , '&#8218;' , $text );
+    $text = str_replace( '&#8217;' , '&#8216;' , $text );
+    return $text;
+}
