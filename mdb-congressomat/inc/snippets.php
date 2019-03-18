@@ -47,5 +47,8 @@ function mdb_special_replacements( $text )
     $text = str_replace( '&#8221;' , '&#8220;' , $text );
     $text = str_replace( '&#8216;' , '&#8218;' , $text );
     $text = str_replace( '&#8217;' , '&#8216;' , $text );
+	$text = str_replace( ' &#8208; ' , ' &ndash; ' , $text );
+	$text = str_replace( ' &#45; ' , ' &ndash; ' , $text );
+
     return $text;
 }
