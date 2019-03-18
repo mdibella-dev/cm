@@ -7,21 +7,18 @@
 
 
 
-.teaser-list {
-    padding: 4*$space 0;
 
-    .teaser {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            line-height: 0;
+.teaser {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    line-height: 0;
 
-            @include respond-to(768) {
-                -ms-flex-wrap: nowrap;
-                flex-wrap: nowrap;
-            }
+    @include respond-to(768) {
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
     }
 
     .teaser-image {
@@ -31,12 +28,12 @@
         @include respond-to(768) {
             display: inline-block;
             -ms-flex-preferred-size: 25%;
-                flex-basis: 25%;
+                         flex-basis: 25%;
         }
 
         @include respond-to(992) {
             -ms-flex-preferred-size: 30%;
-                flex-basis: 30%;
+                         flex-basis: 30%;
         }
 
         img {
@@ -56,19 +53,19 @@
         @include respond-to(768) {
             display: inline-block;
             -ms-flex-preferred-size: 75%;
-                flex-basis: 75%;
-            -webkit-box-flex: 1;
-                -ms-flex-positive: 1;
+                         flex-basis: 75%;
+             -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
                     flex-grow: 1;
             -ms-flex-negative: 1;
-                flex-shrink: 1;
+                  flex-shrink: 1;
             padding-top: 0;
             padding-left: 2*$space;
         }
 
         @include respond-to(992) {
             -ms-flex-preferred-size: 70%;
-                flex-basis: 70%;
+                         flex-basis: 70%;
             padding-left: 4*$space;
         }
 
@@ -94,16 +91,41 @@
             font-size: 14px;
         }
     }
+}
+
+
+.teaser-list {
+    padding: 4*$space 0;
 
     .teaser + .teaser {
         margin-top: 4*$space;
     }
 }
 
+
 .teaser-list-pagination {
     text-align: center;
+
+    .pageinfo {
+        display: inline-block;
+        padding: 0 2*$space;
+
+        @include respond-to(992) {
+            min-width: 400px;
+        }
+    }
 
     .btn {
         padding: 2*$space 2.5*$space;
     }
+}
+
+
+.module-content > .teaser-list-pagination:first-of-type {
+    margin-bottom: 2*$space;
+}
+
+
+.module-content > .teaser-list-pagination:last-of-type {
+    margin-top: 2*$space;
 }
