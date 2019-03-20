@@ -4,8 +4,8 @@
  * Erzeugt eine Liste mit den Kooperationspartnern
  *
  * Folgende Parameter können verwendet werden:
- * - partnership    (optional) Die Kooperationsform nach der gefiltert werden soll.
- *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
+ * - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                  Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  *
  * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -28,11 +28,11 @@ function mdb_shortcode_partner_list( $atts, $content = null )
              'orderby'        => 'title' );
 
     // Nach Kooperationsform filtern
-    if( !empty( $partnership ) and is_numeric( $partnership ) ) :
+    if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
                                        'taxonomy' => 'partnership',
                                        'field'    => 'term_id',
-                                       'terms'    => $partnership ) );
+                                       'terms'    => explode(',', $partnership ) ) );
     endif;
 
     // Daten holen

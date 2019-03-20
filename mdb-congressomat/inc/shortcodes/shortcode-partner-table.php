@@ -4,8 +4,8 @@
  * Erzeugt eine Tabelle mit den Kooperationspartnern
  *
  * Folgende Parameter können verwendet werden:
- * - partnership    (optional) Die Kooperationsform nach der gefiltert werden soll.
- *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
+ * - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                  Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                  Folgende Werte sind derzeit möglich:
  *                  LOGO, BESCHREIBUNG, MESSESTAND
@@ -32,11 +32,11 @@ function mdb_shortcode_partner_table( $atts, $content = null )
              'orderby'        => 'title' );
 
     // Nach Kooperationsform filtern
-    if( !empty( $partnership ) and is_numeric( $partnership ) ) :
+    if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
                                        'taxonomy' => 'partnership',
                                        'field'    => 'term_id',
-                                       'terms'    => $partnership ) );
+                                       'terms'    => explode(',', $partnership ) ) );
     endif;
 
     // Daten holen
