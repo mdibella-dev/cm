@@ -8,7 +8,7 @@
  *                  Die Kooperationsform muss in Form ihrer Identifikationsnummer eingetragen werden.
  * - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                  Folgende Werte sind derzeit möglich:
- *                  LOGO, BESCHREIBUNG, KURZBESCHREIBUNG, MESSESTAND
+ *                  LOGO, BESCHREIBUNG, MESSESTAND
  *
  * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -78,18 +78,12 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                     break;
 
                     case 'BESCHREIBUNG':
-                    case 'KURZBESCHREIBUNG':
                         // Alle möglichen Inhalte holen
                         $title       = get_the_title( $partner->ID);
                         $description = get_field( 'partner-beschreibung', $partner->ID );
                         $link        = get_field( 'partner-webseite', $partner->ID );
-                        $exhibition  = get_field( 'messestand', $partner->ID );
-                        $location    = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
-                        $number      = $exhibition[ 'partner-messestand-nummer' ];
-                        $additional  = '';
 
                         // Ausgabe erstellen
-                        // Dieser Abschnitt gilt für BESCHREIBUNG/KURZBESCHREIBUNG
                         if( !empty( $title ) ) :
                             $cells[ 'partner-description' ] .= sprintf( '<span class="title">%1$s</span>', $title );
                         endif;
@@ -99,30 +93,13 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         endif;
 
                         if( !empty( $link ) ) :
-                            $url        = parse_url( $link );
-                            $additional = sprintf( '<span class="link">%1$s</span>',
+                            $url                             = parse_url( $link );
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="link">%1$s</span>',
                                                                         sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                                  $link,
                                                                                  __( 'Externen Link aufrufen', TEXT_DOMAIN ),
                                                                                  $url[ 'host' ] ) );
                         endif;
-
-                        // Dieser Abschnitt gilt nur für KURZBESCHREIBUNG
-                        if( ( $field_key == 'BESCHREIBUNG' ) and ( !empty( $number ) or !empty( $location ) ) ) :
-                            $strings = array();
-
-                            if( !empty( $number ) ) :
-                                $strings[] = sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number );
-                            endif;
-
-                            if( !empty( $location ) ) :
-                                $strings[] = $location;
-                            endif;
-
-                            $additional .= sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
-                        endif;
-
-                        $cells[ 'partner-description' ] .= sprintf( '<span class="additional">%1$s</span>', $additional );
                     break;
 
                     case 'MESSESTAND':
@@ -146,18 +123,6 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                             $cells[ 'partner-exhibition' ] = sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
                         else :
                             $cells[ 'partner-exhibition' ] = '';
-                        endif;
-                    break;
-
-                    case 'WEBSEITE':
-                        $link = get_field( 'partner-webseite', $partner->ID );
-
-                        if( !empty( $link ) ) :
-                            $cells[ 'partner-website' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s"><i class="fal fa-external-link-square"></i></a>',
-                                                                   $link,
-                                                                   __( 'Mehr erfahren', TEXT_DOMAIN ) );
-                        else :
-                            $cells[ 'partner-website' ] = '';
                         endif;
                     break;
                 endswitch;
