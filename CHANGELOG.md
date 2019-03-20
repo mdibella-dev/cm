@@ -1,11 +1,7 @@
-# 0.0.2
-**Geändert**
-- Media-Queries
-
+# 1.0.0
 **Hinzugefügt**
-- Einfache Gitterstruktur
-
-# 0.0.1
-**Hinzugefügt**
-- Initiales Commit
-- Grundlegende Ordnerstruktur des Themes
+- Shortcode 'event-table'
+- Shortcode 'partner-table'
+- Shortcode 'partner-list'
+- Shortcode 'speaker-grid'
+- Shortcode 'teaser-list'
