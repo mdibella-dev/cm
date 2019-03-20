@@ -89,7 +89,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         endif;
 
                         if( !empty( $description ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="description">%1$s</span>', $description );
+                            $cells[ 'partner-description' ] .= sprintf( '<span class="description">%1$s</span>', apply_filters( 'the_content', $description ) );
                         endif;
 
                         if( !empty( $link ) ) :
