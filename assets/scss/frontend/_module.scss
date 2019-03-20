@@ -25,10 +25,6 @@
             padding-bottom: 4*$space;
         }
 
-        @include respond-to(1200) {
-            padding-bottom: 6*$space;
-        }
-
         &.module-title-alignment-left {
             text-align: left;
         }
