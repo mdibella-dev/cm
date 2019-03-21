@@ -1,5 +1,5 @@
 /**
- * Tabelle mit Kooperationspartnern
+ * Partner
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -7,6 +7,9 @@
 
 
 
+/**
+ * Tabelle mit Kongresspartnern
+ **/
 
 .partner-table {
     border-collapse: collapse;
@@ -115,6 +118,11 @@
     }
 }
 
+
+
+/**
+ * Liste mit Kongresspartnern
+ **/
 
 .partner-list {
     list-style: none;

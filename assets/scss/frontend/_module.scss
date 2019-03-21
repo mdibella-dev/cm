@@ -84,7 +84,6 @@
 
         @include respond-to(768) {
             width: calc(750px - 2*2*#{$space});
-            //padding: 3*$space 0 0 !important;
         }
 
         @include respond-to(992) {
