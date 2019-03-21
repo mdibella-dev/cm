@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [congressomat-teaser-list]
+ * Shortcode [teaser-list]
  * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
  *
  * Folgende Parameter können verwendet werden:
@@ -139,7 +139,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'congressomat-teaser-list', 'mdb_shortcode_teaser_list' );
+add_shortcode( 'teaser-list', 'mdb_shortcode_teaser_list' );
 
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [congressomat-partner-list]
+ * Shortcode [partner-list]
  * Erzeugt eine Liste mit den Kooperationspartnern
  *
  * Folgende Parameter können verwendet werden:
@@ -55,4 +55,4 @@ function mdb_shortcode_partner_list( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'congressomat-partner-list', 'mdb_shortcode_partner_list' );
+add_shortcode( 'partner-list', 'mdb_shortcode_partner_list' );
