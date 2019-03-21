@@ -51,4 +51,20 @@ var cbpHorizontalMenu = (function() {
 
 cbpHorizontalMenu.init();
 
+
+/*
+var allPanels = $('.faq-accordion > li > div').hide();
+
+$('.faq-accordion > li > h3').click(function() {
+    allPanels.slideUp();
+    $(this).next().slideDown();
+    return false;
+});*/
+
+ $( '.faq-accordion > li > h3' ).click(function(){
+    $(this).toggleClass( 'on' );
+    $(this).next().slideToggle( 'medium' );
+});
+
+
 } );
