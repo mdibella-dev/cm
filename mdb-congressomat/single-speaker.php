@@ -113,7 +113,7 @@ ob_start();
 // Aktuell angezeigten Speaker ermitteln
 // Shortcode generieren, der den aktuellen Speaker ausschließt und vier Speaker maximal anzeigt
 $speaker = mdb_get_speaker_info( get_the_ID() );
-echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
+echo do_shortcode( sprintf( '[congressomat-speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
 
 // Ausgabenpuffer sichern; Pufferung beenden
 $buffer  = ob_get_contents();

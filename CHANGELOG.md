@@ -1,7 +1,7 @@
 # 1.0.0
 **Hinzugefügt**
-- Shortcode 'event-table'
-- Shortcode 'partner-table'
-- Shortcode 'partner-list'
-- Shortcode 'speaker-grid'
-- Shortcode 'teaser-list'
+- Shortcode 'congressomat-event-table'
+- Shortcode 'congressomat-partner-table'
+- Shortcode 'congressomat-partner-list'
+- Shortcode 'congressomat-speaker-grid'
+- Shortcode 'congressomat-teaser-list'

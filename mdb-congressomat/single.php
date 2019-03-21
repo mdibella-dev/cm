@@ -51,7 +51,7 @@ endif;
 
 // Ausgabe puffern
 ob_start();
-echo do_shortcode( sprintf( '[teaser-list exclude=%1$s show=2]', get_the_ID() ) );   
+echo do_shortcode( sprintf( '[congressomat-teaser-list exclude=%1$s show=2]', get_the_ID() ) );   
 
 // Ausgabenpuffer sichern; Pufferung beenden
 $buffer  = ob_get_contents();

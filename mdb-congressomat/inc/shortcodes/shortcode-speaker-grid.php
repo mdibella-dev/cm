@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [speaker-grid]
+ * Shortcode [congressomat-speaker-grid]
  * Erzeugt eine Grid-Ansicht mit den Bildern, Namen und Positionsbeschreibungen der Referenten eines oder mehrerer Events.
  * Wird keine Angaben zu den Events gemacht, so werden die im Backend als aktiv gekennzeichneten Events zur Grundlage gemacht.
  *
@@ -84,4 +84,4 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'speaker-grid', 'mdb_shortcode_speaker_grid' );
+add_shortcode( 'congressomat-speaker-grid', 'mdb_shortcode_speaker_grid' );

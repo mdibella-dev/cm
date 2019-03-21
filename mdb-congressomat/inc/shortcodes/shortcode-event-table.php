@@ -10,7 +10,7 @@
  *              Folgende Werte sind derzeit möglich:
  *              VON, VONBIS, DATUM, TITEL, REFERENT, ORT
  *
- * @since 1.0.0
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */
@@ -26,7 +26,6 @@ function mdb_shortcode_event_table( $atts, $content = null )
 
     // Daten holen
     $sessions = mdb_get_sessions_by_event( $event, $speaker );
-
 
     // Ausgabe vorbereiten
     $output = '';

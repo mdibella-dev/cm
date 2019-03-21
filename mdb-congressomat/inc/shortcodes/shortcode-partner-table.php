@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [partner-table]
+ * Shortcode [congressomat-partner-table]
  * Erzeugt eine Tabelle mit den Kooperationspartnern
  *
  * Folgende Parameter können verwendet werden:
@@ -159,4 +159,4 @@ function mdb_shortcode_partner_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'partner-table', 'mdb_shortcode_partner_table' );
+add_shortcode( 'congressomat-partner-table', 'mdb_shortcode_partner_table' );
