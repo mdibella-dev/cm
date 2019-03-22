@@ -50,6 +50,15 @@ cbpHorizontalMenu.init();
 $( '#toggle' ).click( function() {
     $( this ).toggleClass( 'on' );
     $( '#primary' ).toggleClass( 'on' );
+/*
+    if( $( this ).hasClass( 'on' ) ) {
+        $( '#toggle > i' ).removeClass( 'fa-bars' );
+        $( '#toggle > i' ).addClass( 'fa-times' );
+    }
+    else {
+        $( '#toggle > i' ).removeClass( 'fa-times' );
+        $( '#toggle > i' ).addClass( 'fa-bars' );
+    } */
 } );
 
 
