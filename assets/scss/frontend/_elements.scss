@@ -39,6 +39,7 @@
 
     & > div:nth-child(2) {
         text-align: center;
+        margin: 0 0 1em;
     }
 
     @include respond-to(768) {
@@ -51,6 +52,7 @@
         & > div:nth-child(2) {
             width: 50%;
             text-align: right;
+            margin: 0;
         }
 
         // Bereich des Hauptmenüs (#primary)
@@ -80,6 +82,64 @@
         }
     }
 }
+
+@mixin line {
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background: #555;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+#toggle {
+    .lines {
+        @include line;
+        position: relative;
+
+        &:before,
+        &:after {
+            @include line;
+            position: absolute;
+            left:0;
+            content: '';
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+        }
+
+        &:before {
+            top: 10px;
+        }
+
+        &:after {
+            top: -10px;
+        }
+    }
+
+    &.on .lines {
+        background: transparent;
+
+        &:before,
+        &:after{
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            top: 0;
+            width: 40px;
+        }
+
+        // rotate the lines to form the x shape
+        &:before{
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+        }
+
+        &:after{
+            -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+        }
+    }
+}
+
 
 
 /**
