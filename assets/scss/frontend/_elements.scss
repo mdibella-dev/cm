@@ -157,7 +157,7 @@
 			    display: inline-block;
 			    border-bottom: 0;
 		    }
-	    }
+        }
 
 	    & > li > a {
 		    display: block;
@@ -180,7 +180,7 @@
     	    }
         }
 
-    	& > li > a:hover,
+        & > li > a:hover,
     	& > li.open > a,
     	& > li.open > a:hover {
     		color: #555;
