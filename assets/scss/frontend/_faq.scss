@@ -21,38 +21,35 @@
         h3 {
             font-size: 1.5rem;
             border-bottom: 1px solid #ddd;
-            //margin: 0 0 0.3em;
             padding: 1em 0 0.5em;
             cursor: pointer;
 
-            &::before {
-        	    display: inline-block;
-        	    font-style: normal;
-        	    font-variant: normal;
-        	    text-rendering: auto;
-        	    -webkit-font-smoothing: antialiased;
-        	    font-family: "Font Awesome 5 Pro";
-                font-weight: 300;
-        	    content: "\f178";
-        	    padding-right: 2*$space;
+            & > span {
+                padding-right: 2*$space;
                 width: 4*$space;
+
+                i {
+                    -webkit-transition: all .5s ease-out;
+                            transition: all .5s ease-out;
+                }
             }
 
-            &.on::before {
-                content: "\f175";
+            &.on > span > i {
+                -webkit-transform-origin: center;
+                        transform-origin: center;
+                -webkit-transform: rotate(90deg);
+                        transform: rotate(90deg);
             }
         }
 
         p {
-            //padding-top: 1rem;
-            //margin-bottom: 2rem;
             font-weight: 300;
             font-size: 1.25em;
         }
 
         div {
             display: none;
-            background: #fdfdfd;
+            background: #f9f9f9;
             padding: 1rem 4*$space;
             margin-bottom: 2rem;
         }

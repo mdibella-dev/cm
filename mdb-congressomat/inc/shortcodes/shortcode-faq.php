@@ -32,7 +32,7 @@ function mdb_shortcode_faq( $atts, $content = null )
             $answer   = apply_filters( 'the_content', get_sub_field( 'answer' ) );
 
             $output .= '<li>';
-            $output .= sprintf( '<h3>%1$s</h3>', wp_strip_all_tags( $question ) );
+            $output .= sprintf( '<h3><span><i class="fal fa-long-arrow-right"></i></span>%1$s</h3>', wp_strip_all_tags( $question ) );
             $output .= sprintf( '<div>%1$s</div>', $answer );
             $output .= '</li>';
         endwhile;
