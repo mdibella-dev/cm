@@ -1,12 +1,6 @@
 jQuery(function($) {
 
-
-$( '#toggle' ).click( function() {
-    $( this ).toggleClass( 'on' );
-    $( '#primary' ).toggleClass( 'on' );
-} );
-
-
+// Megamenu
 var cbpHorizontalMenu = (function() {
 
     var $listItems = $( '#primary > ul > li.megamenu' ),
@@ -52,19 +46,18 @@ var cbpHorizontalMenu = (function() {
 cbpHorizontalMenu.init();
 
 
-/*
-var allPanels = $('.faq-accordion > li > div').hide();
+// Toggle button
+$( '#toggle' ).click( function() {
+    $( this ).toggleClass( 'on' );
+    $( '#primary' ).toggleClass( 'on' );
+} );
 
-$('.faq-accordion > li > h3').click(function() {
-    allPanels.slideUp();
-    $(this).next().slideDown();
-    return false;
-});*/
 
- $( '.faq-accordion > li > h3' ).click(function(){
-    $(this).toggleClass( 'on' );
-    $(this).next().slideToggle( 'medium' );
-});
+// FAQ panels
+$( '.faq-accordion > li > h3' ).click(function() {
+    $( this ).toggleClass( 'on' );
+    $( this ).next().slideToggle( 'medium' );
+} );
 
 
 } );
