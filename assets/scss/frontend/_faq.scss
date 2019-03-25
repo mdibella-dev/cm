@@ -58,15 +58,6 @@
             }
         }
 
-        p {
-            font-weight: 300;
-            font-size: 1rem;
-
-            @include respond-to(768) {
-                font-size: 1.25rem;
-            }
-        }
-
         div {
             display: none;
             background: #f9f9f9;
@@ -76,6 +67,28 @@
             @include respond-to(768) {
                 margin-bottom: 2rem;
                 padding: 1rem 4*$space;
+            }
+
+            @include respond-to(992) {
+                padding: 3rem 4*$space;
+            }
+
+            ol,
+            ul,
+            p {
+                @include p-tag-basic-settings;
+
+                font-weight: 300;
+                font-size: 1rem;
+
+                @include respond-to(768) {
+                    font-size: 1.125rem;
+                    line-height: 1.4;
+                }
+            }
+
+            a {
+                @include a-tag-basic-settings;
             }
         }
     }
