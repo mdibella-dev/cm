@@ -9,6 +9,7 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
+<div id="dimmer"></div>
 <?php
 while( have_posts() ) :
     the_post();

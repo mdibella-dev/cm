@@ -8,6 +8,7 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
+<div id="dimmer"></div>
 <?php get_template_part( 'inc/modules/module-breadcrumb' ); ?>
 <?php
 if ( have_posts() ) :
@@ -51,7 +52,7 @@ endif;
 
 // Ausgabe puffern
 ob_start();
-echo do_shortcode( sprintf( '[teaser-list exclude=%1$s show=2]', get_the_ID() ) );   
+echo do_shortcode( sprintf( '[teaser-list exclude=%1$s show=2]', get_the_ID() ) );
 
 // Ausgabenpuffer sichern; Pufferung beenden
 $buffer  = ob_get_contents();

@@ -3,9 +3,9 @@ jQuery(function($) {
 // Megamenu
 var cbpHorizontalMenu = (function() {
 
-    var $listItems = $( '#primary > ul > li.megamenu' ),
+    var $listItems = $( '#primary > ul > li' ),
         $menuItems = $listItems.children( 'a' ),
-        $body = $( 'body' ),
+        $body   = $( 'body' ),
         current = -1;
 
     function init() {
@@ -24,10 +24,12 @@ var cbpHorizontalMenu = (function() {
 
         if( current === idx ) {
             $item.removeClass( 'open' );
+            //$body.removeClass( 'dimmed' );
             current = -1;
         }
         else {
             $item.addClass( 'open' );
+            //$body.addClass( 'dimmed' );
             current = idx;
             $body.off( 'click' ).on( 'click', close );
         }
@@ -36,6 +38,7 @@ var cbpHorizontalMenu = (function() {
 
     function close( event ) {
         $listItems.eq( current ).removeClass( 'open' );
+        //$body.removeClass( 'dimmed' );
         current = -1;
     }
 
@@ -50,15 +53,6 @@ cbpHorizontalMenu.init();
 $( '#toggle' ).click( function() {
     $( this ).toggleClass( 'on' );
     $( '#primary' ).toggleClass( 'on' );
-/*
-    if( $( this ).hasClass( 'on' ) ) {
-        $( '#toggle > i' ).removeClass( 'fa-bars' );
-        $( '#toggle > i' ).addClass( 'fa-times' );
-    }
-    else {
-        $( '#toggle > i' ).removeClass( 'fa-times' );
-        $( '#toggle > i' ).addClass( 'fa-bars' );
-    } */
 } );
 
 
