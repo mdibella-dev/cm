@@ -26,6 +26,10 @@
             display: -ms-flexbox;
             display: flex;
 
+            @include respond-to(768) {
+                padding: 1em 0;
+            }
+
             & > span {
                 display: inline-block;
                 font-size: 1.25rem;
@@ -75,15 +79,44 @@
 
             ol,
             ul,
-            p {
+            p,
+            table {
                 @include p-tag-basic-settings;
-
                 font-weight: 300;
                 font-size: 1rem;
 
                 @include respond-to(768) {
                     font-size: 1.125rem;
                     line-height: 1.4;
+                }
+            }
+
+            ul {
+                list-style: disc inside;
+            }
+
+            table {
+                width: 100%;
+
+                @include respond-to(768) {
+                    width: calc(100% - 2*2*#{$space});
+                    margin: 2*$space;
+                }
+
+                @include respond-to(992) {
+                    text-align: left;
+                    width: calc(100% - 2*4*#{$space});
+                    margin: 4*$space;
+                }
+
+                td {
+                    border-bottom: 2px solid #fff;
+                    height: 3rem;
+                    padding: 5px;
+                }
+
+                tr:last-of-type > td {
+                    border-bottom: none;
                 }
             }
 

@@ -85,14 +85,16 @@
 
 @mixin line {
     display: inline-block;
-    width: 40px;
-    height: 4px;
+    width: 30px;
+    height: 3px;
     background: #555;
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
 #toggle {
+    margin: $space;
+
     .lines {
         @include line;
         position: relative;
@@ -124,7 +126,7 @@
             -webkit-transform-origin: center;
                     transform-origin: center;
             top: 0;
-            width: 40px;
+            width: 30px;
         }
 
         // rotate the lines to form the x shape
