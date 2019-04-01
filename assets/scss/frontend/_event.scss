@@ -61,6 +61,15 @@
         }
     }
 
+    @include respond-to(768) {
+        .session-speaker {
+            width: 15%;
+        }
+        .session-time {
+            width: 20%;
+        }
+    }
+    
     .session-speaker a {
         width: 60px;
         height: auto;
