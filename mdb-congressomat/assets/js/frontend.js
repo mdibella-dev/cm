@@ -24,21 +24,22 @@ var cbpHorizontalMenu = (function() {
 
         if( current === idx ) {
             $item.removeClass( 'open' );
-            //$body.removeClass( 'dimmed' );
             current = -1;
         }
         else {
-            $item.addClass( 'open' );
-            //$body.addClass( 'dimmed' );
-            current = idx;
-            $body.off( 'click' ).on( 'click', close );
+            if( $item.hasClass( 'megamenu' ) ) {
+                $item.addClass( 'open' );
+                current = idx;
+                $body.off( 'click' ).on( 'click', close );
+            } else {
+                window.location.href = $( event.currentTarget ).attr( 'href' );
+            }
         }
         return false;
     }
 
     function close( event ) {
         $listItems.eq( current ).removeClass( 'open' );
-        //$body.removeClass( 'dimmed' );
         current = -1;
     }
 
