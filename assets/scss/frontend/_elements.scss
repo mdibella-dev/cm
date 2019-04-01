@@ -180,23 +180,6 @@
     width: 100%;
 }
 
-#dimmer {
-    -webkit-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;
-}
-
-body.dimmed {
-    #dimmer {
-        z-index: 200;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        opacity: 0.6;
-        position: fixed;
-        -webkit-transition: all 0.5s ease-in;
-        transition: all 0.5s ease-in;
-    }
-}
 
 
 /**
@@ -286,8 +269,8 @@ body.dimmed {
 		display: block;
 		padding-bottom: 3em;
         z-index: 500;
-        -webkit-box-shadow: 0 14px 14px -8px rgba(0,0,0,0.2);
-                box-shadow: 0 14px 14px -8px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1);
 	}
 
     .megamenu .megamenu-content {

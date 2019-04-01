@@ -8,7 +8,6 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<div id="dimmer"></div>
 <?php get_template_part( 'inc/modules/module-breadcrumb' ); ?>
 <?php
 if ( have_posts() ) :
