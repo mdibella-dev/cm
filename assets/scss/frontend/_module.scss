@@ -98,4 +98,98 @@
             width: calc(1400px - 2*4*#{$space});
         }
     }
+
+    .breadcrumb {
+        display: block;
+        width: 100%;
+        padding: 0 2*$space;
+
+        @include respond-to(768) {
+            padding: 0;
+        }
+
+        & > span {
+            // Angaben analog .megamenu
+            display: block;
+
+            & > * {
+                font-size: 80%;
+                color: #555;
+            }
+
+            a {
+                @include a-tag-basic-settings();
+                color: #777 !important;
+            }
+        }
+    }
+}
+
+
+
+/**
+ * Modul 'Footer-Widgets'
+ **/
+
+.module-footer-widgets {
+    .module-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+        @include respond-to(992) {
+            -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+        }
+    }
+
+    .widget-area {
+        width: 100%;
+
+        @include respond-to(992) {
+            width: 33%;
+
+            &:not(:last-child) {
+                margin-right: $space;
+            }
+
+            &:not(:first-child) {
+                margin-left: $space;
+            }
+        }
+
+        @include respond-to(1200) {
+            &:not(:last-child) {
+                margin-right: 2*$space;
+            }
+
+            &:not(:first-child) {
+                margin-left: 2*$space;
+            }
+        }
+    }
+
+    .widget_nav_menu ul {
+        list-style-type: none;
+
+        & > li {
+            border-bottom: 1px solid #777;
+            line-height: 2.5em;
+            color: #555;
+            padding: 5px 0;
+            font-size: 90%;
+            font-weight: 400;
+
+            &:first-child {
+                border-top: 1px solid #777;
+            }
+
+            a {
+                @include a-tag-basic-settings();
+                border-bottom: none !important;
+            }
+        }
+    }
 }

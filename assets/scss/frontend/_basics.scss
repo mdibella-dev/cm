@@ -116,28 +116,3 @@ h3 {
               align-items: center;
     }
 }
-
-.breadcrumb {
-    display: block;
-    width: 100%;
-    padding: 0 2*$space;
-
-    @include respond-to(768) {
-        padding: 0;
-    }
-
-    & > span {
-        // Angaben analog .megamenu
-        display: block;
-
-        & > * {
-            font-size: 80%;
-            color: #555;
-        }
-
-        a {
-            @include a-tag-basic-settings();
-            color: #777 !important;
-        }
-    }
-}
