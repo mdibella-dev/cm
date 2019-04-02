@@ -21,9 +21,10 @@ define( 'TEXT_DOMAIN',         'mdb-congressomat' );
 
 // Funktionsbibliothek einbinden
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-setup.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/theme-backend.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-hooks.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/theme-backend.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/widget-areas.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/snippets.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/modules.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/core.php' );
