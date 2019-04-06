@@ -43,7 +43,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 
     if( $paged == 1 ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
-        $max_page = round( sizeof( get_posts( array(
+        $max_page = ceil( sizeof( get_posts( array(
                                               'exclude'        => $exclude_ids,
                                               'post_type'      => 'post',
                                               'post_status'    => 'publish',
