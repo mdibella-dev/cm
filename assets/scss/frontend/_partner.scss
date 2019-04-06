@@ -96,6 +96,10 @@
             display: block;
             font-weight: 500;
         }
+
+        @include respond-to(768) {
+            width: 15%;
+        }
     }
 
     // Spalte mit Partnerlogo
