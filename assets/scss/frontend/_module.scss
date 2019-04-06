@@ -182,10 +182,6 @@
             font-size: 90%;
             font-weight: 400;
 
-            &:first-child {
-                border-top: 1px solid #777;
-            }
-
             a {
                 @include a-tag-basic-settings();
                 border-bottom: none !important;
