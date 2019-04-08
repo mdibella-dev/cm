@@ -69,7 +69,7 @@ function mdb_do_header( $title, $subtitle = '', $class='' )
 		$header = sprintf( '<header%1$s><h2>%2$s%3$s</h2></header>',
 		 				   ( !empty( $class ) )? sprintf( ' class="%1$s"', $class ) : '',
 						   $title,
-						   ( !empty( $subtitle ) )? sprintf( '<span class="subheading">%1$s</span>', $subtitle ) : '' );
+						   ( !empty( $subtitle ) )? sprintf( '<p class="subheading">%1$s</p>', $subtitle ) : '' );
 	endif;
 
 	return $header;
