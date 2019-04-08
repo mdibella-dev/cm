@@ -55,10 +55,10 @@ function mdb_get_module( $args, $content )
 function mdb_set_module_title( $title, $field, $layout, $i )
 {
 	if( $field[ 'key' ] == 'field_5c35e946eacd2' ) :
-        $text = get_sub_field( 'module-description' );
+        $text = get_sub_field( 'module-id' );
 
 		if( !empty ($text ) ) :
-			$title = sprintf( '%1$s (%2$s)', $text, $title );
+			$title = sprintf( '%1$s (#%2$s)', $title, $text );
 		endif;
 	endif;
 
