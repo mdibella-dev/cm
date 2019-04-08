@@ -15,6 +15,9 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     line-height: 0;
+    -webkit-box-align: end;
+       -ms-flex-align: end;
+          align-items: flex-end;
 
     @include respond-to(768) {
         -ms-flex-wrap: nowrap;
