@@ -28,21 +28,21 @@
     .speaker-block {
         width: 100%;
         height: auto;
-        margin: 0 #{2*$space} #{2*$space} 0;
+        margin: #{2*$space} #{2*$space} 0 0;
         width: calc(50% - #{2*$space});
 
         @include respond-to(768) {
-            margin: 0 #{4*$space} #{4*$space} 0;
+            margin: #{4*$space} #{4*$space} 0 0;
             width: calc(50% - #{4*$space});
         }
 
         @include respond-to(992) {
-            margin: 0 #{2*$space} #{2*$space} 0;
+            margin: #{2*$space} #{2*$space} 0 0;
             width: calc(25% - #{2*$space});
         }
 
         @include respond-to(1200) {
-            margin: 0 #{4*$space} #{4*$space} 0;
+            margin: #{4*$space} #{4*$space} 0 0;
             width: calc(25% - #{4*$space});
         }
     }

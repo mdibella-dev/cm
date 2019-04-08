@@ -18,22 +18,23 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
 
-    .module-title {
+    .module-content > header,
+    .module-content > .article > header {
         padding-bottom: 2*$space;
 
         @include respond-to(992) {
             padding-bottom: 4*$space;
         }
 
-        &.module-title-alignment-left {
+        &.align-left {
             text-align: left;
         }
 
-        &.module-title-alignment-center {
+        &.align-center {
             text-align: center;
         }
 
-        &.module-title-alignment-right {
+        &.align-right {
             text-align: right;
         }
     }
@@ -70,59 +71,6 @@
 
 .module-lightgray {
     background: #f4f4f4;
-}
-
-
-
-/**
- * Modul 'Brotkrümmel'
- **/
-
-.module-breadcrumb {
-    .module-wrapper {
-        padding: 2*$space 0;
-
-        @include respond-to(768) {
-            width: calc(750px - 2*2*#{$space});
-        }
-
-        @include respond-to(992) {
-            width: calc(970px - 2*4*#{$space});
-        }
-
-        @include respond-to(1200) {
-            width: calc(1170px - 2*4*#{$space});
-        }
-
-        @include respond-to(1600) {
-            width: calc(1400px - 2*4*#{$space});
-        }
-    }
-
-    .breadcrumb {
-        display: block;
-        width: 100%;
-        padding: 0 2*$space;
-
-        @include respond-to(768) {
-            padding: 0;
-        }
-
-        & > span {
-            // Angaben analog .megamenu
-            display: block;
-
-            & > * {
-                font-size: 80%;
-                color: #555;
-            }
-
-            a {
-                @include a-tag-basic-settings();
-                color: #777 !important;
-            }
-        }
-    }
 }
 
 
