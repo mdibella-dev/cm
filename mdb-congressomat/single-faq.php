@@ -8,13 +8,13 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<?php get_template_part( 'inc/modules/module-breadcrumb' ); ?>
 <?php
 if ( have_posts() ) :
     // Ausgabe puffern
     ob_start();
 
     // Shortcode generieren mit den FAQs
+    echo mdb_do_header( get_the_title(), '', 'align-center' );
     echo do_shortcode( sprintf( '[faq faq="%1$s"]', get_the_ID() ) );
 
     // Ausgabenpuffer sichern; Pufferung beenden
@@ -24,8 +24,6 @@ if ( have_posts() ) :
     // Modul generieren
     $args = array(
             'class'     => 'module-standard',
-            'title'     => get_the_title(),
-            'alignment' => 1
             );
     echo mdb_get_module( $args, $buffer );
 endif;

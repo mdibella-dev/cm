@@ -21,10 +21,6 @@ function mdb_get_module( $args, $content )
                             array(
                             'class'            => '',
 							'additional_class' => '',
-                            'id'               => '',
-                            'title'            => '',
-                            'subtitle'         => '',
-                            'alignment'        => 0
             ) ) );
 
     // Variablen setzen
@@ -35,28 +31,13 @@ function mdb_get_module( $args, $content )
 
     // Bearbeitung erfolgt nur bei vorhandenem Inhalt
     if( !empty( $content) ) :
-        $module_head = '';
-        $module_body = '';
-
-        // Titelbereich generieren
-        if( !empty( $title ) ) :
-            $alignments  = array( 0 => 'module-title-alignment-left',
-                                  1 => 'module-title-alignment-center',
-                                  2 => 'module-title-alignment-right' );
-            $module_head = sprintf( '<div class="module-title %1$s">%2$s%3$s</div>',
-                                    $alignments[ $alignment ],
-                                    sprintf( '<h2>%1$s</h2>', $title ),
-                                    ( $subtitle != '' )? sprintf( '<span class="subheading">%1$s</span>', $subtitle ) : '' );
-        endif;
-
         // Inhaltsbereich generieren
         $module_body = sprintf( '<div class="module-content">%1$s</div>', $content );
 
         // Modul fertigstellen und ausgeben
-        $output = sprintf( '<section class="%1$s"%2$s><div class="module-wrapper">%3$s%4$s</div></section>',
+        $output = sprintf( '<section class="%1$s"%2$s><div class="module-wrapper">%3$s</div></section>',
                            implode( ' ', $classes ),
-                           ( $id != '' )? sprintf( ' id="%1$s"', $id ) : '',
-                           $module_head,
+                           ( !empty( $id ) )? sprintf( ' id="%1$s"', $id ) : '',
                            $module_body );
     endif;
 

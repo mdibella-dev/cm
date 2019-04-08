@@ -11,10 +11,7 @@
 // Variablen setzen
 $args[ 'class' ]            = get_row_layout();
 $args[ 'additional_class' ] = get_sub_field( 'module-additional-class' );
-$args[ 'id ' ]              = get_sub_field( 'module-id' );
-$args[ 'title' ]            = get_sub_field( 'module-title' );
-$args[ 'subtitle' ]         = get_sub_field( 'module-subtitle' );
-$args[ 'alignment' ]        = get_sub_field( 'module-title-alignment' );
+$args[ 'id' ]               = get_sub_field( 'module-id' );
 $content                    = get_sub_field( 'module-content' );
 
 echo mdb_get_module( $args, $content );

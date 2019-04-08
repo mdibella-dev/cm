@@ -52,3 +52,25 @@ function mdb_special_replacements( $text )
 
     return $text;
 }
+
+
+
+/**
+ * Erzeugt einen Header-Tag mit Überschrift und Unterüberschrift
+ *
+ * @since 1.0.0
+ **/
+
+function mdb_do_header( $title, $subtitle = '', $class='' )
+{
+	$header = '';
+
+	if( !empty( $title ) ) :
+		$header = sprintf( '<header%1$s><h2>%2$s%3$s</h2></header>',
+		 				   ( !empty( $class ) )? sprintf( ' class="%1$s"', $class ) : '',
+						   $title,
+						   ( !empty( $subtitle ) )? sprintf( '<span class="subheading">%1$s</span>', $subtitle ) : '' );
+	endif;
+
+	return $header;
+}

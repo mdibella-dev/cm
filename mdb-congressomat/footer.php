@@ -26,8 +26,7 @@ ob_end_clean();
 
 // Modul generieren
 $args = array(
-        'class'     => 'module-footer-widgets',
-        'title'     => '',
+        'class' => 'module-footer-widgets',
         );
 echo mdb_get_module( $args, $buffer );
 ?>

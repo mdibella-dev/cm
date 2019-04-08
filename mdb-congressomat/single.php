@@ -8,7 +8,6 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<?php get_template_part( 'inc/modules/module-breadcrumb' ); ?>
 <?php
 if ( have_posts() ) :
     // Ausgabe puffern
@@ -36,7 +35,6 @@ if ( have_posts() ) :
         // Modul generieren
         $args    = array(
                    'class' => 'module-standard',
-                   'title' => ''
                    );
         echo mdb_get_module( $args, $buffer );
     endwhile;
@@ -51,6 +49,8 @@ endif;
 
 // Ausgabe puffern
 ob_start();
+
+echo mdb_do_header( __( 'Weitere Beiträge', TEXT_DOMAIN ), '', 'align-center' );
 echo do_shortcode( sprintf( '[teaser-list exclude=%1$s show=2]', get_the_ID() ) );
 
 // Ausgabenpuffer sichern; Pufferung beenden
@@ -61,8 +61,6 @@ ob_end_clean();
 $args    = array(
            'class'            => 'module-standard',
            'additional_class' => 'module-lightgray',
-           'title'            => __( 'Weitere Beiträge', TEXT_DOMAIN ),
-           'alignment'        => 1
            );
 echo mdb_get_module( $args, $buffer );
 ?>
