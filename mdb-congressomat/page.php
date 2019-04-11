@@ -9,7 +9,6 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<article class="article">
 <?php
 while( have_posts() ) :
     the_post();
@@ -24,17 +23,10 @@ while( have_posts() ) :
                 break;
             endswitch;
 
-            switch( get_row_layout() ) :
-                case 'module-two-columns' :
-                    get_template_part( 'inc/modules/module-two-columns' );
-                break;
-            endswitch;
-
         endwhile;
     endif;
 
 endwhile;
 ?>
-</article>
 </main>
 <?php get_footer(); ?>

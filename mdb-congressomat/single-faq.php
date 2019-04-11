@@ -8,7 +8,6 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<article class="article">
 <?php
 if ( have_posts() ) :
     // Ausgabe puffern
@@ -29,6 +28,5 @@ if ( have_posts() ) :
     echo mdb_get_module( $args, $buffer );
 endif;
 ?>
-</article>
 </main>
 <?php get_footer(); ?>
