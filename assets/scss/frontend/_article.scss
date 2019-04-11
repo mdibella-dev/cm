@@ -24,7 +24,7 @@
         font-weight: 500; // nicht zu fett
     }
 
-    & > p {
+    p {
         @include p-tag-basic-settings();
         color: inherit;
 
@@ -34,23 +34,23 @@
         }
     }
 
-    & > p,
-    & > header,
-    & > table,
-    & > .wp-block-image {
+    p,
+    header,
+    table,
+    .wp-block-image {
         margin-bottom: 2em;
     }
 
-    & > h2,
-    & > .wp-block-image {
+    h2,
+    .wp-block-image {
         margin-top: 2em;
     }
 
-    & > header h1 {
+    header h1 {
         font-size: 2em;
     }
 
-    & > h2 {
+    h2 {
         margin-bottom: .6em;
         font-size: 1.4em;
         color: $color-highlight;

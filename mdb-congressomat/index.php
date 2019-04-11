@@ -8,11 +8,13 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
+<article class="article">
 <?php
 while( have_posts() ) :
     the_post();
     the_content();
 endwhile;
 ?>
+</article>
 </main>
 <?php get_footer(); ?>
