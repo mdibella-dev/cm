@@ -22,8 +22,8 @@ while( have_posts() ) :
                     get_template_part( 'inc/modules/module-standard' );
                 break;
 
-                case 'module-two-columns' :
-                    get_template_part( 'inc/modules/module-two-columns' );
+                case 'module-columns' :
+                    get_template_part( 'inc/modules/module-columns' );
                 break;
             endswitch;
 
