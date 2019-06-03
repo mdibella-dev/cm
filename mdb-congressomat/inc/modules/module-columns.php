@@ -29,11 +29,11 @@ if( have_rows( 'module-content' ) ):
 
         $column_count   += 1;
         $column_classes  = array( 'module-column',
-                           get_sub_field( 'module-column-class' ),
-                           sprintf( 'module-column-%1$s', $column_count ) );
+                                  get_sub_field( 'module-column-class' ),
+                                  sprintf( 'module-column-%1$s', $column_count ) );
         $module_content .= sprintf( '<div class="%1$s">%2$s</div>',
-                             implode( ' ', $column_classes ),
-                             get_sub_field( 'module-column-content' ) );
+                                    implode( ' ', $column_classes ),
+                                    get_sub_field( 'module-column-content' ) );
     endwhile;
     $module_content .= '</div></div>';
 
