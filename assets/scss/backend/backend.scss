@@ -8,7 +8,7 @@
 
 
 
-// Änderung der Abstände 
+// Änderung der Abstände
 .postbox .inside {
     margin: 0;
 
@@ -38,4 +38,14 @@
     .acf-accordion-title {
         background: #fff;
     }
+}
+
+
+// Repeater-Fields bei Module
+.acf-table > tbody > tr:nth-child(odd) > td.acf-fields {
+    background: #f7fbff;
+}
+
+.acf-table > tbody > tr:nth-child(even) > td.acf-fields {
+    background: #f2f6fa;
 }

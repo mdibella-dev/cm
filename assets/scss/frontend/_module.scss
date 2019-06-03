@@ -140,52 +140,6 @@
 
 
 
-/**
- * Modul 'Two Columns'
- **/
-
-.module-two-columns {
-
-    .module-column-wrapper {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-
-        @include respond-to(992) {
-            -ms-flex-wrap: nowrap;
-                flex-wrap: nowrap;
-        }
-    }
-
-    .module-column {
-        width: 100%;
-
-        @include respond-to(992) {
-            width: 50%;
-
-            &.module-column-width-30 {
-                width: 30%;
-            }
-
-            &.module-column-width-40 {
-                width: 40%;
-            }
-
-            &.module-column-width-60 {
-                width: 60%;
-            }
-
-            &.module-column-width-70 {
-                width: 70%;
-            }
-        }
-    }
-}
-
-
-
 
 /**
  * Modul 'Columns'
@@ -208,6 +162,28 @@
 
     .module-column {
         width: 100%;
+    }
+
+    // Zweispalten
+    .module-columns-2 {
+        @include respond-to(992) {
+            .module-column {
+                width: 50%;
+            }
+        }
+    }
+
+    // Dreispalten
+    .module-columns-3 {
+        @include respond-to(992) {
+            .module-column {
+                width: 30%;
+            }
+        }
+    }
+/*
+    .module-column {
+        width: 100%;
 
         @include respond-to(992) {
             width: 50%;
@@ -229,4 +205,5 @@
             }
         }
     }
+*/
 }
