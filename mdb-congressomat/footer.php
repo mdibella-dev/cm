@@ -21,14 +21,11 @@ foreach( $areas as $area ) :
 endforeach;
 
 // Ausgabenpuffer sichern; Pufferung beenden
-$buffer  = ob_get_contents();
+$buffer = ob_get_contents();
 ob_end_clean();
 
 // Modul generieren
-$args = array(
-        'class' => 'module-footer-widgets',
-        );
-echo mdb_get_module( $args, $buffer );
+echo mdb_do_module( array( 'classes' => array( 'module-footer-widgets') ), $buffer );
 ?>
 </footer>
 <?php wp_footer(); ?>

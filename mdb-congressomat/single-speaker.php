@@ -91,10 +91,7 @@ if ( have_posts() ) :
         ob_end_clean();
 
         // Modul generieren
-        $args = array(
-                'class' => 'module-standard',
-                );
-        echo mdb_get_module( $args, $buffer );
+        echo mdb_do_module( array( 'classes' => array( 'module-standard') ), $buffer );
     endwhile;
 endif;
 ?>
@@ -119,11 +116,7 @@ $buffer  = ob_get_contents();
 ob_end_clean();
 
 // Modul generieren
-$args    = array(
-           'class'            => 'module-standard',
-           'additional_class' => 'module-lightgray',
-           );
-echo mdb_get_module( $args, $buffer );
+echo mdb_do_module( array( 'classes' => array( 'module-standard', 'module-lightgray') ), $buffer );
 ?>
 </main>
 <?php get_footer(); ?>

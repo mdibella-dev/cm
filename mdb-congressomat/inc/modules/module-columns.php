@@ -39,15 +39,10 @@ if( !empty( $module_content) ) :
     $module_column_class = array( 1 => 'module-one-column',
                                   2 => 'module-two-column',
                                   3 => 'module-three-column' );
-    $module_classes      = array( 'module',
-                                  get_row_layout(),
-                                  $module_column_class[ $column_count ],
-                                  get_sub_field( 'module-additional-class' ) );
-    $module_id           = get_sub_field( 'module-id' );
+    $args[ 'classes' ]   = array( get_row_layout(),
+                                  get_sub_field( 'module-additional-class' ),
+                                  $module_column_class[ $column_count ] );
+    $args[ 'id' ]        = get_sub_field( 'module-id' );
 
-    echo sprintf( '<section class="%1$s"%2$s><div class="module-wrapper">%3$s</div></section>',
-                  implode( ' ', $module_classes ),
-                  ( !empty( $module_id ) )? sprintf( ' id="%1$s"', $module_id ) : '',
-                  $module_content
-                );
+    echo mdb_do_module( $args, $module_content );
 endif;

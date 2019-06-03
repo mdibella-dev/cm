@@ -14,31 +14,22 @@
  * @since 1.0.0
  **/
 
-function mdb_get_module( $args, $content )
+function mdb_do_module( $args, $content )
 {
-    // Parameter auslesen
-    extract( wp_parse_args( $args,
-                            array(
-                            'class'            => '',
-							'additional_class' => '',
-            ) ) );
-
     // Variablen setzen
-    $output    = '';
-    $classes[] = 'module';
-    $classes[] = $class;
-    $classes[] = $additional_class;
+    $args_default        = array( 'classes' => array(),
+                                  'id'      => '' );
+    $args                = array_merge( $args_default, $args );
+    $args[ 'classes' ][] = 'module';
+    $output              = '';
+
 
     // Bearbeitung erfolgt nur bei vorhandenem Inhalt
     if( !empty( $content) ) :
-        // Inhaltsbereich generieren
-        $module_body = sprintf( '<div class="module-content">%1$s</div>', $content );
-
-        // Modul fertigstellen und ausgeben
         $output = sprintf( '<section class="%1$s"%2$s><div class="module-wrapper">%3$s</div></section>',
-                           implode( ' ', $classes ),
-                           ( !empty( $id ) )? sprintf( ' id="%1$s"', $id ) : '',
-                           $module_body );
+                           implode( ' ', $args[ 'classes' ] ),
+                           ( !empty( $args[ 'id' ] ) )? sprintf( ' id="%1$s"', $args[ 'id' ] ) : '',
+                           sprintf( '<div class="module-content">%1$s</div>', $content ) );
     endif;
 
     return $output;

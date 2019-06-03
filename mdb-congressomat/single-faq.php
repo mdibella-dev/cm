@@ -22,10 +22,7 @@ if ( have_posts() ) :
     ob_end_clean();
 
     // Modul generieren
-    $args = array(
-            'class'     => 'module-standard',
-            );
-    echo mdb_get_module( $args, $buffer );
+    echo mdb_do_module( array( 'classes' => array( 'module-standard' ) ), $buffer );
 endif;
 ?>
 </main>
