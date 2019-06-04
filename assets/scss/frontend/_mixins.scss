@@ -35,3 +35,23 @@
         text-align: justify;
     }
 }
+
+@mixin module-header-settings() {
+    padding-bottom: 2*$space;
+
+    @include respond-to(992) {
+        padding-bottom: 4*$space;
+    }
+
+    &.align-left {
+        text-align: left;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+
+    &.align-right {
+        text-align: right;
+    }
+}

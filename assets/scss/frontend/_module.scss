@@ -20,23 +20,7 @@
 
     .module-content > header,
     .module-content > .article > header {
-        padding-bottom: 2*$space;
-
-        @include respond-to(992) {
-            padding-bottom: 4*$space;
-        }
-
-        &.align-left {
-            text-align: left;
-        }
-
-        &.align-center {
-            text-align: center;
-        }
-
-        &.align-right {
-            text-align: right;
-        }
+        @include module-header-settings();
     }
 
     .module-wrapper {
@@ -162,6 +146,11 @@
 
     .module-column {
         width: 100%;
+
+        & > header,
+        & > .article > header {
+            @include module-header-settings();
+        }
     }
 
     // Zweispalten
