@@ -11,7 +11,7 @@
 // Content erstellen
 if( have_rows( 'module-content' ) ):
     // Modulinhalt zusammenstellen
-    $module_content = '<div class="module-content"><div class="module-column-wrapper">';
+    $module_content = '<div class="module-column-wrapper">';
     $column_count   = 0;
 
     // Spalteninhalte zusammenstellen
@@ -28,7 +28,7 @@ if( have_rows( 'module-content' ) ):
                                     ( !empty( $column_id ) )? sprintf( ' id="%1$s"', $column_id ) : '',
                                     get_sub_field( 'module-column-content' ) );
     endwhile;
-    $module_content .= '</div></div>';
+    $module_content .= '</div>';
 else :
     $module_content = '';
 endif;
