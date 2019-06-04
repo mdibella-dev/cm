@@ -8,20 +8,11 @@
 
 
 /**
- * Modul 'Standard'
+ * Allgemeine Einstellungen
  **/
 
 .module {
     width: 100%;
-    // Für Hero-Grafiken
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-
-    .module-content > header,
-    .module-content > .article > header {
-        @include module-header-settings();
-    }
 
     .module-wrapper {
         margin: 0 auto;
@@ -45,8 +36,94 @@
             width: 1400px;
         }
     }
+
+    .module-content header,
+    .module-content .article > header {
+        @include module-header-settings();
+    }
 }
 
+
+
+/**
+ * Modul mit Hero-Grafik
+ **/
+
+.module.module-hero {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+#main > .module-hero:first-child {
+    // um unteren Rand von #header zu überdecken
+    margin-top: -1px;
+}
+
+
+
+/**
+ * Modul mit Spalten
+ **/
+
+.module.module-one-column,
+.module.module-two-column,
+.module.module-three-column {
+
+    .module-column {
+        width: 100%;
+/*
+        & > header,
+        & > .article > header {
+            @include module-header-settings();
+        }
+*/    }
+
+    .module-column-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include respond-to(992) {
+            flex-wrap: nowrap;
+        }
+    }
+}
+
+.module-two-column .module-column {
+    @include respond-to(992) {
+        width: 50%;
+    }
+}
+
+.module-three-column .module-column {
+    @include respond-to(992) {
+        width: 30%;
+    }
+}
+
+
+/*
+    .module-column {
+        @include respond-to(992) {
+
+            &.module-column-width-30 {
+                width: 30%;
+            }
+
+            &.module-column-width-40 {
+                width: 40%;
+            }
+
+            &.module-column-width-60 {
+                width: 60%;
+            }
+
+            &.module-column-width-70 {
+                width: 70%;
+            }
+        }
+    }
+*/
 
 
 /**
@@ -59,21 +136,22 @@
 
 
 
+
+
+
+
+
 /**
  * Modul 'Footer-Widgets'
  **/
 
 .module-footer-widgets {
     .module-content {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
 
         @include respond-to(992) {
-            -ms-flex-wrap: nowrap;
-                flex-wrap: nowrap;
+            flex-wrap: nowrap;
         }
     }
 
@@ -120,79 +198,4 @@
             }
         }
     }
-}
-
-
-
-
-/**
- * Modul 'Columns'
- **/
-
-.module-columns {
-
-    .module-column-wrapper {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-
-        @include respond-to(992) {
-            -ms-flex-wrap: nowrap;
-                flex-wrap: nowrap;
-        }
-    }
-
-    .module-column {
-        width: 100%;
-
-        & > header,
-        & > .article > header {
-            @include module-header-settings();
-        }
-    }
-
-    // Zweispalten
-    .module-columns-2 {
-        @include respond-to(992) {
-            .module-column {
-                width: 50%;
-            }
-        }
-    }
-
-    // Dreispalten
-    .module-columns-3 {
-        @include respond-to(992) {
-            .module-column {
-                width: 30%;
-            }
-        }
-    }
-/*
-    .module-column {
-        width: 100%;
-
-        @include respond-to(992) {
-            width: 50%;
-
-            &.module-column-width-30 {
-                width: 30%;
-            }
-
-            &.module-column-width-40 {
-                width: 40%;
-            }
-
-            &.module-column-width-60 {
-                width: 60%;
-            }
-
-            &.module-column-width-70 {
-                width: 70%;
-            }
-        }
-    }
-*/
 }
