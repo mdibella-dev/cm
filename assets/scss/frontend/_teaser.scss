@@ -98,10 +98,12 @@
 
 
 .teaser-list {
-    padding: 4*$space 0;
-
     .teaser + .teaser {
         margin-top: 4*$space;
+
+        @include respond-to(992) {
+            margin-top: 6*$space;
+        }
     }
 }
 
