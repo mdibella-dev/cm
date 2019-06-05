@@ -30,31 +30,18 @@
     align-items: center;
 
     & > div {
-        width: 100%;
+        width: 50%;
+        margin: 0;
     }
 
+    // Bereich mit dem Menüumschalter (#toggle)
     & > div:nth-child(2) {
-        text-align: center;
-        //margin: 0 0 1em;
+        text-align: right !important;
     }
 
-    @include respond-to(768) {
-        // Bereich mit dem Logo (#logo)
-        & > div:nth-child(1) {
-            width: 50%;
-        }
-
-        // Bereich mit dem Menüumschalter (#toggle)
-        & > div:nth-child(2) {
-            width: 50%;
-            text-align: right;
-            margin: 0;
-        }
-
-        // Bereich des Hauptmenüs (#primary)
-        & > div:nth-child(3) {
-            width: 100%;
-        }
+    // Bereich des Hauptmenüs (#primary)
+    & > div:nth-child(3) {
+        width: 100%;
     }
 
     @include respond-to(992) {
@@ -63,6 +50,7 @@
         // Bereich mit dem Logo (#logo)
         & > div:nth-child(1) {
             width: 25%;
+            margin: 0 auto;
         }
 
         // Bereich mit dem Menüumschalter (#toggle)
@@ -148,16 +136,12 @@
  **/
 
 #logo {
-    display: inline-block;
+    display: flex;
     background: transparent;
     border: none;
     cursor: pointer;
     outline: 0 !important;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    padding: 20px 0;
+    //margin: 0 auto;
 
     @include respond-to(992) {
         padding: 0;
@@ -165,7 +149,6 @@
 
     svg {
         width: auto;
-        height: 32px;
     }
 }
 
@@ -232,12 +215,13 @@
         	@include respond-to(992) {
         		display: flex;
         		width: unset;
-        		font-size: 18px;
+        		font-size: 16px;
         		padding: 3*$space 2*$space;
         	}
 
     	    @include respond-to(1200) {
     		    padding: 3*$space;
+        		font-size: 18px;
     	    }
         }
 
