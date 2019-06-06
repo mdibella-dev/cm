@@ -43,7 +43,7 @@
 
     .teaser-content {
         display: block;
-        padding-top: 2*$space;
+        padding-top: 2*$unit;
 
         @include respond-to(768) {
             display: inline-block;
@@ -51,12 +51,12 @@
             flex-grow: 1;
             flex-shrink: 1;
             padding-top: 0;
-            padding-left: 2*$space;
+            padding-left: 2*$unit;
         }
 
         @include respond-to(992) {
             flex-basis: 70%;
-            padding-left: 4*$space;
+            padding-left: 4*$unit;
         }
 
         h2 {
@@ -66,16 +66,12 @@
 
         p {
             @include p-tag-basic-settings();
-            font-size: 16px;
+            font-size: 1em;
         }
     }
 
     .teaser-more {
-        padding-top: 2*$space;
-
-        @include respond-to(992) {
-            padding-top: 3*$space;
-        }
+        padding-top: 2*$unit;
 
         .btn {
             font-size: 14px;
@@ -86,10 +82,10 @@
 
 .teaser-list {
     .teaser + .teaser {
-        margin-top: 4*$space;
+        margin-top: 4*$unit;
 
         @include respond-to(992) {
-            margin-top: 6*$space;
+            margin-top: 6*$unit;
         }
     }
 }
@@ -100,7 +96,7 @@
 
     .pageinfo {
         display: inline-block;
-        padding: 0 2*$space;
+        padding: 0 2*$unit;
 
         @include respond-to(992) {
             min-width: 400px;
@@ -108,24 +104,24 @@
     }
 
     .btn {
-        padding: 2*$space 2.5*$space;
+        padding: 2*$unit 2.5*$unit;
     }
 }
 
 
 .module-content .teaser-list-pagination:first-of-type {
-    margin-bottom: 2*$space;
+    margin-bottom: 2*$unit;
 
     @include respond-to(992) {
-        margin-bottom: 4*$space;
+        margin-bottom: 4*$unit;
     }
 }
 
 
 .module-content .teaser-list-pagination:last-of-type {
-    margin-top: 2*$space;
+    margin-top: 2*$unit;
 
     @include respond-to(992) {
-        margin-top: 4*$space;
+        margin-top: 4*$unit;
     }
 }

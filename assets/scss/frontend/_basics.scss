@@ -34,8 +34,7 @@ body {
 *::after {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 a {
@@ -50,11 +49,15 @@ h1,
 h2,
 h3 {
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 1.7rem;
     line-height: 1.3;
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
+
+    @include respond-to(768) {
+        font-size: 2rem;
+    }
 
     @include respond-to(992) {
         -webkit-hyphens: none;
@@ -76,19 +79,22 @@ h3 {
             hyphens: none;
     font-weight: normal;
     font-size: 1rem;
-    margin-top: .5em;
+    margin-top: .3em;
+
+    @include respond-to(992) {
+        font-size: 1.2rem;
+    }
 }
 
 .btn {
     text-decoration: none;
-    padding: 2*$space; // 3*$space;
+    padding: 2*$unit; // 3*$unit;
     display: inline-block;
     cursor: pointer;
     background: transparent;
     border: 2px solid #999;
     color: #999;
-    -webkit-transition: all .3s ease-out;
-            transition: all .3s ease-out;
+    transition: all .3s ease-out;
 
     &:hover,
     &:focus {
@@ -105,14 +111,26 @@ h3 {
 
     &.btn-flex {
         padding: 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-           -ms-flex-pack: center;
-         justify-content: center;
-        -webkit-box-align: center;
-           -ms-flex-align: center;
-              align-items: center;
+        justify-content: center;
+        align-items: center;
     }
+}
+
+
+
+/**
+ * Ausrichtung
+ **/
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
 }

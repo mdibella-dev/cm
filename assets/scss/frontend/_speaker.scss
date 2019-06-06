@@ -28,22 +28,22 @@
     .speaker-block {
         width: 100%;
         height: auto;
-        margin: #{2*$space} #{2*$space} 0 0;
-        width: calc(50% - #{2*$space});
+        margin: #{2*$unit} #{2*$unit} 0 0;
+        width: calc(50% - #{2*$unit});
 
         @include respond-to(768) {
-            margin: #{4*$space} #{4*$space} 0 0;
-            width: calc(50% - #{4*$space});
+            margin: #{4*$unit} #{4*$unit} 0 0;
+            width: calc(50% - #{4*$unit});
         }
 
         @include respond-to(992) {
-            margin: #{2*$space} #{2*$space} 0 0;
-            width: calc(25% - #{2*$space});
+            margin: #{2*$unit} #{2*$unit} 0 0;
+            width: calc(25% - #{2*$unit});
         }
 
         @include respond-to(1200) {
-            margin: #{4*$space} #{4*$space} 0 0;
-            width: calc(25% - #{4*$space});
+            margin: #{4*$unit} #{4*$unit} 0 0;
+            width: calc(25% - #{4*$unit});
         }
     }
 
@@ -62,7 +62,7 @@
     }
 
     .speaker-caption {
-        margin-top: $space;
+        margin-top: $unit;
 
         .speaker-title-name {
             @include a-tag-basic-settings();
@@ -78,14 +78,14 @@
 }
 
 header + .speaker-grid {
-    margin-top: -#{2*$space};
+    margin-top: -#{2*$unit};
 
     @include respond-to(768) {
-        margin-top: -#{4*$space};
+        margin-top: -#{4*$unit};
     }
 
     @include respond-to(1200) {
-        margin-top: -#{4*$space};
+        margin-top: -#{4*$unit};
     }
 }
 
@@ -96,7 +96,7 @@ header + .speaker-grid {
 
 .speaker-profile {
     & > div:last-of-type {
-        padding: 2*$space 0;
+        padding: 2*$unit 0;
     }
 
     @include respond-to(768) {
@@ -111,7 +111,7 @@ header + .speaker-grid {
 
         & > div:last-of-type {
             width: 60%;
-            margin-left: 4*$space;
+            margin-left: 4*$unit;
             padding: 0;
         }
     }
@@ -159,23 +159,23 @@ header + .speaker-grid {
 
         ul li {
             float: left;
-            margin-right: .5*$space;
-            margin-bottom: .5*$space;
+            margin-right: .5*$unit;
+            margin-bottom: .5*$unit;
         }
 
         .btn {
-            width: 5*$space;
-            height: 5*$space;
+            width: 5*$unit;
+            height: 5*$unit;
 
         }
     }
 
     .speaker-position,
     .speaker-social-media {
-        margin-bottom: 2*$space;
+        margin-bottom: 2*$unit;
 
         @include respond-to(768) {
-            margin-bottom: 4*$space;
+            margin-bottom: 4*$unit;
         }
     }
 }

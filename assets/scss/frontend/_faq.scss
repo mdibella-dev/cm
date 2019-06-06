@@ -22,8 +22,6 @@
             border-bottom: 1px solid #ddd;
             padding: 0.5em 0;
             cursor: pointer;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
 
             @include respond-to(768) {
@@ -41,16 +39,15 @@
             }
 
             & > span:first-of-type {
-                margin-right: $space;
-                width: 2*$space;
+                margin-right: $unit;
+                width: 2*$unit;
 
                 @include respond-to(768) {
-                    width: 3*$space;
+                    width: 3*$unit;
                 }
 
                 i {
-                    -webkit-transition: all .5s ease-out;
-                            transition: all .5s ease-out;
+                    transition: all .5s ease-out;
                 }
             }
 
@@ -66,15 +63,15 @@
             display: none;
             background: #f9f9f9;
             margin-bottom: 1rem;
-            padding: 1rem 3*$space;
+            padding: 1rem 3*$unit;
 
             @include respond-to(768) {
                 margin-bottom: 2rem;
-                padding: 1rem 4*$space;
+                padding: 1rem 4*$unit;
             }
 
             @include respond-to(992) {
-                padding: 3rem 4*$space;
+                padding: 3rem 4*$unit;
             }
 
             ol,
@@ -99,14 +96,14 @@
                 width: 100%;
 
                 @include respond-to(768) {
-                    width: calc(100% - 2*2*#{$space});
-                    margin: 2*$space;
+                    width: calc(100% - 2*2*#{$unit});
+                    margin: 2*$unit;
                 }
 
                 @include respond-to(992) {
                     text-align: left;
-                    width: calc(100% - 2*4*#{$space});
-                    margin: 4*$space;
+                    width: calc(100% - 2*4*#{$unit});
+                    margin: 4*$unit;
                 }
 
                 td {

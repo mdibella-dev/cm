@@ -140,7 +140,7 @@
      justify-content: center;
 
     li {
-        padding: $space 2*$space;
+        padding: $unit 2*$unit;
         width: 50%;
 
         @include respond-to(768) {

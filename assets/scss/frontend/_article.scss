@@ -14,49 +14,59 @@
         font-size: 18px;
     }
 
+    & > *:last-child {
+        margin-bottom: 0 !important;
+    }
+
     p::not(.wc-responsive-video),
     ol,
     ul {
-        padding: $space 0;
+        padding: $unit 0;
     }
 
     strong {
         font-weight: 500; // nicht zu fett
     }
 
+    a {
+        @include a-tag-basic-settings();
+    }
+
     & > p {
         @include p-tag-basic-settings();
+        @include space(beyond);
         color: inherit;
 
         &.lead {
             font-weight: 300;
-            margin-bottom: 2em;
+            font-size: 1.2em;
         }
     }
 
-    & > p,
-    & > header,
-    & > table,
-    & > .wp-block-image {
-        margin-bottom: 2em;
+    & > table {
+        @include space(beyond);
     }
 
-    & > h2,
-    & > .wp-block-image {
-        margin-top: 2em;
-    }
 
-    & > header h1 {
-        font-size: 2em;
+    & > header {
+        @include space(beyond);
+
+        h1 {
+            font-size: 2em;
+        }
     }
 
     & > h2 {
+        @include space(above);
         margin-bottom: .6em;
         font-size: 1.4em;
         color: $color-highlight;
     }
 
     .wp-block-image {
+        @include space(above);
+        @include space(beyond);
+
         figure {
             line-height: 0;
         }
@@ -69,9 +79,5 @@
             line-height: 1.2;
             font-size: 80%;
         }
-    }
-
-    a {
-        @include a-tag-basic-settings();
     }
 }

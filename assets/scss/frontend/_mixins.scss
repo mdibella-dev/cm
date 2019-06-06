@@ -8,8 +8,7 @@
 
 
 @mixin a-tag-basic-settings() {
-    -webkit-transition: all .3s ease-out;
-            transition: all .3s ease-out;
+    transition: all .3s ease-out;
     color: #555;
     border-bottom: 1px solid #ddd;
     padding: 2px;
@@ -27,31 +26,19 @@
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
-    line-height: 1.65;
+    line-height: 1.5;
     text-align: left;
-    margin-bottom: 1em;
 
     @include respond-to(992) {
         text-align: justify;
     }
 }
 
-@mixin module-header-settings() {
-    padding-bottom: 2*$space;
-
-    @include respond-to(992) {
-        padding-bottom: 4*$space;
-    }
-
-    &.align-left {
-        text-align: left;
-    }
-
-    &.align-center {
-        text-align: center;
-    }
-
-    &.align-right {
-        text-align: right;
+@mixin space( $direction: beyond ) {
+    @if $direction == above {
+        margin-top: 2em;
+    } @else if $direction == beyond {
+        // default
+        margin-bottom: 2em;
     }
 }

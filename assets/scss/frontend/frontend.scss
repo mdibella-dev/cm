@@ -8,9 +8,19 @@
 
 
 
+// Variablen
+$unit:				    10px; //0.625rem;
+$menu-height:           60px;
+$header-height:         $menu-height;
+$button-size:           30px;
+$color-highlight:       #d11520; // Rot
+$color-notsohighlight:  #f4d5d5;
+$font-sans:             'Roboto';
+
+
+
 // Imports
 @import "_media-queries";
-@import "_vars";
 @import "_mixins";
 @import "_basics";
 @import "_elements";

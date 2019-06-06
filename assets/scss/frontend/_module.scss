@@ -16,7 +16,7 @@
 
     .module-wrapper {
         margin: 0 auto;
-        padding: 2*$space;
+        padding: 2*$unit;
 
         @include respond-to(768) {
             width: 750px;
@@ -24,12 +24,12 @@
 
         @include respond-to(992) {
             width: 970px;
-            padding: 4*$space;
+            padding: 4*$unit;
         }
 
         @include respond-to(1200) {
             width: 1170px;
-            padding: 6*$space;
+            padding: 6*$unit;
         }
 
         @include respond-to(1600) {
@@ -37,9 +37,13 @@
         }
     }
 
-    .module-content header,
-    .module-content .article > header {
-        @include module-header-settings();
+    .module-content > header,
+    .module-column > header {
+        padding-bottom: 2*$unit;
+
+        @include respond-to(992) {
+            padding-bottom: 4*$unit;
+        }
     }
 }
 
@@ -72,12 +76,7 @@
 
     .module-column {
         width: 100%;
-/*
-        & > header,
-        & > .article > header {
-            @include module-header-settings();
-        }
-*/    }
+    }
 
     .module-column-wrapper {
         display: flex;
@@ -101,29 +100,6 @@
     }
 }
 
-
-/*
-    .module-column {
-        @include respond-to(992) {
-
-            &.module-column-width-30 {
-                width: 30%;
-            }
-
-            &.module-column-width-40 {
-                width: 40%;
-            }
-
-            &.module-column-width-60 {
-                width: 60%;
-            }
-
-            &.module-column-width-70 {
-                width: 70%;
-            }
-        }
-    }
-*/
 
 
 /**
@@ -162,21 +138,21 @@
             width: 33%;
 
             &:not(:last-child) {
-                margin-right: $space;
+                margin-right: $unit;
             }
 
             &:not(:first-child) {
-                margin-left: $space;
+                margin-left: $unit;
             }
         }
 
         @include respond-to(1200) {
             &:not(:last-child) {
-                margin-right: 2*$space;
+                margin-right: 2*$unit;
             }
 
             &:not(:first-child) {
-                margin-left: 2*$space;
+                margin-left: 2*$unit;
             }
         }
     }
