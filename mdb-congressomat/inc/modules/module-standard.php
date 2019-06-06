@@ -9,9 +9,9 @@
 
 
 // Variablen setzen
-$args[ 'class' ]            = get_row_layout();
-$args[ 'additional_class' ] = get_sub_field( 'module-additional-class' );
-$args[ 'id' ]               = get_sub_field( 'module-id' );
-$content                    = get_sub_field( 'module-content' );
+$args[ 'classes' ] = array( get_row_layout(),
+                            get_sub_field( 'module-additional-class' ) );
+$args[ 'id' ]      = get_sub_field( 'module-id' );
+$module_content    = get_sub_field( 'module-content' );
 
-echo mdb_get_module( $args, $content );
+echo mdb_do_module( $args, $module_content );
