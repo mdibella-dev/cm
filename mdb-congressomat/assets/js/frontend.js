@@ -64,4 +64,7 @@ $( '.faq-accordion > li > h3' ).click(function() {
 } );
 
 
+// Korrektur von wpautop 
+$( 'p:empty' ).remove();
+
 } );
