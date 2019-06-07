@@ -86,6 +86,13 @@
                     font-size: 1.125rem;
                     line-height: 1.4;
                 }
+
+                & + ol,
+                & + ul,
+                & + p,
+                & + table {
+                    margin-top: 1rem;
+                }
             }
 
             ul {
