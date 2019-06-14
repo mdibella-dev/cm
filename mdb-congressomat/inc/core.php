@@ -1,6 +1,6 @@
 <?php
 /**
- * ....
+ * Zentrale Funktionen des Themes
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -53,7 +53,7 @@ function mdb_sort_sessions_by_timestamp( $sessions )
 /**
  * Liefert ein Array mit Sessions
  *
- * @param  array  $args  Array mit Argumenten zur Konfiguration der Suche
+ * @param  array  $args     Array mit Argumenten zur Konfiguration der Suche
  * @return array  Die zum Event gehörenden Sessions
  * @since  1.0.0
  * @uses   ACF
@@ -101,11 +101,10 @@ function mdb_get_sessions( $args )
 
 /**
  * Liefert ein Array mit den Sessions eines bestimmten Events
- *
  * Wrapper für mdb_get_sessions(). Optional kann nach einem bestimmten Referenten gefiltert werden
  *
- * @param  int    $event_id    Das zu filternde Event
- * @param  int    $speaker_id  Der zu filternde Referent (optional)
+ * @param  int    $event_id     Das zu filternde Event
+ * @param  int    $speaker_id   Der zu filternde Referent (optional)
  * @return array  Die zum Event gehörenden Sessions
  * @since  1.0.0
  **/
@@ -122,7 +121,7 @@ function mdb_get_sessions_by_event( $event_id, $speaker_id = 0 )
 /**
  * Liefert ein Array mit allen Daten eines bestimmten Referenten
  *
- * @param  int    $speaker_id  Der zu Referent
+ * @param  int    $speaker_id   Der Referent
  * @return array  Die zum Referenten gehörenden Daten
  * @since  1.0.0
  **/
@@ -148,8 +147,8 @@ function mdb_get_speaker_info( $speaker_id )
 /**
  * Ermittelt alle Referenten aus allen Sessions von einem oder mehreren Events
  *
- * @param  string $events  Eine kommaseparierte Liste mit event_ids;
- *                         werden keine Werte übergeben, so werden die aktiven Events herausgesucht
+ * @param  string $events   Eine kommaseparierte Liste mit event_ids;
+ *                          werden keine Werte übergeben, so werden die aktiven Events herausgesucht
  * @return array  Ein Array mit den Daten der Referenten
  * @since  1.0.0
  **/
@@ -211,6 +210,14 @@ function mdb_get_speakers( $events )
 }
 
 
+/**
+ * Sortiert eine Liste von Referenten nach Vor- und Nachnamen
+ *
+ * @param  array  $speaker_list   = die unsortierte Liste
+ * @return array  Die sortierte List
+ * @since  1.0.0
+ */
+
 function mdb_sort_speakerlist( $speaker_list )
 {
     foreach( $speaker_list as $key => $row ) :
@@ -224,18 +231,21 @@ function mdb_sort_speakerlist( $speaker_list )
 
 
 
+/**
+ * Ermittelt die derzeit aktiven Events
+ *
+ * @return array    Eine kommaseparierte Liste mit event_ids
+ * @since  1.0.0
+ **/
 
 function mdb_get_active_events()
 {
     // Suchparameter setzen
     $query = array(
              'taxonomy'   => 'event',
-             'hide_empty' => 'false',
-             'meta_query' => array(
-                             'key'   => 'event_status',
-                             'value' => '1' ) );
-        //     'meta_key'   => 'event_status',
-    	//     'meta_value' => '1' );
+             'hide_empty' => 'false', // true?
+             'meta_key'   => 'event-status',
+    	     'meta_value' => '1' );
 
     // Passende Events ermitteln
     $terms = get_terms( $query );
@@ -253,6 +263,8 @@ function mdb_get_active_events()
 
     return $events;
 }
+
+
 
 
 
