@@ -27,7 +27,12 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
                              'shuffle' => 0
                             ), $atts ) );
 
-    // Bestimmte Speaker ausschließen wenn gewünscht
+    // Nur aktive Events, wenn gefordert
+    if( $event == '-1' ) :
+        $event = mdb_get_active_events();
+    endif;
+
+    // Bestimmte Speaker ausschließen, wenn gewünscht
     $speakers    = mdb_get_speakers( $event );
     $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
