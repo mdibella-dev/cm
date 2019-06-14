@@ -63,9 +63,9 @@ function mdb_shortcode_event_table( $atts, $content = null )
                     break;
 
                     case 'TITEL':
+                        // Workaround #6
                         // $title    = apply_filters( 'the_content', $session->post_title );
                         // $subtitle = apply_filters( 'the_content', get_the_subtitle( $session->ID, '', '', FALSE ) );
-
                         $title    = $session->post_title;
                         $subtitle = get_the_subtitle( $session->ID, '', '', FALSE );
 
