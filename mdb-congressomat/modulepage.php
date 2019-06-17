@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Seite mit einem modularen Layout
+ * Template Name: Seite mit Modulen
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
