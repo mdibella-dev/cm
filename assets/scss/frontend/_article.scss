@@ -1,5 +1,5 @@
 /**
- * Artikel (Blogpost)
+ * Artikel (Blogpost, Standardseite)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -18,10 +18,25 @@
         margin-bottom: 0 !important;
     }
 
-    p::not(.wc-responsive-video),
+/*
+    ol,
+    ul,
+    p::not(.wc-responsive-video) {
+//        padding: $unit 0;
+        padding: $unit 0 $unit
+    }
+*/
+
     ol,
     ul {
-        padding: $unit 0;
+        padding: 0 0 0 2*$unit;
+        @include space(beyond);
+    }
+
+    li {
+        @include p-tag-basic-settings();
+        color: inherit;
+        padding-left: $unit;
     }
 
     strong {
@@ -32,7 +47,8 @@
         @include a-tag-basic-settings();
     }
 
-    & > p {
+    table p,
+    p {
         @include p-tag-basic-settings();
         @include space(beyond);
         color: inherit;
@@ -41,12 +57,17 @@
             font-weight: 300;
             font-size: 1.2em;
         }
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
     }
 
-    & > table {
+    table {
         @include space(beyond);
+        border-collapse: collapse;
+        width: 100%;
     }
-
 
     & > header {
         @include space(beyond);
@@ -58,14 +79,19 @@
 
     & > h2 {
         @include space(above);
-        margin-bottom: .6em;
-        font-size: 1.4em;
-        color: $color-highlight;
+        margin-bottom: .3em;
+        font-size: 1.2em;
+        color: inherit;
     }
 
     .wp-block-image {
         @include space(above);
         @include space(beyond);
+
+        @include respond-to(992) {
+            margin-top: 4em;
+            margin-bottom: 4em;
+        }
 
         figure {
             line-height: 0;
@@ -79,5 +105,56 @@
             line-height: 1.2;
             font-size: 80%;
         }
+    }
+}
+
+
+
+.article > table.privacy-table {
+    @include p-tag-basic-settings;
+    font-size: 1rem;
+
+    @include respond-to(768) {
+        font-size: 1.125rem;
+        line-height: 1.4;
+        width: calc(100% - 2*2*#{$unit});
+        margin: 2*$unit;
+    }
+
+    @include respond-to(992) {
+        text-align: left;
+        width: calc(100% - 2*4*#{$unit});
+        margin: 4*$unit;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        height: 3rem;
+        padding: 2*$unit 5px;
+        vertical-align: top;
+
+        &.privacy-table-title {
+            width: 100%;
+            font-weight: 300;
+            -webkit-hyphens: none;
+                -ms-hyphens: none;
+                    hyphens: none;
+
+            @include respond-to(768) {
+                width: 30%;
+            }
+        }
+
+        &.privacy-table-content {
+            width: 100%;
+
+            @include respond-to(768) {
+                width: 70%;
+            }
+        }
+    }
+
+    tr:last-of-type > td {
+        border-bottom: none;
     }
 }
