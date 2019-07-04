@@ -110,7 +110,7 @@
 
 
 
-.article > table.privacy-table {
+.article > .privacy-table {
     @include p-tag-basic-settings;
     font-size: 1rem;
 
@@ -127,34 +127,37 @@
         margin: 4*$unit;
     }
 
-    td {
-        border-bottom: 1px solid #eee;
-        height: 3rem;
-        padding: 2*$unit 5px;
-        vertical-align: top;
-
-        &.privacy-table-title {
-            width: 100%;
-            font-weight: 300;
-            -webkit-hyphens: none;
-                -ms-hyphens: none;
-                    hyphens: none;
-
-            @include respond-to(768) {
-                width: 30%;
-            }
+    .privacy-table-row {
+        div {
+            border-bottom: 1px solid #eee;
+            height: 3rem;
+            padding: 2*$unit 5px;
+            vertical-align: top;
         }
 
-        &.privacy-table-content {
-            width: 100%;
-
-            @include respond-to(768) {
-                width: 70%;
-            }
+        &:last-of-type > td {
+            border-bottom: none;
         }
     }
 
-    tr:last-of-type > td {
-        border-bottom: none;
+    .privacy-table-title {
+        width: 100%;
+        font-weight: 300;
+        -webkit-hyphens: none;
+            -ms-hyphens: none;
+                hyphens: none;
+
+        @include respond-to(768) {
+            width: 30%;
+        }
     }
+
+    &.privacy-table-content {
+        width: 100%;
+
+        @include respond-to(768) {
+            width: 70%;
+        }
+    }
+
 }
