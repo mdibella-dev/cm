@@ -14,18 +14,17 @@
 .speaker-grid {
     width: 100%;
     margin: 0 auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    list-style-type: none;
+    display: -webkit-flex;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: start;
-       -ms-flex-align: start;
-          align-items: flex-start;
-    -ms-flex-line-pack: start;
-         align-content: flex-start;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
+    -webkit-align-content: flex-start;
+            align-content: flex-start;
 
-    .speaker-block {
+    .speaker-grid-element {
         width: 100%;
         height: auto;
         margin: #{2*$unit} #{2*$unit} 0 0;
@@ -47,36 +46,40 @@
         }
     }
 
-    .speaker-image,
-    .speaker-image > a > img {
-        width: 100%;
-        height: 100%;
-        background: #ddd;
-    }
+    figure {
+        & > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 0;
 
-    .speaker-image a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-size: 0;
-    }
-
-    .speaker-caption {
-        margin-top: $unit;
-
-        .speaker-title-name {
-            @include a-tag-basic-settings();
-            line-height: 1.9em;
-            padding: 0 2px;
+            img {
+                width: 100%;
+                height: 100%;
+                background: #ddd;
+            }
         }
 
-        .speaker-position {
-            font-weight: 500;
-        }
+        figcaption {
+            margin-top: $unit;
+            text-align: left;
 
+            .speaker-title-name {
+                @include a-tag-basic-settings();
+                line-height: 1.9em;
+                padding: 0 2px;
+                text-align: inherit;
+            }
+
+            .speaker-position {
+                font-weight: 500;
+                text-align: inherit;
+            }
+        }
     }
 }
 
+/*
 header + .speaker-grid {
     margin-top: -#{2*$unit};
 
@@ -88,6 +91,7 @@ header + .speaker-grid {
         margin-top: -#{4*$unit};
     }
 }
+*/
 
 
 /**
@@ -100,8 +104,7 @@ header + .speaker-grid {
     }
 
     @include respond-to(768) {
-        display: -webkit-box;
-        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
 
         & > div:first-of-type {

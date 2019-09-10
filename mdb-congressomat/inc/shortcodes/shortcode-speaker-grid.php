@@ -63,27 +63,27 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 
     // Ausgabe vorbereiten
     $output  = '';
-    $output .= '<div class="speaker-grid">';
+    $output .= '<ul class="speaker-grid">';
 
     foreach( $speaker_list as $speaker ) :
-        $output .= '<article class="speaker-block">';
-        $output .= '<div class="speaker-image squared">';
+        $output .= '<li class="speaker-grid-element">';
+        $output .= '<figure class="squared">';
         $output .= sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
                             $speaker[ 'permalink' ],
                             sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
                             get_the_post_thumbnail( $speaker[ 'id' ], 'full' ) );
-        $output .= '</div>';
-        $output .= '<div class="speaker-caption">';
+        $output .= '<figcaption class="speaker-caption">';
         $output .= sprintf( '<a class="speaker-title-name" href="%1$s" title="%2$s">%3$s</a>',
                             $speaker[ 'permalink' ],
                             sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
                             $speaker[ 'title_name' ] );
         $output .= sprintf( '<p class="speaker-position">%1$s</p>', $speaker[ 'position' ] );
-        $output .= '</div>';
-        $output .= '</article>';
+        $output .= '</figcaption>';
+        $output .= '</figure>';
+        $output .= '</li>';
     endforeach;
 
-    $output .= '</div>';
+    $output .= '</ul>';
 
     // Ausgabe
     return $output;
