@@ -30,10 +30,6 @@
         font-weight: 500; // nicht zu fett
     }
 
-    a {
-        @include a-tag-basic-settings();
-    }
-
     table p,
     p {
         @include p-tag-basic-settings();
@@ -47,6 +43,10 @@
 
         &:last-child {
             margin-bottom: 0 !important;
+        }
+
+        a {
+            @include a-tag-basic-settings();
         }
     }
 
