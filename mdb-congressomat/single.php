@@ -16,7 +16,7 @@ if ( have_posts() ) :
     while( have_posts() ) :
         the_post();
 ?>
-<article class="article">
+<article class="article adjust-workspace">
 <?php
         // Header
         echo '<header>';
@@ -33,7 +33,8 @@ if ( have_posts() ) :
         ob_end_clean();
 
         // Modul generieren
-        echo mdb_do_module( array( 'classes' => array( 'module-standard' ) ), $buffer );
+        // echo mdb_do_module( array( 'classes' => array( 'module-standard' ) ), $buffer );
+        echo $buffer;
     endwhile;
 endif;
 ?>

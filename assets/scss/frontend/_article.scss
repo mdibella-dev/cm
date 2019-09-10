@@ -14,19 +14,6 @@
         font-size: 18px;
     }
 
-    & > *:last-child {
-        margin-bottom: 0 !important;
-    }
-
-/*
-    ol,
-    ul,
-    p::not(.wc-responsive-video) {
-//        padding: $unit 0;
-        padding: $unit 0 $unit
-    }
-*/
-
     ol,
     ul {
         padding: 0 0 0 2*$unit;
@@ -117,14 +104,11 @@
     @include respond-to(768) {
         font-size: 1.125rem;
         line-height: 1.4;
-        width: calc(100% - 2*2*#{$unit});
-        margin: 2*$unit;
+
     }
 
     @include respond-to(992) {
         text-align: left;
-        width: calc(100% - 2*4*#{$unit});
-        margin: 4*$unit;
     }
 
     .privacy-table-row {

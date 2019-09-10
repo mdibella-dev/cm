@@ -7,10 +7,9 @@
  **/
 ?>
 <footer id="footer">
+<section id="footer-widgets" class="adjust-workspace">
+<div class="widget-area-wrapper">
 <?php
-// Ausgabe puffern
-ob_start();
-
 // Widget-Areas generieren
 $areas = array( 'footer-one', 'footer-two', 'footer-three' );
 
@@ -19,14 +18,9 @@ foreach( $areas as $area ) :
     dynamic_sidebar( 'footer-one' );
     echo '</div>';
 endforeach;
-
-// Ausgabenpuffer sichern; Pufferung beenden
-$buffer = ob_get_contents();
-ob_end_clean();
-
-// Modul generieren
-echo mdb_do_module( array( 'classes' => array( 'module-footer-widgets') ), $buffer );
 ?>
+</div>
+</section>
 </footer>
 <?php wp_footer(); ?>
 </body>

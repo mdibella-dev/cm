@@ -25,9 +25,12 @@
  **/
 
 #header-wrapper {
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-align-items: center;
+            align-items: center;
 
     & > div {
         width: 50%;
@@ -45,7 +48,8 @@
     }
 
     @include respond-to(992) {
-        flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+                flex-wrap: nowrap;
 
         // Bereich mit dem Logo (#logo)
         & > div:nth-child(1) {
@@ -136,6 +140,7 @@
  **/
 
 #logo {
+    display: -webkit-flex;
     display: flex;
     background: transparent;
     border: none;
@@ -213,6 +218,7 @@
     		color: #555;
 
         	@include respond-to(992) {
+        		display: -webkit-flex;
         		display: flex;
         		width: unset;
         		font-size: 16px;
@@ -260,10 +266,14 @@
     	@include respond-to(768) {
     		width: 90%;
     		max-width: 80em;
+    		display: -webkit-flex;
     		display: flex;
-    		flex-direction: row;
-            justify-content: center;
-    		flex-wrap: nowrap;
+    		-webkit-flex-direction: row;
+    		        flex-direction: row;
+            -webkit-justify-content: center;
+                    justify-content: center;
+    		-webkit-flex-wrap: nowrap;
+    		        flex-wrap: nowrap;
     	}
 
     	&:after {
@@ -332,4 +342,63 @@
     box-sizing: content-box;
     background: #999;
     color: #555;
+}
+
+
+#footer-widgets {
+    .widget-area-wrapper {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+
+        @include respond-to(992) {
+            -webkit-flex-wrap: nowrap;
+                    flex-wrap: nowrap;
+        }
+    }
+
+    .widget-area {
+        width: 100%;
+
+        @include respond-to(992) {
+            width: 33%;
+
+            &:not(:last-child) {
+                margin-right: $unit;
+            }
+
+            &:not(:first-child) {
+                margin-left: $unit;
+            }
+        }
+
+        @include respond-to(1200) {
+            &:not(:last-child) {
+                margin-right: 2*$unit;
+            }
+
+            &:not(:first-child) {
+                margin-left: 2*$unit;
+            }
+        }
+    }
+
+    .widget_nav_menu ul {
+        list-style-type: none;
+
+        & > li {
+            border-bottom: 1px solid #777;
+            line-height: 2.5em;
+            color: #555;
+            padding: 5px 0;
+            font-size: 90%;
+            font-weight: 400;
+
+            a {
+                @include a-tag-basic-settings();
+                border-bottom: none !important;
+            }
+        }
+    }
 }

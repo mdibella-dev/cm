@@ -1,6 +1,6 @@
 <?php
 /**
- * Seite
+ * Template Name: Seite ohne Titel
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -19,11 +19,6 @@ if ( have_posts() ) :
 ?>
 <article class="article adjust-workspace">
 <?php
-        // Header
-        echo '<header>';
-        echo sprintf( '<h1>%1$s</h1>', get_the_title() );
-        echo '</header>';
-
         // Inhalt
         the_content();
  ?>
