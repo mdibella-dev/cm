@@ -18,3 +18,10 @@
         max-width: 1200px;
     }
 }
+
+
+.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] {
+    @media (min-width:600px) {
+        max-width: none;
+    }
+}

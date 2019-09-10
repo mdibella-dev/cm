@@ -16,14 +16,16 @@
 
  function mdb_theme_setup()
  {
-    // Theme unterstützt: Lokalisation
+    // Lokalisation
 	load_theme_textdomain( TEXT_DOMAIN, PATH_THEME_TEMPLATE . '/lang' );
 
-    // Theme unterstützt: Betragsbilder
+    // Theme-Support für diverse Features
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
-	// Menüs registrieren
-	register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
+    // Menüs registrieren
+    register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
 }
 
 

@@ -32,7 +32,7 @@ function mdb_admin_head()
 
 function mdb_disable_gutenberg( $current_status, $post_type )
 {
-    if( ( $post_type === 'page' ) or
+    if( /*( $post_type === 'page' ) or */
         ( $post_type === 'session' ) or
         ( $post_type === 'exhibitor' ) or
         ( $post_type === 'speaker' ) ) :
