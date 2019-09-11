@@ -3,7 +3,7 @@
  * Widget Areas
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-theme
+ * @package mdb-congressomat
  **/
 
 
