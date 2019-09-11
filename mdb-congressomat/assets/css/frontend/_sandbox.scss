@@ -6,11 +6,11 @@
  **/
 
 
-
+// Alle Blöcke, die nicht auf die volle Bildschirmbreite ausgedehnt sind
 .adjust-workspace > *:not(.alignfull),
-.adjust-workspace .wp-block-coblocks-row.alignfull .wp-block-coblocks-row__inner,
-.wp-block-cover-image .wp-block-cover__inner-container,
-.wp-block-cover .wp-block-cover__inner-container {
+// Cover-Blöcke
+.wp-block-cover .wp-block-cover__inner-container,
+.wp-block-cover-image .wp-block-cover__inner-container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -25,6 +25,38 @@
 }
 
 
+// Eingebette Objekte
+.wp-block-embed {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
 .wp-block-embed-youtube {
     box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15);
+}
+
+
+
+/**
+ * CoBlocks
+ **/
+
+// Wie oben
+.adjust-workspace .wp-block-coblocks-row.alignfull .wp-block-coblocks-row__inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @include respond-to(medium) {
+        width: calc(10 * calc(100vw/12) );
+    }
+
+    @include respond-to(large) {
+        width: calc(8 * calc(100vw/12) );
+    }
+}
+
+// Größenbeschränkung aufheben
+.wp-block-coblocks-row[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] {
+    max-width: unset !important;
 }
