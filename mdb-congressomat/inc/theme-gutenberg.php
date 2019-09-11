@@ -1,23 +1,10 @@
 <?php
 /**
- * Modifikationen für das Backend
+ * Modifikationen für den Gutenberg Block Editor
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-theme
+ * @package mdb-congressomat
  **/
-
-
-
-/**
- * Lädt die Datei backend.min.css mit diversen Style-Modifikationen für den Administrationsbereich
- *
- * @since 1.0.0
- **/
-
-function mdb_admin_head()
-{
-    echo '<link rel="stylesheet" href="'. PATH_THEME_URL . '/assets/css/backend.min.css" type="text/css" media="all" />';
-}
 
 
 
