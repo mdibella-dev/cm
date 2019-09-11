@@ -10,7 +10,6 @@
  *                  Folgende Werte sind derzeit möglich:
  *                  LOGO, BESCHREIBUNG, MESSESTAND
  *
- * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */

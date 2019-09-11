@@ -13,7 +13,6 @@
  * - shuffle    (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
  *              Standardwert: 0
  *
- * @since 1.0.0
  * @author Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-theme
  **/
@@ -116,9 +115,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <div class="teaser-content">
 <h2><?php the_title(); ?></h2>
 <?php the_excerpt(); ?>
-</div>
-<div class="teaser-more">
-<a href="<?php the_permalink(); ?>" class="btn" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a>
+<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a></p>
 </div>
 </article>
 <?php

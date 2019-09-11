@@ -7,7 +7,6 @@
  * - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
  *                  Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  *
- * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */

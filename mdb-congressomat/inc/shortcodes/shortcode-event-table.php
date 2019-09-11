@@ -10,7 +10,6 @@
  *              Folgende Werte sind derzeit möglich:
  *              VON, VONBIS, DATUM, TITEL, REFERENT, ORT
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */

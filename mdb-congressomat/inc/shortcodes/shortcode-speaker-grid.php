@@ -12,7 +12,6 @@
  * - show       (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
  * - shuffle    (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
  *
- * @since 1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */

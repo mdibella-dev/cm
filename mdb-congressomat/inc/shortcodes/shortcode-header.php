@@ -9,7 +9,6 @@
  * - align      (optional) Die Ausrichtung der Kopfzeile (standardmäßig: center). Folgende Werte sind derzeit möglich:
  *              left, right, center
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */
