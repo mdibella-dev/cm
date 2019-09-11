@@ -1,0 +1,58 @@
+/**
+ * Tabelle für die Datenschutzerklärung
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+
+.table-fineline {
+    @include p-tag-basic-settings;
+    font-size: 1rem;
+
+    @include respond-to(medium) {
+        font-size: 1.125rem;
+        line-height: 1.4;
+
+    }
+
+    @include respond-to(large) {
+        text-align: left;
+    }
+
+    tr {
+        border-bottom: 1px solid #eee;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+    td {
+        padding: 2*$unit 5px;
+        vertical-align: top;
+        display: inline-block;
+
+        &:first-of-type {
+            width: 100%;
+            font-weight: 300;
+            -webkit-hyphens: none;
+                -ms-hyphens: none;
+                    hyphens: none;
+
+            @include respond-to(medium) {
+                width: 30%;
+            }
+        }
+
+        &:last-of-type {
+            width: 100%;
+
+            @include respond-to(medium) {
+                width: 69%;
+            }
+        }
+    }
+}
