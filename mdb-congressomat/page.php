@@ -4,7 +4,6 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
- * @uses    Plugin ACF
  **/
 ?>
 <?php get_header(); ?>
@@ -33,9 +32,8 @@ if ( have_posts() ) :
         $buffer = ob_get_contents();
         ob_end_clean();
 
+        // Ausgabe
         echo $buffer;
-        // Modul generieren
-        //echo mdb_do_module( array( 'classes' => array( 'module-standard' ) ), $buffer );
     endwhile;
 endif;
 ?>
