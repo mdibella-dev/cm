@@ -1,14 +1,22 @@
 /**
- * Gutenberg Assets
+ * Gutenberg Editor Assets
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-theme
- * @version 1.0.0
+ * @package mdb-congressomat
  **/
 
 
-@import "common/_media-queries";
-@import "common/_common-styles";
+
+// Variablen
+$unit:				    10px; //0.625rem;
+
+
+
+// Imports
+@import "common/_gutenberg-media-queries";
+@import "common/_gutenberg-reset";
+@import "common/_gutenberg";
+
 
 
 // Maximale Arbeitsbreite
@@ -16,9 +24,10 @@
     max-width: none;
 }
 
+
 // Korrektur der Zentrierung
 .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] {
-    @media (min-width: 600px ) {
+    @include respond-to(small) {
         margin-left: auto;
         margin-right: auto;
     }
