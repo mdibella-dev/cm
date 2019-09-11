@@ -24,7 +24,7 @@
             cursor: pointer;
             display: flex;
 
-            @include respond-to(768) {
+            @include respond-to(medium) {
                 padding: 1em 0;
             }
 
@@ -33,7 +33,7 @@
                 font-size: 1.25rem;
                 line-height: 1.3;
 
-                @include respond-to(768) {
+                @include respond-to(medium) {
                     font-size: 1.5rem;
                 }
             }
@@ -42,7 +42,7 @@
                 margin-right: $unit;
                 width: 2*$unit;
 
-                @include respond-to(768) {
+                @include respond-to(medium) {
                     width: 3*$unit;
                 }
 
@@ -65,12 +65,12 @@
             margin-bottom: 1rem;
             padding: 1rem 3*$unit;
 
-            @include respond-to(768) {
+            @include respond-to(medium) {
                 margin-bottom: 2rem;
                 padding: 1rem 4*$unit;
             }
 
-            @include respond-to(992) {
+            @include respond-to(large) {
                 padding: 3rem 4*$unit;
             }
 
@@ -82,7 +82,7 @@
                 font-weight: 300;
                 font-size: 1rem;
 
-                @include respond-to(768) {
+                @include respond-to(medium) {
                     font-size: 1.125rem;
                     line-height: 1.4;
                 }
@@ -102,12 +102,12 @@
             table {
                 width: 100%;
 
-                @include respond-to(768) {
+                @include respond-to(medium) {
                     width: calc(100% - 2*2*#{$unit});
                     margin: 2*$unit;
                 }
 
-                @include respond-to(992) {
+                @include respond-to(large) {
                     text-align: left;
                     width: calc(100% - 2*4*#{$unit});
                     margin: 4*$unit;

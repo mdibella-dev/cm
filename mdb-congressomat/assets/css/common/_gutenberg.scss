@@ -1,0 +1,53 @@
+/**
+ * Gutenberg
+ *
+ * Ersetzt eine Reihe von Stileinstellungen des Gutenberg Block Editors und fügt neue hinzu.
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ * @version 1.0
+ **/
+
+
+
+/**
+ * Padding
+ **/
+
+.has-small-padding,
+.has-medium-padding,
+.has-large-padding,
+.has-huge-padding {
+    padding: $unit;
+}
+
+@include respond-to(small) {
+    .has-medium-padding,
+    .has-large-padding {
+        padding: 2*$unit;
+    }
+
+    .has-huge-padding {
+        padding: 3*$unit;
+    }
+}
+
+@include respond-to(large) {
+    .has-large-padding {
+        padding: 3*$unit;
+    }
+
+    .has-huge-padding {
+        padding: 4*$unit;
+    }
+}
+
+
+
+/**
+ * Hintergrundfarben
+ **/
+
+.has-lightgray-background {
+    background: #f8f8f8;
+}

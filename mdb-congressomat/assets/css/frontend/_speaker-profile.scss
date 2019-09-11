@@ -1,0 +1,95 @@
+/**
+ * Speaker Profile
+ *
+ * Stile für die Profilseite eines Referenten.
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.speaker-profile {
+    & > div:last-of-type {
+        padding: 2*$unit 0;
+    }
+
+    @include respond-to(medium) {
+        display: -webkit-flex;
+        display: flex;
+
+        & > div:first-of-type {
+            width: 40%;
+            max-width: 250px;
+        }
+
+        & > div:last-of-type {
+            width: 60%;
+            margin-left: 4*$unit;
+            padding: 0;
+        }
+    }
+
+    .speaker-image {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background: #ddd;
+        }
+    }
+
+    .speaker-title-name {
+        font-size: 1.5rem;
+    }
+
+    .speaker-description {
+        clear: both;
+        display: inline-block;
+
+        p {
+            @include p-tag-basic-settings();
+        }
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+
+    .speaker-position {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .speaker-social-media {
+        display: inline-block;
+
+        ul,
+        ul li {
+            list-style: none;
+        }
+
+        ul li {
+            float: left;
+            margin-right: .5*$unit;
+            margin-bottom: .5*$unit;
+        }
+
+        .btn {
+            width: 5*$unit;
+            height: 5*$unit;
+
+        }
+    }
+
+    .speaker-position,
+    .speaker-social-media {
+        margin-bottom: 2*$unit;
+
+        @include respond-to(medium) {
+            margin-bottom: 4*$unit;
+        }
+    }
+}

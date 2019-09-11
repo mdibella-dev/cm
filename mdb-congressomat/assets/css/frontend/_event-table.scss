@@ -1,5 +1,7 @@
 /**
- * Programm-Tabelle
+ * Event Table
+ *
+ * Tabelle mit dem Programm eines Events (Hauptprogramm, Workshop etc.)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -17,7 +19,7 @@
     thead {
         display: none !important;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             display: table-header-group !important;
         }
 
@@ -33,13 +35,13 @@
         vertical-align: middle;
         padding: $unit;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             width: auto;
             display: table-cell;
             padding: 2*$unit;
         }
 
-        @include respond-to(992) {
+        @include respond-to(large) {
             padding: 2*$unit 3*$unit;
         }
     }
@@ -55,7 +57,7 @@
     .session-time {
         text-align: left;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             text-align: center;
             width: 20%;
         }
@@ -64,7 +66,7 @@
     .session-speaker {
         text-align: left;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             text-align: right;
         }
 

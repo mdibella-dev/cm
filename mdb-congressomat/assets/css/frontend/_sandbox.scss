@@ -13,9 +13,13 @@
 .wp-block-cover .wp-block-cover__inner-container {
     margin-left: auto;
     margin-right: auto;
-    width: calc(10 * calc(100vw/12) );
+    width: 100%;
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
+        width: calc(10 * calc(100vw/12) );
+    }
+
+    @include respond-to(large) {
         width: calc(8 * calc(100vw/12) );
     }
 }

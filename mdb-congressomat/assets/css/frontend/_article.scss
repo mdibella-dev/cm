@@ -10,7 +10,7 @@
 .article {
     font-weight: normal;
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
         font-size: 18px;
     }
 
@@ -75,7 +75,7 @@
         @include space(above);
         @include space(beyond);
 
-        @include respond-to(992) {
+        @include respond-to(large) {
             margin-top: 4em;
             margin-bottom: 4em;
         }
@@ -97,17 +97,17 @@
 
 
 
-.article > .privacy-table {
+.privacy-table {
     @include p-tag-basic-settings;
     font-size: 1rem;
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
         font-size: 1.125rem;
         line-height: 1.4;
 
     }
 
-    @include respond-to(992) {
+    @include respond-to(large) {
         text-align: left;
     }
 
@@ -131,7 +131,7 @@
             -ms-hyphens: none;
                 hyphens: none;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             width: 30%;
         }
     }
@@ -139,7 +139,7 @@
     &.privacy-table-content {
         width: 100%;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             width: 70%;
         }
     }

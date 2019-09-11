@@ -1,0 +1,45 @@
+/**
+ * Gutenberg Reset
+ *
+ * Setzt eine Reihe von Stileinstellungen des Gutenberg Block Editors zurück.
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ * @version 1.0
+ **/
+
+
+
+/**
+ * Padding
+ **/
+
+.has-small-padding,
+.has-medium-padding,
+.has-large-padding,
+.has-huge-padding {
+    padding: 0;
+
+    @include respond-to(small) {
+        padding: 0;
+    }
+}
+
+
+
+/**
+ * Margin
+ **/
+/*
+body .has-margin.has-small-margin,
+body .has-margin.has-medium-margin,
+body .has-margin.has-large-margin,
+body .has-margin.has-huge-margin {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    @include respond-to(small) {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}*/

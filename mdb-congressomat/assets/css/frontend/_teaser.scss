@@ -9,26 +9,32 @@
 
 
 .teaser {
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
     line-height: 0;
-    align-items: flex-start;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
 
-    @include respond-to(768) {
-        flex-wrap: nowrap;
+    @include respond-to(medium) {
+        -webkit-flex-wrap: nowrap;
+                flex-wrap: nowrap;
     }
 
     .teaser-image {
         display: block;
         overflow: hidden;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             display: inline-block;
-            flex-basis: 25%;
+            -webkit-flex-basis: 25%;
+                    flex-basis: 25%;
         }
 
-        @include respond-to(992) {
-            flex-basis: 30%;
+        @include respond-to(large) {
+            -webkit-flex-basis: 30%;
+                    flex-basis: 30%;
         }
 
         img {
@@ -45,17 +51,21 @@
         display: block;
         padding-top: 2*$unit;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             display: inline-block;
-            flex-basis: 75%;
-            flex-grow: 1;
-            flex-shrink: 1;
+            -webkit-flex-basis: 75%;
+                    flex-basis: 75%;
+            -webkit-flex-grow: 1;
+                    flex-grow: 1;
+            -webkit-flex-shrink: 1;
+                    flex-shrink: 1;
             padding-top: 0;
             padding-left: 2*$unit;
         }
 
-        @include respond-to(992) {
-            flex-basis: 70%;
+        @include respond-to(large) {
+            -webkit-flex-basis: 70%;
+                    flex-basis: 70%;
             padding-left: 4*$unit;
         }
 
@@ -84,7 +94,7 @@
     .teaser + .teaser {
         margin-top: 4*$unit;
 
-        @include respond-to(992) {
+        @include respond-to(large) {
             margin-top: 6*$unit;
         }
     }
@@ -98,7 +108,7 @@
         display: inline-block;
         padding: 0 2*$unit;
 
-        @include respond-to(992) {
+        @include respond-to(large) {
             min-width: 400px;
         }
     }
@@ -112,7 +122,7 @@
 .module-content .teaser-list-pagination:first-of-type {
     margin-bottom: 2*$unit;
 
-    @include respond-to(992) {
+    @include respond-to(large) {
         margin-bottom: 4*$unit;
     }
 }
@@ -121,7 +131,7 @@
 .module-content .teaser-list-pagination:last-of-type {
     margin-top: 2*$unit;
 
-    @include respond-to(992) {
+    @include respond-to(large) {
         margin-top: 4*$unit;
     }
 }

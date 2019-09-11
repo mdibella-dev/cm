@@ -55,11 +55,11 @@ h3 {
         -ms-hyphens: auto;
             hyphens: auto;
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
         font-size: 2rem;
     }
 
-    @include respond-to(992) {
+    @include respond-to(large) {
         -webkit-hyphens: none;
             -ms-hyphens: none;
                 hyphens: none;
@@ -81,7 +81,7 @@ h3 {
     font-size: 1rem;
     margin-top: .3em;
 
-    @include respond-to(992) {
+    @include respond-to(large) {
         font-size: 1.2rem;
     }
 }

@@ -1,15 +1,13 @@
 /**
- * Speaker
+ * Speaker Grid
+ *
+ * Übersicht der Referenten in Listen- bzw. Gitterdarstellung
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  **/
 
 
-
-/**
- * Grid-Ansicht mit den Referenten
- **/
 
 .speaker-grid {
     width: 100%;
@@ -32,17 +30,17 @@
         padding: 0;
         width: calc(50% - #{2*$unit});
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
             width: calc(50% - #{4*$unit});
         }
 
-        @include respond-to(992) {
+        @include respond-to(large) {
             margin: #{2*$unit} $unit 0 $unit;
             width: calc(25% - #{2*$unit});
         }
 
-        @include respond-to(1200) {
+        @include respond-to(wide) {
             margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
             width: calc(25% - #{4*$unit});
         }
@@ -71,16 +69,23 @@
         figcaption {
             margin-top: $unit;
             text-align: left;
+            font-size: 0.8rem;
+
+            @include respond-to(medium) {
+                font-size: 1rem;
+            }
 
             .speaker-title-name {
                 @include a-tag-basic-settings();
                 line-height: 1.9em;
-                padding: 0 2px;
                 text-align: inherit;
+                font-size: inherit;
+                padding: 0 2px;
             }
 
             .speaker-position {
                 font-weight: 500;
+                font-size: inherit;
                 text-align: inherit;
             }
         }
@@ -91,11 +96,11 @@
 header + .speaker-grid {
     margin-top: -#{2*$unit};
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
         margin-top: -#{4*$unit};
     }
 
-    @include respond-to(1200) {
+    @include respond-to(wide) {
         margin-top: -#{4*$unit};
     }
 }
@@ -111,7 +116,7 @@ header + .speaker-grid {
         padding: 2*$unit 0;
     }
 
-    @include respond-to(768) {
+    @include respond-to(medium) {
         display: -webkit-flex;
         display: flex;
 
@@ -185,7 +190,7 @@ header + .speaker-grid {
     .speaker-social-media {
         margin-bottom: 2*$unit;
 
-        @include respond-to(768) {
+        @include respond-to(medium) {
             margin-bottom: 4*$unit;
         }
     }
