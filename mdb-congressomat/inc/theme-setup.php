@@ -23,6 +23,7 @@
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'align-wide' );
     add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+    add_theme_support( 'responsive-embeds' );
 
     // Menüs registrieren
     register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
