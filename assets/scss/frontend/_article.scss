@@ -18,12 +18,12 @@
     ul {
         padding: 0 0 0 2*$unit;
         @include space(beyond);
-    }
 
-    li {
-        @include p-tag-basic-settings();
-        color: inherit;
-        padding-left: $unit;
+        li {
+            @include p-tag-basic-settings();
+            color: inherit;
+            padding-left: $unit;
+        }
     }
 
     strong {

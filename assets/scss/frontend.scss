@@ -20,19 +20,15 @@ $font-sans:             'Roboto';
 
 
 // Imports
-@import "_media-queries";
-@import "_mixins";
-@import "_basics";
-
-@import "_sandbox";
-
-
-
-@import "_elements";
-@import "_article";
-@import "_teaser";
-@import "_event";
-@import "_partner";
-@import "_speaker";
-@import "_faq";
-@import "_registration"
+@import "common/_media-queries";
+@import "common/_common-styles";
+@import "frontend/_mixins";
+@import "frontend/_basics";
+@import "frontend/_sandbox";
+@import "frontend/_elements";
+@import "frontend/_article";
+@import "frontend/_teaser";
+@import "frontend/_event";
+@import "frontend/_partner";
+@import "frontend/_speaker";
+@import "frontend/_faq";

@@ -8,13 +8,19 @@
 
 
 .adjust-workspace > *:not(.alignfull),
+.adjust-workspace .wp-block-coblocks-row.alignfull .wp-block-coblocks-row__inner,
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
     margin-left: auto;
     margin-right: auto;
     width: calc(10 * calc(100vw/12) );
 
-    @include respond-to(576) {
+    @include respond-to(768) {
         width: calc(8 * calc(100vw/12) );
     }
+}
+
+
+.wp-block-embed-youtube {
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15);
 }

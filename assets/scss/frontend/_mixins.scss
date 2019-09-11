@@ -22,6 +22,22 @@
     }
 }
 
+@mixin a-tag-with-zooming-image() {
+    img {
+        -webkit-transform: scale(1.01);
+                transform: scale(1.01);
+        transition: transform 0.5s 0s ease-in-out, -webkit-transform 0.5s 0s ease-in-out;
+        opacity: 0.8;
+    }
+
+    &:hover img,
+    &:focus img {
+        -webkit-transform: scale(1.06);
+                transform: scale(1.06);
+        opacity: 0.9;
+    }
+}
+
 @mixin p-tag-basic-settings() {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;

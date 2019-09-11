@@ -18,6 +18,7 @@
     max-width: 100%;
     line-height: 1.5;
 
+
     tr > td {
         width: 100%;
         display: block;
@@ -136,20 +137,26 @@
 
 .partner-list {
     list-style: none;
+    display: -webkit-flex;
     display: flex;
-    flex-wrap: wrap;
-  justify-content: center;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: center;
+            justify-content: center;
+    margin: 0 auto !important;
+    padding: 0 !important;
 
     li {
-        padding: $unit 2*$unit;
-        width: 50%;
+        margin: $unit 2*$unit;
+        padding: 0 !important;
+        width: calc(50% - #{4*$unit});
 
         @include respond-to(768) {
-            width: 25%;
+            width: calc(25% - #{4*$unit});
         }
 
         @include respond-to(768) {
-            width: 20%;
+            width: calc(20% - #{4*$unit});
         }
     }
 

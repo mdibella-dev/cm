@@ -13,7 +13,8 @@
 
 .speaker-grid {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto !important;
+    padding: 0 !important;
     list-style-type: none;
     display: -webkit-flex;
     display: flex;
@@ -27,21 +28,22 @@
     .speaker-grid-element {
         width: 100%;
         height: auto;
-        margin: #{2*$unit} #{2*$unit} 0 0;
+        margin: #{2*$unit} $unit 0 $unit;
+        padding: 0;
         width: calc(50% - #{2*$unit});
 
         @include respond-to(768) {
-            margin: #{4*$unit} #{4*$unit} 0 0;
+            margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
             width: calc(50% - #{4*$unit});
         }
 
         @include respond-to(992) {
-            margin: #{2*$unit} #{2*$unit} 0 0;
+            margin: #{2*$unit} $unit 0 $unit;
             width: calc(25% - #{2*$unit});
         }
 
         @include respond-to(1200) {
-            margin: #{4*$unit} #{4*$unit} 0 0;
+            margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
             width: calc(25% - #{4*$unit});
         }
     }
@@ -57,6 +59,12 @@
                 width: 100%;
                 height: 100%;
                 background: #ddd;
+                transition: all 0.5s 0s ease-in-out;
+            }
+
+            &:hover img,
+            &:focus img {
+                background: #aaa;
             }
         }
 
