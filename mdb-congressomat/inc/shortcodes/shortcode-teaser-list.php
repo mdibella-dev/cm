@@ -96,17 +96,20 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
     if( $articles ) :
         // Ausgabe puffern
         ob_start();
-
+?>
+<div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
+<?php
         if( $paged == 1 ) :
             mdb_get_teaser_pagination( $current_page, $max_page );
         endif;
 ?>
-<div class="teaser-list">
+<ul>
 <?php
         foreach( $articles as $post ) :
             setup_postdata( $post );
 ?>
-<article class="<?php echo implode( ' ', get_post_class( 'teaser', $post->ID ) ); ?>">
+<li>
+<article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
 <div class="teaser-image">
 <a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>">
 <?php the_post_thumbnail( $post->ID, 'full' ); ?>
@@ -118,16 +121,19 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a></p>
 </div>
 </article>
+</li>
 <?php
         endforeach;
         wp_reset_postdata();
 ?>
-</div>
+</ul>
 <?php
         if( $paged == 1 ) :
             mdb_get_teaser_pagination( $current_page, $max_page );
         endif;
-
+?>
+</div>
+<?php
         // Ausgabenpuffer sichern; Pufferung beenden
         $buffer = ob_get_contents();
         ob_end_clean();
@@ -148,7 +154,7 @@ add_shortcode( 'teaser-list', 'mdb_shortcode_teaser_list' );
 
 function mdb_get_teaser_pagination( $current_page, $max_page )
 {
-    echo '<nav class="teaser-list-pagination">';
+    echo '<nav>';
 
     echo sprintf( '<a href="%1$s" class="btn%3$s" title="%2$s" rel="prev"><i class="far fa-chevron-left"></i></a>',
                   add_query_arg( 'prt', $current_page - 1 ),

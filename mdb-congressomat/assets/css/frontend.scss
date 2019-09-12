@@ -25,14 +25,14 @@ $font-sans:             'Roboto';
 
 @import "frontend/_mixins";
 @import "frontend/_basics";
-@import "frontend/_sandbox";
+@import "frontend/_adjustments";
 @import "frontend/_elements";
 @import "frontend/_article";
-@import "frontend/_teaser";
 @import "frontend/_privacy-table";
-@import "frontend/_event-table";
 @import "frontend/_partner-list";
 @import "frontend/_partner-table";
-@import "frontend/_speaker-grid";
+@import "frontend/_shortcode-teaser-list";
+@import "frontend/_shortcode-event-table";
+@import "frontend/_shortcode-speaker-grid";
 @import "frontend/_speaker-profile";
 @import "frontend/_faq";
