@@ -1,0 +1,81 @@
+/**
+ * Diverse generelle Anpassungen
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.adjust-workspace {
+    // minimaler Abstand zum linken und rechten Bildschirmrand
+    padding-left: $unit;
+    padding-right: $unit;
+
+        & > .alignfull {
+        // Blöcke, die über die volle Bildschirmbreite ausgedehnt werden sollen
+        // auch tatsächlich über den minimalen linken und rechten Bildschirmrand ziehen
+        width: calc(100% + #{2*$unit});
+        margin-left: -#{$unit} !important;
+        margin-right: -#{$unit} !important;
+
+    }
+}
+
+
+
+.adjust-workspace > *:not(.alignfull),
+.wp-block-cover .wp-block-cover__inner-container,
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-coblocks-row.alignfull .wp-block-coblocks-row__inner /* CoBlocks */ {
+    // Blöcke standardmäßg zentrieren und größtmögliche Breite geben
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @include respond-to(medium) {
+        // ab 782px (medium): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
+        width: calc(10 * calc(100vw/12) );
+    }
+
+    @include respond-to(large) {
+        // ab 960px (medium): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
+        width: calc(8 * calc(100vw/12) );
+    }
+}
+
+
+
+body:not(.page-template-page-landingpage) .article {
+    // bei Seiten, die nicht mit dem Template "Landing-Page" versehen sind,
+    // einen oberen und unteren Innenabstand ergänzen
+    padding-top: 2*$unit;
+    padding-bottom: 2*$unit;
+
+    @include respond-to(medium) {
+        // ab 782px (medium): den Innenabstand erhöhen
+        padding-top: 3*$unit;
+        padding-bottom: 3*$unit;
+    }
+
+    @include respond-to(large) {
+        // ab 960px (large): den Innenabstand weiter erhöhen
+        padding-top: 4*$unit;
+        padding-bottom: 4*$unit;
+    }
+}
+
+
+
+.wp-block-coblocks-row[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] /* CoBlocks */ {
+    // Größenbeschränkung aufheben
+    max-width: unset !important;
+}
+
+
+
+.wp-block-embed {
+    // der standardmäßige untere Abstand (margin-bottom) von 1em auf den oberen und unteren Abstand aufteilen
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
