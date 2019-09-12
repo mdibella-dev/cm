@@ -6,22 +6,6 @@
  **/
 
 
-body:not(.page-template-page-landingpage) .article {
-    padding-top: 20px;
-    padding-bottom: 20px;
-
-    @include respond-to(medium) {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-
-    @include respond-to(medium) {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-}
-
-
 .article {
     font-weight: normal;
 
@@ -102,5 +86,9 @@ body:not(.page-template-page-landingpage) .article {
             line-height: 1.2;
             font-size: 80%;
         }
+    }
+
+    .wp-block-embed-youtube {
+        box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15);
     }
 }
