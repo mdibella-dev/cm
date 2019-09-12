@@ -1,0 +1,137 @@
+/**
+ * Teaser-list
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.teaser-list {
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            padding: 0;
+        }
+
+        li + li {
+            margin-top: 4*$unit;
+
+            @include respond-to(large) {
+                margin-top: 6*$unit;
+            }
+        }
+    }
+
+    .teaser-list-element {
+        line-height: 0;
+        text-align: left;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-align-items: flex-start;
+                align-items: flex-start;
+
+        @include respond-to(medium) {
+            -webkit-flex-wrap: nowrap;
+                    flex-wrap: nowrap;
+        }
+
+        .teaser-image {
+            display: block;
+            overflow: hidden;
+
+            @include respond-to(small) {
+                display: inline-block;
+                -webkit-flex-basis: 25%;
+                        flex-basis: 25%;
+            }
+
+            @include respond-to(wide) {
+                -webkit-flex-basis: 30%;
+                        flex-basis: 30%;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            a {
+                display: block;
+            }
+        }
+
+        .teaser-content {
+            display: block;
+            padding-top: 2*$unit;
+
+            @include respond-to(small) {
+                display: inline-block;
+                -webkit-flex-basis: 75%;
+                        flex-basis: 75%;
+                padding-top: 0;
+                padding-left: 2*$unit;
+            }
+
+            @include respond-to(wide) {
+                -webkit-flex-basis: 70%;
+                        flex-basis: 70%;
+                padding-left: 4*$unit;
+            }
+
+            h2 {
+                font-size: 1.3em;
+                margin-bottom: 1em;
+            }
+
+            p {
+                @include p-tag-basic-settings();
+                font-size: 1em;
+            }
+
+            a {
+                @include a-tag-basic-settings();
+            }
+        }
+    }
+
+    &.teaser-list-has-pagination {
+        nav {
+            text-align: center;
+
+            &:first-of-type {
+                margin-bottom: 2*$unit;
+
+                @include respond-to(large) {
+                    margin-bottom: 6*$unit;
+                }
+            }
+
+            &:last-of-type {
+                margin-top: 2*$unit;
+
+                @include respond-to(large) {
+                    margin-top: 6*$unit;
+                }
+            }
+
+            .pageinfo {
+                display: inline-block;
+                padding: 0 2*$unit;
+
+                @include respond-to(large) {
+                    min-width: 400px;
+                }
+            }
+
+            .btn {
+                padding: 2*$unit 2.5*$unit;
+            }
+
+        }
+    }
+}
