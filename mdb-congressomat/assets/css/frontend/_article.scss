@@ -70,6 +70,14 @@
         color: inherit;
     }
 
+    img.aligncenter,
+    figure.aligncenter {
+        // alter visueller Editor
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .wp-block-image {
         @include space(above);
         @include space(beyond);
@@ -79,16 +87,12 @@
         }
 
         figcaption {
-            background: #f4f4f4;
+            background: #f3f3f3;
             color: #777;
             margin: 0;
             padding: 1.5em;
             line-height: 1.2;
             font-size: 80%;
         }
-    }
-
-    .wp-block-embed-youtube {
-        box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15);
     }
 }
