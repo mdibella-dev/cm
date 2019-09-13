@@ -27,122 +27,120 @@
     .faq-element {
         width: 100%;
 
-        // Frage
-        .faq-question {
-            border-bottom: 1px solid #ddd;
-            padding: 1.25em 0;
-            cursor: pointer;
-            display: -webkit-flex;
-            display: flex;
-
-
-
-            & > span {
-                display: inline-block;
-                font-size: 1.25rem;
-                font-weight: 300;
-                line-height: 1.3;
-
-                @include respond-to(medium) {
-                    font-size: 1.5rem;
-                }
-            }
-
-            .faq-arrow {
-                display: inline-block;
-                margin-right: $unit;
-                width: 2*$unit;
-
-                @include respond-to(medium) {
-                    width: 3*$unit;
-                }
-
-                i {
-                    transition: all .5s ease-out;
-                }
-            }
-
-            &.on .faq-arrow > i {
-                -webkit-transform-origin: center;
-                        transform-origin: center;
-                -webkit-transform: rotate(90deg);
-                        transform: rotate(90deg);
-            }
-        }
-
-        // Antwort
-        .faq-answer {
-            display: none;
-            background: #f3f3f3;
-            margin-bottom: 1rem;
-            padding: 1rem 3*$unit;
-
-            @include respond-to(medium) {
-                margin-bottom: 2rem;
-                padding: 1rem 4*$unit;
-            }
-
-            @include respond-to(large) {
-                padding: 3rem 4*$unit;
-            }
-
-            ol,
-            ul,
-            p,
-            table {
-                @include p-tag-basic-settings;
-                font-weight: 300;
-                font-size: 1rem;
-
-                @include respond-to(medium) {
-                    font-size: 1.125rem;
-                    line-height: 1.4;
-                }
-
-                & + ol,
-                & + ul,
-                & + p,
-                & + table {
-                    margin-top: 1rem;
-                }
-            }
-
-            ul {
-                list-style: disc inside;
-            }
-
-            table {
-                width: 100%;
-
-                @include respond-to(medium) {
-                    width: calc(100% - 2*2*#{$unit});
-                    margin: 2*$unit;
-                }
-
-                @include respond-to(large) {
-                    text-align: left;
-                    width: calc(100% - 2*4*#{$unit});
-                    margin: 4*$unit;
-                }
-
-                td {
-                    border-bottom: 2px solid #fff;
-                    height: 3rem;
-                    padding: 5px;
-                }
-
-                tr:last-of-type > td {
-                    border-bottom: none;
-                }
-            }
-
-            a {
-                @include a-tag-basic-settings;
-            }
+        &:last-of-type .faq-question:not(.on) {
+            border-bottom: none;
         }
     }
 
-    faq-elememt:last-of-type:not(.on) .faq-question {
-        border-bottom: none;
+    // Frage
+    .faq-question {
+        border-bottom: 1px solid #ddd;
+        padding: 1.25em 0;
+        cursor: pointer;
+        display: -webkit-flex;
+        display: flex;
+
+        & > span {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.3;
+
+            @include respond-to(medium) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .faq-arrow {
+            display: inline-block;
+            margin-right: $unit;
+            width: 2*$unit;
+
+            @include respond-to(medium) {
+                width: 3*$unit;
+            }
+
+            i {
+                transition: all .5s ease-out;
+            }
+        }
+
+        &.on .faq-arrow > i {
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transform: rotate(90deg);
+                    transform: rotate(90deg);
+        }
+    }
+
+    // Antwort
+    .faq-answer {
+        display: none;
+        background: #f3f3f3;
+        margin-bottom: 1rem;
+        padding: 1rem 3*$unit;
+
+        @include respond-to(medium) {
+            margin-bottom: 2rem;
+            padding: 1rem 4*$unit;
+        }
+
+        @include respond-to(large) {
+            padding: 3rem 4*$unit;
+        }
+
+        ol,
+        ul,
+        p,
+        table {
+            @include p-tag-basic-settings;
+            font-weight: 300;
+            font-size: 1rem;
+
+            @include respond-to(medium) {
+                font-size: 1.125rem;
+                line-height: 1.4;
+            }
+
+            & + ol,
+            & + ul,
+            & + p,
+            & + table {
+                margin-top: 1rem;
+            }
+        }
+
+        ul {
+            list-style: disc inside;
+        }
+
+        table {
+            width: 100%;
+
+            @include respond-to(medium) {
+                width: calc(100% - 2*2*#{$unit});
+                margin: 2*$unit;
+            }
+
+            @include respond-to(large) {
+                text-align: left;
+                width: calc(100% - 2*4*#{$unit});
+                margin: 4*$unit;
+            }
+
+            td {
+                border-bottom: 2px solid #fff;
+                height: 3rem;
+                padding: 5px;
+            }
+
+            tr:last-of-type > td {
+                border-bottom: none;
+            }
+        }
+
+        a {
+            @include a-tag-basic-settings;
+        }
     }
 }
