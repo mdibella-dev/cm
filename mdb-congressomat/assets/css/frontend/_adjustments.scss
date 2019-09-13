@@ -79,3 +79,20 @@ body:not(.page-template-page-landingpage) .article {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
+
+
+
+.wp-block-cover-image .wp-block-cover-image-text,
+.wp-block-cover-image .wp-block-cover-text,
+.wp-block-cover-image h2,
+.wp-block-cover-image p,
+.wp-block-cover .wp-block-cover-image-text,
+.wp-block-cover .wp-block-cover-text,
+.wp-block-cover h2,
+.wp-block-cover p {
+    // Größenbeschränkung aufheben
+    max-width: unset !important;
+    // Innenabstand korrigieren
+    padding-left: $unit;
+    padding-right: $unit;
+}
