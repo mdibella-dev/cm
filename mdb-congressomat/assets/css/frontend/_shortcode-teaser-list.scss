@@ -1,5 +1,5 @@
 /**
- * Teaser-list
+ * Shortcode [teaser-list]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -10,6 +10,7 @@
 .teaser-list {
     ul {
         list-style-type: none;
+        margin: 0;
         padding: 0;
 
         li {
@@ -17,6 +18,7 @@
         }
 
         li + li {
+            // Abstand zwischen den einzelnen Listenelementen
             margin-top: 4*$unit;
 
             @include respond-to(large) {
@@ -25,6 +27,7 @@
         }
     }
 
+    // einzelner Teaser
     .teaser-list-element {
         line-height: 0;
         text-align: left;
@@ -40,11 +43,14 @@
                     flex-wrap: nowrap;
         }
 
+        // Bildkomponente des Teasers
         .teaser-image {
+            // standardmäßig werden die Komponenten untereinander angezeigt
             display: block;
             overflow: hidden;
 
             @include respond-to(small) {
+                // ab 600px (small): Komponente nebeneinander anzeigen
                 display: inline-block;
                 -webkit-flex-basis: 25%;
                         flex-basis: 25%;
@@ -65,11 +71,14 @@
             }
         }
 
+        // Textkomponente des Teasers
         .teaser-content {
+            // standardmäßig werden die Komponenten untereinander angezeigt
             display: block;
             padding-top: 2*$unit;
 
             @include respond-to(small) {
+                // ab 600px (small): Komponente nebeneinander anzeigen
                 display: inline-block;
                 -webkit-flex-basis: 75%;
                         flex-basis: 75%;
@@ -100,10 +109,13 @@
     }
 
     &.teaser-list-has-pagination {
+        // die Liste verfügt explizit über eine eigene Navigation,
+        // jeweils eine überhalb und eine unterhalb der Liste
         nav {
             text-align: center;
 
             &:first-of-type {
+                // Abstand der oberen Navigation zur Liste
                 margin-bottom: 2*$unit;
 
                 @include respond-to(large) {
@@ -112,6 +124,7 @@
             }
 
             &:last-of-type {
+                // Abstand der unteren Navigation zur Liste
                 margin-top: 2*$unit;
 
                 @include respond-to(large) {

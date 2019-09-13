@@ -1,20 +1,17 @@
 <?php
 /**
  * Shortcode [teaser-list]
+ *
  * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
  *
- * Folgende Parameter können verwendet werden:
- * - paged      (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- *              Standardwert: 0 (non-paged)
- * - show       (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *              Standardwerte:  non-paged:  4
- *                              paged:      die im Backend hinterlegte Angabe für Archivseiten
- * - exclude    (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
- * - shuffle    (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
- *              Standardwert: 0
+ * @param   paged   (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ * @param   show    (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
+ *                             Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
+ * @param   exclude (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ * @param   shuffle (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
  *
  * @author Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-theme
+ * @package mdb-congressomat
  **/
 
 function mdb_shortcode_teaser_list( $atts, $content = null )
@@ -31,15 +28,15 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
                              'shuffle' => '0',
                              ), $atts ) );
 
-    // Bestimmte Artikel ausschließen wenn gewünscht
-    $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
-
-
     /**
      * Schritt 1
-     * In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
+     * Daten abrufen und aufbereiten
      **/
 
+    // optional: bestimmte Artikel ausschließen
+    $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
+
+    // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
     if( $paged == 1 ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $max_page = ceil( sizeof( get_posts( array(
@@ -73,12 +70,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
         endif;
     endif;
 
-
-    /**
-     * Schritt 2
-     * Daten abrufen
-     **/
-
+    // anhand der zuvor ermittelten Daten die Artikel abrufen
     $articles = get_posts( array(
                            'exclude'        => $exclude_ids,
                            'post_type'      => 'post',
@@ -89,8 +81,8 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
                            'offset'         => $offset ) );
 
     /**
-     * Schritt 3
-     * Ausgabe vorbereiten abrufen
+     * Schritt 2
+     * Ausgabe vorbereiten
      **/
 
     if( $articles ) :
@@ -100,7 +92,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
 <?php
         if( $paged == 1 ) :
-            mdb_get_teaser_pagination( $current_page, $max_page );
+            mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
         endif;
 ?>
 <ul>
@@ -129,7 +121,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 </ul>
 <?php
         if( $paged == 1 ) :
-            mdb_get_teaser_pagination( $current_page, $max_page );
+            mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
         endif;
 ?>
 </div>
@@ -147,12 +139,12 @@ add_shortcode( 'teaser-list', 'mdb_shortcode_teaser_list' );
 
 
 /**
- * Erzeugt eine Pagination für die Teaserliste
+ * Hilfsfunktion für die Teaserliste zur Ausgabe einer Pagination
  *
  * @since 1.0.0
  **/
 
-function mdb_get_teaser_pagination( $current_page, $max_page )
+function mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
     echo '<nav>';
 

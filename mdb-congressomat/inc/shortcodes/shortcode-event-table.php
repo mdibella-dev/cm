@@ -1,14 +1,14 @@
 <?php
 /**
  * Shortcode [event-table]
+ *
  * Erzeugt eine Tabelle mit dem Zeitplan eines bestimmten Events
  *
  * Folgende Parameter können verwendet werden:
- * - event      Die Identifikationsnummer des Events
- * - speaker    (optional) Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
- * - fieldset   Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
- *              Folgende Werte sind derzeit möglich:
- *              VON, VONBIS, DATUM, TITEL, REFERENT, ORT
+ * @param   event    Die Identifikationsnummer des Events
+ * @param   speaker  (optional) Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
+ * @param   fieldset Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
+ *                   Folgende Werte sind derzeit möglich: VON, VONBIS, DATUM, TITEL, REFERENT, ORT
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat

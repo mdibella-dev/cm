@@ -1,5 +1,5 @@
 /**
- * Übersicht der Referenten in Listen- bzw. Gitterdarstellung
+ * Shortcode [speaker-grid]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -8,43 +8,50 @@
 
 
 .speaker-grid {
-    width: 100%;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    list-style-type: none;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-align-items: flex-start;
-            align-items: flex-start;
-    -webkit-align-content: flex-start;
-            align-content: flex-start;
-
-    .speaker-grid-element {
+    ul {
         width: 100%;
-        height: auto;
-        margin: #{2*$unit} $unit 0 $unit;
+        list-style-type: none;
+        margin: 0;
         padding: 0;
-        width: calc(50% - #{2*$unit});
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-align-items: flex-start;
+                align-items: flex-start;
+        -webkit-align-content: flex-start;
+                align-content: flex-start;
 
-        @include respond-to(medium) {
-            margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
-            width: calc(50% - #{4*$unit});
-        }
-
-        @include respond-to(large) {
+        // responsive Größen- und Abstandsanpassung der Gridelemente
+        li {
+            padding: 0;
+            height: auto;
+            // standardmäßig zwei Gridelemente nebeneinander
             margin: #{2*$unit} $unit 0 $unit;
-            width: calc(25% - #{2*$unit});
-        }
+            width: calc(50% - #{2*$unit});
 
-        @include respond-to(wide) {
-            margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
-            width: calc(25% - #{4*$unit});
+
+            @include respond-to(medium) {
+                margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
+                width: calc(50% - #{4*$unit});
+            }
+
+            @include respond-to(large) {
+                // vier Gridelemente nebeneinander
+                margin: #{2*$unit} $unit 0 $unit;
+                width: calc(25% - #{2*$unit});
+            }
+
+            @include respond-to(wide) {
+                margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
+                width: calc(25% - #{4*$unit});
+            }
         }
     }
 
+    // tatsächliche Darstellung des Speakers
     figure {
+        // klickbare Bildkomponente
         & > a {
             display: block;
             width: 100%;
@@ -64,6 +71,7 @@
             }
         }
 
+        // Textkomponente
         figcaption {
             margin-top: $unit;
             text-align: left;
@@ -103,93 +111,3 @@ header + .speaker-grid {
     }
 }
 */
-
-
-/**
- * Profilseite
- **/
-
-.speaker-profile {
-    & > div:last-of-type {
-        padding: 2*$unit 0;
-    }
-
-    @include respond-to(medium) {
-        display: -webkit-flex;
-        display: flex;
-
-        & > div:first-of-type {
-            width: 40%;
-            max-width: 250px;
-        }
-
-        & > div:last-of-type {
-            width: 60%;
-            margin-left: 4*$unit;
-            padding: 0;
-        }
-    }
-
-    .speaker-image {
-        width: 100%;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-            background: #ddd;
-        }
-    }
-
-    .speaker-title-name {
-        font-size: 1.5rem;
-    }
-
-    .speaker-description {
-        clear: both;
-        display: inline-block;
-
-        p {
-            @include p-tag-basic-settings();
-        }
-
-        a {
-            @include a-tag-basic-settings();
-        }
-    }
-
-    .speaker-position {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-
-    .speaker-social-media {
-        display: inline-block;
-
-        ul,
-        ul li {
-            list-style: none;
-        }
-
-        ul li {
-            float: left;
-            margin-right: .5*$unit;
-            margin-bottom: .5*$unit;
-        }
-
-        .btn {
-            width: 5*$unit;
-            height: 5*$unit;
-
-        }
-    }
-
-    .speaker-position,
-    .speaker-social-media {
-        margin-bottom: 2*$unit;
-
-        @include respond-to(medium) {
-            margin-bottom: 4*$unit;
-        }
-    }
-}
