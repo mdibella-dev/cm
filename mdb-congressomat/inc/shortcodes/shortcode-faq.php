@@ -21,7 +21,8 @@ function mdb_shortcode_faq( $atts, $content = null )
     $output = '';
 
     if( have_rows( 'faq', $faq ) ) :
-        $output .= '<ul class="faq-accordion">';
+        $output .= '<div class="faq-accordion">';
+        $output .= '<ul>';
 
         while( have_rows( 'faq', $faq ) ) :
             the_row();
@@ -29,12 +30,13 @@ function mdb_shortcode_faq( $atts, $content = null )
             $question = apply_filters( 'the_content', get_sub_field( 'question' ) );
             $answer   = apply_filters( 'the_content', get_sub_field( 'answer' ) );
 
-            $output .= '<li>';
-            $output .= sprintf( '<h3><span><i class="fal fa-long-arrow-right"></i></span><span>%1$s</span></h3>', wp_strip_all_tags( $question ) );
-            $output .= sprintf( '<div>%1$s</div>', $answer );
+            $output .= '<li class="faq-element">';
+            $output .= sprintf( '<div class="faq-question"><span class="faq-arrow"><i class="fal fa-long-arrow-right"></i></span><span>%1$s</span></div>', wp_strip_all_tags( $question ) );
+            $output .= sprintf( '<div class="faq-answer">%1$s</div>', $answer );
             $output .= '</li>';
         endwhile;
         $output .= '</ul>';
+        $output .= '</div>';
     endif;
 
     // Ausgabe

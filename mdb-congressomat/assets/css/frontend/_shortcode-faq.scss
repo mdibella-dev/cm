@@ -1,5 +1,5 @@
 /**
- * Häufig gestellte Fragen (FAQ)
+ * Shortcode [faq]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -13,24 +13,34 @@
  **/
 
 .faq-accordion {
-    list-style: none;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 
-    li {
+        li {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    .faq-element {
         width: 100%;
 
-        h3 {
+        // Frage
+        .faq-question {
             border-bottom: 1px solid #ddd;
-            padding: 0.5em 0;
+            padding: 1.25em 0;
             cursor: pointer;
+            display: -webkit-flex;
             display: flex;
 
-            @include respond-to(medium) {
-                padding: 1em 0;
-            }
+
 
             & > span {
                 display: inline-block;
                 font-size: 1.25rem;
+                font-weight: 300;
                 line-height: 1.3;
 
                 @include respond-to(medium) {
@@ -38,7 +48,8 @@
                 }
             }
 
-            & > span:first-of-type {
+            .faq-arrow {
+                display: inline-block;
                 margin-right: $unit;
                 width: 2*$unit;
 
@@ -51,7 +62,7 @@
                 }
             }
 
-            &.on > span:first-of-type > i {
+            &.on .faq-arrow > i {
                 -webkit-transform-origin: center;
                         transform-origin: center;
                 -webkit-transform: rotate(90deg);
@@ -59,9 +70,10 @@
             }
         }
 
-        div {
+        // Antwort
+        .faq-answer {
             display: none;
-            background: #f9f9f9;
+            background: #f3f3f3;
             margin-bottom: 1rem;
             padding: 1rem 3*$unit;
 
@@ -128,5 +140,9 @@
                 @include a-tag-basic-settings;
             }
         }
+    }
+
+    faq-elememt:last-of-type:not(.on) .faq-question {
+        border-bottom: none;
     }
 }
