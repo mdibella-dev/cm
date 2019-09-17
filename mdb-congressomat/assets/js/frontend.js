@@ -27,7 +27,7 @@ var cbpHorizontalMenu = (function() {
             current = -1;
         }
         else {
-            if( $item.hasClass( 'megamenu' ) ) {
+            if( $item.hasClass( 'submenu' ) ) {
                 $item.addClass( 'open' );
                 current = idx;
                 $body.off( 'click' ).on( 'click', close );
