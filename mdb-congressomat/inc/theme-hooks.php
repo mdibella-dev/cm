@@ -22,9 +22,9 @@ add_filter( 'post_class', 'mdb_remove_post_classes', 10, 3 );
 
 
 // theme-gutenberg.php
-add_filter( 'gutenberg_can_edit_post_type', 'mdb_disable_gutenberg' );
-add_filter( 'use_block_editor_for_post_type', 'mdb_disable_gutenberg', 10, 2);
-add_action( 'enqueue_block_editor_assets', 'mdb_add_gutenberg_styles' );
+add_filter( 'gutenberg_can_edit_post_type', 'mdb_disable_block_editor' );
+add_filter( 'use_block_editor_for_post_type', 'mdb_disable_block_editor', 10, 2);
+add_action( 'enqueue_block_editor_assets', 'mdb_add_block_editor_assets' );
 
 
 // snippets.php

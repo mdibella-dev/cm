@@ -39,6 +39,17 @@
     }
 }
 
+@include respond-to(huge) {
+    .has-large-padding {
+        padding: 5*$unit 3*$unit;
+    }
+
+    .has-huge-padding {
+        padding: 6*$unit 4*$unit;
+    }
+}
+
+
 
 
 /**
@@ -61,9 +72,48 @@
 
 
 /**
- * Hintergrundfarben
+ * Neue Stile für den Block Editor, die auch im Frontend zur verwendung kommen
  **/
 
 .has-lightgray-background {
     background: #f3f3f3;
+}
+
+
+.thin {
+    font-weight: 300;
+}
+
+
+.lead {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    margin-bottom: 2em;
+    font-weight: 300 !important;
+    font-size: 1.325em !important;
+    line-height: 1.5 !important;
+
+    @include respond-to(medium) {
+        line-height: 1.5 !important;
+    }
+}
+
+.image {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    figure {
+        line-height: 0;
+    }
+
+    figcaption {
+        background: #f3f3f3;
+        color: #777;
+        margin: 0;
+        padding: 1em;
+        line-height: 1.2 !important;
+        font-size: 95% !important;
+        font-weight: 300 !important;
+    }
 }

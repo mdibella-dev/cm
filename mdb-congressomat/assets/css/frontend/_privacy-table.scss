@@ -9,7 +9,7 @@
 
 
 .table-fineline {
-    @include p-tag-basic-settings;
+    //@include p-tag-basic-settings;
     font-size: 1rem;
 
     @include respond-to(medium) {
@@ -31,7 +31,7 @@
     }
 
     td {
-        padding: 2*$unit 5px;
+        //padding: 2*$unit 5px;
         vertical-align: top;
         display: inline-block;
 

@@ -76,6 +76,7 @@
             // standardmäßig werden die Komponenten untereinander angezeigt
             display: block;
             padding-top: 2*$unit;
+            font-size: 1em;
 
             @include respond-to(small) {
                 // ab 600px (small): Komponente nebeneinander anzeigen
@@ -99,7 +100,10 @@
 
             p {
                 @include p-tag-basic-settings();
-                font-size: 1em;
+                @include respond-to(medium) {
+                    line-height: 1.5;
+                }
+                margin-bottom: 1.5em;
             }
 
             a {

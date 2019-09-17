@@ -6,11 +6,14 @@
  **/
 
 
-.article {
-    font-weight: normal;
 
+.article {
     @include respond-to(medium) {
         font-size: 18px;
+    }
+
+    * {
+        color: inherit;
     }
 
     ol,
@@ -20,25 +23,14 @@
 
         li {
             @include p-tag-basic-settings();
-            color: inherit;
             padding-left: $unit;
         }
-    }
-
-    strong {
-        font-weight: 500; // nicht zu fett
     }
 
     table p,
     p {
         @include p-tag-basic-settings();
         @include space(beyond);
-        color: inherit;
-
-        &.lead {
-            font-weight: 300;
-            font-size: 1.2em;
-        }
 
         &:last-child {
             margin-bottom: 0 !important;
@@ -57,42 +49,11 @@
 
     & > header {
         @include space(beyond);
-
-        h1 {
-            font-size: 2em;
-        }
     }
 
     & > h2 {
         @include space(above);
         margin-bottom: .3em;
         font-size: 1.2em;
-        color: inherit;
-    }
-
-    img.aligncenter,
-    figure.aligncenter {
-        // alter visueller Editor
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .wp-block-image {
-        @include space(above);
-        @include space(beyond);
-
-        figure {
-            line-height: 0;
-        }
-
-        figcaption {
-            background: #f3f3f3;
-            color: #777;
-            margin: 0;
-            padding: 1.5em;
-            line-height: 1.2;
-            font-size: 80%;
-        }
     }
 }

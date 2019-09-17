@@ -1,6 +1,6 @@
 <?php
 /**
- * Modifikationen für den Gutenberg Block Editor
+ * Block Editor (aka Gutenberg)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -9,7 +9,7 @@
 
 
 /**
- * Deaktiviert Gutenberg für diverse Post Types
+ * Block Editor für diverse Post Types deaktivieren
  *
  * @since  1.0.0
  * @source https://digwp.com/2018/04/how-to-disable-gutenberg/
@@ -17,7 +17,7 @@
  * @source https://www.billerickson.net/disabling-gutenberg-certain-templates/
  **/
 
-function mdb_disable_gutenberg( $current_status, $post_type )
+function mdb_disable_block_editor( $current_status, $post_type )
 {
     if( /*( $post_type === 'page' ) or */
         ( $post_type === 'session' ) or
@@ -32,13 +32,20 @@ function mdb_disable_gutenberg( $current_status, $post_type )
 
 
 /**
- * Fügt Stil-Modifikationen für Gutenberg hinzu
+ * Script- und Stil-Modifikationen für den Block Editor
  *
  * @since  1.0.0
  * @source https://die-netzialisten.de/wordpress/gutenberg-breite-des-editors-anpassen/
+ * @source https://www.billerickson.net/block-styles-in-gutenberg/
  **/
 
-function mdb_add_gutenberg_styles()
+function mdb_add_block_editor_assets()
 {
-    wp_enqueue_style( 'gutenberg-css', PATH_THEME_URL . '/assets/css/gutenberg.min.css' );
+    wp_enqueue_style( 'block-editor', trailingslashit( PATH_THEME_URL ) . 'assets/css/block-editor.min.css', false, '1.0', 'all' );
+    /*
+	wp_enqueue_script( 'block-editor', PATH_THEME_URL . '/assets/js/be-styles.js',
+		               array( 'wp-blocks', 'wp-dom' ),
+		               filemtime( PATH_THEME_URL . '/assets/js/be-styles.js' ),
+		               true	);
+    */
 }

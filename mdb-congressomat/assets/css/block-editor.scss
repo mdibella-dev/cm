@@ -1,5 +1,5 @@
 /**
- * Gutenberg Editor Assets
+ * Block Editor (aka Gutenberg) Assets
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
@@ -19,10 +19,23 @@ $unit:				    10px; //0.625rem;
 
 
 
+/**
+ * Globale Einstellungen, themenunabhängig
+ **/
+
 // Maximale Arbeitsbreite
-.edit-post-text-editor,
 .wp-block {
-    max-width: none;
+    @include respond-to(large) {
+        max-width: none;
+    }
+}
+
+.edit-post-text-editor {
+    @include respond-to(large) {
+        margin-left: 12px;
+        margin-right: 12px;
+        max-width: calc( 100% - 24px );
+    }
 }
 
 
@@ -32,4 +45,16 @@ $unit:				    10px; //0.625rem;
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+
+
+/**
+ * Themenspezifische Einstellungen
+ **/
+
+// Schriftfamilie
+.editor-post-title__block .editor-post-title__input,
+.editor-styles-wrapper {
+    font-family: "Roboto" !important;
 }
