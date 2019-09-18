@@ -51,7 +51,6 @@
 
 
 
-
 /**
  * Textausrichtung
  * !important ergänzt
@@ -72,11 +71,18 @@
 
 
 /**
+ * Korrekturen an Embeds
+ **/
+
+
+
+
+/**
  * Neue Stile für den Block Editor, die auch im Frontend zur verwendung kommen
  **/
 
 .has-lightgray-background {
-    background: #f3f3f3;
+    background: #ddd;
 }
 
 
@@ -115,5 +121,18 @@
         line-height: 1.2 !important;
         font-size: 95% !important;
         font-weight: 300 !important;
+        text-align: left;
+
+        &::before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 500;
+            content: "\f062";
+            padding-right: $unit;
+        }
     }
 }
