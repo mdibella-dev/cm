@@ -73,12 +73,15 @@
     .submenu .submenu-wrapper {
 		display: none;
 		background: #eee;
+        color: #555;
 		width: 100%;
 		left: 0;
 		position: relative;
+        padding: 1em 0;
 
 		@include respond-to(large) {
 			position: absolute;
+            padding: 2em 0;
         }
 
         & > ul {
@@ -108,33 +111,49 @@
     		width: 100%;
         	display: inline-block;
         	padding: 0 1em 0;
-
+/*
     		@include respond-to(large) {
-    		    width: 33%;
-    			padding: 0 2em 0;
             }
-
+*/
             // Überschrift für Menüspalte
     	    h4 {
-    		    color: #fff;
-    		    padding: 1em 0 0.6em;
+    		    color: inherit;
+                padding-top: 1em;
+                padding-bottom: .6em;
     		    margin: 0;
-    		    font-size: 140%;
+    		    font-size: 1em;
     		    font-weight: 400;
+                text-transform: uppercase;
 
     		    @include respond-to(medium) {
-    			    padding: 2em 0 0.6em;
+                    font-size: 1.25em;
+    			    padding-top: 0;
     		    }
+/*
+                &::not(:first-child) {
+                    padding-top: 1em;
+
+                    @include respond-to(medium) {
+                        padding-top: 2em;
+        		    }
+                }
+*/
     	    }
 
             &:not(:first-of-type) h4 {
-                padding: 2em 0 0.6em;
+                border-top: 1px solid #ddd;
+                margin-top: 1em;
+
+                @include respond-to(medium) {
+                    border-top: none;
+                    margin-top: 0;
+                }
             }
 
     	    // Menüpunkt
     	    a {
     		    line-height: 2em;
-    		    color: #555;
+    		    color: inherit;
     	    }
 
             // Menüpunkt als Downloadlink
@@ -154,7 +173,6 @@
 
     .submenu.open .submenu-wrapper {
         display: block;
-        padding-bottom: 2em;
         z-index: 500;
     }
 }
