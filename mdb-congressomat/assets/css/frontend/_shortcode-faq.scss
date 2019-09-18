@@ -142,5 +142,9 @@
         a {
             @include a-tag-basic-settings;
         }
+
+        strong {
+            font-weight: bold;
+        }
     }
 }
