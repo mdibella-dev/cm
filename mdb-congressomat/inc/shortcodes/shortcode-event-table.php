@@ -64,9 +64,8 @@ function mdb_shortcode_event_table( $atts, $content = null )
                     case 'TITEL':
                         // Workaround #6
                         // $title    = apply_filters( 'the_content', $session->post_title );
-                        // $subtitle = apply_filters( 'the_content', get_the_subtitle( $session->ID, '', '', FALSE ) );
                         $title    = $session->post_title;
-                        $subtitle = get_the_subtitle( $session->ID, '', '', FALSE );
+                        $subtitle = get_field( 'programmpunkt-untertitel', $session->ID );
 
                         if( !empty( $title ) ) :
                             $cells[ 'session-title' ] .= sprintf( '<span class="title">%1$s</span>', $title );
@@ -117,59 +116,12 @@ function mdb_shortcode_event_table( $atts, $content = null )
 
 
         /**
-         * Schritt 2
-         * Kopfzeile generieren
-         **/
-
-        // Tabellenzellen zurücksetzen
-        unset( $cells );
-
-        // Alle Feldschlüssel in der designierten Reihenfolge durchlaufen
-        foreach( $field_keys as $field_key ) :
-            switch( $field_key ) :
-                case 'DATUM':
-                    $cells[ 'session-date' ] = __( 'Datum', TEXT_DOMAIN );
-                break;
-
-                case 'VON':
-                    $cells[ 'session-begin' ] = __( 'von', TEXT_DOMAIN );
-                break;
-
-                case 'VONBIS':
-                    $cells[ 'session-time' ] = __( 'von/bis', TEXT_DOMAIN );
-                break;
-
-                case 'TITEL':
-                    $cells[ 'session-title' ] = __( 'Titel', TEXT_DOMAIN );
-                break;
-
-                case 'REFERENT':
-                    $cells[ 'session-speaker' ] = __( 'Referent(en)', TEXT_DOMAIN );
-                break;
-
-                case 'ORT':
-                    $cells[ 'session-location' ] = __( 'Ort', TEXT_DOMAIN );
-                break;
-            endswitch;
-        endforeach;
-
-        // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
-        $row_content = '';
-
-        foreach( $cells as $class => $cell ) :
-            $row_content .= sprintf( '<td class="%1$s">%2$s</td>', $class, $cell );
-        endforeach;
-
-        $row = sprintf( '<tr>%1$s</tr>', $row_content );
-
-
-        /**
          * Schritt 3
          * Ausgabe vorbereiten
          **/
 
-        $output .= '<table class="event-table">';
-        $output .= sprintf( '<thead>%1$s</thead>', $row );
+        $output .= '<div class="event-table">';
+        $output .= '<table>';
         $output .= '<tbody>';
 
         foreach( $rows as $row ) :
@@ -178,6 +130,7 @@ function mdb_shortcode_event_table( $atts, $content = null )
 
         $output .= '</tbody>';
         $output .= '</table>';
+        $output .= '</div>';
     endif;
 
     // Ausgabe
