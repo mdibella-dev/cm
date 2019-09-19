@@ -65,6 +65,12 @@ body:not(.page-template-page-landingpage) .article {
     }
 }
 
+body.single-speaker .article {
+    padding-bottom: 0 !important;
+}
+
+
+
 
 
 .wp-block-coblocks-row[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] /* CoBlocks */ {
