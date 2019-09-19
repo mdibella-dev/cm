@@ -29,7 +29,7 @@ require_once( PATH_THEME_TEMPLATE . '/inc/modules.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/core.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/classes/class-megamenu-walker.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-header.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-event-table2.php' );
+require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-teaser-list.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-partner-table.php' );
