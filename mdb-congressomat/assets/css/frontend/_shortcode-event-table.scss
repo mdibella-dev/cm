@@ -58,6 +58,12 @@
                 height: 100%;
                 background: #eee;
                 box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.1);
+                transition: all 0.5s 0s ease-in-out;
+            }
+
+            &:hover > img,
+            &:focus > img {
+                background: #aaa;
             }
         }
     }

@@ -36,7 +36,7 @@
 
 	    & > li {
 		    display: block;
-		    border-bottom: 1px solid #eee;
+		    border-bottom: 1px solid #ddd;
 
 		    @include respond-to(large) {
 			    display: inline-block;
@@ -111,10 +111,7 @@
     		width: 100%;
         	display: inline-block;
         	padding: 0 1em 0;
-/*
-    		@include respond-to(large) {
-            }
-*/
+
             // Überschrift für Menüspalte
     	    h4 {
     		    color: inherit;
@@ -130,15 +127,6 @@
                     padding-top: 0;
                     padding-bottom: 1.2em;
     		    }
-/*
-                &::not(:first-child) {
-                    padding-top: 1em;
-
-                    @include respond-to(medium) {
-                        padding-top: 2em;
-        		    }
-                }
-*/
     	    }
 
             &:not(:first-of-type) h4 {
