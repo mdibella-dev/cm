@@ -99,17 +99,3 @@
         }
     }
 }
-
-/*
-header + .speaker-grid {
-    margin-top: -#{2*$unit};
-
-    @include respond-to(medium) {
-        margin-top: -#{4*$unit};
-    }
-
-    @include respond-to(wide) {
-        margin-top: -#{4*$unit};
-    }
-}
-*/
