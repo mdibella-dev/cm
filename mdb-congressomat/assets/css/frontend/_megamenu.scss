@@ -127,7 +127,8 @@
 
     		    @include respond-to(medium) {
                     font-size: 1.25em;
-    			    padding-top: 0;
+                    padding-top: 0;
+                    padding-bottom: 1.2em;
     		    }
 /*
                 &::not(:first-child) {
@@ -174,5 +175,9 @@
     .submenu.open .submenu-wrapper {
         display: block;
         z-index: 500;
+
+        @include respond-to(large) {
+            box-shadow: 0 0.8em 1.35em -0.5em rgba(0,0,0,0.3);
+        }
     }
 }
