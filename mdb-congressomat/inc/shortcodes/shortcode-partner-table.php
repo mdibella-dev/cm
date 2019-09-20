@@ -84,7 +84,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
 
                         // Ausgabe erstellen
                         if( !empty( $title ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="title">%1$s</span>', $title );
+                            $cells[ 'partner-description' ] .= sprintf( '<h2 class="title">%1$s</h2>', $title );
                         endif;
 
                         if( !empty( $description ) ) :

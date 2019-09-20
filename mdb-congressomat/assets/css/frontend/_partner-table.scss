@@ -63,11 +63,7 @@
         & > span {
             display: block;
             width: 100%;
-            margin-bottom: 1rem;
-
-            @include respond-to(large) {
-                margin-bottom: 1.5rem;
-            }
+            @include space(beyond);
         }
 
         .title {
@@ -79,10 +75,7 @@
                 @include p-tag-basic-settings();
                 line-height: inherit;
                 font-size: 1rem;
-            }
-
-            p + p {
-                margin-top: 1rem;
+                font-weight: normal;
             }
         }
 
@@ -102,6 +95,7 @@
 
         @include respond-to(medium) {
             width: 15%;
+            text-align: right;
         }
     }
 
