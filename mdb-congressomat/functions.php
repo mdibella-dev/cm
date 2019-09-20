@@ -25,7 +25,6 @@ require_once( PATH_THEME_TEMPLATE . '/inc/theme-gutenberg.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/theme-performance.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/widget-areas.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/snippets.php' );
-require_once( PATH_THEME_TEMPLATE . '/inc/modules.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/core.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/classes/class-megamenu-walker.php' );
 require_once( PATH_THEME_TEMPLATE . '/inc/shortcodes/shortcode-event-table.php' );
