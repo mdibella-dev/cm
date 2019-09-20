@@ -8,86 +8,70 @@
 
 
 .speaker-profile {
-    & > div:last-of-type {
-        padding: 2*$unit 0;
-    }
-
     @include respond-to(medium) {
         display: -webkit-flex;
         display: flex;
+    }
 
-        & > div:first-of-type {
+    // Bild
+    figure {
+        width: 100%;
+        height: 100%;
+
+        @include respond-to(medium) {
             width: 40%;
             max-width: 250px;
         }
 
-        & > div:last-of-type {
-            width: 60%;
-            margin-left: 4*$unit;
-            padding: 0;
-        }
-    }
-
-    .speaker-image {
-        width: 100%;
-        height: 100%;
-
         img {
             width: 100%;
             height: 100%;
-            background: #ddd;
+            background: #aaa;
         }
     }
 
-    .speaker-title-name {
-        font-size: 1.5rem;
+    // Beschreibung
+    & > div {
+        margin-top: 2*$unit;
+
+        @include respond-to(medium) {
+            width: calc( 60% - #{4*$unit} );
+            margin-top: 0;
+            margin-left: 4*$unit;
+        }
     }
 
     .speaker-description {
-        clear: both;
-        display: inline-block;
-
-        p {
-            @include p-tag-basic-settings();
-        }
-
-        a {
-            @include a-tag-basic-settings();
-        }
+        @include space(above);
     }
 
     .speaker-position {
         font-size: 1.2rem;
-        font-weight: 500;
+        font-weight: bold;
     }
 
     .speaker-social-media {
         display: inline-block;
+        @include space(above);
 
-        ul,
-        ul li {
-            list-style: none;
+        ul {
+            width: 100%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
 
-        ul li {
+        li {
             float: left;
-            margin-right: .5*$unit;
-            margin-bottom: .5*$unit;
+            margin-right: $unit;
+            margin-bottom: $unit;
+            padding: 0;
         }
 
         .btn {
             width: 5*$unit;
             height: 5*$unit;
 
-        }
-    }
-
-    .speaker-position,
-    .speaker-social-media {
-        margin-bottom: 2*$unit;
-
-        @include respond-to(medium) {
-            margin-bottom: 4*$unit;
         }
     }
 }

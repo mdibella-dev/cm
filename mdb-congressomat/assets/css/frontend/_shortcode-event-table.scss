@@ -27,6 +27,10 @@
 
         &:not(:first-of-type) {
             margin-top: 3px;
+
+            @include respond-to(large) {
+                margin-top: 5px;
+            }
         }
     }
 

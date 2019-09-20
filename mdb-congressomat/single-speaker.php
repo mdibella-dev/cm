@@ -25,14 +25,21 @@ if ( have_posts() ) :
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <div class="speaker-profile">
-<div class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></div>
+<figure class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></figure>
 <div>
-<h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
+<h2 class="has-text-align-left thin"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
         // Position oder Berufstitel bekannt?
         if( !empty( $speaker[ 'position' ] ) ) :
 ?>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
+<?php
+        endif;
+
+        // Ausführliche Beschreibung vorhanden?
+        if( !empty( $speaker[ 'description' ] ) ) :
+?>
+<div class="speaker-description"><?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
 <?php
         endif;
 
@@ -80,13 +87,6 @@ if ( have_posts() ) :
 </div>
 <?php
         endif;
-
-        // Ausführliche Beschreibung vorhanden?
-        if( !empty( $speaker[ 'description' ] ) ) :
-?>
-<div class="speaker-description"><?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
-<?php
-        endif;
 ?>
 </div>
 </div>
@@ -102,11 +102,12 @@ if ( have_posts() ) :
  * @since 1.0.0
  **/
  ?>
-<div class="wp-block-coblocks-row alignfull mb-0 mt-0" data-columns="1" data-layout="100">
+<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-silvergray-background" data-columns="1" data-layout="100">
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <h2 class="has-text-align-center thin"><?php echo sprintf( __( 'Programmpunkte mit %1$s', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?></h2>
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 <?php
 echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ] ) );
 ?>
