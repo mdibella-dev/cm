@@ -133,12 +133,12 @@ function mdb_get_session_data( $data_key, $session )
             if( $speakers != NULL ) :
                 unset( $speakers_list );
 
-                foreach( $speakers as $speaker_id ) :
-                    $speaker         = mdb_get_speaker_info( $speaker_id );
+                foreach( $speakers as $speaker ) :
+                    $speaker_dataset = mdb_get_speaker_data( $speaker );
                     $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-                                                $speaker[ 'permalink' ],
-                                                sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ),
-                                                get_the_post_thumbnail( $speaker[ 'id' ], 'full' ) );
+                                                $speaker_dataset[ 'permalink' ],
+                                                sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker_dataset[ 'title_name' ] ),
+                                                get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
                 endforeach;
                 $value = implode( ' ', $speakers_list );
             endif;
