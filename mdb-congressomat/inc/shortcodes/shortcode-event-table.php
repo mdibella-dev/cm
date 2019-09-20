@@ -115,12 +115,13 @@ function mdb_get_session_data( $data_key, $session )
         break;
 
         case 'session-title' :
-            // $title    = apply_filters( 'the_content', $session->post_title );
-            $value = $session->post_title;
+            // $value = $session->post_title;
+            $value = apply_filters( 'the_content', $session->post_title );
         break;
 
         case 'session-subtitle' :
-            $value = get_field( 'programmpunkt-untertitel', $session->ID );
+            //$value = get_field( 'programmpunkt-untertitel', $session->ID );
+            $value = apply_filters( 'the_content', get_field( 'programmpunkt-untertitel', $session->ID ) );
         break;
 
         case 'session-location' :
