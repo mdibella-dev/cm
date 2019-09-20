@@ -37,7 +37,7 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
         $event = mdb_get_active_events();
     endif;
 
-    $speakers = mdb_get_speakers( $event );
+    $speakers = mdb_get_speaker_datasets( $event );
 
     if( $speakers ) :
         // optional: bestimmte Speaker ausschließen
@@ -63,7 +63,7 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 
             // falls vorher durchmischt: Ergebnis wieder sortieren
             if( $shuffle == 1 ) :
-                $speaker_list = mdb_sort_speakerlist( $speaker_list );
+                $speaker_list = mdb_sort_speaker_datasets( $speaker_list );
             endif;
         endif;
 

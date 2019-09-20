@@ -6,7 +6,7 @@
  *
  * Folgende Parameter können verwendet werden:
  * @param   event    Die Identifikationsnummer des Events
- * @param   speaker  (optional) Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
+ * @param   speaker  Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
  * @param   set      Die gewählte Set-Vorlage
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -34,26 +34,36 @@ function mdb_shortcode_event_table( $atts, $content = null )
 
         /**
          * Schritt 1
-         * Rowset vorbereiten
+         * Daten holen
          **/
 
-        $pass_1 = explode( '|', $rowsets[ $set ] );  // 1. Durchlauf
-
-        foreach( $pass_1 as $pass_2 ) :
-            $rowset[] = explode( ',', $pass_2 );     // 2. Durchlauf
-        endforeach;
-
+        if( !empty( $speaker) ) :
+            $sessions = mdb_get_sessions_by_speaker( $speaker, 'ACTIVE' );
+        elseif( !empty( $event ) ) :
+            $sessions = mdb_get_sessions_by_event( $event );
+        else :
+            $sessions = NULL;
+        endif;
 
         /**
          * Schritt 2
-         * Die Daten aller Sessions des gewählten Events und Speakers holen
-         * und jede Session entlang des ermittelten Rowsets abarbeiten
+         * Jede Session entlang des ermittelten Rowsets abarbeiten
          **/
 
-        $sessions = mdb_get_sessions_by_event( $event, $speaker );
-        $rows     = '';
-
         if( $sessions ) :
+
+            /**
+             * Schritt 1
+             * Rowset vorbereiten
+             **/
+
+            $pass_1 = explode( '|', $rowsets[ $set ] );  // 1. Durchlauf
+
+            foreach( $pass_1 as $pass_2 ) :
+                $rowset[] = explode( ',', $pass_2 );     // 2. Durchlauf
+            endforeach;
+            $rows = '';
+
             foreach( $sessions as $session ) :
                 $row = '';
 

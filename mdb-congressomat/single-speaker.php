@@ -8,6 +8,7 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
+<article class="article adjust-workspace">
 <?php
 if ( have_posts() ) :
     // Ausgabe puffern
@@ -17,9 +18,13 @@ if ( have_posts() ) :
         the_post();
 
         // Referentendaten holen
-        $speaker = mdb_get_speaker_info( get_the_ID() );
+        $speaker = mdb_get_speaker_dataset( get_the_ID() );
 ?>
-<article class="article adjust-workspace">
+<div class="wp-block-coblocks-row alignfull mb-0 mt-0" data-columns="1" data-layout="100">
+<div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
+<div class="wp-block-coblocks-column" style="width:100%">
+<div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
+<div class="speaker-profile">
 <div class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></div>
 <div>
 <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
@@ -84,19 +89,15 @@ if ( have_posts() ) :
         endif;
 ?>
 </div>
-<?php
-        // Ausgabenpuffer sichern; Pufferung beenden
-        $buffer = ob_get_contents();
-        ob_end_clean();
-
-        // Ausgabe
-        echo $buffer;
-    endwhile;
-endif;
-?>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php
 /**
  * Veranstaltungen mit diesem Referenten
+ * Hardcodierte CoBlock-Row
  *
  * @since 1.0.0
  **/
@@ -107,7 +108,7 @@ endif;
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <h2 class="has-text-align-center thin"><?php echo sprintf( __( 'Programmpunkte mit %1$s', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?></h2>
 <?php
-echo do_shortcode( sprintf( '[event-table speaker=%1$s set=1]', $speaker[ 'id' ] ) );
+echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ] ) );
 ?>
 </div>
 </div>
@@ -116,14 +117,15 @@ echo do_shortcode( sprintf( '[event-table speaker=%1$s set=1]', $speaker[ 'id' ]
 <?php
 /**
  * Weitere Referenten anzeigen
+ * Hardcodierte CoBlock-Row
  *
  * @since 1.0.0
  **/
  ?>
-<div class="alignfull has-lightgray-background mb-0 mt-0">
-<div class="has-no-padding has-no-margin is-stacked-on-mobile">
-<div>
-<div class="has-padding has-large-padding has-no-margin">
+<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-lightgray-background" data-columns="1" data-layout="100">
+<div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
+<div class="wp-block-coblocks-column" style="width:100%">
+<div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <h2 class="has-text-align-center thin"><?php echo __( 'Weitere Referenten', TEXT_DOMAIN ); ?></h2>
 <?php
 echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
@@ -132,6 +134,17 @@ echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $spe
 </div>
 </div>
 </div>
+<?php
+    endwhile;
+
+    // Ausgabenpuffer sichern; Pufferung beenden
+    $buffer = ob_get_contents();
+    ob_end_clean();
+
+    // Ausgabe
+    echo $buffer;
+endif;
+?>
 </article>
 </main>
 <?php get_footer(); ?>

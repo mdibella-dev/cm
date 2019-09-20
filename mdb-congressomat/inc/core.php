@@ -9,12 +9,120 @@
 
 
 /**
- * Sortiert ein Array mit Sessions austeigend nach Zeitstempel
+ * Liefert ein Array mit Sessions
  *
- * @param  array  $sessions  Ein durch ein get_posts()-Aufruf erzeugtes Array mit Objekten vom Post-Typ 'session'.
- * @return array  Das sortierte Array oder $sessions in den Fällen, in denen eine Sortierung nicht möglich ist.
- * @since  1.0.0
- * @uses   ACF
+ * @uses    mdb_get_active_events, mdb_sort_sessions_by_timestamp
+ * @param   array   $args
+ * @return  array
+ * @since   1.0.0
+ **/
+
+function mdb_get_sessions( $args )
+{
+    // Übergebene Parameter auslesen
+    extract( wp_parse_args( $args,
+                            array(
+                            'event'          => '',
+                            'event_filter'   => '',
+                            'speaker'        => '',
+                            'posts_per_page' => -1 ) ) );
+
+    // Suchparameter setzen
+    $query = array(
+             'posts_per_page' => $posts_per_page,
+             'post_status'    => 'publish',
+             'post_type'      => 'session' );
+
+    // Nach den Sessions eines bestimmten Events suchen
+    if( !empty( $event ) ) :
+
+        $query[ 'tax_query' ] = array( array(
+                                       'taxonomy' => 'event',
+                                       'field'    => 'term_id',
+                                       'terms'    => $event ) );
+
+    // Nach den Sessions eines bestimmten Speakers suchen
+    elseif ( !empty( $speaker ) and is_numeric( $speaker ) ) :
+
+        $query[ 'meta_query' ] = array( array(
+                                        'key'     => 'programmpunkt-referenten',
+                                        'value'   => serialize( (string) $speaker ),
+                                        'compare' => 'LIKE' ) );
+
+        $event_filter = strtoupper( trim( $event_filter ) );
+
+        if( ( $event_filter == 'ACTIVE' ) or ( $event_filter == 'INACTIVE' ) ) :
+            $event_list = implode( ',', mdb_get_active_events() );
+
+            if( $event_filter == 'ACTIVE' ) :
+                $query[ 'tax_query' ] = array( array(
+                                               'taxonomy' => 'event',
+                                               'field'    => 'term_id',
+                                               'terms'    => $event_list ) );
+            else : /* INACTIVE */
+                $query[ 'tax_query' ] = array( array(
+                                               'taxonomy' => 'event',
+                                               'field'    => 'term_id',
+                                               'terms'    => $event_list,
+                                               'operator' => 'NOT IN',
+                                            ) );
+            endif;
+        endif;
+    endif;
+
+    // Passende Sessions ermitteln
+    $sessions = get_posts( $query );
+
+    // Sortieren und zurückgeben
+    return mdb_sort_sessions_by_timestamp( $sessions );
+}
+
+
+
+/**
+ * Liefert die zu einem bestimmten Event gehörenden Sessions
+ *
+ * @uses    mdb_get_sessions
+ * @param   int     $event
+ * @return  array
+ * @since   1.0.0
+ **/
+
+function mdb_get_sessions_by_event( $event )
+{
+    return mdb_get_sessions( array(
+                             'event' => $event ) );
+}
+
+
+
+/**
+ * Liefert die zu einem bestimmten Speaker gehörenden Sessions
+ * Dabei kann nach aktiven, inaktiven oder allen Sessions gefiltert werden.
+ *
+ * @uses    mdb_get_sessions
+ * @param   int     $speaker
+ * @param   string  $event_filter  ACTIVE, INACTIVE, BOTH
+ * @return  array
+ * @since   1.0.0
+ **/
+
+function mdb_get_sessions_by_speaker( $speaker, $event_filter = '' )
+{
+    return mdb_get_sessions( array(
+                             'speaker'      => $speaker,
+                             'event_filter' => $event_filter ) );
+}
+
+
+
+/**
+ * Sortiert ein Array mit Sessions aufsteigend nach Zeitstempel
+ *
+ * @param   array   $sessions
+ * @return  array
+ * @see     mdb_get_sessions
+ * @since   1.0.0
  **/
 
 function mdb_sort_sessions_by_timestamp( $sessions )
@@ -51,190 +159,9 @@ function mdb_sort_sessions_by_timestamp( $sessions )
 
 
 /**
- * Liefert ein Array mit Sessions
- *
- * @param  array  $args     Array mit Argumenten zur Konfiguration der Suche
- * @return array  Die zum Event gehörenden Sessions
- * @since  1.0.0
- * @uses   ACF
- **/
-
-function mdb_get_sessions( $args )
-{
-    // Übergebene Parameter auslesen
-    extract( wp_parse_args( $args,
-                            array(
-                            'event_id'       => '0',
-                            'speaker_id'     => '0',
-                            'posts_per_page' => -1 ) ) );
-
-    // Suchparameter setzen
-    $query = array(
-             'posts_per_page' => $posts_per_page,
-             'post_status'    => 'publish',
-             'post_type'      => 'session' );
-
-    // Nach Event filtern?
-    if( !empty( $event_id ) and is_numeric( $event_id ) ) :
-        $query[ 'tax_query' ] = array( array(
-                                       'taxonomy' => 'event',
-                                       'field'    => 'term_id',
-                                       'terms'    => $event_id ) );
-    endif;
-
-    // Nach Referent filtern?
-    if( !empty( $speaker_id ) and is_numeric( $speaker_id ) ) :
-        $query[ 'meta_query' ] = array( array(
-                                        'key'     => 'programmpunkt-referenten',
-                                        'value'   => serialize( (string) $speaker_id ),
-                                        'compare' => 'LIKE' ) );
-    endif;
-
-    // Passende Sessions ermitteln
-    $sessions = get_posts( $query );
-
-    // Sortieren und zurückgeben
-    return mdb_sort_sessions_by_timestamp( $sessions );
-}
-
-
-
-/**
- * Liefert ein Array mit den Sessions eines bestimmten Events
- * Wrapper für mdb_get_sessions(). Optional kann nach einem bestimmten Referenten gefiltert werden
- *
- * @param  int    $event_id     Das zu filternde Event
- * @param  int    $speaker_id   Der zu filternde Referent (optional)
- * @return array  Die zum Event gehörenden Sessions
- * @since  1.0.0
- **/
-
-function mdb_get_sessions_by_event( $event_id, $speaker_id = 0 )
-{
-    return mdb_get_sessions( array(
-                             'event_id'   => $event_id,
-                             'speaker_id' => $speaker_id ) );
-}
-
-
-
-/**
- * Liefert ein Array mit allen Daten eines bestimmten Referenten
- *
- * @param  int    $speaker_id   Der Referent
- * @return array  Die zum Referenten gehörenden Daten
- * @since  1.0.0
- **/
-
-function mdb_get_speaker_info( $speaker_id )
-{
-    $post = get_post( $speaker_id );
-
-    $data[ 'id' ]          = $speaker_id;
-    $data[ 'firstname' ]   = get_field( 'referent-vorname', $post );
-    $data[ 'lastname' ]    = get_field( 'referent-nachname', $post );
-    $data[ 'name' ]        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
-    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ), $data[ 'name' ] ) );
-    $data[ 'position' ]    = get_field( 'referent-position', $post );
-    $data[ 'description' ] = get_field( 'referent-beschreibung', $post );
-    $data[ 'permalink' ]   = get_post_permalink( $speaker_id );
-
-    return $data;
-}
-
-
-
-/**
- * Ermittelt alle Referenten aus allen Sessions von einem oder mehreren Events
- *
- * @param  string $events   Eine kommaseparierte Liste mit event_ids;
- *                          werden keine Werte übergeben, so werden die aktiven Events herausgesucht
- * @return array  Ein Array mit den Daten der Referenten
- * @since  1.0.0
- **/
-
-function mdb_get_speakers( $events )
-{
-    // Suchparameter setzen
-    $query = array(
-             'posts_per_page' => -1,
-             'post_status'    => 'publish',
-             'post_type'      => 'session',
-             'meta_query'     => array( array(
-                                        'key'     => 'programmpunkt-referenten',
-                                        'compare' => 'EXISTS' ) ),
-             'tax_query'      => array( 'relation' => 'OR' ) );
-
-    // tax_query komplettieren
-    if( !empty( $events ) ) :
-        $event_ids = explode( ',', str_replace(" ", "", $events ) );
-    else :
-        $event_ids = mdb_get_active_events();
-    endif;
-
-    foreach( $event_ids as $event_id ) :
-        $query[ 'tax_query' ][] = array(
-                                  'taxonomy' => 'event',
-                                  'field'    => 'term_id',
-                                  'terms'    => $event_id );
-    endforeach;
-
-    // Passende Sessions ermitteln
-    $sessions = get_posts( $query );
-
-    if( $sessions ) :
-        $found_ids    = array();
-        $speaker_list = array();
-
-        foreach( $sessions as $session ) :
-            $speakers = get_field( 'programmpunkt-referenten', $session->ID );
-
-            // Ein oder mehr Referent(en) gefunden
-            if( $speakers != NULL ) :
-                foreach( $speakers as $speaker_id ) :
-
-                    // Nur hinzufügen, wenn nicht bereits zuvor gefunden
-                    if( in_array( $speaker_id, $found_ids ) == FALSE ) :
-                        $speaker_list[] = mdb_get_speaker_info( $speaker_id );
-                        $found_ids[]    = $speaker_id;
-                    endif;
-                endforeach;
-            endif;
-        endforeach;
-
-        // Referenten nach Vor- und Nachnamen sortieren
-        return mdb_sort_speakerlist( $speaker_list );
-    endif;
-
-    return NULL;
-}
-
-
-/**
- * Sortiert eine Liste von Referenten nach Vor- und Nachnamen
- *
- * @param  array  $speaker_list   = die unsortierte Liste
- * @return array  Die sortierte List
- * @since  1.0.0
- */
-
-function mdb_sort_speakerlist( $speaker_list )
-{
-    foreach( $speaker_list as $key => $row ) :
-        $forename[$key] = $row[ 'forename' ];
-        $lastname[$key] = $row[ 'lastname' ];
-    endforeach;
-    array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
-
-    return $speaker_list;
-}
-
-
-
-/**
  * Ermittelt die derzeit aktiven Events
  *
- * @return array    Eine kommaseparierte Liste mit event_ids
+ * @return array
  * @since  1.0.0
  **/
 
@@ -257,7 +184,7 @@ function mdb_get_active_events()
     // Rückgabedaten erstellen
     $events = array();
 
-    foreach( $terms as $term) :
+    foreach( $terms as $term ) :
         $events[] = $term->term_taxonomy_id;
     endforeach;
 
@@ -265,17 +192,134 @@ function mdb_get_active_events()
 }
 
 
+/**
+ * Ermittelt die Speaker aus allen Sessions von einem oder mehreren Events
+ * Bleibt $event_list_string leer, werden die aktiven Events zur Grundlage genommen
+ *
+ * @param  string  $event_list_string  eine kommaseparierte Liste mit Events (IDs),
+ *                                     w
+ * @return array
+ * @since  1.0.0
+ **/
 
-
-
-
-
-
-
-function mdb_get_location( $location_id )
+function mdb_get_speaker_datasets( $event_list_string = '' )
 {
-    if( !empty( $location_id ) ) :
-        $term = get_term_by( 'term_taxonomy_id', $location_id, 'locations' );
+    // Suchparameter setzen
+    $query = array(
+             'posts_per_page' => -1,
+             'post_status'    => 'publish',
+             'post_type'      => 'session',
+             'meta_query'     => array( array(
+                                        'key'     => 'programmpunkt-referenten',
+                                        'compare' => 'EXISTS' ) ),
+             'tax_query'      => array( 'relation' => 'OR' ) );
+
+    if( !empty( $event_list_string ) ) :
+        $event_list = explode( ',', str_replace(" ", "", $event_list_string ) );
+    else :
+        $event_list = mdb_get_active_events();
+    endif;
+
+    foreach( $event_list as $event ) :
+        $query[ 'tax_query' ][] = array(
+                                  'taxonomy' => 'event',
+                                  'field'    => 'term_id',
+                                  'terms'    => $event );
+    endforeach;
+
+
+    // Passende Sessions ermitteln
+    $sessions = get_posts( $query );
+
+    if( $sessions ) :
+        $finds_list   = array();
+        $speaker_list = array();
+
+        foreach( $sessions as $session ) :
+            $speakers = get_field( 'programmpunkt-referenten', $session->ID );
+
+            // Einen oder mehrere Speaker gefunden
+            if( $speakers != NULL ) :
+                foreach( $speakers as $speaker ) :
+
+                    // Nur hinzufügen, wenn nicht bereits zuvor gefunden
+                    if( in_array( $speaker, $finds_list ) == FALSE ) :
+                        $finds_list[]   = $speaker;
+                        $speaker_list[] = mdb_get_speaker_dataset( $speaker );
+
+                    endif;
+                endforeach;
+            endif;
+        endforeach;
+
+        // Speaker nach Vor- und Nachnamen sortieren
+        return mdb_sort_speaker_datasets( $speaker_list );
+    endif;
+
+    return NULL;
+}
+
+
+
+/**
+ * Liefert einen Datensatz eines bestimmten Speakers
+ *
+ * @param  int    $speaker
+ * @return array
+ * @since  1.0.0
+ **/
+
+function mdb_get_speaker_dataset( $speaker )
+{
+    $post = get_post( $speaker );
+
+    $data[ 'id' ]          = $speaker;
+    $data[ 'firstname' ]   = get_field( 'referent-vorname', $post );
+    $data[ 'lastname' ]    = get_field( 'referent-nachname', $post );
+    $data[ 'name' ]        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
+    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ), $data[ 'name' ] ) );
+    $data[ 'position' ]    = get_field( 'referent-position', $post );
+    $data[ 'description' ] = get_field( 'referent-beschreibung', $post );
+    $data[ 'permalink' ]   = get_post_permalink( $speaker );
+
+    return $data;
+}
+
+
+
+/**
+ * Sortiert eine Liste von Speaker-Datensätzen nach Vor- und Nachnamen
+ *
+ * @param  array  $speaker_list Die unsortierte Liste
+ * @return array                Die sortierte List
+ * @since  1.0.0
+ */
+
+function mdb_sort_speaker_datasets( $speaker_list )
+{
+    foreach( $speaker_list as $key => $row ) :
+        $forename[$key] = $row[ 'forename' ];
+        $lastname[$key] = $row[ 'lastname' ];
+    endforeach;
+    array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
+
+    return $speaker_list;
+}
+
+
+
+/**
+ * Ermittelt den Namen einer Location
+ *
+ * @param  int      $location
+ * @return string
+ * @since  1.0.0
+ */
+
+function mdb_get_location( $location )
+{
+    if( !empty( $location ) ) :
+        $term = get_term_by( 'term_taxonomy_id', $location, 'locations' );
 
         if( $term !== FALSE ) :
             return $term->name;
