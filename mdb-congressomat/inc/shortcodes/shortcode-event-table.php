@@ -134,7 +134,7 @@ function mdb_get_session_data( $data_key, $session )
                 unset( $speakers_list );
 
                 foreach( $speakers as $speaker ) :
-                    $speaker_dataset = mdb_get_speaker_data( $speaker );
+                    $speaker_dataset = mdb_get_speaker_dataset( $speaker );
                     $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
                                                 $speaker_dataset[ 'permalink' ],
                                                 sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker_dataset[ 'title_name' ] ),
