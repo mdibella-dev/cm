@@ -4,7 +4,9 @@
  *
  * Erzeugt eine Liste mit den Kooperationspartnern
  *
+ * Folgende Parameter können verwendet werden:
  * @param   faq
+ *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat
  */

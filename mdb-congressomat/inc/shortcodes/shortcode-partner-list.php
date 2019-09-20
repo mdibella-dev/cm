@@ -4,8 +4,8 @@
  * Erzeugt eine Liste mit den Kooperationspartnern
  *
  * Folgende Parameter können verwendet werden:
- * - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                  Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
+ * @param   partnership (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package mdb-congressomat

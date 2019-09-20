@@ -11,7 +11,7 @@
 /**
  * Führt grundlegende Einstellungen für das Thema durch.
  *
- * @since 1.0.0
+ * @since   1.0.0
  **/
 
  function mdb_theme_setup()
@@ -24,7 +24,7 @@
     add_theme_support( 'align-wide' );
     add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
     add_theme_support( 'responsive-embeds' );
-    
+
     // Menüs registrieren
     register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
 }
@@ -34,12 +34,12 @@
 /**
  * (Ent-)Lädt eine Reihe von notwendigen JS-Scripts und Stylesheets.
  *
- * @since 1.0.0
+ * @since   1.0.0
  **/
 
 function mdb_enqueue_scripts()
 {
-	// jQuery in den Footer verlegen
+    // die von WordPress gelieferte und minimierte Version von jQuery in den Footer verlegen
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
     wp_enqueue_script( 'jquery' );
