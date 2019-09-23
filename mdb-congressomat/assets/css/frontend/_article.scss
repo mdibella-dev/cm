@@ -45,6 +45,15 @@
         @include space(beyond);
         border-collapse: collapse;
         width: 100%;
+/*
+        td {
+            @include p-tag-basic-settings();
+
+            a {
+                @include a-tag-basic-settings();
+            }
+        }
+    */
     }
 
     & > header {
