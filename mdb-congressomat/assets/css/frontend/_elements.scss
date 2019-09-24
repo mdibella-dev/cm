@@ -251,9 +251,9 @@
         list-style-type: none;
 
         & > li {
-            border-bottom: 1px solid #777;
+            border-bottom: 1px solid #bbb;
             line-height: 2.5em;
-            color: #555;
+            color: #ddd;
             padding: 5px 0;
             font-size: 90%;
             font-weight: 400;
@@ -261,6 +261,13 @@
             a {
                 @include a-tag-basic-settings();
                 border-bottom: none !important;
+                color: inherit;
+
+                &:hover,
+                &:focus {
+                    background: #ddd;
+                    color: #999;
+                }
             }
         }
     }
