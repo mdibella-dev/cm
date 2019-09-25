@@ -71,14 +71,107 @@
 
 
 /**
- * Korrekturen an Embeds
+ * Farben (Hintergrund)
  **/
 
+.has-black-background-color {
+    background-color: #fff;
+}
+
+.has-black-90-background-color {
+    background-color: #191919;
+}
+
+.has-black-80-background-color {
+    background-color: #333;
+}
+
+.has-black-70-background-color {
+    background-color: #4c4c4c;
+}
+
+.has-black-60-background-color {
+    background-color: #666;
+}
+
+.has-black-50-background-color {
+    background-color: #7f7f7f;
+}
+
+.has-black-40-background-color {
+    background-color: #999;
+}
+
+.has-black-30-background-color {
+    background-color: #b2b2b2;
+}
+
+.has-black-20-background-color {
+    background-color: #ccc;
+}
+
+.has-black-10-background-color {
+    background-color: #e5e5e5;
+}
+
+.has-white-background-color {
+    background-color: #fff;
+}
 
 
 
 /**
- * Neue Stile für den Block Editor, die auch im Frontend zur verwendung kommen
+ * Farben (Vordergrund)
+ **/
+
+.has-black-color {
+    color: #fff;
+}
+
+.has-black-90-color {
+    color: #191919;
+}
+
+.has-black-80-color {
+    color: #333;
+}
+
+.has-black-70-color {
+    color: #4c4c4c;
+}
+
+.has-black-60-color {
+    color: #666;
+}
+
+.has-black-50-color {
+    color: #7f7f7f;
+}
+
+.has-black-40-color {
+    color: #999;
+}
+
+.has-black-30-color {
+    color: #b2b2b2;
+}
+
+.has-black-20-color {
+    color: #ccc;
+}
+
+.has-black-10-color {
+    color: #e5e5e5;
+}
+
+.has-white-color {
+    color: #fff;
+}
+
+
+
+/**
+ * Sonstige Farben
  **/
 
 .has-lightgray-background {
@@ -88,6 +181,12 @@
 .has-silvergray-background {
     background: #eee;
 }
+
+
+
+/**
+ * Sonstige Stile
+ **/
 
 .thin {
     font-weight: 300;

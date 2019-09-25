@@ -21,9 +21,35 @@
 
     // Theme-Support für diverse Features
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'responsive-embeds' );
     add_theme_support( 'align-wide' );
     add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-    add_theme_support( 'responsive-embeds' );
+
+    // Farbpalette für Blockeditor
+    // Farben und Farbnamen entstammen https://coolors.co/
+    $palette = array(
+               'Weiß, white, #fff',
+               'Schwarz 10%, black-10, #e5e5e5',
+               'Schwarz 20%, black-20, #ccc',
+               'Schwarz 30%, black-30, #b2b2b2',
+               'Schwarz 40%, black-40, #999',
+               'Schwarz 50%, black-50, #7f7f7f',
+               'Schwarz 60%, black-60, #666',
+               'Schwarz 70%, black-70, #4c4c4c',
+               'Schwarz 80%, black-80, #333',
+               'Schwarz 90%, black-90, #191919',
+               'Schwarz, black, #000' );
+
+    $gutenberg_palette = array();
+
+    foreach( $palette as $color_set ) :
+        $parts               = explode( ',',  $color_set );
+        $gutenberg_palette[] = array( 'name'  => __( trim( $parts[0] ), TEXT_DOMAIN ),
+                                      'slug'  => trim( $parts[1] ),
+                                      'color' => trim( $parts[2] ) );
+    endforeach;
+
+    add_theme_support( 'editor-color-palette', $gutenberg_palette );
 
     // Menüs registrieren
     register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
