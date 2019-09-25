@@ -35,25 +35,12 @@
         &:last-child {
             margin-bottom: 0 !important;
         }
-
-        a {
-            @include a-tag-basic-settings();
-        }
     }
 
     table {
         @include space(beyond);
         border-collapse: collapse;
         width: 100%;
-/*
-        td {
-            @include p-tag-basic-settings();
-
-            a {
-                @include a-tag-basic-settings();
-            }
-        }
-    */
     }
 
     & > header {
@@ -76,5 +63,10 @@
             margin-left: auto;
             margin-right: auto;
         }
+    }
+
+    a,
+    ~ a {
+        @include a-tag-basic-settings();
     }
 }

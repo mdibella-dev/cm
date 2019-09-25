@@ -73,25 +73,25 @@ h3 {
 
 .btn {
     text-decoration: none;
-    padding: 2*$unit; // 3*$unit;
+    padding: 2*$unit !important;
     display: inline-block;
     cursor: pointer;
-    background: transparent;
-    border: 2px solid #999;
-    color: #999;
-    transition: all .3s ease-out;
+    background: transparent !important;
+    border: 2px solid #999 !important;
+    color: #999 !important;
+    transition: all .3s ease-out !important;
 
     &:hover,
     &:focus {
-        background: #999;
-        color: #fff;
+        background: #999 !important;
+        color: #fff !important;
     }
 
     &.disabled {
         pointer-events: none;
         cursor: default;
-        color: #ddd;
-        border-color: transparent;
+        color: #ddd !important;
+        border-color: transparent !important;
     }
 
     &.btn-flex {
@@ -104,6 +104,8 @@ h3 {
                 align-items: center;
     }
 }
+
+
 
 
 

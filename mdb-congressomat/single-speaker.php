@@ -8,7 +8,7 @@
 ?>
 <?php get_header(); ?>
 <main id="main">
-<article class="article adjust-workspace">
+<article class="article adjust-workspace has-no-padding-on-bottom">
 <?php
 if ( have_posts() ) :
     // Ausgabe puffern

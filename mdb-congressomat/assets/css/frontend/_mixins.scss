@@ -10,13 +10,13 @@
 @mixin a-tag-basic-settings() {
     transition: all .3s ease-out;
     color: #555;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
     padding: 2px;
     text-decoration: none;
 
     &:hover,
     &:focus {
-        background: #ddd;
+        background: #ccc;
         border-bottom: 1px solid transparent;
         outline: none;
     }

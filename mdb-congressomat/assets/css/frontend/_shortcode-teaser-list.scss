@@ -61,13 +61,15 @@
                         flex-basis: 30%;
             }
 
-            img {
-                width: 100%;
-                height: auto;
-            }
-
             a {
+                all: initial;
                 display: block;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -146,7 +148,7 @@
             }
 
             .btn {
-                padding: 2*$unit 2.5*$unit;
+                padding: 2*$unit 2.5*$unit !important;
             }
 
         }

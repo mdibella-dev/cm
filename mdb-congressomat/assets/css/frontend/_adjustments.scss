@@ -46,7 +46,7 @@
 
 
 
-body:not(.page-template-page-landingpage) .article {
+body:not(.page-template-landingpage) .article {
     // bei Seiten, die nicht mit dem Template "Landing-Page" versehen sind,
     // einen oberen und unteren Innenabstand ergänzen
     padding-top: 2*$unit;
@@ -65,11 +65,13 @@ body:not(.page-template-page-landingpage) .article {
     }
 }
 
-body.single-speaker .article {
-    padding-bottom: 0 !important;
+.has-no-padding-on-top {
+    padding-top: 0 !important;
 }
 
-
+.has-no-padding-on-bottom {
+    padding-bottom: 0 !important;
+}
 
 
 
