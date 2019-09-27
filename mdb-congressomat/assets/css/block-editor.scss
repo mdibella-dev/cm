@@ -8,7 +8,7 @@
 
 
 // Variablen
-$unit:				    10px; //0.625rem;
+$unit:	10px; //0.625rem;
 
 
 
@@ -29,6 +29,7 @@ $unit:				    10px; //0.625rem;
         max-width: none;
     }
 }
+
 
 .edit-post-text-editor {
     @include respond-to(large) {
