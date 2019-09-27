@@ -71,13 +71,16 @@ h3 {
  * Diverse wiederkehrende Klassen
  **/
 
+.wp-block-button__link,
 .btn {
     text-decoration: none;
-    padding: 2*$unit !important;
+    text-transform: uppercase;
+    padding: 2*$unit 3*$unit !important;
     display: inline-block;
     cursor: pointer;
     background: transparent !important;
     border: 2px solid #999 !important;
+    border-radius: 0;
     color: #999 !important;
     transition: all .3s ease-out !important;
 
