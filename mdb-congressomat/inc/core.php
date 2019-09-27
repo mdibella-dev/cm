@@ -196,8 +196,7 @@ function mdb_get_active_events()
  * Ermittelt die Speaker aus allen Sessions von einem oder mehreren Events
  * Bleibt $event_list_string leer, werden die aktiven Events zur Grundlage genommen
  *
- * @param  string  $event_list_string  eine kommaseparierte Liste mit Events (IDs),
- *                                     w
+ * @param  string  $event_list_string  eine kommaseparierte Liste mit Events (IDs)
  * @return array
  * @since  1.0.0
  **/
