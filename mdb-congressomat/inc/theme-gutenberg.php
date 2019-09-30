@@ -42,11 +42,9 @@ function mdb_disable_block_editor( $current_status, $post_type )
 
 function mdb_add_block_editor_assets()
 {
-    wp_enqueue_style( 'block-editor', trailingslashit( PATH_THEME_URL ) . 'assets/css/block-editor.min.css', false, '1.0', 'all' );
-    /*
-	wp_enqueue_script( 'block-editor', PATH_THEME_URL . '/assets/js/be-styles.js',
+    wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', false, 0, 'all' );
+	wp_enqueue_script( 'block-editor', get_template_directory_uri() . '/assets/js/block-editor.js',
 		               array( 'wp-blocks', 'wp-dom' ),
-		               filemtime( PATH_THEME_URL . '/assets/js/be-styles.js' ),
+		               0, //filemtime( get_template_directory() . '/assets/js/block-editor.js' ),
 		               true	);
-    */
 }
