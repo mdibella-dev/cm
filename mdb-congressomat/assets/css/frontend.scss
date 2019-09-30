@@ -7,14 +7,12 @@
 
 
 
-// Variablen
-$unit:	10px; //0.625rem;
-
-
 // Imports
+@import "common/_vars";
 @import "common/_gutenberg-media-queries";
 @import "common/_gutenberg-reset";
 @import "common/_gutenberg";
+
 
 @import "common/_wp-block-button";
 

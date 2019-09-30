@@ -24,6 +24,7 @@ wp.domReady( () => {
 	wp.blocks.unregisterBlockStyle( 'core/button', 'circular' );
 	wp.blocks.unregisterBlockStyle( 'core/button', 'outline' );
 	wp.blocks.unregisterBlockStyle( 'core/button', 'squared' );
+	wp.blocks.unregisterBlockStyle( 'core/button', 'shadow' );
 	wp.blocks.unregisterBlockStyle( 'core/button', '3d' );
 
 	wp.blocks.registerBlockStyle( 'core/button', {
@@ -32,10 +33,9 @@ wp.domReady( () => {
 		isDefault: true
 	} );
 
-
 	wp.blocks.registerBlockStyle( 'core/button', {
-		name: 'rect',
-		label: 'Rechteckig',
+		name: 'ghost',
+		label: 'Ghost',
 		isDefault: false
 	} );
 
