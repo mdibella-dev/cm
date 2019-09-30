@@ -91,20 +91,24 @@
                 font-size: 1rem;
             }
 
-            a.speaker-title-name {
-                @include a-tag-basic-settings();
-                line-height: 1.9em;
-                text-align: inherit;
+            .speaker-title-name,
+            .speaker-position {
                 font-size: inherit;
-                padding: 0 2px;
-                border-bottom-color: #888;
+                text-align: inherit;
+                line-height: 1.25 !important;
+                margin-bottom: 0 !important;
             }
 
             .speaker-position {
                 font-weight: 500;
-                font-size: inherit;
-                text-align: inherit;
-                line-height: 1.25 !important;
+            }
+
+            .speaker-title-name a {
+                @include a-tag-basic-settings();
+                display: inline-block;
+                padding: 2px 0;
+                margin-bottom: 2px;
+                border-bottom-color: #888;
             }
         }
     }

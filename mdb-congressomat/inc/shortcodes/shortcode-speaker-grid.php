@@ -83,14 +83,14 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 ?>
 <li>
 <figure class="squared">
-<a  href="<?php echo $speaker[ 'permalink' ]; ?>"
-    title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?>">
+<a href="<?php echo $speaker[ 'permalink' ]; ?>"
+   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?>">
 <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></a>
 <figcaption class="speaker-caption">
-<a  class="speaker-title-name"
-    href="<?php echo $speaker[ 'permalink' ]; ?>"
-    title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?>">
-<?php echo $speaker[ 'title_name' ]; ?></a>
+<p class="speaker-title-name">
+<a href="<?php echo $speaker[ 'permalink' ]; ?>"
+   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?>">
+<?php echo $speaker[ 'title_name' ]; ?></a></p>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
 </figcaption>
 </figure>
