@@ -1,0 +1,56 @@
+/**
+ * Block Styles für core/button
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+.wp-block-button {
+    .wp-block-button__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 0;
+        border-width: 2px;
+        border-style: solid;
+        transition: all .3s ease-out !important;
+
+        background: transparent;
+        border-color: #999;
+        color: #999;
+
+        padding: $unit 2*$unit;
+
+        @include respond-to(medium) {
+            padding: 2*$unit 3*$unit;
+        }
+
+
+        &:hover,
+        &:focus {
+            background: #999;
+            color: #fff;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            cursor: default;
+            color: #ddd !important;
+            border-color: transparent !important;
+        }
+    }
+}
+
+.wp-block-button.is-style-shadow {
+    .wp-block-button__link {
+    }
+}
+
+.wp-block-button.is-style-ghost {
+    .wp-block-button__link {
+        background: transparent !important;
+    }
+}

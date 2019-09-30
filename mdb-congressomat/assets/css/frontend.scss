@@ -16,6 +16,9 @@ $unit:	10px; //0.625rem;
 @import "common/_gutenberg-reset";
 @import "common/_gutenberg";
 
+@import "common/_wp-block-button";
+
+
 @import "frontend/_mixins";
 @import "frontend/_basics";
 @import "frontend/_adjustments";
