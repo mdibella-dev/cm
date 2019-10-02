@@ -15,7 +15,7 @@ $areas = array( 'footer-one', 'footer-two', 'footer-three' );
 
 foreach( $areas as $area ) :
     echo '<div class="widget-area">';
-    dynamic_sidebar( 'footer-one' );
+    dynamic_sidebar( $area );
     echo '</div>';
 endforeach;
 ?>
