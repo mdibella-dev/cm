@@ -7,60 +7,16 @@
 
 
 
-
-.table-fineline {
-    font-size: 1rem;
-
-    @include respond-to(medium) {
-        font-size: 1.125rem;
-        line-height: 1.4;
-
-    }
-
-    @include respond-to(large) {
-        text-align: left;
-    }
-
-    tr {
-        border-bottom: 1px solid #eee;
-
-        &:last-of-type {
-            border-bottom: none;
-        }
-    }
-
-    td {
-        vertical-align: top;
-        display: inline-block;
-        width: 100%;
-
-        a {
-            @include a-tag-basic-settings();    
-        }
-    }
-
+.wp-block-table.is-style-default-with-header-column.two-columns-30-70 {
     td:first-of-type {
-        padding-top: 2*$unit;
-        padding-bottom: 2*$unit;
-        -webkit-hyphens: none;
-            -ms-hyphens: none;
-                hyphens: none;
-        font-weight: 300;
-
         @include respond-to(medium) {
             width: 30%;
         }
     }
 
     td:last-of-type {
-        padding-top: 0;
-        padding-bottom: 2*$unit;
-        @include p-tag-basic-settings;
-
         @include respond-to(medium) {
             width: 70%;
-            padding-top: 2*$unit;
-            padding-left: 2*$unit;
         }
     }
 }
