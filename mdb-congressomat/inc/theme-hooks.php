@@ -34,7 +34,3 @@ add_filter( 'the_content' , 'mdb_special_replacements' , 12);
 add_filter( 'the_title', 'mdb_special_replacements', 12 );
 add_filter( 'the_title_rss', 'mdb_special_replacements', 12 );
 add_filter( 'the_content_feed', 'mdb_special_replacements', 12 );
-
-
-// modules.php
-add_filter( 'acf/fields/flexible_content/layout_title/key=field_5c35e946eacd2', 'mdb_set_module_title', 10, 4 );
