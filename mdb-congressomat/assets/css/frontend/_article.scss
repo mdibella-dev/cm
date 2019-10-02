@@ -24,6 +24,10 @@
         li {
             @include p-tag-basic-settings();
             padding-left: $unit;
+
+            a {
+                @include a-tag-basic-settings();
+            }
         }
     }
 
