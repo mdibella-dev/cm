@@ -13,14 +13,10 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        display: -webkit-flex;
         display: flex;
-        -webkit-flex-wrap: wrap;
-                flex-wrap: wrap;
-        -webkit-align-items: flex-start;
-                align-items: flex-start;
-        -webkit-align-content: flex-start;
-                align-content: flex-start;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
 
         // responsive Größen- und Abstandsanpassung der Gridelemente
         li {
@@ -29,7 +25,6 @@
             // standardmäßig zwei Gridelemente nebeneinander
             margin: #{2*$unit} $unit 0 $unit;
             width: calc(50% - #{2*$unit});
-
 
             @include respond-to(medium) {
                 margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
@@ -58,7 +53,9 @@
             height: 100%;
             font-size: 0;
             border: none;
-            padding: 0;
+            padding: 0 !important;
+            border-bottom: 0 !important;
+
 
             img {
                 width: 100%;
@@ -72,11 +69,11 @@
 
         & > a:hover,
         & > a:focus {
-            border: none;
+            padding: 0 !important;
+            border-bottom: 0 !important;
 
             img {
                 background: #aaa;
-
             }
         }
 

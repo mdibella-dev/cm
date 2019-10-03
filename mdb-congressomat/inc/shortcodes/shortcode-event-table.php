@@ -110,7 +110,7 @@ function mdb_get_session_data( $data_key, $session )
         break;
 
         case 'session-time-range' :
-            $value = sprintf( '%1$s-%2$s', get_field( 'programmpunkt-von', $session->ID ),
+            $value = sprintf( '%1$s bis %2$s', get_field( 'programmpunkt-von', $session->ID ),
                                            get_field( 'programmpunkt-bis', $session->ID ) );
         break;
 
