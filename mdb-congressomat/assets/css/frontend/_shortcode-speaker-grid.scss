@@ -54,7 +54,7 @@
             font-size: 0;
             border: none;
             padding: 0 !important;
-            border-bottom: 0 !important;
+            border-bottom: none !important;
 
 
             img {
@@ -70,7 +70,7 @@
         & > a:hover,
         & > a:focus {
             padding: 0 !important;
-            border-bottom: 0 !important;
+            border-bottom: none !important;
 
             img {
                 background: #aaa;
