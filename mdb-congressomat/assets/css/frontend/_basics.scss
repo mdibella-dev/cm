@@ -18,9 +18,13 @@ body {
              text-rendering: geometricPrecision;
 }
 
+
+
 html {
     margin: 0 !important;
 }
+
+
 
 body {
     margin: 0;
@@ -28,6 +32,8 @@ body {
     background: #fff;
     color: #555;
 }
+
+
 
 *,
 *::before,
@@ -37,6 +43,8 @@ body {
     box-sizing: border-box;
 }
 
+
+
 a {
     text-decoration: none;
 
@@ -44,6 +52,8 @@ a {
         outline: none;
     }
 }
+
+
 
 h1,
 h2,
@@ -64,6 +74,43 @@ h3 {
                 hyphens: none;
     }
 }
+
+
+
+ol,
+ul {
+    padding: 0 0 0 2*$unit;
+    @include space(beyond);
+
+    li {
+        @include p-tag-basic-settings();
+        padding-left: $unit;
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+}
+
+/*
+
+table {
+    @include space(beyond);
+
+    p  {
+        @include p-tag-basic-settings();
+        @include space(beyond);
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+}
+*/
 
 
 

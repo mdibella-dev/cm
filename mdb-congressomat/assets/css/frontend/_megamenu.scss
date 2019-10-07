@@ -36,7 +36,12 @@
 
 	    & > li {
 		    display: block;
+            padding:0;
 		    border-bottom: 1px solid #ddd;
+
+            @include respond-to(medium) {
+                line-height: inherit;
+            }
 
 		    @include respond-to(large) {
 			    display: inline-block;
@@ -52,6 +57,8 @@
             font-size: 1rem;
     		color: #555;
             text-transform: uppercase;
+            text-decoration: none;
+            border: unset;
 
         	@include respond-to(large) {
         		display: -webkit-flex;
@@ -140,22 +147,27 @@
             }
 
     	    // Menüpunkt
-    	    a {
-    		    line-height: 2em;
-    		    color: inherit;
-    	    }
+            ul > li {
+                padding: 0;
 
-            // Menüpunkt als Downloadlink
-    	    .download > a::before {
-    		    display: inline-block;
-    		    font-style: normal;
-    		    font-variant: normal;
-    		    text-rendering: auto;
-    		    -webkit-font-smoothing: antialiased;
-    		    font-family: "Font Awesome 5 Pro";
-    		    font-weight: 500;
-    		    content: "\f358";
-    		    padding-right: $unit;
+                a {
+    		        line-height: 2em;
+    		        color: inherit;
+                    border-bottom-color: transparent;
+    	        }
+
+                // Menüpunkt als Downloadlink
+                &.download a::before {
+    		        display: inline-block;
+    		        font-style: normal;
+    		        font-variant: normal;
+    		        text-rendering: auto;
+    		        -webkit-font-smoothing: antialiased;
+    		        font-family: "Font Awesome 5 Pro";
+    		        font-weight: 500;
+    		        content: "\f358";
+    		        padding-right: $unit;
+                }
     	    }
         }
     }

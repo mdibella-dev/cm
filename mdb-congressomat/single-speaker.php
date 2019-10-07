@@ -74,7 +74,7 @@ if ( have_posts() ) :
 
                 $service = get_sub_field( 'referent-web-service' );
 
-                echo sprintf( '<li><div class="wp-block-button"><a href="%1$s" class="wp-block-button__link" rel="external nofollow" target="_blank" title="%2$s">%3$s</a></div></li>',
+                echo sprintf( '<li><div class="wp-block-button is-fa-button"><a href="%1$s" class="wp-block-button__link" rel="external nofollow" target="_blank" title="%2$s">%3$s</a></div></li>',
                               get_sub_field( 'referent-web-service-url' ),
                               sprintf( __( 'Profil von %1$s auf %2$s', TEXT_DOMAIN ),
                                        $speaker[ 'name' ],

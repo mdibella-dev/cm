@@ -16,23 +16,6 @@
         color: inherit;
     }
 
-    ol,
-    ul {
-        padding: 0 0 0 2*$unit;
-        @include space(beyond);
-
-        li {
-            @include p-tag-basic-settings();
-            padding-left: $unit;
-
-            a {
-                @include a-tag-basic-settings();
-            }
-        }
-    }
-
-    table p,
-    table td,
     p {
         @include p-tag-basic-settings();
         @include space(beyond);
@@ -45,12 +28,6 @@
             @include a-tag-basic-settings();
         }
     }
-
-    table {
-        @include space(beyond);
-/*        border-collapse: collapse;
-        width: 100%;
-*/    }
 
 
 

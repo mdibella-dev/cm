@@ -9,6 +9,7 @@
 
 // Imports
 @import "common/_vars";
+@import "common/_mixins";
 @import "common/_gutenberg-media-queries";
 @import "common/_gutenberg-reset";
 @import "common/_gutenberg";
@@ -16,7 +17,6 @@
 @import "common/_wp-block-button";
 @import "common/_wp-block-table";
 
-@import "frontend/_mixins";
 @import "frontend/_basics";
 @import "frontend/_adjustments";
 @import "frontend/_megamenu";

@@ -29,15 +29,51 @@
     }
 
     td {
+        @include p-tag-basic-settings();
         vertical-align: top;
         display: inline-block;
         width: 100%;
         padding-top: 2*$unit;
         padding-bottom: 2*$unit;
+        margin-bottom: 0;
 
         @include respond-to(medium) {
             display: table-cell;
             width: auto;
+        }
+
+        p {
+            @include p-tag-basic-settings();
+            @include space(beyond);
+
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+
+    // Gutter bei horizontaler Ausrichtung
+    td:not(:first-of-type) {
+        @include respond-to(medium) {
+            padding-left: $unit;
+        }
+
+        @include respond-to(large) {
+            padding-left: 2*$unit;
+        }
+    }
+
+    td:not(:last-of-type) {
+        @include respond-to(medium) {
+            padding-right: $unit;
+        }
+
+        @include respond-to(large) {
+            padding-right: 2*$unit;
         }
     }
 }
@@ -52,6 +88,7 @@
     }
 }
 
+
 .wp-block-table.is-style-default-with-header-row {
     tr:first-of-type {
         -webkit-hyphens: none;
@@ -60,21 +97,3 @@
         font-weight: 300;
     }
 }
-
-
-/*
-
-    td:first-of-type {
-            @include respond-to(medium) {
-            width: 30%;
-        }
-    }
-
-    td:last-of-type {
-        @include respond-to(medium) {
-            width: 70%;
-            padding-top: 2*$unit;
-            padding-left: 2*$unit;
-        }
-    }
-    */

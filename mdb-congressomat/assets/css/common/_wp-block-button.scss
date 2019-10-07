@@ -6,53 +6,60 @@
  **/
 
 
-.wp-block-button {
-    .wp-block-button__link {
-        text-decoration: none;
-        text-transform: uppercase;
-        display: inline-block;
-        cursor: pointer;
-        transition: all .5s ease-in-out !important;
-        border-radius: 0;
-        border-width: 2px;
-        border-style: solid;
+.wp-block-button > .wp-block-button__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .5s ease-in-out !important;
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #999;
+    background: #fff;
+    color: #999;
+    padding: $unit 2*$unit;
 
-        border-color: #999;
-        background: #fff;
-        color: #999;
+    @include respond-to(medium) {
+        padding: 2*$unit 3*$unit;
+    }
 
-        padding: $unit 2*$unit;
+    &:hover,
+    &:focus {
+        border-color: #000 !important;
+        background: #000 !important;
+        color: #fff !important;
+    }
 
-        @include respond-to(medium) {
-            padding: 2*$unit 3*$unit;
-        }
-
-        &:hover,
-        &:focus {
-            border-color: #000 !important;
-            background: #000 !important;
-            color: #fff !important;
-        }
-
-        &.disabled {
-            pointer-events: none;
-            cursor: default;
-            color: #ddd !important;
-            border-color: transparent !important;
-        }
+    &.disabled {
+        pointer-events: none;
+        cursor: default;
+        color: #ddd !important;
+        border-color: transparent !important;
     }
 }
 
 
-.wp-block-button.is-style-ghost {
-    .wp-block-button__link {
-        background: transparent !important;
+.wp-block-button.is-style-ghost > .wp-block-button__link {
+    background: transparent !important;
 
-        &:hover,
-        &:focus {
-            border-color: #000 !important;
-            background: transparent !important;
-            color: #000 !important;
-        }
+    &:hover,
+    &:focus {
+        border-color: #000 !important;
+        background: transparent !important;
+        color: #000 !important;
     }
+}
+
+
+// Kein Stil, aber Variante für FontAwesome
+.wp-block-button.is-fa-button > .wp-block-button__link {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-align-items: center;
+            align-items: center;
+    width: 70px;
+    height: 70px;
 }
