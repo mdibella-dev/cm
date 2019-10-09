@@ -51,7 +51,7 @@
                'Schwarz 80%, black-80, #333',
                'Schwarz 90%, black-90, #191919',
                'Schwarz, black, #000' );
-    
+
     foreach( $palette as $color_set ) :
         $parts               = explode( ',',  $color_set );
         $gutenberg_palette[] = array( 'name'  => __( trim( $parts[0] ), TEXT_DOMAIN ),
@@ -98,12 +98,15 @@ function mdb_enqueue_scripts()
     wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
     wp_enqueue_script( 'jquery' );
 
+
     // FontAwesome5 integrieren
 	wp_enqueue_style( 'fontawesome', PATH_THEME_URL . '/assets/fa5/css/fontawesome-all.min.css' );
 
+
     // Eigene Scripts laden
-    wp_register_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/js/frontend.js', array( 'jquery' ), FALSE, TRUE );
+    wp_register_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
 	wp_enqueue_script( 'mdb-congressomat' );
+
 
 	// Eigenes Stylesheet in komprimierter Form laden
 	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/css/frontend.min.css' );

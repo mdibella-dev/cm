@@ -18,8 +18,14 @@ wp.domReady( () => {
 	} );
 
 	wp.blocks.registerBlockStyle( 'core/button', {
-		name: 'ghost',
-		label: 'Ghost',
+		name: 'black-ghost',
+		label: 'Ghost (schwarz)',
+		isDefault: false
+	} );
+
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'white-ghost',
+		label: 'Ghost (weiß)',
 		isDefault: false
 	} );
 

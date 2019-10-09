@@ -119,6 +119,12 @@
         // jeweils eine überhalb und eine unterhalb der Liste
         nav {
             text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            width: auto;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
 
             &:first-of-type {
                 // Abstand der oberen Navigation zur Liste
@@ -139,18 +145,20 @@
             }
 
             .pageinfo {
-                display: inline-block;
+                display: block;
                 padding: 0 2*$unit;
+                -webkit-flex-grow: 2;
+                        flex-grow: 2;
 
+/*
                 @include respond-to(large) {
                     min-width: 400px;
-                }
+                } */
             }
 
-            .btn {
-                padding: 2*$unit 2.5*$unit !important;
+            .wp-block-button {
+                margin-bottom: 0;
             }
-
         }
     }
 }

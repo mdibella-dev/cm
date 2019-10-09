@@ -190,6 +190,7 @@
 }
 
 
+
 /**
  * Fußzeile
  **/
@@ -249,6 +250,7 @@
 
     .widget_nav_menu ul {
         list-style-type: none;
+        padding-left: 0;
 
         & > li {
             border-bottom: 1px solid #bbb;
@@ -270,5 +272,44 @@
                 }
             }
         }
+    }
+}
+
+
+#footer-social {
+    display: block;
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+                justify-content: center;
+
+        @include respond-to(medium) {
+            -webkit-justify-content: left;
+                    justify-content: left;
+        }
+    }
+
+    li {
+        padding: 0;
+    }
+
+    li + li {
+        margin-left: $unit;
+
+        @include respond-to(large) {
+            margin-left: 1.5*$unit;
+        }
+    }
+
+    .wp-block-button > .wp-block-button__link {
+        border-color: #ddd;
+        color: #ddd;
+        
     }
 }

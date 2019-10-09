@@ -69,21 +69,8 @@
 
             @include respond-to(medium) {
                 margin-right: 1.5*$unit;
-                margin-bottom: 1.5*$unit;                
+                margin-bottom: 1.5*$unit;
             }
-        }
-
-        .btn {
-            width: 5*$unit;
-            height: 5*$unit;
-            padding: 0;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-justify-content: center;
-                    justify-content: center;
-            -webkit-align-items: center;
-                    align-items: center;
-
         }
     }
 }
