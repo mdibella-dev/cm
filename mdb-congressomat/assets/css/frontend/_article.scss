@@ -16,40 +16,4 @@
         color: inherit;
     }
 
-    p {
-        @include p-tag-basic-settings();
-        @include space(beyond);
-
-        &:last-child {
-            margin-bottom: 0 !important;
-        }
-
-        a {
-            @include a-tag-basic-settings();
-        }
-    }
-
-
-
-    & > header {
-        @include space(beyond);
-    }
-
-    & > h2 {
-        @include space(above);
-        margin-bottom: .3em;
-        font-size: 1.2em;
-    }
-
-    img {
-        &.size-full {
-            width: 100%;
-            height: auto;
-        }
-
-        &.aligncenter {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
 }

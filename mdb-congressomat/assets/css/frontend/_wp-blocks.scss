@@ -1,0 +1,107 @@
+/**
+ * Blockanpassungen, nur Frontend
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-congressomat
+ **/
+
+
+
+/**
+ * wp-block-table
+ **/
+
+.wp-block-table.is-style-default-with-header-column.two-columns-30-70 {
+    td:first-of-type {
+        @include respond-to(medium) {
+            width: 30%;
+        }
+    }
+
+    td:last-of-type {
+        @include respond-to(medium) {
+            width: 70%;
+        }
+    }
+}
+
+
+
+/**
+ * wp-block-button
+ **/
+
+.wp-block-button.is-fa-button > .wp-block-button__link {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-align-items: center;
+            align-items: center;
+    width: 60px;
+    height: 60px;
+    padding:0;
+
+    @include respond-to(medium) {
+        padding: 0;
+    }
+}
+
+
+
+/**
+ * wp-block-embed
+ **/
+
+.wp-block-embed {
+    // Der standardmäßige untere Abstand (margin-bottom) von 1em auf den oberen und unteren Abstand aufteilen
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+
+
+/**
+ * wp-block-cover
+ * wp-block-cover-image
+ **/
+
+.wp-block-cover,
+.wp-block-cover-image {
+
+    .wp-block-cover__inner-container {
+        @include set-block-position-and-size();
+    }
+
+    .wp-block-cover-image-text,
+    .wp-block-cover-text,
+    h2,
+    p {
+        // Größenbeschränkung aufheben
+        max-width: unset !important;
+
+        // Innenabstand korrigieren
+        padding-left: $unit;
+        padding-right: $unit;
+    }
+}
+
+
+
+/**
+ * wp-block-coblocks-row
+ *
+ * @used-by    CoBlocks Plugin
+ **/
+
+.wp-block-coblocks-row {
+
+    &.alignfull .wp-block-coblocks-row__inner {
+        @include set-block-position-and-size();
+    }
+
+    &[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] {
+        // Größenbeschränkung aufheben
+        max-width: unset !important;
+    }
+}

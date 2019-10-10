@@ -218,35 +218,3 @@
         padding-right: 0.5*$unit;
     }
 }
-
-.image {
-    margin-top: 2em;
-    margin-bottom: 2em;
-
-    figure {
-        line-height: 0;
-    }
-
-    figcaption {
-        background: #f3f3f3;
-        color: #777;
-        margin: 0;
-        padding: 1em;
-        line-height: 1.2 !important;
-        font-size: 95% !important;
-        font-weight: 300 !important;
-        text-align: left;
-
-        &::before {
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 500;
-            content: "\f062";
-            padding-right: $unit;
-        }
-    }
-}

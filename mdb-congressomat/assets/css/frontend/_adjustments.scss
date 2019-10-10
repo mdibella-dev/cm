@@ -12,38 +12,18 @@
     padding-left: $unit;
     padding-right: $unit;
 
-        & > .alignfull {
+    & > .alignfull {
         // Blöcke, die über die volle Bildschirmbreite ausgedehnt werden sollen
         // auch tatsächlich über den minimalen linken und rechten Bildschirmrand ziehen
         width: calc(100% + #{2*$unit});
         margin-left: -#{$unit} !important;
         margin-right: -#{$unit} !important;
+    }
 
+    & > *:not(.alignfull) {
+        @include set-block-position-and-size();
     }
 }
-
-
-
-.adjust-workspace > *:not(.alignfull),
-.wp-block-cover .wp-block-cover__inner-container,
-.wp-block-cover-image .wp-block-cover__inner-container,
-.wp-block-coblocks-row.alignfull .wp-block-coblocks-row__inner /* CoBlocks */ {
-    // Blöcke standardmäßg zentrieren und größtmögliche Breite geben
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-
-    @include respond-to(medium) {
-        // ab 782px (medium): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
-        width: calc(10 * calc(100vw/12) );
-    }
-
-    @include respond-to(large) {
-        // ab 960px (medium): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
-        width: calc(8 * calc(100vw/12) );
-    }
-}
-
 
 
 body:not(.page-template-landingpage) .article {
@@ -65,42 +45,12 @@ body:not(.page-template-landingpage) .article {
     }
 }
 
+
 .has-no-padding-on-top {
     padding-top: 0 !important;
 }
 
+
 .has-no-padding-on-bottom {
     padding-bottom: 0 !important;
-}
-
-
-
-.wp-block-coblocks-row[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] /* CoBlocks */ {
-    // Größenbeschränkung aufheben
-    max-width: unset !important;
-}
-
-
-
-.wp-block-embed {
-    // der standardmäßige untere Abstand (margin-bottom) von 1em auf den oberen und unteren Abstand aufteilen
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-}
-
-
-
-.wp-block-cover-image .wp-block-cover-image-text,
-.wp-block-cover-image .wp-block-cover-text,
-.wp-block-cover-image h2,
-.wp-block-cover-image p,
-.wp-block-cover .wp-block-cover-image-text,
-.wp-block-cover .wp-block-cover-text,
-.wp-block-cover h2,
-.wp-block-cover p {
-    // Größenbeschränkung aufheben
-    max-width: unset !important;
-    // Innenabstand korrigieren
-    padding-left: $unit;
-    padding-right: $unit;
 }

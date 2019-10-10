@@ -37,9 +37,27 @@
 
 @mixin space( $direction: beyond ) {
     @if $direction == above {
-        margin-top: 2em;
+        margin-top: 2rem;
     } @else if $direction == beyond {
         // default
-        margin-bottom: 2em;
+        margin-bottom: 2rem;
+    }
+}
+
+
+@mixin set-block-position-and-size() {
+    // Blöcke standardmäßg zentrieren und größtmögliche Breite geben
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @include respond-to(medium) {
+        // ab 782px (medium): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
+        width: calc(10 * calc(100vw/12) );
+    }
+
+    @include respond-to(large) {
+        // ab 960px (medium): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
+        width: calc(8 * calc(100vw/12) );
     }
 }

@@ -10,7 +10,7 @@ wp.domReady( () => {
 	wp.blocks.unregisterBlockStyle( 'core/table', 'stripes' );
 
 
-	// Buttons
+	// Button
 	wp.blocks.registerBlockStyle( 'core/button', {
 		name: 'default',
 		label: 'Default',
@@ -49,4 +49,11 @@ wp.domReady( () => {
 		isDefault: false
 	} );
 
+
+	// Image
+	wp.blocks.registerBlockStyle( 'core/image', {
+		name: 'with-caption',
+		label: 'Mit Bildbeschreibung',
+		isDefault: false
+	} );
 } );
