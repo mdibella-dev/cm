@@ -63,21 +63,3 @@
         background: #000 !important;
     }
 }
-
-
-// Kein Stil, aber Variante für FontAwesome
-.wp-block-button.is-fa-button > .wp-block-button__link {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: center;
-            justify-content: center;
-    -webkit-align-items: center;
-            align-items: center;
-    width: 60px;
-    height: 60px;
-    padding:0;
-
-    @include respond-to(medium) {
-        padding: 0;
-    }
-}
