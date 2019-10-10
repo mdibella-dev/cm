@@ -18,10 +18,8 @@ if ( have_posts() ) :
 ?>
 <article class="article adjust-workspace">
 <?php
-        // Header
-        echo '<header>';
+        // Titel
         echo sprintf( '<h1>%1$s</h1>', get_the_title() );
-        echo '</header>';
 
         // Inhalt
         the_content();
