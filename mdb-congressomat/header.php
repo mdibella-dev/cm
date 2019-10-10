@@ -26,7 +26,7 @@
 <button id="logo" type="button"><!-- add your logo as svg here --></button>
 </div>
 <div>
-<button id="toggle" type="button" class="btn"><span class="lines"></span></button>
+<button id="toggle" type="button"><span class="lines"></span></button>
 </div>
 <div>
 <nav id="primary" class="megamenu">
