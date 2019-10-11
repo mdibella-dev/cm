@@ -154,7 +154,7 @@ function mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
                   __( 'Vorhergehende Seite', TEXT_DOMAIN ),
                   ( $current_page != 1 )? '' : ' disabled' );
 
-    echo sprintf( '<span class="pageinfo">%1$s</span>',
+    echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
                   sprintf( __( 'Seite %1$s/%2$s', TEXT_DOMAIN ), $current_page, $max_page ) );
 
     echo sprintf( '<div class="wp-block-button is-fa-button"><a href="%1$s" class="wp-block-button__link%3$s" title="%2$s" rel="next"><i class="far fa-chevron-right"></i></a></div>',

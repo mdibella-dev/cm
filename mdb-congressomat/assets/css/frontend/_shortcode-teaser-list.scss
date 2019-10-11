@@ -74,7 +74,6 @@
             // standardmäßig werden die Komponenten untereinander angezeigt
             display: block;
             padding-top: 2*$unit;
-            font-size: 1.15rem;
 
             @include respond-to(small) {
                 // ab 600px (small): Komponente nebeneinander anzeigen
@@ -101,6 +100,7 @@
                 @include p-tag-basic-settings();
                 @include respond-to(medium) {
                     line-height: 1.5;
+                    font-size: 1.15rem;
                 }
                 margin-bottom: 1.5em;
             }
@@ -146,10 +146,24 @@
             }
 
             .pageinfo {
-                display: block;
                 padding: 0 2*$unit;
+                display: -webkit-flex;
+                display: flex;
                 -webkit-flex-grow: 2;
                         flex-grow: 2;
+                -webkit-justify-content: center;
+                        justify-content: center;
+                -webkit-align-items: center;
+                        align-items: center;
+
+                span {
+                    @include p-tag-basic-settings();
+                    @include respond-to(medium) {
+                        line-height: 1.5;
+                        font-size: 1.15rem;
+                    }
+                    margin: 0;
+                }
             }
 
             .wp-block-button {
