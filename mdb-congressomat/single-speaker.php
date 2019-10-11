@@ -102,12 +102,12 @@ if ( have_posts() ) :
  * @since 1.0.0
  **/
  ?>
-<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-silvergray-background" data-columns="1" data-layout="100">
+<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-black-05-background-color" data-columns="1" data-layout="100">
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
-<h2 class="has-text-align-center thin"><?php echo sprintf( __( 'Programmpunkte mit %1$s', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?></h2>
-<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<h2 class="has-text-align-center section-title"><?php echo sprintf( __( 'Programmpunkte mit %1$s', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?></h2>
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <?php
 echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ] ) );
 ?>
@@ -123,11 +123,11 @@ echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ]
  * @since 1.0.0
  **/
  ?>
-<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-lightgray-background" data-columns="1" data-layout="100">
+<div class="wp-block-coblocks-row alignfull mb-0 mt-0 has-black-10-background-color" data-columns="1" data-layout="100">
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
-<h2 class="has-text-align-center thin"><?php echo __( 'Weitere Referenten', TEXT_DOMAIN ); ?></h2>
+<h2 class="has-text-align-center section-title"><?php echo __( 'Weitere Referenten', TEXT_DOMAIN ); ?></h2>
 <?php
 echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
 ?>

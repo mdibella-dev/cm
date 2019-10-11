@@ -41,6 +41,7 @@
     $gutenberg_palette = array();
     $palette = array(
                'Weiß, white, #fff',
+               'Schwarz 5%, black-05, #f0f0f0', 
                'Schwarz 10%, black-10, #e5e5e5',
                'Schwarz 20%, black-20, #ccc',
                'Schwarz 30%, black-30, #b2b2b2',

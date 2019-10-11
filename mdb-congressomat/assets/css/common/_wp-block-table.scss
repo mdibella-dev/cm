@@ -19,7 +19,11 @@
         font-size: 1.125rem;
         line-height: 1.4;
     }
-
+/*
+    @include respond-to(large) {
+        width: calc(7 * calc(100vw/12)) !important;
+    }
+*/
     tr {
         border-bottom: 1px solid #eee;
 

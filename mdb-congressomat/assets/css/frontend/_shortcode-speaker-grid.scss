@@ -13,32 +13,36 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
+        display: -webkit-flex;
         display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        align-content: flex-start;
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-align-items: flex-start;
+                align-items: flex-start;
+        -webkit-align-content: flex-start;
+                align-content: flex-start;
 
         // responsive Größen- und Abstandsanpassung der Gridelemente
         li {
             padding: 0;
             height: auto;
             // standardmäßig zwei Gridelemente nebeneinander
-            margin: #{2*$unit} $unit 0 $unit;
+            margin: $unit;
             width: calc(50% - #{2*$unit});
 
             @include respond-to(medium) {
-                margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
+                margin: 2*$unit;
                 width: calc(50% - #{4*$unit});
             }
 
             @include respond-to(large) {
                 // vier Gridelemente nebeneinander
-                margin: #{2*$unit} $unit 0 $unit;
+                margin: $unit;
                 width: calc(25% - #{2*$unit});
             }
 
             @include respond-to(wide) {
-                margin: #{4*$unit} #{2*$unit} 0 #{2*$unit};
+                margin: 2*$unit;
                 width: calc(25% - #{4*$unit});
             }
         }
