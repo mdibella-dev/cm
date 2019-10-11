@@ -77,7 +77,7 @@
     add_image_size ( 'small', 600, 9999 );
     add_image_size ( 'wide', 1280, 9999 );
     add_image_size ( 'huge', 1440, 9999 );
-
+    remove_image_size( 'medium_large' );
 
     // Menüs registrieren
     register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );

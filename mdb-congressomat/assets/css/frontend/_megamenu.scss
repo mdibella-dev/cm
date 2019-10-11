@@ -125,12 +125,12 @@
                 padding-top: 1em;
                 padding-bottom: .6em;
     		    margin: 0;
-    		    font-size: 1em;
+    		    font-size: 1rem;
     		    font-weight: 400;
                 text-transform: uppercase;
 
     		    @include respond-to(medium) {
-                    font-size: 1.25em;
+                    font-size: 1.25rem;
                     padding-top: 0;
                     padding-bottom: 1.2em;
     		    }
@@ -154,6 +154,7 @@
     		        line-height: 2em;
     		        color: inherit;
                     border-bottom-color: transparent;
+                    font-size: 1rem;
     	        }
 
                 // Menüpunkt als Downloadlink

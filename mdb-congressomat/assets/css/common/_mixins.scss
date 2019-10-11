@@ -35,6 +35,20 @@
 }
 
 
+@mixin h-tag-basic-settings() {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    line-height: 1.3;
+
+    @include respond-to(large) {
+        -webkit-hyphens: none;
+            -ms-hyphens: none;
+                hyphens: none;
+    }
+}
+
+
 @mixin space( $direction: beyond ) {
     @if $direction == above {
         margin-top: 2rem;
