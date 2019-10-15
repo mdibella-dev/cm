@@ -41,8 +41,12 @@
         }
     }
 
-    .speaker-description {
-        @include space(above);
+    h2 {
+        @include respond-to(medium) {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            font-weight: 300;
+        }
     }
 
     .speaker-position {

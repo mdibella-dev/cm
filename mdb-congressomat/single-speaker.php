@@ -26,7 +26,7 @@ if ( have_posts() ) :
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <div class="speaker-profile">
 <figure class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></figure>
-<div>
+<div class="article">
 <h2 class="has-text-align-left thin"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
         // Position oder Berufstitel bekannt?
@@ -38,9 +38,7 @@ if ( have_posts() ) :
 
         // Ausführliche Beschreibung vorhanden?
         if( !empty( $speaker[ 'description' ] ) ) :
-?>
-<div class="speaker-description"><?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
-<?php
+            echo apply_filters( 'the_content', $speaker[ 'description' ] );
         endif;
 
         // Links zu Soziale Medien vorhanden?

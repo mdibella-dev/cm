@@ -16,7 +16,7 @@ if ( have_posts() ) :
     while( have_posts() ) :
         the_post();
 ?>
-<article class="article adjust-workspace has-no-padding-on-top">
+<article class="article adjust-workspace">
 <?php
         // Inhalt
         the_content();

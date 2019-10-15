@@ -26,8 +26,8 @@
 }
 
 
-body:not(.page-template-landingpage) .article {
-    // bei Seiten, die nicht mit dem Template "Landing-Page" versehen sind,
+body.post-template-default main,
+body.page-template-default main {
     // einen oberen und unteren Innenabstand ergänzen
     padding-top: 2*$unit;
     padding-bottom: 2*$unit;
@@ -46,11 +46,17 @@ body:not(.page-template-landingpage) .article {
 }
 
 
-.has-no-padding-on-top {
-    padding-top: 0 !important;
-}
+body.page-template-landingpage-with-margin-on-bottom main {
+    // einen unteren Innenabstand ergänzen
+    padding-bottom: 2*$unit;
 
+    @include respond-to(medium) {
+        // ab 782px (medium): den Innenabstand erhöhen
+        padding-bottom: 3*$unit;
+    }
 
-.has-no-padding-on-bottom {
-    padding-bottom: 0 !important;
+    @include respond-to(large) {
+        // ab 960px (large): den Innenabstand weiter erhöhen
+            padding-bottom: 4*$unit;
+    }
 }
