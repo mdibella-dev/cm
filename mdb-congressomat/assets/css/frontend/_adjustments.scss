@@ -43,6 +43,12 @@ body.page-template-default main {
         padding-top: 4*$unit;
         padding-bottom: 4*$unit;
     }
+
+    @include respond-to(wide) {
+        // ab 1280px (wide): den Innenabstand noch weiter erhöhen
+        padding-top: 6*$unit;
+        padding-bottom: 6*$unit;
+    }
 }
 
 

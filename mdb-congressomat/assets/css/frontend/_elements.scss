@@ -19,6 +19,7 @@
 }
 
 
+
 /**
  * Wrapper für die Kopfzeilenelemente #logo, #toggle, #primary
  **/
@@ -88,7 +89,6 @@
     padding: 2*$unit;
     cursor: pointer;
     display: inline-block;
-    color: #999 !important;
     border: 0 !important;
     background: transparent !important;
     transition: all .3s ease-out !important;

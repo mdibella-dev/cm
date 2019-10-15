@@ -20,7 +20,7 @@
         }
     }
 
-    & > h1 {
+    & h1 {
         @include h-tag-basic-settings();
         font-size: 1.625rem; // 26px
         margin-bottom: 2rem; // !!!
