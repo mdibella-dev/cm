@@ -6,33 +6,38 @@
  **/
 
 
-.wp-block-button > .wp-block-button__link {
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-    cursor: pointer;
-    transition: all .5s ease-in-out !important;
-    border-radius: 0;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #999;
-    background: #fff;
-    color: #999;
-    padding: $unit 2*$unit;
 
-    @include respond-to(medium) {
-        padding: 2*$unit 3*$unit;
+.wp-block-button {
+    margin-bottom: 0;
+
+    & > .wp-block-button__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        cursor: pointer;
+        transition: all .5s ease-in-out !important;
+        border-radius: 0;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #999;
+        background: #fff;
+        color: #999;
+        padding: $unit 2*$unit;
+
+        @include respond-to(medium) {
+            padding: 2*$unit 3*$unit;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: #000 !important;
+            background: #000 !important;
+            color: #fff !important;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.12);
+        }
     }
 
-    &:hover,
-    &:focus {
-        border-color: #000 !important;
-        background: #000 !important;
-        color: #fff !important;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.12);
-    }
-
-    &.disabled {
+    &.disabled > .wp-block-button__link {
         pointer-events: none;
         cursor: default;
         color: #ddd !important;
