@@ -47,14 +47,13 @@
         width: 100%;
     }
 
-    @include respond-to(large) {
+    @include respond-to(wide) {
         -webkit-flex-wrap: nowrap;
                 flex-wrap: nowrap;
 
         // Bereich mit dem Logo (#logo)
         & > div:nth-child(1) {
             width: 25%;
-            margin: 0 auto;
         }
 
         // Bereich mit dem Menüumschalter (#toggle)
@@ -85,13 +84,17 @@
 }
 
 #toggle {
-    margin: $unit;
+    margin-top: 6px;
     padding: 2*$unit;
     cursor: pointer;
     display: inline-block;
     border: 0 !important;
     background: transparent !important;
     transition: all .3s ease-out !important;
+
+    &:focus {
+        outline: none !important;
+    }
 
     .lines {
         @include line;
@@ -152,15 +155,6 @@
     border: none;
     cursor: pointer;
     outline: 0 !important;
-
-    @include respond-to(large) {
-        padding: 0;
-        margin: 0 auto;
-    }
-
-    svg {
-        width: auto;
-    }
 }
 
 
@@ -191,7 +185,7 @@
         display: block;
     }
 
-    @include respond-to(large) {
+    @include respond-to(wide) {
         display: block;
     }
 }

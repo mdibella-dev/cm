@@ -23,7 +23,7 @@
 <header id="header">
 <div id="header-wrapper">
 <div>
-<button id="logo" type="button"><!-- add your logo as svg here --></button>
+<a id="logo" rel="start" href="<?php bloginfo( 'url' );?>" title="<?php echo __( 'Zur Startseite', TEXT_DOMAIN ); ?>" ></a >
 </div>
 <div>
 <button id="toggle" type="button"><span class="lines"></span></button>

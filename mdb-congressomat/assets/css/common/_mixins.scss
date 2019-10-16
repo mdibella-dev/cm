@@ -65,13 +65,13 @@
     margin-right: auto;
     width: 100%;
 
-    @include respond-to(medium) {
-        // ab 782px (medium): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
+    @include respond-to(large) {
+        // ab 960px (large): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
         width: calc(10 * calc(100vw/12) );
     }
 
-    @include respond-to(large) {
-        // ab 960px (medium): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
+    @include respond-to(wide) {
+        // ab 1280px (wide): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
         width: calc(8 * calc(100vw/12) );
     }
 }

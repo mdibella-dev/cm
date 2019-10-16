@@ -104,14 +104,14 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <li>
 <article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
 <div class="teaser-image">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>">
+<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>" rel="prev">
 <?php the_post_thumbnail( $post->ID, 'full' ); ?>
 </a>
 </div>
 <div class="teaser-content">
 <h2><?php the_title(); ?></h2>
 <?php the_excerpt(); ?>
-<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a></p>
+<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>" rel="next"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a></p>
 </div>
 </article>
 </li>

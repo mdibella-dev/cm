@@ -19,7 +19,7 @@
         display: block;
     }
 
-    @include respond-to(large) {
+    @include respond-to(wide) {
         display: block;
     }
 
@@ -39,11 +39,11 @@
             padding:0;
 		    border-bottom: 1px solid #ddd;
 
-            @include respond-to(medium) {
+            @include respond-to(large) {
                 line-height: inherit;
             }
 
-		    @include respond-to(large) {
+		    @include respond-to(wide) {
 			    display: inline-block;
 			    border-bottom: 0;
 		    }
@@ -60,7 +60,7 @@
             text-decoration: none;
             border: unset;
 
-        	@include respond-to(large) {
+        	@include respond-to(wide) {
         		display: -webkit-flex;
         		display: flex;
         		width: unset;
