@@ -51,7 +51,7 @@
 
         & > li > a {
 		    display: block;
-		    padding: 1em;
+            padding: 1em 2*$unit;
     		width: 100%;
     		font-weight: 400;
             font-size: 1rem;

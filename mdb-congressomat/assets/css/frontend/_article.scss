@@ -12,6 +12,7 @@
         color: inherit;
     }
 
+
     & > * {
         margin-bottom: 2rem;
 
@@ -19,6 +20,7 @@
             margin-bottom: 0;
         }
     }
+
 
     & h1 {
         @include h-tag-basic-settings();

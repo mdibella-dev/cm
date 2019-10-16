@@ -318,12 +318,8 @@
         }
     }
 
-    .wp-block-button {
-        margin-bottom: 0;
-
-        & > .wp-block-button__link {
-            border-color: #ddd;
-            color: #ddd;
-        }
+    .wp-block-button > .wp-block-button__link {
+        border-color: #ddd;
+        color: #ddd;
     }
 }
