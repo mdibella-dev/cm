@@ -42,11 +42,13 @@
     }
 
     h2 {
-        @include respond-to(medium) {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            font-weight: 300;
-        }
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        font-weight: 300;
+    }
+
+    p {
+        margin-bottom: 2rem !important;
     }
 
     .speaker-position {
@@ -55,8 +57,15 @@
     }
 
     .speaker-social-media {
-        display: inline-block;
-        @include space(above);
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+                justify-content: center;
+
+        @include respond-to(medium) {
+            -webkit-justify-content: left;
+                    justify-content: left;
+        }
 
         ul {
             width: 100%;

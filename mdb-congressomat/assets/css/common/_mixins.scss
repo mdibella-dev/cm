@@ -49,15 +49,6 @@
 }
 
 
-@mixin space( $direction: beyond ) {
-    @if $direction == above {
-        margin-top: 2rem;
-    } @else if $direction == beyond {
-        // default
-        margin-bottom: 2rem;
-    }
-}
-
 
 @mixin set-block-position-and-size() {
     // Blöcke standardmäßg zentrieren und größtmögliche Breite geben

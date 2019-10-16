@@ -65,7 +65,7 @@
             width: 100%;
 
             &:not(:last-of-type) {
-                @include space(beyond);
+                margin-bottom: 2rem;
             }
         }
 

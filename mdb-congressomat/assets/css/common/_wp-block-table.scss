@@ -19,11 +19,7 @@
         font-size: 1.125rem;
         line-height: 1.4;
     }
-/*
-    @include respond-to(large) {
-        width: calc(7 * calc(100vw/12)) !important;
-    }
-*/
+
     tr {
         border-bottom: 1px solid #eee;
 
@@ -48,7 +44,7 @@
 
         p {
             @include p-tag-basic-settings();
-            @include space(beyond);
+            margin-bottom: 2rem;
 
             &:last-child {
                 margin-bottom: 0 !important;
