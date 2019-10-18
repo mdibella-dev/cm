@@ -135,3 +135,12 @@
         }
     }
 }
+
+
+div[class*="has-black-"] .partner-table {
+    .partner-logo {
+        img {
+            background: #fff;
+        }
+    }
+}
