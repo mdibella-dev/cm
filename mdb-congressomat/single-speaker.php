@@ -26,7 +26,7 @@ if ( have_posts() ) :
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
 <div class="speaker-profile">
 <figure class="speaker-image"><?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?></figure>
-<div class="article">
+<div>
 <h2 class="has-text-align-left thin"><?php echo $speaker[ 'title_name' ]; ?></h2>
 <?php
         // Position oder Berufstitel bekannt?

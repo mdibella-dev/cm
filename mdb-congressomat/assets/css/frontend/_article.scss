@@ -8,27 +8,11 @@
 
 
 .article {
-    * {
-        color: inherit;
-    }
-
-
     & > * {
         margin-bottom: 2rem;
 
         &:last-child {
             margin-bottom: 0;
-        }
-    }
-
-
-    & h1 {
-        @include h-tag-basic-settings();
-        font-size: 1.625rem; // 26px
-        margin-bottom: 2rem; // !!!
-
-        @include respond-to(medium) {
-            font-size: 2rem; // 32 px
         }
     }
 
@@ -48,25 +32,4 @@
         }
     }
 
-
-    & > ol,
-    & > ul {
-        padding: 0 0 0 2*$unit;
-
-        li {
-            padding-left: $unit;
-        }
-    }
-
-
-    & > p,
-    & > ol li,
-    & > ul li {
-        @include p-tag-basic-settings();
-        font-size: 1.188rem; // 19px
-
-        a {
-            @include a-tag-basic-settings();
-        }
-    }
 }
