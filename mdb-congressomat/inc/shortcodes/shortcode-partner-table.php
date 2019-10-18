@@ -69,7 +69,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         if( !empty( $link ) ) :
                             $cells[ 'partner-logo' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                 $link,
-                                                                __( 'Externen Link aufrufen', TEXT_DOMAIN ),
+                                                                __( 'Externen Link aufrufen', 'mdb-congressomat' ),
                                                                 $image );
                         else :
                             $cells[ 'partner-logo' ] = $image;
@@ -96,7 +96,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                             $cells[ 'partner-description' ] .= sprintf( '<span class="link">%1$s</span>',
                                                                         sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                                  $link,
-                                                                                 __( 'Externen Link aufrufen', TEXT_DOMAIN ),
+                                                                                 __( 'Externen Link aufrufen', 'mdb-congressomat' ),
                                                                                  $url[ 'host' ] ) );
                         endif;
                     break;
@@ -112,7 +112,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                             $strings = array();
 
                             if( !empty( $number ) ) :
-                                $strings[] = sprintf( __( 'Stand %1$s', TEXT_DOMAIN ), $number );
+                                $strings[] = sprintf( __( 'Stand %1$s', 'mdb-congressomat' ), $number );
                             endif;
 
                             if( !empty( $location ) ) :

@@ -138,7 +138,7 @@ function mdb_get_session_data( $data_key, $session )
                     $speaker_dataset = mdb_get_speaker_dataset( $speaker );
                     $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
                                                 $speaker_dataset[ 'permalink' ],
-                                                sprintf( __( 'Mehr über %1$s erfahren', TEXT_DOMAIN ), $speaker_dataset[ 'title_name' ] ),
+                                                sprintf( __( 'Mehr über %1$s erfahren', 'mdb-congressomat' ), $speaker_dataset[ 'title_name' ] ),
                                                 get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
                 endforeach;
                 $value = implode( ' ', $speakers_list );

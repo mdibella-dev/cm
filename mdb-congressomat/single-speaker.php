@@ -74,7 +74,7 @@ if ( have_posts() ) :
 
                 echo sprintf( '<li><div class="wp-block-button is-fa-button"><a href="%1$s" class="wp-block-button__link" rel="external nofollow" target="_blank" title="%2$s">%3$s</a></div></li>',
                               get_sub_field( 'referent-web-service-url' ),
-                              sprintf( __( 'Profil von %1$s auf %2$s', TEXT_DOMAIN ),
+                              sprintf( __( 'Profil von %1$s auf %2$s', 'mdb-congressomat' ),
                                        $speaker[ 'name' ],
                                        $services[ $service ][ 'name' ] ),
                               sprintf( '<i class="%1$s"></i>',
@@ -104,7 +104,7 @@ if ( have_posts() ) :
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
-<h2 class="has-text-align-center section-title"><?php echo sprintf( __( 'Programmpunkte mit %1$s', TEXT_DOMAIN ), $speaker[ 'title_name' ] ); ?></h2>
+<h2 class="has-text-align-center section-title"><?php echo sprintf( __( 'Programmpunkte mit %1$s', 'mdb-congressomat' ), $speaker[ 'title_name' ] ); ?></h2>
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <?php
 echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ] ) );
@@ -125,7 +125,7 @@ echo do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $speaker[ 'id' ]
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
 <div class="wp-block-coblocks-column" style="width:100%">
 <div class="wp-block-coblocks-column__inner has-padding has-large-padding has-no-margin">
-<h2 class="has-text-align-center section-title"><?php echo __( 'Weitere Referenten', TEXT_DOMAIN ); ?></h2>
+<h2 class="has-text-align-center section-title"><?php echo __( 'Weitere Referenten', 'mdb-congressomat' ); ?></h2>
 <?php
 echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) );
 ?>

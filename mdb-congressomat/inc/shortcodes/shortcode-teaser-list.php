@@ -104,14 +104,14 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <li>
 <article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
 <div class="teaser-image">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>" rel="prev">
+<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?>" rel="prev">
 <?php the_post_thumbnail( $post->ID, 'full' ); ?>
 </a>
 </div>
 <div class="teaser-content">
 <h2><?php the_title(); ?></h2>
 <?php the_excerpt(); ?>
-<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?>" rel="next"><?php _e( 'Mehr erfahren', TEXT_DOMAIN ); ?></a></p>
+<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?>" rel="next"><?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?></a></p>
 </div>
 </article>
 </li>
@@ -151,15 +151,15 @@ function mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="far fa-chevron-left"></i></a></div>',
                   add_query_arg( 'prt', $current_page - 1 ),
-                  __( 'Vorhergehende Seite', TEXT_DOMAIN ),
+                  __( 'Vorhergehende Seite', 'mdb-congressomat' ),
                   ( $current_page != 1 )? '' : ' disabled' );
 
     echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
-                  sprintf( __( 'Seite %1$s/%2$s', TEXT_DOMAIN ), $current_page, $max_page ) );
+                  sprintf( __( 'Seite %1$s/%2$s', 'mdb-congressomat' ), $current_page, $max_page ) );
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="far fa-chevron-right"></i></a></div>',
                   add_query_arg( 'prt', $current_page + 1 ),
-                  __( 'Nächste Seite', TEXT_DOMAIN ),
+                  __( 'Nächste Seite', 'mdb-congressomat' ),
                   ( $current_page != $max_page )? '' : ' disabled' );
     echo '</nav>';
 }

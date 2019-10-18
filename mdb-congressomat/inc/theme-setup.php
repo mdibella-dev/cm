@@ -17,7 +17,7 @@
  function mdb_theme_setup()
  {
     // Lokalisation
-	load_theme_textdomain( TEXT_DOMAIN, PATH_THEME_TEMPLATE . '/lang' );
+	load_theme_textdomain( 'mdb-congressomat', get_template_directory() . '/lang' );
 
 
     // Theme-Support für diverse Features
@@ -55,7 +55,7 @@
 
     foreach( $palette as $color_set ) :
         $parts               = explode( ',',  $color_set );
-        $gutenberg_palette[] = array( 'name'  => __( trim( $parts[0] ), TEXT_DOMAIN ),
+        $gutenberg_palette[] = array( 'name'  => __( trim( $parts[0] ), 'mdb-congressomat' ),
                                       'slug'  => trim( $parts[1] ),
                                       'color' => trim( $parts[2] ) );
     endforeach;
@@ -81,7 +81,7 @@
     remove_image_size( 'medium_large' );
 
     // Menüs registrieren
-    register_nav_menu( 'primary', __( 'Primäre Navigation', TEXT_DOMAIN ) );
+    register_nav_menu( 'primary', __( 'Primäre Navigation', 'mdb-congressomat' ) );
 }
 
 
@@ -101,14 +101,14 @@ function mdb_enqueue_scripts()
 
 
     // FontAwesome5 integrieren
-	wp_enqueue_style( 'fontawesome', PATH_THEME_URL . '/assets/fa5/css/fontawesome-all.min.css' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fa5/css/fontawesome-all.min.css' );
 
 
     // Eigene Scripts laden
-    wp_register_script( 'mdb-congressomat', PATH_THEME_URL . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
+    wp_register_script( 'mdb-congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
 	wp_enqueue_script( 'mdb-congressomat' );
 
 
 	// Eigenes Stylesheet in komprimierter Form laden
-	wp_enqueue_style( 'mdb-congressomat', PATH_THEME_URL . '/assets/css/frontend.min.css' );
+	wp_enqueue_style( 'mdb-congressomat', get_template_directory_uri() . '/assets/css/frontend.min.css' );
 }
