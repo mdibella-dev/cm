@@ -11,9 +11,8 @@
 @import "common/_vars";
 @import "common/_mixins";
 @import "common/_gutenberg-media-queries";
-@import "common/_gutenberg-reset";
-@import "common/_gutenberg";
-
+@import "common/_gutenberg-attributes";
+@import "common/_color-palette";
 @import "common/_wp-block-button";
 @import "common/_wp-block-table";
 @import "common/_wp-block-image";
@@ -24,6 +23,7 @@
 @import "frontend/_article";
 @import "frontend/_adjustments";
 @import "frontend/_wp-blocks";
+@import "frontend/_styles";
 @import "frontend/_partner-list";
 @import "frontend/_partner-table";
 @import "frontend/_shortcode-teaser-list";
