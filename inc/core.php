@@ -23,51 +23,54 @@ function mdb_get_sessions( $args )
     extract( wp_parse_args( $args,
                             array(
                             'event'          => '',
-                            'event_filter'   => '',
+                            'event_filter'   => 'ACTIVE',
                             'speaker'        => '',
                             'posts_per_page' => -1 ) ) );
 
-    // Suchparameter setzen
+    // Allgemeine Suchparameter setzen
     $query = array(
              'posts_per_page' => $posts_per_page,
              'post_status'    => 'publish',
              'post_type'      => 'session' );
 
-    // Nach den Sessions eines bestimmten Events suchen
-    if( !empty( $event ) ) :
 
+    // Event setzen
+    if( mdb_get_event( $event ) !== NULL ) :
         $query[ 'tax_query' ] = array( array(
                                        'taxonomy' => 'event',
                                        'field'    => 'term_id',
                                        'terms'    => $event ) );
-
-    // Nach den Sessions eines bestimmten Speakers suchen
-    elseif ( !empty( $speaker ) and is_numeric( $speaker ) ) :
-
-        $query[ 'meta_query' ] = array( array(
-                                        'key'     => 'programmpunkt-referenten',
-                                        'value'   => serialize( (string) $speaker ),
-                                        'compare' => 'LIKE' ) );
-
+    else :
+        $event_list   = mdb_get_active_events();
         $event_filter = strtoupper( trim( $event_filter ) );
 
-        if( ( $event_filter == 'ACTIVE' ) or ( $event_filter == 'INACTIVE' ) ) :
-            $event_list = implode( ',', mdb_get_active_events() );
-
-            if( $event_filter == 'ACTIVE' ) :
-                $query[ 'tax_query' ] = array( array(
-                                               'taxonomy' => 'event',
-                                               'field'    => 'term_id',
-                                               'terms'    => $event_list ) );
-            else : /* INACTIVE */
+        switch( $event_filter ) :
+            case 'INACTIVE' :
                 $query[ 'tax_query' ] = array( array(
                                                'taxonomy' => 'event',
                                                'field'    => 'term_id',
                                                'terms'    => $event_list,
-                                               'operator' => 'NOT IN',
-                                            ) );
-            endif;
-        endif;
+                                               'operator' => 'NOT IN' ) );
+            break;
+
+            case 'ACTIVE' :
+            default:
+                $query[ 'tax_query' ] = array( array(
+                                               'taxonomy' => 'event',
+                                               'field'    => 'term_id',
+                                               'terms'    => $event_list,
+                                               'operator' => 'IN' ) );
+            break;
+        endswitch;
+    endif;
+
+    // Speaker setzen
+    if ( !empty( $speaker ) and is_numeric( $speaker ) ) :
+        $query[ 'meta_query' ] = array( array(
+                                        'key'     => 'programmpunkt-referenten',
+                                        'value'   => $speaker,
+                                        'compare' => 'LIKE',
+                                     ) );
     endif;
 
     // Passende Sessions ermitteln
@@ -102,12 +105,12 @@ function mdb_get_sessions_by_event( $event )
  *
  * @uses    mdb_get_sessions
  * @param   int     $speaker
- * @param   string  $event_filter  ACTIVE, INACTIVE, BOTH
+ * @param   string  $event_filter  ACTIVE, INACTIVE, ALL
  * @return  array
  * @since   1.0.0
  **/
 
-function mdb_get_sessions_by_speaker( $speaker, $event_filter = '' )
+function mdb_get_sessions_by_speaker( $speaker, $event_filter = 'ALL' )
 {
     return mdb_get_sessions( array(
                              'speaker'      => $speaker,
@@ -192,6 +195,7 @@ function mdb_get_active_events()
 }
 
 
+
 /**
  * Ermittelt die Speaker aus allen Sessions von einem oder mehreren Events
  * Bleibt $event_list_string leer, werden die aktiven Events zur Grundlage genommen
@@ -261,7 +265,7 @@ function mdb_get_speaker_datasets( $event_list_string = '' )
 
 
 /**
- * Liefert einen Datensatz eines bestimmten Speakers
+ * Liefert den Datensatz eines bestimmten Speakers
  *
  * @param  int    $speaker
  * @return array
@@ -318,12 +322,34 @@ function mdb_sort_speaker_datasets( $speaker_list )
 function mdb_get_location( $location )
 {
     if( !empty( $location ) ) :
-        $term = get_term_by( 'term_taxonomy_id', $location, 'locations' );
+        $term = get_term_by( 'term_taxonomy_id', $location, 'location' );
 
         if( $term !== FALSE ) :
             return $term->name;
         endif;
     endif;
 
-    return '';
+    return ''; // or NULL
+}
+
+
+/**
+ * Ermittelt den Namen eines Events
+ *
+ * @param  int      $event
+ * @return string
+ * @since  1.0.0
+ */
+
+function mdb_get_event( $event )
+{
+    if( !empty( $event ) ) :
+        $term = get_term_by( 'term_taxonomy_id', $event, 'event' );
+
+        if( $term !== FALSE ) :
+            return $term->name;
+        endif;
+    endif;
+
+    return NULL;
 }

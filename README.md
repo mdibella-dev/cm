@@ -17,7 +17,8 @@ __Tested up to:__ WordPress 5.3
 **Geändert:** Verzeichnisstruktur des Themes  
 **Geändert:** Changelog und Readme miteinander verschmolzen
 **Geändert:** Menüs im Backend
-**Fixed:** Eingabedialog für einen Programmpunkt 
+**Fixed:** Eingabedialog für einen Programmpunkt
+**Fixed:** Anzeige aller Sessions eines Speakers
 
 ### 1.0.0
 Erstveröffentlichung
