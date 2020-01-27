@@ -38,3 +38,4 @@ add_filter( 'the_content_feed', 'mdb_special_replacements', 12 );
 
 // backend.php
 add_action( 'admin_menu', 'mdb_ajust_admin_menu', 999 );
+add_action( 'acf/input/admin_head', 'mdb_adjust_acf_dialog' );
