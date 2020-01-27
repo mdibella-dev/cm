@@ -11,11 +11,12 @@ __Tested up to:__ WordPress 5.3
 
 
 ## Changelog
-*Neu/Geändert/Entfernt/Hinzugefügt*
+*Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### 2.0.0 (WIP)
 **Geändert:** Verzeichnisstruktur des Themes  
 **Geändert:** Changelog und Readme miteinander verschmolzen
+**Geändert:** Menüs im Backend
 
 ### 1.0.0
 Erstveröffentlichung
