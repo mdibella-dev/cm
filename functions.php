@@ -14,10 +14,10 @@ error_reporting( E_ALL ^ E_NOTICE );
 
 
 // Funktionsbibliothek einbinden
-require_once( get_template_directory() . '/inc/theme-setup.php' );
-require_once( get_template_directory() . '/inc/theme-hooks.php' );
-require_once( get_template_directory() . '/inc/theme-gutenberg.php' );
-require_once( get_template_directory() . '/inc/theme-performance.php' );
+require_once( get_template_directory() . '/inc/setup.php' );
+require_once( get_template_directory() . '/inc/hooks.php' );
+require_once( get_template_directory() . '/inc/gutenberg.php' );
+require_once( get_template_directory() . '/inc/performance.php' );
 require_once( get_template_directory() . '/inc/widget-areas.php' );
 require_once( get_template_directory() . '/inc/snippets.php' );
 require_once( get_template_directory() . '/inc/backend.php' );
