@@ -16,7 +16,7 @@
 
  function mdb_theme_setup()
  {
-    // Lokalisation
+    // Laden der Lokalisation
 	load_theme_textdomain( 'mdb-congressomat', get_template_directory() . '/lang' );
 
 
@@ -40,29 +40,32 @@
     // Farben und Farbnamen entstammen https://coolors.co/
     $gutenberg_palette = array();
     $palette = array(
-               'Weiß, white, #fff',
-               'Schwarz 5%, black-05, #f0f0f0', 
-               'Schwarz 10%, black-10, #e5e5e5',
-               'Schwarz 20%, black-20, #ccc',
-               'Schwarz 30%, black-30, #b2b2b2',
-               'Schwarz 40%, black-40, #999',
-               'Schwarz 50%, black-50, #7f7f7f',
-               'Schwarz 60%, black-60, #666',
-               'Schwarz 70%, black-70, #4c4c4c',
-               'Schwarz 80%, black-80, #333',
-               'Schwarz 90%, black-90, #191919',
-               'Schwarz, black, #000' );
+        'Weiß, white, #fff',
+        'Schwarz 5%, black-05, #f0f0f0',
+        'Schwarz 10%, black-10, #e5e5e5',
+        'Schwarz 20%, black-20, #ccc',
+        'Schwarz 30%, black-30, #b2b2b2',
+        'Schwarz 40%, black-40, #999',
+        'Schwarz 50%, black-50, #7f7f7f',
+        'Schwarz 60%, black-60, #666',
+        'Schwarz 70%, black-70, #4c4c4c',
+        'Schwarz 80%, black-80, #333',
+        'Schwarz 90%, black-90, #191919',
+        'Schwarz, black, #000'
+    );
 
     foreach( $palette as $color_set ) :
         $parts               = explode( ',',  $color_set );
-        $gutenberg_palette[] = array( 'name'  => __( trim( $parts[0] ), 'mdb-congressomat' ),
-                                      'slug'  => trim( $parts[1] ),
-                                      'color' => trim( $parts[2] ) );
+        $gutenberg_palette[] = array(
+            'name'  => __( trim( $parts[0] ), 'mdb-congressomat' ),
+            'slug'  => trim( $parts[1] ),
+            'color' => trim( $parts[2] )
+        );
     endforeach;
     add_theme_support( 'editor-color-palette', $gutenberg_palette );
 
 
-    // Bildgrößen registrieren bzw. umdefinieren
+    // Registrierung/Neudefinierung der Bildgrößen
     // Angaben entsprechen den Gutenberg Media Queries
     if( ( get_option( 'medium_size_w' ) != 782 ) ) :
         update_option( 'medium_size_w', 782 );
@@ -80,8 +83,29 @@
     add_image_size ( 'huge', 1440, 9999 );
     remove_image_size( 'medium_large' );
 
-    // Menüs registrieren
+
+    // Registrierung der Hauptnavigation
     register_nav_menu( 'primary', __( 'Primäre Navigation', 'mdb-congressomat' ) );
+
+
+    // Registrierung der Widget-Areas im Bereich der Fußzeile
+    $areas = array (
+        1 => 'footer-one',
+        2 => 'footer-two',
+        3 => 'footer-three'
+    );
+
+    foreach( $areas as $area_nr => $area_id ) :
+        register_sidebar( array(
+    	    'name'			=> sprintf( __( 'Footer #$1$s', 'mdb-congressomat' ), $area_nr ),
+    	    'id'			=> $area_id,
+    	    'description'	=> sprintf( __( 'Die hier abgelegten Widgets erscheinen im Bereich $1$s in der Fußzeile.', 'mdb-congressomat' ), $area_nr ),
+    	    'before_widget'	=> '<div class="widget %2$s clr">',
+    	    'after_widget'	=> '</div>',
+    	    'before_title'	=> '<h6 class="widget-title">',
+    	    'after_title'	=> '</h6>',
+        ) );
+    endforeach;
 }
 
 
@@ -94,21 +118,21 @@
 
 function mdb_enqueue_scripts()
 {
-    // die von WordPress gelieferte und minimierte Version von jQuery in den Footer verlegen
+    // Verschieben der von WordPress gelieferten jQuery in den Footer
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
     wp_enqueue_script( 'jquery' );
 
 
-    // FontAwesome5 integrieren
+    // Integration von FontAwesome5
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fa5/css/fontawesome-all.min.css' );
 
 
-    // Eigene Scripts laden
+    // Registrieren und Laden eigener Skripte
     wp_register_script( 'mdb-congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
 	wp_enqueue_script( 'mdb-congressomat' );
 
 
-	// Eigenes Stylesheet in komprimierter Form laden
+	// Laden des eigenen Stylesheets
 	wp_enqueue_style( 'mdb-congressomat', get_template_directory_uri() . '/assets/css/frontend.min.css' );
 }

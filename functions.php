@@ -19,7 +19,6 @@ require_once( get_template_directory() . '/inc/hooks.php' );
 require_once( get_template_directory() . '/inc/block-editor.php' );
 require_once( get_template_directory() . '/inc/backend.php' );
 require_once( get_template_directory() . '/inc/performance.php' );
-require_once( get_template_directory() . '/inc/widget-areas.php' );
 require_once( get_template_directory() . '/inc/snippets.php' );
 require_once( get_template_directory() . '/inc/core.php' );
 require_once( get_template_directory() . '/inc/classes/class-megamenu-walker.php' );

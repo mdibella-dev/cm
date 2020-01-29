@@ -19,6 +19,7 @@ __Tested up to:__ WordPress 5.3
 **Geändert:** Menüs im Backend
 **Fixed:** Eingabedialog für einen Programmpunkt
 **Fixed:** Anzeige aller Sessions eines Speakers
+**Geändert:** Registrierung der Widget-Areas
 
 ### 1.0.0
 Erstveröffentlichung
