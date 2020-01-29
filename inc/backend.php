@@ -9,7 +9,7 @@
 
 
 /**
- * Setzt die Länge des Excerpts
+ * Entfernt diverse Menüeinträge, um Usability zu erhöhen
  *
  * @since 	2.0.0
  **/
