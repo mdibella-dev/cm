@@ -12,10 +12,10 @@
  * @param   shuffle (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  */
 
-function mdb_shortcode_speaker_grid( $atts, $content = null )
+function congressomat_shortcode_speaker_grid( $atts, $content = null )
 {
     // Variablen setzen
     $buffer = '';
@@ -35,10 +35,10 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 
     // optional: nur die Speaker von derzeit aktiven Events
     if( $event == '-1' ) :
-        $event = mdb_get_active_events();
+        $event = congressomat_get_active_events();
     endif;
 
-    $speakers = mdb_get_speaker_datasets( $event );
+    $speakers = congressomat_get_speaker_datasets( $event );
 
     if( $speakers ) :
         // optional: bestimmte Speaker ausschließen
@@ -64,7 +64,7 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 
             // falls vorher durchmischt: Ergebnis wieder sortieren
             if( $shuffle == 1 ) :
-                $speaker_list = mdb_sort_speaker_datasets( $speaker_list );
+                $speaker_list = congressomat_sort_speaker_datasets( $speaker_list );
             endif;
         endif;
 
@@ -84,12 +84,12 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
 <li>
 <figure class="squared">
 <a href="<?php echo $speaker[ 'permalink' ]; ?>"
-   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'mdb-congressomat' ), $speaker[ 'title_name' ] ); ?>">
+   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
 <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></a>
 <figcaption class="speaker-caption">
 <p class="speaker-title-name">
 <a href="<?php echo $speaker[ 'permalink' ]; ?>"
-   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'mdb-congressomat' ), $speaker[ 'title_name' ] ); ?>">
+   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
 <?php echo $speaker[ 'title_name' ]; ?></a></p>
 <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
 </figcaption>
@@ -109,4 +109,4 @@ function mdb_shortcode_speaker_grid( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'speaker-grid', 'mdb_shortcode_speaker_grid' );
+add_shortcode( 'speaker-grid', 'congressomat_shortcode_speaker_grid' );

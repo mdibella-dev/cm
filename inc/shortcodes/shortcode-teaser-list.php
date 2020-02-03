@@ -12,10 +12,10 @@
  * @param   shuffle (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 
-function mdb_shortcode_teaser_list( $atts, $content = null )
+function congressomat_shortcode_teaser_list( $atts, $content = null )
 {
     // Variablen setzen
     global $post;
@@ -93,7 +93,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
 <?php
         if( $paged == 1 ) :
-            mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+            congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
         endif;
 ?>
 <ul>
@@ -104,14 +104,14 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 <li>
 <article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
 <div class="teaser-image">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?>" rel="prev">
+<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
 <?php the_post_thumbnail( $post->ID, 'full' ); ?>
 </a>
 </div>
 <div class="teaser-content">
 <h2><?php the_title(); ?></h2>
 <?php the_excerpt(); ?>
-<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?>" rel="next"><?php _e( 'Mehr erfahren', 'mdb-congressomat' ); ?></a></p>
+<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="next"><?php _e( 'Mehr erfahren', 'congressomat' ); ?></a></p>
 </div>
 </article>
 </li>
@@ -122,7 +122,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
 </ul>
 <?php
         if( $paged == 1 ) :
-            mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+            congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
         endif;
 ?>
 </div>
@@ -135,7 +135,7 @@ function mdb_shortcode_teaser_list( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'teaser-list', 'mdb_shortcode_teaser_list' );
+add_shortcode( 'teaser-list', 'congressomat_shortcode_teaser_list' );
 
 
 
@@ -145,21 +145,21 @@ add_shortcode( 'teaser-list', 'mdb_shortcode_teaser_list' );
  * @since 1.0.0
  **/
 
-function mdb_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
+function congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
     echo '<nav>';
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="far fa-chevron-left"></i></a></div>',
                   add_query_arg( 'prt', $current_page - 1 ),
-                  __( 'Vorhergehende Seite', 'mdb-congressomat' ),
+                  __( 'Vorhergehende Seite', 'congressomat' ),
                   ( $current_page != 1 )? '' : ' disabled' );
 
     echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
-                  sprintf( __( 'Seite %1$s/%2$s', 'mdb-congressomat' ), $current_page, $max_page ) );
+                  sprintf( __( 'Seite %1$s/%2$s', 'congressomat' ), $current_page, $max_page ) );
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="far fa-chevron-right"></i></a></div>',
                   add_query_arg( 'prt', $current_page + 1 ),
-                  __( 'Nächste Seite', 'mdb-congressomat' ),
+                  __( 'Nächste Seite', 'congressomat' ),
                   ( $current_page != $max_page )? '' : ' disabled' );
     echo '</nav>';
 }

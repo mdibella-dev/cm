@@ -11,10 +11,10 @@
  *                      LOGO, BESCHREIBUNG, MESSESTAND
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  */
 
-function mdb_shortcode_partner_table( $atts, $content = null )
+function congressomat_shortcode_partner_table( $atts, $content = null )
 {
     // Parameter auslesen
     extract( shortcode_atts( array(
@@ -69,7 +69,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                         if( !empty( $link ) ) :
                             $cells[ 'partner-logo' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                 $link,
-                                                                __( 'Externen Link aufrufen', 'mdb-congressomat' ),
+                                                                __( 'Externen Link aufrufen', 'congressomat' ),
                                                                 $image );
                         else :
                             $cells[ 'partner-logo' ] = $image;
@@ -96,7 +96,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                             $cells[ 'partner-description' ] .= sprintf( '<span class="link">%1$s</span>',
                                                                         sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                                  $link,
-                                                                                 __( 'Externen Link aufrufen', 'mdb-congressomat' ),
+                                                                                 __( 'Externen Link aufrufen', 'congressomat' ),
                                                                                  $url[ 'host' ] ) );
                         endif;
                     break;
@@ -104,7 +104,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                     case 'MESSESTAND':
                         // Alle möglichen Inhalte holen
                         $exhibition = get_field( 'messestand', $partner->ID );
-                        $location   = mdb_get_location( $exhibition[ 'partner-messestand-ort' ] );
+                        $location   = congressomat_get_location( $exhibition[ 'partner-messestand-ort' ] );
                         $number     = $exhibition[ 'partner-messestand-nummer' ];
 
                         // Ausgabe erstellen
@@ -112,7 +112,7 @@ function mdb_shortcode_partner_table( $atts, $content = null )
                             $strings = array();
 
                             if( !empty( $number ) ) :
-                                $strings[] = sprintf( __( 'Stand %1$s', 'mdb-congressomat' ), $number );
+                                $strings[] = sprintf( __( 'Stand %1$s', 'congressomat' ), $number );
                             endif;
 
                             if( !empty( $location ) ) :
@@ -158,4 +158,4 @@ function mdb_shortcode_partner_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'partner-table', 'mdb_shortcode_partner_table' );
+add_shortcode( 'partner-table', 'congressomat_shortcode_partner_table' );

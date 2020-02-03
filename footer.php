@@ -3,7 +3,7 @@
  * Template für den Fußbereich einer Seite
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 ?>
 <footer id="footer">

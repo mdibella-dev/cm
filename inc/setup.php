@@ -3,7 +3,7 @@
  * Hauptfunktion zum Einrichten der von diesem Thema unterstützten Optionen
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 
 
@@ -14,10 +14,10 @@
  * @since   1.0.0
  **/
 
- function mdb_theme_setup()
+ function congressomat_theme_setup()
  {
     // Laden der Lokalisation
-	load_theme_textdomain( 'mdb-congressomat', get_template_directory() . '/lang' );
+	load_theme_textdomain( 'congressomat', get_template_directory() . '/lang' );
 
 
     // Theme-Support für diverse Features
@@ -57,7 +57,7 @@
     foreach( $palette as $color_set ) :
         $parts               = explode( ',',  $color_set );
         $gutenberg_palette[] = array(
-            'name'  => __( trim( $parts[0] ), 'mdb-congressomat' ),
+            'name'  => __( trim( $parts[0] ), 'congressomat' ),
             'slug'  => trim( $parts[1] ),
             'color' => trim( $parts[2] )
         );
@@ -85,7 +85,7 @@
 
 
     // Registrierung der Hauptnavigation
-    register_nav_menu( 'primary', __( 'Primäre Navigation', 'mdb-congressomat' ) );
+    register_nav_menu( 'primary', __( 'Primäre Navigation', 'congressomat' ) );
 
 
     // Registrierung der Widget-Areas im Bereich der Fußzeile
@@ -97,9 +97,9 @@
 
     foreach( $areas as $area_nr => $area_id ) :
         register_sidebar( array(
-    	    'name'			=> sprintf( __( 'Footer #$1$s', 'mdb-congressomat' ), $area_nr ),
+    	    'name'			=> sprintf( __( 'Footer #$1$s', 'congressomat' ), $area_nr ),
     	    'id'			=> $area_id,
-    	    'description'	=> sprintf( __( 'Die hier abgelegten Widgets erscheinen im Bereich $1$s in der Fußzeile.', 'mdb-congressomat' ), $area_nr ),
+    	    'description'	=> sprintf( __( 'Die hier abgelegten Widgets erscheinen im Bereich $1$s in der Fußzeile.', 'congressomat' ), $area_nr ),
     	    'before_widget'	=> '<div class="widget %2$s clr">',
     	    'after_widget'	=> '</div>',
     	    'before_title'	=> '<h6 class="widget-title">',
@@ -116,7 +116,7 @@
  * @since   1.0.0
  **/
 
-function mdb_enqueue_scripts()
+function congressomat_enqueue_scripts()
 {
     // Verschieben der von WordPress gelieferten jQuery in den Footer
     wp_deregister_script( 'jquery' );
@@ -129,10 +129,10 @@ function mdb_enqueue_scripts()
 
 
     // Registrieren und Laden eigener Skripte
-    wp_register_script( 'mdb-congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
-	wp_enqueue_script( 'mdb-congressomat' );
+    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
+	wp_enqueue_script( 'congressomat' );
 
 
 	// Laden des eigenen Stylesheets
-	wp_enqueue_style( 'mdb-congressomat', get_template_directory_uri() . '/assets/css/frontend.min.css' );
+	wp_enqueue_style( 'congressomat', get_template_directory_uri() . '/assets/css/frontend.min.css' );
 }

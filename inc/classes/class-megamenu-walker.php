@@ -3,7 +3,7 @@
  * ....
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 
 

@@ -8,10 +8,10 @@
  *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  */
 
-function mdb_shortcode_partner_list( $atts, $content = null )
+function congressomat_shortcode_partner_list( $atts, $content = null )
 {
     // Parameter auslesen
     extract( shortcode_atts( array(
@@ -54,4 +54,4 @@ function mdb_shortcode_partner_list( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'partner-list', 'mdb_shortcode_partner_list' );
+add_shortcode( 'partner-list', 'congressomat_shortcode_partner_list' );

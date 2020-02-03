@@ -3,7 +3,7 @@
  * Template Name: Landingpage mit Abstand (unten)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 ?>
 <?php get_header(); ?>

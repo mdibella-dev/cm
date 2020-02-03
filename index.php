@@ -3,7 +3,7 @@
  * Template für Seiten/Beträge aller Art (Fallback)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 ?>
 <?php get_header(); ?>

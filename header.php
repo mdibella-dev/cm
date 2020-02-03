@@ -3,7 +3,7 @@
  * Template für den Kopfbereich einer Seite
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package mdb-congressomat
+ * @package congressomat
  **/
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 <header id="header">
 <div id="header-wrapper">
 <div>
-<a id="logo" rel="start" href="<?php bloginfo( 'url' );?>" title="<?php echo __( 'Zur Startseite', 'mdb-congressomat' ); ?>" ></a >
+<a id="logo" rel="start" href="<?php bloginfo( 'url' );?>" title="<?php echo __( 'Zur Startseite', 'congressomat' ); ?>" ></a >
 </div>
 <div>
 <button id="toggle" type="button"><span class="lines"></span></button>
