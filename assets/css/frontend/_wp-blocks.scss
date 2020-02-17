@@ -88,6 +88,24 @@
 
 
 /**
+ * wp-block-group
+ **/
+
+.wp-block-group.is-style-section {
+
+    .wp-block-group__inner-container {
+        @include set-block-position-and-size();
+    }
+
+    .wp-block-group__inner-container > [class*="wp-block-"] {
+        // Größenbeschränkung aufheben
+        max-width: unset !important;
+    }
+}
+
+
+
+/**
  * wp-block-coblocks-row
  *
  * @used-by    CoBlocks Plugin
