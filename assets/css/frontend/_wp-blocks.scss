@@ -32,12 +32,9 @@
  **/
 
 .wp-block-button.is-fa-button > .wp-block-button__link {
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: center;
-            justify-content: center;
-    -webkit-align-items: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 60px;
     height: 60px;
     padding:0;
@@ -68,10 +65,10 @@
 
 .wp-block-cover,
 .wp-block-cover-image {
-    .wp-block-cover__inner-container {
+    /*.wp-block-cover__inner-container {
         @include set-block-position-and-size();
     }
-
+*/
     .wp-block-cover-image-text,
     .wp-block-cover-text,
     h2,
@@ -82,43 +79,5 @@
         // Innenabstand korrigieren
         padding-left: $unit;
         padding-right: $unit;
-    }
-}
-
-
-
-/**
- * wp-block-group
- **/
-
-.wp-block-group.is-style-section {
-
-    .wp-block-group__inner-container {
-        @include set-block-position-and-size();
-    }
-
-    .wp-block-group__inner-container > [class*="wp-block-"] {
-        // Größenbeschränkung aufheben
-        max-width: unset !important;
-    }
-}
-
-
-
-/**
- * wp-block-coblocks-row
- *
- * @used-by    CoBlocks Plugin
- **/
-
-.wp-block-coblocks-row {
-
-    &.alignfull .wp-block-coblocks-row__inner {
-        @include set-block-position-and-size();
-    }
-
-    &[data-columns="1"] .wp-block-coblocks-column__inner > [class*="wp-block-"] {
-        // Größenbeschränkung aufheben
-        max-width: unset !important;
     }
 }
