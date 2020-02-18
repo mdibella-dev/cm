@@ -15,7 +15,7 @@
  * @package congressomat
  */
 
-function congressomat_shortcode_speaker_grid( $atts, $content = null )
+function cm_shortcode_speaker_grid( $atts, $content = null )
 {
     // Variablen setzen
     $buffer = '';
@@ -35,10 +35,10 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
 
     // optional: nur die Speaker von derzeit aktiven Events
     if( $event == '-1' ) :
-        $event = congressomat_get_active_events();
+        $event = cm_get_active_events();
     endif;
 
-    $speakers = congressomat_get_speaker_datasets( $event );
+    $speakers = cm_get_speaker_datasets( $event );
 
     if( $speakers ) :
         // optional: bestimmte Speaker ausschließen
@@ -64,7 +64,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
 
             // falls vorher durchmischt: Ergebnis wieder sortieren
             if( $shuffle == 1 ) :
-                $speaker_list = congressomat_sort_speaker_datasets( $speaker_list );
+                $speaker_list = cm_sort_speaker_datasets( $speaker_list );
             endif;
         endif;
 
@@ -109,4 +109,4 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
     return $buffer;
 }
 
-add_shortcode( 'speaker-grid', 'congressomat_shortcode_speaker_grid' );
+add_shortcode( 'speaker-grid', 'cm_shortcode_speaker_grid' );

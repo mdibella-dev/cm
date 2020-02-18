@@ -11,13 +11,13 @@
 /**
  * Liefert ein Array mit Sessions
  *
- * @uses    congressomat_get_active_events, congressomat_sort_sessions_by_timestamp
+ * @uses    cm_get_active_events, cm_sort_sessions_by_timestamp
  * @param   array   $args
  * @return  array
  * @since   1.0.0
  **/
 
-function congressomat_get_sessions( $args )
+function cm_get_sessions( $args )
 {
     // Übergebene Parameter auslesen
     extract( wp_parse_args( $args,
@@ -35,13 +35,13 @@ function congressomat_get_sessions( $args )
 
 
     // Event setzen
-    if( congressomat_get_event( $event ) !== NULL ) :
+    if( cm_get_event( $event ) !== NULL ) :
         $query[ 'tax_query' ] = array( array(
                                        'taxonomy' => 'event',
                                        'field'    => 'term_id',
                                        'terms'    => $event ) );
     else :
-        $event_list   = congressomat_get_active_events();
+        $event_list   = cm_get_active_events();
         $event_filter = strtoupper( trim( $event_filter ) );
 
         switch( $event_filter ) :
@@ -77,7 +77,7 @@ function congressomat_get_sessions( $args )
     $sessions = get_posts( $query );
 
     // Sortieren und zurückgeben
-    return congressomat_sort_sessions_by_timestamp( $sessions );
+    return cm_sort_sessions_by_timestamp( $sessions );
 }
 
 
@@ -85,15 +85,15 @@ function congressomat_get_sessions( $args )
 /**
  * Liefert die zu einem bestimmten Event gehörenden Sessions
  *
- * @uses    congressomat_get_sessions
+ * @uses    cm_get_sessions
  * @param   int     $event
  * @return  array
  * @since   1.0.0
  **/
 
-function congressomat_get_sessions_by_event( $event )
+function cm_get_sessions_by_event( $event )
 {
-    return congressomat_get_sessions( array(
+    return cm_get_sessions( array(
                              'event' => $event ) );
 }
 
@@ -103,16 +103,16 @@ function congressomat_get_sessions_by_event( $event )
  * Liefert die zu einem bestimmten Speaker gehörenden Sessions
  * Dabei kann nach aktiven, inaktiven oder allen Sessions gefiltert werden.
  *
- * @uses    congressomat_get_sessions
+ * @uses    cm_get_sessions
  * @param   int     $speaker
  * @param   string  $event_filter  ACTIVE, INACTIVE, ALL
  * @return  array
  * @since   1.0.0
  **/
 
-function congressomat_get_sessions_by_speaker( $speaker, $event_filter = 'ALL' )
+function cm_get_sessions_by_speaker( $speaker, $event_filter = 'ALL' )
 {
-    return congressomat_get_sessions( array(
+    return cm_get_sessions( array(
                              'speaker'      => $speaker,
                              'event_filter' => $event_filter ) );
 }
@@ -124,11 +124,11 @@ function congressomat_get_sessions_by_speaker( $speaker, $event_filter = 'ALL' )
  *
  * @param   array   $sessions
  * @return  array
- * @see     congressomat_get_sessions
+ * @see     cm_get_sessions
  * @since   1.0.0
  **/
 
-function congressomat_sort_sessions_by_timestamp( $sessions )
+function cm_sort_sessions_by_timestamp( $sessions )
 {
     if( is_array( $sessions ) == TRUE ) :
         // Variablen setzen
@@ -168,7 +168,7 @@ function congressomat_sort_sessions_by_timestamp( $sessions )
  * @since  1.0.0
  **/
 
-function congressomat_get_active_events()
+function cm_get_active_events()
 {
     // Suchparameter setzen
     $query = array(
@@ -205,7 +205,7 @@ function congressomat_get_active_events()
  * @since  1.0.0
  **/
 
-function congressomat_get_speaker_datasets( $event_list_string = '' )
+function cm_get_speaker_datasets( $event_list_string = '' )
 {
     // Suchparameter setzen
     $query = array(
@@ -220,7 +220,7 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
     if( !empty( $event_list_string ) ) :
         $event_list = explode( ',', str_replace(" ", "", $event_list_string ) );
     else :
-        $event_list = congressomat_get_active_events();
+        $event_list = cm_get_active_events();
     endif;
 
     foreach( $event_list as $event ) :
@@ -248,7 +248,7 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
                     // Nur hinzufügen, wenn nicht bereits zuvor gefunden
                     if( in_array( $speaker, $finds_list ) == FALSE ) :
                         $finds_list[]   = $speaker;
-                        $speaker_list[] = congressomat_get_speaker_dataset( $speaker );
+                        $speaker_list[] = cm_get_speaker_dataset( $speaker );
 
                     endif;
                 endforeach;
@@ -256,7 +256,7 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
         endforeach;
 
         // Speaker nach Vor- und Nachnamen sortieren
-        return congressomat_sort_speaker_datasets( $speaker_list );
+        return cm_sort_speaker_datasets( $speaker_list );
     endif;
 
     return NULL;
@@ -272,7 +272,7 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
  * @since  1.0.0
  **/
 
-function congressomat_get_speaker_dataset( $speaker )
+function cm_get_speaker_dataset( $speaker )
 {
     $post = get_post( $speaker );
 
@@ -298,7 +298,7 @@ function congressomat_get_speaker_dataset( $speaker )
  * @since  1.0.0
  */
 
-function congressomat_sort_speaker_datasets( $speaker_list )
+function cm_sort_speaker_datasets( $speaker_list )
 {
     foreach( $speaker_list as $key => $row ) :
         $forename[$key] = $row[ 'forename' ];
@@ -319,7 +319,7 @@ function congressomat_sort_speaker_datasets( $speaker_list )
  * @since  1.0.0
  */
 
-function congressomat_get_location( $location )
+function cm_get_location( $location )
 {
     if( !empty( $location ) ) :
         $term = get_term_by( 'term_taxonomy_id', $location, 'location' );
@@ -341,7 +341,7 @@ function congressomat_get_location( $location )
  * @since  1.0.0
  */
 
-function congressomat_get_event( $event )
+function cm_get_event( $event )
 {
     if( !empty( $event ) ) :
         $term = get_term_by( 'term_taxonomy_id', $event, 'event' );

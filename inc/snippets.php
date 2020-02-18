@@ -15,7 +15,7 @@
  * @since 	1.0.0
  **/
 
-function congressomat_excerpt_length( $length )
+function cm_excerpt_length( $length )
 {
 	return 30;
 }
@@ -28,7 +28,7 @@ function congressomat_excerpt_length( $length )
  * @since 	1.0.0
  **/
 
-function congressomat_excerpt_more( $more )
+function cm_excerpt_more( $more )
 {
 	return '...';
 }
@@ -43,7 +43,7 @@ function congressomat_excerpt_more( $more )
  * @since  	1.0.0
  **/
 
-function congressomat_special_replacements( $text )
+function cm_special_replacements( $text )
 {
 	// Anführungsstriche
     $text = str_replace( '&#8220;' , '&#8222;' , $text );

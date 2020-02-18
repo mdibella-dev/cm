@@ -19,7 +19,7 @@
  * @since   1.0.0
  **/
 
-function congressomat_disable_block_editor( $current_status, $post_type )
+function cm_disable_block_editor( $current_status, $post_type )
 {
     if( ( $post_type === 'session' ) or
         ( $post_type === 'exhibitor' ) or
@@ -40,7 +40,7 @@ function congressomat_disable_block_editor( $current_status, $post_type )
  * @since   1.0.0
  **/
 
-function congressomat_add_block_editor_assets()
+function cm_add_block_editor_assets()
 {
     wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', false, 0, 'all' );
 	wp_enqueue_script( 'block-editor', get_template_directory_uri() . '/assets/js/block-editor.js',

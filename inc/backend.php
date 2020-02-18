@@ -14,7 +14,7 @@
  * @since 	2.0.0
  **/
 
-function congressomat_ajust_admin_menu()
+function cm_ajust_admin_menu()
 {
 	$page = remove_submenu_page( 'edit.php?post_type=session', 'post-new.php?post_type=session' );
 	$page = remove_submenu_page( 'edit.php?post_type=partner', 'post-new.php?post_type=partner' );
@@ -29,7 +29,7 @@ function congressomat_ajust_admin_menu()
  * @since 2.0
  */
 
-function congressomat_adjust_acf_dialog()
+function cm_adjust_acf_dialog()
 {
 ?>
 <script type="text/javascript">

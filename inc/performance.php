@@ -14,7 +14,7 @@
  * @since   1.0.0
  **/
 
-function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
+function cm_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
 {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
@@ -29,7 +29,7 @@ function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thum
  * @since   1.0.0
  **/
 
-function congressomat_remove_script_version( $src )
+function cm_remove_script_version( $src )
 {
     $parts = explode( '?ver', $src );
     return $parts[0];
@@ -43,7 +43,7 @@ function congressomat_remove_script_version( $src )
  * @since   1.0.0
  **/
 
-function congressomat_remove_styles_scripts()
+function cm_remove_styles_scripts()
 {
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'rsd_link' );
@@ -61,7 +61,7 @@ function congressomat_remove_styles_scripts()
  * @since   1.0.0
  **/
 
-function congressomat_remove_post_classes( $classes, $class, $post_id )
+function cm_remove_post_classes( $classes, $class, $post_id )
 {
     $checked_classes = array();
 

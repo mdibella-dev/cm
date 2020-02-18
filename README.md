@@ -20,7 +20,7 @@ __Tested up to:__ WordPress 5.3
 **Fixed:** Eingabedialog für einen Programmpunkt
 **Fixed:** Anzeige aller Sessions eines Speakers
 **Geändert:** Registrierung der Widget-Areas
-**Geändert:** Prefix "mdb_" zu "congressomat_"; Textdomäne und Package zu "congressomat"
+**Geändert:** Prefix "mdb_" zu "cm_"; Textdomäne und Package zu "congressomat"
 
 ### 1.0.0
 Erstveröffentlichung

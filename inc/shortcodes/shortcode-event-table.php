@@ -13,7 +13,7 @@
  * @package congressomat
  */
 
-function congressomat_shortcode_event_table( $atts, $content = null )
+function cm_shortcode_event_table( $atts, $content = null )
 {
     // Parameter auslesen
     extract( shortcode_atts( array(
@@ -38,9 +38,9 @@ function congressomat_shortcode_event_table( $atts, $content = null )
          **/
 
         if( !empty( $speaker) ) :
-            $sessions = congressomat_get_sessions_by_speaker( $speaker, 'ACTIVE' );
+            $sessions = cm_get_sessions_by_speaker( $speaker, 'ACTIVE' );
         elseif( !empty( $event ) ) :
-            $sessions = congressomat_get_sessions_by_event( $event );
+            $sessions = cm_get_sessions_by_event( $event );
         else :
             $sessions = NULL;
         endif;
@@ -71,7 +71,7 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                     $cell = '';
 
                     foreach( $pass_1 as $pass_2 ) :
-                        $cell .= sprintf( '<div data-type="%1$s">%2$s</div>', $pass_2, congressomat_get_session_data( $pass_2, $session ) );
+                        $cell .= sprintf( '<div data-type="%1$s">%2$s</div>', $pass_2, cm_get_session_data( $pass_2, $session ) );
                     endforeach;
 
                     $row .= sprintf( '<div class="cell">%1$s</div>', $cell );
@@ -88,7 +88,7 @@ function congressomat_shortcode_event_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'event-table', 'congressomat_shortcode_event_table' );
+add_shortcode( 'event-table', 'cm_shortcode_event_table' );
 
 
 
@@ -96,7 +96,7 @@ add_shortcode( 'event-table', 'congressomat_shortcode_event_table' );
  * Hilfsfunktion, um die zweistufige Datenabfrage zu ermöglichen
  */
 
-function congressomat_get_session_data( $data_key, $session )
+function cm_get_session_data( $data_key, $session )
 {
     $value = '';
 
@@ -126,7 +126,7 @@ function congressomat_get_session_data( $data_key, $session )
         break;
 
         case 'session-location' :
-            $value = congressomat_get_location( get_field( 'programmpunkt-location', $session->ID ) );
+            $value = cm_get_location( get_field( 'programmpunkt-location', $session->ID ) );
         break;
 
         case 'session-speaker' :
@@ -136,7 +136,7 @@ function congressomat_get_session_data( $data_key, $session )
                 unset( $speakers_list );
 
                 foreach( $speakers as $speaker ) :
-                    $speaker_dataset = congressomat_get_speaker_dataset( $speaker );
+                    $speaker_dataset = cm_get_speaker_dataset( $speaker );
                     $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
                                                 $speaker_dataset[ 'permalink' ],
                                                 sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker_dataset[ 'title_name' ] ),

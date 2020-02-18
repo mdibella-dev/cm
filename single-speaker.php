@@ -18,7 +18,7 @@ if ( have_posts() ) :
         the_post();
 
         // Referentendaten holen
-        $speaker = congressomat_get_speaker_dataset( get_the_ID() );
+        $speaker = cm_get_speaker_dataset( get_the_ID() );
 ?>
 <div class="wp-block-coblocks-row alignfull mb-0 mt-0" data-columns="1" data-layout="100">
 <div class="wp-block-coblocks-row__inner has-medium-gutter has-no-padding has-no-margin is-stacked-on-mobile">
