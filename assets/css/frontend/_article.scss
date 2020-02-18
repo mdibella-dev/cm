@@ -9,7 +9,7 @@
 
 .article {
     & > * {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
 
         &:last-child {
             margin-bottom: 0;
@@ -21,7 +21,6 @@
         @include h-tag-basic-settings();
         font-size: 1.25rem; // 20px
         margin-top: 2rem; // !!!
-        margin-bottom: 1rem;
 
         @include respond-to(medium) {
             font-size: 1.375rem; // 22px
