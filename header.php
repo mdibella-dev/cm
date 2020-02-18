@@ -29,7 +29,11 @@
 		<div id="header-wrapper">
 
 			<div>
-				<a id="logo" rel="start" href="<?php bloginfo( 'url' );?>" title="<?php echo __( 'Zur Startseite', 'congressomat' ); ?>" ></a >
+				<a id="logo"
+				   rel="start"
+				   href="<?php bloginfo( 'url' );?>"
+				   title="<?php echo __( 'Zur Startseite', 'congressomat' ); ?>" >
+				</a >
 			</div>
 
 			<div>
@@ -41,10 +45,10 @@
 					<?php
 					if( has_nav_menu( 'primary' ) ) :
 						wp_nav_menu( array(
-							'menu'       	  => ' ',
+							'menu'       	 => ' ',
                  			'menu_class'     => '',
         		 			'theme_location' => 'primary',
-        		 			'container'  	  => FALSE,
+        		 			'container'  	 => false,
 			 	 			'walker'         => new MegaMenu_Walker()
 						) );
 					endif;
@@ -53,5 +57,5 @@
 			</div>
 
 		</div>
-		
+
 	</header>

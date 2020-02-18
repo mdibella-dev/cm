@@ -5,8 +5,9 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  **/
+
+get_header();
 ?>
-<?php get_header(); ?>
 
     <main id="main">
         <?php
@@ -18,11 +19,15 @@
                 the_post();
         ?>
 
-        <article class="article">
-            <h1>
-                <?php echo get_the_title(); ?>
-            </h1>
-            <?php the_content(); ?>
+        <article>
+            <div class="article-wrapper">
+                <div class="article-wrapper__inner-container article">
+                    <h1>
+                        <?php echo get_the_title(); ?>
+                    </h1>
+                    <?php the_content(); ?>
+                <div>
+            </div>
         </article>
 
         <?php
@@ -38,4 +43,5 @@
         ?>
     </main>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

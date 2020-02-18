@@ -6,16 +6,19 @@
  * @package congressomat
  **/
 
-get_header(); ?>
+get_header();
+?>
 
     <main id="main">
-        <?php
-        while( have_posts() ) :
-            the_post();
-            the_content();
-        endwhile;
-        ?>
+        <article>
+            <?php
+            while( have_posts() ) :
+                the_post();
+                the_content();
+            endwhile;
+            ?>
+        </article>
     </main>
 
-<?php 
+<?php
 get_footer();

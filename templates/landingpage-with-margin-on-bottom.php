@@ -5,32 +5,32 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  **/
-?>
-<?php get_header(); ?>
-<main id="main">
-<?php
-if ( have_posts() ) :
-    // Ausgabe puffern
-    ob_start();
 
-    while( have_posts() ) :
-        the_post();
+get_header();
 ?>
-<article class="article adjust-workspace">
-<?php
-        // Inhalt
-        the_content();
- ?>
-</article>
-<?php
-        // Ausgabenpuffer sichern; Pufferung beenden
-        $buffer = ob_get_contents();
-        ob_end_clean();
 
-        // Ausgabe
-        echo $buffer;
-    endwhile;
-endif;
-?>
-</main>
-<?php get_footer(); ?>
+    <main id="main">
+        <article>
+        <?php
+        if ( have_posts() ) :
+            // Beginn der Ausgabenpufferung
+            ob_start();
+
+            while( have_posts() ) :
+                the_post();
+                the_content();
+            endwhile;
+
+            // Ende der Ausgabenpufferung
+            $output_buffer = ob_get_contents();
+            ob_end_clean();
+
+            // Ausgabe
+            echo $output_buffer;
+        endif;
+        ?>
+        </article>
+    </main>
+
+<?php
+get_footer();

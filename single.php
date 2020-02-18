@@ -6,7 +6,8 @@
  * @package congressomat
  **/
 
-get_header(); ?>
+get_header();
+?>
 
     <main id="main">
         <?php
@@ -18,11 +19,15 @@ get_header(); ?>
                 the_post();
         ?>
 
-        <article class="article">
-            <h1>
-                <?php echo get_the_title(); ?>
-            </h1>
-            <?php the_content(); ?>
+        <article>
+            <div class="article-wrapper">
+                <div class="article-wrapper__inner-container article">
+                    <h1>
+                        <?php echo get_the_title(); ?>
+                    </h1>
+                    <?php the_content(); ?>
+                <div>
+            </div>
         </article>
 
         <?php

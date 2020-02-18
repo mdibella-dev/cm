@@ -82,3 +82,27 @@
     content: "\f358";
     padding-right: $unit;
 }
+
+
+.section-wrapper,
+.article-wrapper {
+    width: 100%;
+
+    & > div[class*="__inner-container"] {
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
+
+        // ab 960px (large)
+        @include respond-to(large) {
+            padding: 2rem 0;
+            width: calc(10 * calc(100vw/12) );
+        }
+
+        // ab 1280px (wide):
+        @include respond-to(wide) {
+            padding: 4rem 0;
+            width: calc(8 * calc(100vw/12) );
+        }
+    }
+}
