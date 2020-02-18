@@ -16,11 +16,17 @@
 
 function cm_shortcode_partner_table( $atts, $content = null )
 {
-    // Parameter auslesen
-    extract( shortcode_atts( array(
-                             'partnership' => '',
-                             'fieldset'    => '',
-                             ), $atts ) );
+    /**
+     * Parameter auslesen
+     **/
+
+    $default_atts = array(
+        'partnership' => '',
+        'fieldset'    => '',
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
 
     // Abfrage zusammenstellen
     $query = array(

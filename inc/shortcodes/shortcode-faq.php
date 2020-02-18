@@ -13,10 +13,16 @@
 
 function cm_shortcode_faq( $atts, $content = null )
 {
-    // Parameter auslesen
-    extract( shortcode_atts( array(
-                             'faq' => '',
-                             ), $atts ) );
+    /**
+     * Parameter auslesen
+     **/
+
+    $default_atts = array(
+        'faq' => '',
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
 
     // Ausgabe vorbereiten
     $output = '';

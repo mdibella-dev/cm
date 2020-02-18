@@ -12,6 +12,35 @@
 error_reporting( E_ALL ^ E_NOTICE );
 
 
+// Konstanten
+define( 'SOCIAL_MEDIA', array(
+    '1' => array(
+        'name' => 'Facebook',
+        'icon' => 'fab fa-facebook-f',
+    ),
+    '2' => array(
+        'name' => 'Twitter',
+        'icon' =>'fab fa-twitter',
+    ),
+    '3' => array(
+        'name' => 'Instagram',
+        'icon' => 'fab fa-instagram',
+    ),
+    '4' => array(
+        'name' => 'YouTube',
+        'icon' => 'fab fa-youtube',
+    ),
+    '5' => array(
+        'name' => 'XING',
+        'icon' => 'fab fa-xing',
+    ),
+    '6' => array(
+        'name' => 'LinkedIn',
+        'icon' => 'fab fa-linkedin-in'
+    ),
+) );
+
+
 // Funktionsbibliothek einbinden
 require_once( get_template_directory() . '/inc/setup.php' );
 require_once( get_template_directory() . '/inc/hooks.php' );

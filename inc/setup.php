@@ -89,23 +89,35 @@
 
 
     // Registrierung der Widget-Areas im Bereich der Fußzeile
-    $areas = array (
-        1 => 'footer-one',
-        2 => 'footer-two',
-        3 => 'footer-three'
-    );
+    register_sidebar( array(
+    	'name'			=> __( 'Footer #1', 'congressomat' ),
+    	'id'			=> 'footer-one',
+    	'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 1 in der Fußzeile.', 'congressomat' ),
+    	'before_widget'	=> '<div class="widget %2$s clr">',
+    	'after_widget'	=> '</div>',
+    	'before_title'	=> '<h6 class="widget-title">',
+    	'after_title'	=> '</h6>',
+    ) );
 
-    foreach( $areas as $area_nr => $area_id ) :
-        register_sidebar( array(
-    	    'name'			=> sprintf( __( 'Footer #$1$s', 'congressomat' ), $area_nr ),
-    	    'id'			=> $area_id,
-    	    'description'	=> sprintf( __( 'Die hier abgelegten Widgets erscheinen im Bereich $1$s in der Fußzeile.', 'congressomat' ), $area_nr ),
-    	    'before_widget'	=> '<div class="widget %2$s clr">',
-    	    'after_widget'	=> '</div>',
-    	    'before_title'	=> '<h6 class="widget-title">',
-    	    'after_title'	=> '</h6>',
-        ) );
-    endforeach;
+    register_sidebar( array(
+    	'name'			=> __( 'Footer #2', 'congressomat' ),
+    	'id'			=> 'footer-two',
+    	'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 2 in der Fußzeile.', 'congressomat' ),
+    	'before_widget'	=> '<div class="widget %2$s clr">',
+    	'after_widget'	=> '</div>',
+    	'before_title'	=> '<h6 class="widget-title">',
+    	'after_title'	=> '</h6>',
+    ) );
+
+    register_sidebar( array(
+    	'name'			=> __( 'Footer #3', 'congressomat' ),
+    	'id'			=> 'footer-three',
+    	'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 3 in der Fußzeile.', 'congressomat' ),
+    	'before_widget'	=> '<div class="widget %2$s clr">',
+    	'after_widget'	=> '</div>',
+    	'before_title'	=> '<h6 class="widget-title">',
+    	'after_title'	=> '</h6>',
+    ) );
 }
 
 

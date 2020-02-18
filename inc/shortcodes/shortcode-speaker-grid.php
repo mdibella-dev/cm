@@ -17,31 +17,29 @@
 
 function cm_shortcode_speaker_grid( $atts, $content = null )
 {
-    // Variablen setzen
-    $buffer = '';
+    /**
+     * Parameter auslesen
+     **/
 
-    // Parameter auslesen
-    extract( shortcode_atts( array(
-                             'event'   => '',
-                             'exclude' => '',
-                             'show'    => 0,
-                             'shuffle' => 0
-                            ), $atts ) );
+    $default_atts = array(
+        'event'   => '-1', // nur aktive Events
+        'exclude' => '',
+        'show'    => 0,
+        'shuffle' => 0,
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
 
     /**
-     * Schritt 1
      * Daten abrufen und aufbereiten
      **/
 
-    // optional: nur die Speaker von derzeit aktiven Events
-    if( $event == '-1' ) :
-        $event = cm_get_active_events();
-    endif;
-
-    $speakers = cm_get_speaker_datasets( $event );
+    $speakers = cm_get_speaker_datasets( ( $event == '-1' )? cm_get_active_events() : $event );
 
     if( $speakers ) :
-        // optional: bestimmte Speaker ausschließen
+
+        // Optional: Ausschluss bestimmtet Speaker
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
@@ -50,63 +48,80 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
             endif;
         endforeach;
 
-        // optional: Ausgabe beschneiden
+
+        // Optional: Beschnitt der Ausgabe
         if( ( is_numeric( $show ) == TRUE )
             and ( $show > 0 )
             and ( $show < sizeof( $speaker_list ) ) ) :
 
-            // optional: Ausgabe durchmischen
+            // Optional: Ausgabe durchmischen
             if( $shuffle == 1 ) :
                 shuffle( $speaker_list );
-            endif;
-
-            $speaker_list = array_slice( $speaker_list, 0, $show );
-
-            // falls vorher durchmischt: Ergebnis wieder sortieren
-            if( $shuffle == 1 ) :
+                $speaker_list = array_slice( $speaker_list, 0, $show );
                 $speaker_list = cm_sort_speaker_datasets( $speaker_list );
+            else :
+                $speaker_list = array_slice( $speaker_list, 0, $show );
             endif;
         endif;
 
 
         /**
-         * Schritt 2
-         * Ausgabe vorbereiten
+         * Ausgabe
          **/
 
+        // Beginn der Ausgabenpufferung
         ob_start();
+
 ?>
 <div class='speaker-grid'>
-<ul>
-<?php
-    foreach( $speaker_list as $speaker ) :
-?>
-<li>
-<figure class="squared">
-<a href="<?php echo $speaker[ 'permalink' ]; ?>"
-   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
-<?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?></a>
-<figcaption class="speaker-caption">
-<p class="speaker-title-name">
-<a href="<?php echo $speaker[ 'permalink' ]; ?>"
-   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
-<?php echo $speaker[ 'title_name' ]; ?></a></p>
-<p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
-</figcaption>
-</figure>
-</li>
-<?php
-    endforeach;
-?>
-</ul>
+
+    <ul>
+
+        <?php foreach( $speaker_list as $speaker ) : ?>
+
+        <li>
+            <figure class="squared">
+
+                <a href="<?php echo $speaker[ 'permalink' ]; ?>"
+                   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
+                   <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?>
+                </a>
+
+                <figcaption class="speaker-caption">
+
+                    <p class="speaker-title-name">
+                        <a href="<?php echo $speaker[ 'permalink' ]; ?>"
+                           title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
+                           <?php echo $speaker[ 'title_name' ]; ?>
+                        </a>
+                    </p>
+
+                    <p class="speaker-position">
+                        <?php echo $speaker[ 'position' ]; ?>
+                    </p>
+
+                </figcaption>
+
+            </figure>
+
+        </li>
+
+        <?php endforeach; ?>
+
+    </ul>
+
 </div>
+
 <?php
-        // Ausgabenpuffer sichern; Pufferung beenden
-        $buffer = ob_get_contents();
+        // Ende der Ausgabenpufferung
+        $output_buffer = ob_get_contents();
         ob_end_clean();
+
+        // Ausgabe
+        return $output_buffer;
     endif;
 
-    return $buffer;
+    return null;
 }
 
 add_shortcode( 'speaker-grid', 'cm_shortcode_speaker_grid' );

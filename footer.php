@@ -6,22 +6,29 @@
  * @package congressomat
  **/
 ?>
-<footer id="footer">
-<section id="footer-widgets" class="adjust-workspace">
-<div class="widget-area-wrapper">
-<?php
-// Widget-Areas generieren
-$areas = array( 'footer-one', 'footer-two', 'footer-three' );
+        <footer id="footer">
 
-foreach( $areas as $area ) :
-    echo '<div class="widget-area">';
-    dynamic_sidebar( $area );
-    echo '</div>';
-endforeach;
-?>
-</div>
-</section>
-</footer>
-<?php wp_footer(); ?>
-</body>
+            <section id="footer-widgets" class="adjust-workspace">
+
+                <div class="widget-area-wrapper">
+
+                    <div class="widget-area">
+                        <?php dynamic_sidebar( 'footer-one' ); ?>
+                    </div>
+
+                    <div class="widget-area">
+                        <?php dynamic_sidebar( 'footer-two' ); ?>
+                    </div>
+
+                    <div class="widget-area">
+                        <?php dynamic_sidebar( 'footer-three' ); ?>
+                    </div>
+                </div>
+
+            </section>
+
+        </footer>
+
+        <?php wp_footer(); ?>
+    </body>
 </html>

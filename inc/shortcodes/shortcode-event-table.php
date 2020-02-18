@@ -15,13 +15,22 @@
 
 function cm_shortcode_event_table( $atts, $content = null )
 {
-    // Parameter auslesen
-    extract( shortcode_atts( array(
-                             'event'    => '',
-                             'speaker'  => '',
-                             'set'      => '1',
-                             ), $atts ) );
+    /**
+     * Parameter auslesen
+     **/
 
+    $default_atts = array(
+        'event'   => '',
+        'speaker' => '',
+        'set'     => '1',
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
+
+    /**
+     * Variablen setzen
+     **/
 
     $output  = '';
     $rowset  = array();

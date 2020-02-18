@@ -17,34 +17,38 @@
 
 function cm_shortcode_teaser_list( $atts, $content = null )
 {
-    // Variablen setzen
-    global $post;
-           $buffer = '';
-
-    // Parameter auslesen
-    extract( shortcode_atts( array(
-                             'show'    => '',
-                             'paged'   => '0',
-                             'exclude' => '',
-                             'shuffle' => '0',
-                             ), $atts ) );
-
     /**
-     * Schritt 1
-     * Daten abrufen und aufbereiten
+     * Parameter auslesen
      **/
 
-    // optional: bestimmte Artikel ausschließen
-    $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
+    $default_atts = array(
+        'show'    => get_option( 'posts_per_page' ),
+        'paged'   => '0',
+        'exclude' => '',
+        'shuffle' => '0',
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
+
+    /**
+     * Variablen setzen
+     **/
+
+    global $post;
+           $exclude_ids   = explode( ',', str_replace( " ", "", $exclude ) );
+
+
 
     // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
     if( $paged == 1 ) :
-        $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
+        //$show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $max_page = ceil( sizeof( get_posts( array(
-                                              'exclude'        => $exclude_ids,
-                                              'post_type'      => 'post',
-                                              'post_status'    => 'publish',
-                                              'posts_per_page' => -1 ) ) ) / $show ) ;
+            'exclude'        => $exclude_ids,
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1
+        ) ) ) / $show ) ;
 
         // Aktuelle Seite ermitteln
         $get_prt = isset( $_GET[ 'prt' ] )? $_GET[ 'prt' ] : 1;
@@ -71,15 +75,22 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         endif;
     endif;
 
-    // anhand der zuvor ermittelten Daten die Artikel abrufen
-    $articles = get_posts( array(
-                           'exclude'        => $exclude_ids,
-                           'post_type'      => 'post',
-                           'post_status'    => 'publish',
-                           'order'          => 'DESC',
-                           'orderby'        => $orderby,
-                           'posts_per_page' => $show,
-                           'offset'         => $offset ) );
+
+    /**
+     * Anhand der zuvor ermittelten Daten die Artikel abrufen
+     **/
+
+    $query = array(
+        'exclude'        => $exclude_ids,
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'order'          => 'DESC',
+        'orderby'        => $orderby,
+        'posts_per_page' => $show,
+        'offset'         => $offset,
+    );
+    $articles = get_posts( $query );
+
 
     /**
      * Schritt 2
@@ -91,48 +102,74 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         ob_start();
 ?>
 <div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
-<?php
-        if( $paged == 1 ) :
-            cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
-        endif;
-?>
-<ul>
-<?php
+
+    <?php
+    if( $paged == 1 ) :
+        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+    endif;
+    ?>
+
+    <ul>
+        <?php
         foreach( $articles as $post ) :
             setup_postdata( $post );
-?>
-<li>
-<article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
-<div class="teaser-image">
-<a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
-<?php the_post_thumbnail( $post->ID, 'full' ); ?>
-</a>
-</div>
-<div class="teaser-content">
-<h2><?php the_title(); ?></h2>
-<?php the_excerpt(); ?>
-<p><a href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="next"><?php _e( 'Mehr erfahren', 'congressomat' ); ?></a></p>
-</div>
-</article>
-</li>
-<?php
+        ?>
+
+        <li>
+            <article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
+
+                <div class="teaser-image">
+
+                    <a href="<?php the_permalink(); ?>"
+                       title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>"
+                       rel="prev">
+                        <?php the_post_thumbnail( $post->ID, 'full' ); ?>
+                    </a>
+
+                </div>
+
+                <div class="teaser-content">
+
+                    <h2><?php the_title(); ?></h2>
+
+                    <?php the_excerpt(); ?>
+
+                    <p>
+                        <a href="<?php the_permalink(); ?>"
+                           title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>"
+                           rel="next">
+                           <?php _e( 'Mehr erfahren', 'congressomat' ); ?>
+                        </a>
+                    </p>
+
+                </div>
+            </article>
+        </li>
+
+        <?php
         endforeach;
         wp_reset_postdata();
-?>
-</ul>
-<?php
-        if( $paged == 1 ) :
-            cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
-        endif;
-?>
+        ?>
+    </ul>
+
+    <?php
+    if( $paged == 1 ) :
+        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+    endif;
+    ?>
+
 </div>
+
 <?php
-        // Ausgabenpuffer sichern; Pufferung beenden
-        $buffer = ob_get_contents();
+        // Ende der Ausgabenpufferung
+        $output_buffer = ob_get_contents();
         ob_end_clean();
+
+        // Ausgabe
+        return $output_buffer;
     endif;
 
-    return $buffer;
+    return null;
 }
 
 add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
