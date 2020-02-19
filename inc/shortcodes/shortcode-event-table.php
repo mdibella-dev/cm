@@ -51,7 +51,7 @@ function cm_shortcode_event_table( $atts, $content = null )
         elseif( !empty( $event ) ) :
             $sessions = cm_get_sessions_by_event( $event );
         else :
-            $sessions = NULL;
+            $sessions = null;
         endif;
 
         /**
@@ -146,10 +146,11 @@ function cm_get_session_data( $data_key, $session )
 
                 foreach( $speakers as $speaker ) :
                     $speaker_dataset = cm_get_speaker_dataset( $speaker );
-                    $speakers_list[] = sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-                                                $speaker_dataset[ 'permalink' ],
-                                                sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker_dataset[ 'title_name' ] ),
-                                                get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
+                    $speakers_list[] = sprintf(
+                        '<a href="%1$s" title="%2$s">%3$s</a>',
+                        $speaker_dataset[ 'permalink' ],
+                        sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker_dataset[ 'title_name' ] ),
+                        get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
                 endforeach;
                 $value = implode( ' ', $speakers_list );
             endif;

@@ -24,30 +24,55 @@ function cm_shortcode_faq( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Ausgabe vorbereiten
-    $output = '';
+    /**
+     * Daten abrufen und aufbereiten
+     **/
 
     if( have_rows( 'faq', $faq ) ) :
-        $output .= '<div class="faq-accordion">';
-        $output .= '<ul>';
+?>
 
+<div class="faq-accordion">
+    <ul>
+
+        <?php
         while( have_rows( 'faq', $faq ) ) :
             the_row();
+        ?>
 
-            $question = apply_filters( 'the_content', get_sub_field( 'question' ) );
-            $answer   = apply_filters( 'the_content', get_sub_field( 'answer' ) );
+        <li class="faq-element">
+            <div class="faq-question">
+                <span class="faq-arrow">
+                    <i class="fal fa-long-arrow-right"></i>
+                </span>
 
-            $output .= '<li class="faq-element">';
-            $output .= sprintf( '<div class="faq-question"><span class="faq-arrow"><i class="fal fa-long-arrow-right"></i></span><span>%1$s</span></div>', wp_strip_all_tags( $question ) );
-            $output .= sprintf( '<div class="faq-answer">%1$s</div>', $answer );
-            $output .= '</li>';
+                <span>
+                    <?php echo wp_strip_all_tags( apply_filters( 'the_content', get_sub_field( 'question' ) ) ) ); ?>
+                </span>
+            </div>
+
+            <div class="faq-answer">
+                <?php echo apply_filters( 'the_content', get_sub_field( 'answer' ) );?>
+            </div>
+        </li>
+
+        <?php
         endwhile;
-        $output .= '</ul>';
-        $output .= '</div>';
+        ?>
+
+    </ul>
+
+</div>
+
+<?php
+        // Ende der Ausgabenpufferung
+        $output_buffer = ob_get_contents();
+        ob_end_clean();
+
+        // Ausgabe
+        return $output_buffer;
     endif;
 
-    // Ausgabe
-    return $output;
+    return null;
 }
 
 add_shortcode( 'faq', 'cm_shortcode_faq' );

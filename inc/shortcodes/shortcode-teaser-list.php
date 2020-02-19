@@ -96,6 +96,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         // Ausgabe puffern
         ob_start();
 ?>
+
 <div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
 
     <?php
@@ -145,6 +146,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         endforeach;
         wp_reset_postdata();
         ?>
+
     </ul>
 
     <?php
