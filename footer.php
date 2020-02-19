@@ -8,9 +8,9 @@
 ?>
         <footer id="footer">
 
-            <section id="footer-widgets" class="adjust-workspace">
+            <section id="footer-widgets">
 
-                <div class="widget-area-wrapper">
+                <div class="footer-widgets__inner-container">
 
                     <div class="widget-area">
                         <?php dynamic_sidebar( 'footer-one' ); ?>

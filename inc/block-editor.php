@@ -24,7 +24,7 @@ function cm_disable_block_editor( $current_status, $post_type )
     if( ( $post_type === 'session' ) or
         ( $post_type === 'exhibitor' ) or
         ( $post_type === 'speaker' ) ) :
-        return FALSE;
+        return false;
     endif;
 
     return $current_status;
