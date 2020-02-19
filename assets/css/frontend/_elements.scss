@@ -25,12 +25,9 @@
  **/
 
 #header-wrapper {
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-align-items: center;
-            align-items: center;
+    flex-wrap: wrap;
+    align-items: center;
 
     & > div {
         width: 50%;
@@ -48,8 +45,7 @@
     }
 
     @include respond-to(wide) {
-        -webkit-flex-wrap: nowrap;
-                flex-wrap: nowrap;
+        flex-wrap: nowrap;
 
         // Bereich mit dem Logo (#logo)
         & > div:nth-child(1) {
@@ -106,8 +102,7 @@
             position: absolute;
             left:0;
             content: '';
-            -webkit-transform-origin: center;
-                    transform-origin: center;
+            transform-origin: center;
         }
 
         &:before {
@@ -124,20 +119,17 @@
 
         &:before,
         &:after{
-            -webkit-transform-origin: center;
-                    transform-origin: center;
+            transform-origin: center;
             top: 0;
             width: 30px;
         }
 
         &:before{
-            -webkit-transform: rotate(45deg);
-                    transform: rotate(45deg);
+            transform: rotate(45deg);
         }
 
         &:after{
-            -webkit-transform: rotate(-45deg);
-                    transform: rotate(-45deg);
+            transform: rotate(-45deg);
         }
     }
 }
@@ -149,7 +141,6 @@
  **/
 
 #logo {
-    display: -webkit-flex;
     display: flex;
     background: transparent;
     border: none;
@@ -196,31 +187,23 @@
  * Fußzeile
  **/
 
-#footer{
+#footer {
     z-index: 200;
     display: block;
     width: 100%;
     box-sizing: content-box;
     background: #999;
     color: #555;
-    padding: 2*$unit 0;
-
-    @include respond-to(large) {
-        padding: 4*$unit 0;
-    }
 }
 
 
-#footer-widgets {
-    .widget-area-wrapper {
-        display: -webkit-flex;
+.footer-widgets-wrapper {
+    .footer-widgets-wrapper__inner-container {
         display: flex;
-        -webkit-flex-wrap: wrap;
-                flex-wrap: wrap;
+        flex-wrap: wrap;
 
         @include respond-to(large) {
-            -webkit-flex-wrap: nowrap;
-                    flex-wrap: nowrap;
+            flex-wrap: nowrap;
         }
     }
 
@@ -295,14 +278,11 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        display: -webkit-flex;
         display: flex;
-        -webkit-justify-content: center;
-                justify-content: center;
+        justify-content: center;
 
         @include respond-to(medium) {
-            -webkit-justify-content: left;
-                    justify-content: left;
+            justify-content: left;
         }
     }
 

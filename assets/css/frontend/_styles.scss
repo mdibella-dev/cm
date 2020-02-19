@@ -85,9 +85,9 @@
     padding-right: $unit;
 }
 
-
+.article-wrapper,
 .section-wrapper,
-.article-wrapper {
+.footer-widgets-wrapper {
     width: 100%;
 
     & > div[class*="__inner-container"] {
