@@ -24,16 +24,20 @@ function cm_shortcode_partner_list( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Abfrage zusammenstellen
+    /**
+     * Daten abrufen und aufbereiten
+     **/
+
+    // Grundlegende Datenabfrage
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
         'posts_per_page' => '-1',
         'order'          => 'ASC',
-        'orderby'        => 'title'
+        'orderby'        => 'title',
     );
 
-    // Nach Kooperationsform filtern
+    // Optional: Nach Kooperationsform filtern
     if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
@@ -45,21 +49,35 @@ function cm_shortcode_partner_list( $atts, $content = null )
     // Daten holen
     $partners = get_posts( $query );
 
-    // Ausgabe vorbereiten
-    $output = '';
+
+    /**
+     * Ausgabe
+     **/
 
     if( $partners ) :
-        $output .= '<ul class="partner-list">';
 
-        foreach( $partners as $partner ) :
-            $output .= sprintf( '<li>%1$s</li>', get_the_post_thumbnail( $partner->ID, 'full' ) );
-        endforeach;
+        // Beginn der Ausgabenpufferung
+        ob_start();
+?>
 
-        $output .= '</ul>';
+<ul class="partner-list">
+    <?php foreach( $partners as $partner ) : ?>
+    <li>
+        <?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+<?php
+        // Ende der Ausgabenpufferung
+        $output_buffer = ob_get_contents();
+        ob_end_clean();
+
+        // Ausgabe
+        return $output_buffer;
     endif;
 
-    // Ausgabe
-    return $output;
+    return null;
 }
 
 add_shortcode( 'partner-list', 'cm_shortcode_partner_list' );
