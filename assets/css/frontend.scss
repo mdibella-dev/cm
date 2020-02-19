@@ -7,28 +7,52 @@
 
 
 
-// Imports
+/**
+ * Normalize
+ * @source  https://csstools.github.io/normalize.css/
+ */
+
+@import "vendors/_normalize";
+
+
+/**
+ * Mixins
+ */
+
+@import "mixins/_mixins";
+@import "mixins/_media-breakpoints";
+
+
+
+
 @import "common/_vars";
-@import "common/_mixins";
-@import "common/_gutenberg-media-queries";
 @import "common/_gutenberg-attributes";
 @import "common/_color-palette";
-@import "common/_wp-block-button";
-@import "common/_wp-block-table";
-@import "common/_wp-block-image";
-
 @import "frontend/_basics";
 @import "frontend/_elements";
 @import "frontend/_megamenu";
 @import "frontend/_article";
-@import "frontend/_wp-blocks";
 @import "frontend/_styles";
-
-
-@import "frontend/_partner-list";
-@import "frontend/_partner-table";
-@import "frontend/_shortcode-teaser-list";
-@import "frontend/_shortcode-event-table";
-@import "frontend/_shortcode-speaker-grid";
-@import "frontend/_shortcode-faq";
 @import "frontend/_speaker-profile";
+
+
+/**
+ * Shortcodes
+ */
+
+@import "shortcodes/_partner-list";
+@import "shortcodes/_partner-table";
+@import "shortcodes/_teaser-list";
+@import "shortcodes/_event-table";
+@import "shortcodes/_speaker-grid";
+@import "shortcodes/_faq";
+
+
+/**
+ * Blocks
+ */
+
+@import "blocks/_wp-block-button";
+@import "blocks/_wp-block-table";
+@import "blocks/_wp-block-image";
+@import "blocks/_wp-blocks";

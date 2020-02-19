@@ -32,7 +32,7 @@
         large:  960px,
         wide:   1280px,
         huge:   1440px,
-   ) !default;
+    ) !default;
 
     @if map-has-key($breakpoints, $breakpoint) {
         $value: map-get($breakpoints, $breakpoint);
