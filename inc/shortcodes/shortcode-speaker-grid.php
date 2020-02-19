@@ -43,14 +43,14 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
-            if( in_array( $speaker[ 'id' ], $exclude_ids ) == FALSE ) :
+            if( in_array( $speaker[ 'id' ], $exclude_ids ) == false ) :
                 $speaker_list[] = $speaker;
             endif;
         endforeach;
 
 
         // Optional: Beschnitt der Ausgabe
-        if( ( is_numeric( $show ) == TRUE )
+        if( ( is_numeric( $show ) == true )
             and ( $show > 0 )
             and ( $show < sizeof( $speaker_list ) ) ) :
 

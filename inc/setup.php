@@ -132,7 +132,7 @@ function cm_enqueue_scripts()
 {
     // Verschieben der von WordPress gelieferten jQuery in den Footer
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', FALSE, FALSE, TRUE );
+    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, false, true );
     wp_enqueue_script( 'jquery' );
 
 
@@ -141,7 +141,7 @@ function cm_enqueue_scripts()
 
 
     // Registrieren und Laden eigener Skripte
-    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), FALSE, TRUE );
+    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'congressomat' );
 
 

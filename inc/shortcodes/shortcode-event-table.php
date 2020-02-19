@@ -141,7 +141,7 @@ function cm_get_session_data( $data_key, $session )
         case 'session-speaker' :
             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-            if( $speakers != NULL ) :
+            if( $speakers != null ) :
                 unset( $speakers_list );
 
                 foreach( $speakers as $speaker ) :

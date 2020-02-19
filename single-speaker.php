@@ -94,7 +94,6 @@ get_header();
             <?php
             /**
              * Veranstaltungen mit diesem Referenten
-             * Hardcodierte CoBlock-Row
              *
              * @since 1.0.0
              **/
@@ -115,7 +114,6 @@ get_header();
             <?php
             /**
              * Weitere Referenten anzeigen
-             * Hardcodierte CoBlock-Row
              *
              * @since 1.0.0
              **/
