@@ -36,22 +36,21 @@ function cm_shortcode_teaser_list( $atts, $content = null )
      **/
 
     global $post;
-           $exclude_ids   = explode( ',', str_replace( " ", "", $exclude ) );
-
+           $exclude_ids = explode( ',', str_replace( " ", "", $exclude ) );
+           $offset      = 0;
+           $orderby     = 'date';
 
 
     // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
     if( $paged == 1 ) :
-        //$show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
-        $max_page = ceil( sizeof( get_posts( array(
+        $haystack = array(
             'exclude'        => $exclude_ids,
             'post_type'      => 'post',
             'post_status'    => 'publish',
             'posts_per_page' => -1
-        ) ) ) / $show ) ;
-
-        // Aktuelle Seite ermitteln
-        $get_prt = isset( $_GET[ 'prt' ] )? $_GET[ 'prt' ] : 1;
+        );
+        $max_page = ceil( sizeof( get_posts( $haystack ) ) / $show ) ;
+        $get_prt  = isset( $_GET[ 'prt' ] )? $_GET[ 'prt' ] : 1;
 
         if( $get_prt <= 1 ) :
             $current_page = 1;
@@ -62,16 +61,12 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         endif;
 
         // Startpunkt ermitteln
-        $offset  = ($current_page - 1) * $show;
-        $orderby = 'date';
+        $offset = ($current_page - 1) * $show;
     else :
-        $show   = empty ( $show )? 4 : $show;
-        $offset = 0;
+        $show = empty ( $show )? 4 : $show;
 
         if( $shuffle == 1 ) :
             $orderby = 'rand';
-        else :
-            $orderby = 'date';
         endif;
     endif;
 
@@ -93,11 +88,11 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
 
     /**
-     * Schritt 2
      * Ausgabe vorbereiten
      **/
 
     if( $articles ) :
+
         // Ausgabe puffern
         ob_start();
 ?>
