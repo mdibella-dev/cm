@@ -46,7 +46,7 @@ function cm_shortcode_faq( $atts, $content = null )
                 </span>
 
                 <span>
-                    <?php echo wp_strip_all_tags( apply_filters( 'the_content', get_sub_field( 'question' ) ) ) ); ?>
+                    <?php echo wp_strip_all_tags( apply_filters( 'the_content', get_sub_field( 'question' ) ) ); ?>
                 </span>
             </div>
 
