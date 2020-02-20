@@ -14,7 +14,7 @@
  * @since   1.0.0
  **/
 
-function cm_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
+function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
 {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
@@ -29,7 +29,7 @@ function cm_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, 
  * @since   1.0.0
  **/
 
-function cm_remove_script_version( $src )
+function congressomat_remove_script_version( $src )
 {
     $parts = explode( '?ver', $src );
     return $parts[0];
@@ -43,7 +43,7 @@ function cm_remove_script_version( $src )
  * @since   1.0.0
  **/
 
-function cm_remove_styles_scripts()
+function congressomat_remove_styles_scripts()
 {
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'rsd_link' );
@@ -56,16 +56,17 @@ function cm_remove_styles_scripts()
 
 
 /**
- * Entfernt unnötige Beitrags-Klassen, wie .has-post-thumbnail, .sticky, .category-, .tags-, .status
+ * Entfernt unnötige Beitrags-Klassen
  *
  * @since   1.0.0
  **/
 
-function cm_remove_post_classes( $classes, $class, $post_id )
+function congressomat_remove_post_classes( $classes, $class, $post_id )
 {
     $checked_classes = array();
 
     if( !is_admin() ) :
+
         foreach( $classes as $check ) :
 
             if( ( false !== strpos( $check, 'has-post-thumbnail' ) ) or
@@ -77,12 +78,16 @@ function cm_remove_post_classes( $classes, $class, $post_id )
                 ( false !== strpos( $check, 'hentry' ) ) or
                 ( false !== strpos( $check, 'type-' ) )
               ) :
-                // do nothing
+                // nicht übernehmen
             else :
+                // ansonsten hinzufügen
                 $checked_classes[] = $check;
             endif;
+
         endforeach;
+
         $classes = $checked_classes;
+
     endif;
 
     return $classes;

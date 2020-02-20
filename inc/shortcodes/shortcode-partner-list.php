@@ -11,7 +11,7 @@
  * @package congressomat
  */
 
-function cm_shortcode_partner_list( $atts, $content = null )
+function congressomat_shortcode_partner_list( $atts, $content = null )
 {
     /**
      * Parameter auslesen
@@ -80,4 +80,4 @@ function cm_shortcode_partner_list( $atts, $content = null )
     return null;
 }
 
-add_shortcode( 'partner-list', 'cm_shortcode_partner_list' );
+add_shortcode( 'partner-list', 'congressomat_shortcode_partner_list' );

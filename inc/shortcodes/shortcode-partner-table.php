@@ -14,7 +14,7 @@
  * @package congressomat
  */
 
-function cm_shortcode_partner_table( $atts, $content = null )
+function congressomat_shortcode_partner_table( $atts, $content = null )
 {
     /**
      * Parameter auslesen
@@ -110,7 +110,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
                     case 'MESSESTAND':
                         // Alle möglichen Inhalte holen
                         $exhibition = get_field( 'messestand', $partner->ID );
-                        $location   = cm_get_location( $exhibition[ 'partner-messestand-ort' ] );
+                        $location   = congressomat_get_location( $exhibition[ 'partner-messestand-ort' ] );
                         $number     = $exhibition[ 'partner-messestand-nummer' ];
 
                         // Ausgabe erstellen
@@ -164,4 +164,4 @@ function cm_shortcode_partner_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'partner-table', 'cm_shortcode_partner_table' );
+add_shortcode( 'partner-table', 'congressomat_shortcode_partner_table' );

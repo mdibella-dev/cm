@@ -11,7 +11,7 @@
  * @package congressomat
  */
 
-function cm_shortcode_faq( $atts, $content = null )
+function congressomat_shortcode_faq( $atts, $content = null )
 {
     /**
      * Parameter auslesen
@@ -75,4 +75,4 @@ function cm_shortcode_faq( $atts, $content = null )
     return null;
 }
 
-add_shortcode( 'faq', 'cm_shortcode_faq' );
+add_shortcode( 'faq', 'congressomat_shortcode_faq' );

@@ -21,7 +21,7 @@ get_header();
                     the_post();
 
                     // Referentendaten holen
-                    $speaker = cm_get_speaker_dataset( get_the_ID() );
+                    $speaker = congressomat_get_speaker_dataset( get_the_ID() );
             ?>
 
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">

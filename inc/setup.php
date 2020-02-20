@@ -14,7 +14,7 @@
  * @since   1.0.0
  **/
 
- function cm_theme_setup()
+ function congressomat_theme_setup()
  {
     // Laden der Lokalisation
 	load_theme_textdomain( 'congressomat', get_template_directory() . '/lang' );
@@ -128,7 +128,7 @@
  * @since   1.0.0
  **/
 
-function cm_enqueue_scripts()
+function congressomat_enqueue_scripts()
 {
     // Verschieben der von WordPress gelieferten jQuery in den Footer
     wp_deregister_script( 'jquery' );
@@ -136,13 +136,13 @@ function cm_enqueue_scripts()
     wp_enqueue_script( 'jquery' );
 
 
-    // Integration von FontAwesome5
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fa5/css/fontawesome-all.min.css' );
-
-
     // Registrieren und Laden eigener Skripte
     wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), false, true );
-	wp_enqueue_script( 'congressomat' );
+    wp_enqueue_script( 'congressomat' );
+
+
+    // Integration von FontAwesome5
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fa5/css/fontawesome-all.min.css' );
 
 
 	// Laden des eigenen Stylesheets
