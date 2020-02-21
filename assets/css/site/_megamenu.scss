@@ -1,14 +1,25 @@
 /**
- * Megamenu
- *
- * Eine Implementation eines Megamenus mit Überschrift- und Downloadelementen
+ * Hauptnavigation (#primary) mit MegaMenu-Integration
  *
  * @source	https://tympanus.net/codrops/2013/03/05/horizontal-drop-down-menu/
  * @see		frontend.js, class-megamenu-walker.php
- * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
  **/
 
+
+
+#primary {
+    width: 100%;
+    display: none;
+
+    // Unterstützung für #toggle
+    &.on {
+        display: block;
+    }
+
+    @include respond-to(wide) {
+        display: block;
+    }
+}
 
 .megamenu {
     width: 100%;
@@ -37,7 +48,6 @@
 	    & > li {
 		    display: block;
             padding:0;
-		    border-bottom: 1px solid #ddd;
 
             @include respond-to(large) {
                 line-height: inherit;
@@ -45,7 +55,6 @@
 
 		    @include respond-to(wide) {
 			    display: inline-block;
-			    border-bottom: 0;
 		    }
         }
 
@@ -61,7 +70,6 @@
             border: unset;
 
         	@include respond-to(wide) {
-        		display: -webkit-flex;
         		display: flex;
         		width: unset;
         		padding: 3*$unit 2*$unit;
@@ -99,14 +107,10 @@
     	    @include respond-to(medium) {
     		    width: 90%;
     		    max-width: 80em;
-                display: -webkit-flex;
                 display: flex;
-                -webkit-flex-direction: row;
-    		            flex-direction: row;
-                -webkit-justify-content: center;
-                        justify-content: center;
-                -webkit-flex-wrap: nowrap;
-    		            flex-wrap: nowrap;
+    		          flex-direction: row;
+                justify-content: center;
+    		          flex-wrap: nowrap;
     	    }
 
     	    &:after {

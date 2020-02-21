@@ -1,0 +1,131 @@
+#header {
+    z-index: 400;
+    display: block;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+
+#header-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    & > div {
+        width: 50%;
+        margin: 0;
+    }
+
+    // Bereich mit dem Menüumschalter (#toggle)
+    & > div:nth-child(2) {
+        text-align: right !important;
+    }
+
+    // Bereich des Hauptmenüs (#primary)
+    & > div:nth-child(3) {
+        width: 100%;
+    }
+
+    @include respond-to(wide) {
+        flex-wrap: nowrap;
+
+        // Bereich mit dem Logo (#logo)
+        & > div:nth-child(1) {
+            width: 25%;
+        }
+
+        // Bereich mit dem Menüumschalter (#toggle)
+        & > div:nth-child(2) {
+            display: none;
+            width: 0;
+        }
+
+        // Bereich des Hauptmenüs (#primary)
+        & > div:nth-child(3) {
+            width: 75%;
+        }
+    }
+}
+
+
+
+/**
+ * Animierter Toggle-Button (Hamburger-Icon)
+ **/
+
+@mixin line {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background: #555;
+    transition: 0.3s;
+}
+
+#toggle {
+    margin-top: 6px;
+    padding: 2*$unit;
+    cursor: pointer;
+    display: inline-block;
+    border: 0 !important;
+    background: transparent !important;
+    transition: all .3s ease-out !important;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    .lines {
+        @include line;
+        position: relative;
+
+        &:before,
+        &:after {
+            @include line;
+            position: absolute;
+            left:0;
+            content: '';
+            transform-origin: center;
+        }
+
+        &:before {
+            top: 10px;
+        }
+
+        &:after {
+            top: -10px;
+        }
+    }
+
+    &.on .lines {
+        background: transparent;
+
+        &:before,
+        &:after{
+            transform-origin: center;
+            top: 0;
+            width: 30px;
+        }
+
+        &:before{
+            transform: rotate(45deg);
+        }
+
+        &:after{
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+
+
+/**
+ * Animierter Toggle-Button (Hamburger-Icon)
+ **/
+
+#logo {
+    display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: 0 !important;
+}
