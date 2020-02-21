@@ -1,3 +1,5 @@
+/* Site header */
+
 #header {
     z-index: 400;
     display: block;
@@ -5,127 +7,65 @@
     box-sizing: content-box;
 }
 
-
 #header-wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 
-    & > div {
-        width: 50%;
-        margin: 0;
+    // ab 960px (large)
+    @include respond-to(large) {
+        margin: 0 auto;
+        width: calc(10 * calc(100vw/12) );
     }
 
-    // Bereich mit dem Menüumschalter (#toggle)
-    & > div:nth-child(2) {
-        text-align: right !important;
-    }
-
-    // Bereich des Hauptmenüs (#primary)
-    & > div:nth-child(3) {
-        width: 100%;
-    }
-
+    // ab 1280px (wide):
     @include respond-to(wide) {
         flex-wrap: nowrap;
-
-        // Bereich mit dem Logo (#logo)
-        & > div:nth-child(1) {
-            width: 25%;
-        }
-
-        // Bereich mit dem Menüumschalter (#toggle)
-        & > div:nth-child(2) {
-            display: none;
-            width: 0;
-        }
-
-        // Bereich des Hauptmenüs (#primary)
-        & > div:nth-child(3) {
-            width: 75%;
-        }
+        width: calc(8 * calc(100vw/12) );
     }
 }
 
 
+/* Abstand */
 
-/**
- * Animierter Toggle-Button (Hamburger-Icon)
- **/
+#header-spacer {
+    display: none;
+    width: 0;
 
-@mixin line {
-    display: inline-block;
-    width: 30px;
-    height: 3px;
-    background: #555;
-    transition: 0.3s;
-}
-
-#toggle {
-    margin-top: 6px;
-    padding: 2*$unit;
-    cursor: pointer;
-    display: inline-block;
-    border: 0 !important;
-    background: transparent !important;
-    transition: all .3s ease-out !important;
-
-    &:focus {
-        outline: none !important;
-    }
-
-    .lines {
-        @include line;
-        position: relative;
-
-        &:before,
-        &:after {
-            @include line;
-            position: absolute;
-            left:0;
-            content: '';
-            transform-origin: center;
-        }
-
-        &:before {
-            top: 10px;
-        }
-
-        &:after {
-            top: -10px;
-        }
-    }
-
-    &.on .lines {
-        background: transparent;
-
-        &:before,
-        &:after{
-            transform-origin: center;
-            top: 0;
-            width: 30px;
-        }
-
-        &:before{
-            transform: rotate(45deg);
-        }
-
-        &:after{
-            transform: rotate(-45deg);
-        }
+    @include respond-to(wide) {
+        display: block;
+        width: 5%;
     }
 }
 
 
+/* Site branding */
 
-/**
- * Animierter Toggle-Button (Hamburger-Icon)
- **/
+#header-branding {
+    width: 50%;
+    margin: 0;
 
-#logo {
-    display: flex;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    outline: 0 !important;
+    @include respond-to(wide) {
+        width: 20%;
+    }
+}
+
+/* Hauptmenü */
+
+#header-menu-toggle {
+    text-align: right !important;
+    width: 50%;
+
+    @include respond-to(wide) {
+        display: none;
+        width: 0;
+    }
+}
+
+#header-menu {
+    width: 100%;
+
+    @include respond-to(wide) {
+        width: 75%;
+    }
 }

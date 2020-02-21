@@ -7,17 +7,12 @@
 
 
 
-/**
- * Normalize
- * @source  https://csstools.github.io/normalize.css/
- */
+/* Normalize */
 
 @import "vendors/_normalize";
 
 
-/**
- * Mixins
- */
+/* Mixins */
 
 @import "mixins/_mixins";
 @import "mixins/_media-breakpoints";
@@ -30,22 +25,17 @@
 @import "common/_color-palette";
 @import "frontend/_basics";
 @import "frontend/_article";
-@import "frontend/_styles";
 @import "frontend/_speaker-profile";
 
 
-/**
- * Seitenelemente
- **/
+/* Seitenelemente */
 
 @import "site/_footer";
 @import "site/_header";
 @import "site/_megamenu";
 
 
-/**
- * Shortcodes
- */
+/* Shortcodes */
 
 @import "shortcodes/_partner-list";
 @import "shortcodes/_partner-table";
@@ -55,9 +45,7 @@
 @import "shortcodes/_faq";
 
 
-/**
- * Blocks
- */
+/* Blocks */
 
 @import "blocks/_wp-block-button";
 @import "blocks/_wp-block-table";

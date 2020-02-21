@@ -1,5 +1,5 @@
 /**
- * Hauptnavigation (#primary) mit MegaMenu-Integration
+ * MegaMenu
  *
  * @source	https://tympanus.net/codrops/2013/03/05/horizontal-drop-down-menu/
  * @see		frontend.js, class-megamenu-walker.php
@@ -7,26 +7,12 @@
 
 
 
-#primary {
+.site-menu {
     width: 100%;
     display: none;
 
     // Unterstützung für #toggle
-    &.on {
-        display: block;
-    }
-
-    @include respond-to(wide) {
-        display: block;
-    }
-}
-
-.megamenu {
-    width: 100%;
-    display: none;
-
-    // Unterstützung für #toggle
-    &.on {
+    &.toggle-on {
         display: block;
     }
 
@@ -45,9 +31,19 @@
     & > ul {
 	    width: 100%;
 
+		@include respond-to(wide) {
+			display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+
 	    & > li {
 		    display: block;
             padding:0;
+            -webkit-hyphens: none;
+                -ms-hyphens: none;
+                    hyphens: none;
 
             @include respond-to(large) {
                 line-height: inherit;
@@ -70,8 +66,6 @@
             border: unset;
 
         	@include respond-to(wide) {
-        		display: flex;
-        		width: unset;
         		padding: 3*$unit 2*$unit;
         	}
         }
@@ -83,98 +77,164 @@
     		background: #ddd;
     	}
     }
+}
 
-    // Ausklappbares Dropdown im MegaMenu-Stil
-    .submenu .submenu-wrapper {
-		display: none;
-		background: #eee;
-        color: #555;
-		width: 100%;
-		left: 0;
-		position: relative;
-        padding: 1em 0;
+// Ausklappbares Dropdown im MegaMenu-Stil
+.submenu .submenu-wrapper {
+	display: none;
+	background: #eee;
+    color: #555;
+	width: 100%;
+	left: 0;
+	position: relative;
+    padding: 1em 0;
 
-		@include respond-to(large) {
-			position: absolute;
-            padding: 2em 0;
+	@include respond-to(wide) {
+		position: absolute;
+        padding: 2em 0;
+    }
+
+    & > ul {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+
+        @include respond-to(wide) {
+    	    width: 90%;
+    	    max-width: 80em;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+    		flex-wrap: nowrap;
+    	}
+
+    	&:after {
+    	    clear: both;
+    	}
+    }
+
+    & > ul > li {
+    	width: 100%;
+        display: inline-block;
+        padding: 0 1em 0;
+
+        // Überschrift für Menüspalte
+    	h4 {
+    	    color: inherit;
+            padding-top: 1em;
+            padding-bottom: .6em;
+    		margin: 0;
+    		font-size: 1rem; // 16px
+    		font-weight: 400;
+            text-transform: uppercase;
+
+    		@include respond-to(wide) {
+                font-size: 1.25rem; // 20px
+                padding-top: 0;
+                padding-bottom: 1.2em;
+    		}
+    	}
+
+        &:not(:first-of-type) h4 {
+            border-top: 1px solid #ddd;
+            margin-top: 1em;
+
+            @include respond-to(wide) {
+                border-top: none;
+                margin-top: 0;
+            }
         }
 
-        & > ul {
-    	    width: 100%;
-    	    margin: 0 auto;
+    	// Menüpunkt
+        ul > li {
             padding: 0;
 
-    	    @include respond-to(medium) {
-    		    width: 90%;
-    		    max-width: 80em;
-                display: flex;
-    		          flex-direction: row;
-                justify-content: center;
-    		          flex-wrap: nowrap;
-    	    }
+            a {
+                @include a-tag-basic-settings();
+                line-height: 1.8em;
+    		    color: inherit;
+                border-bottom-color: transparent;
+                font-size: 1rem; // 16px
 
-    	    &:after {
-    	   	    clear: both;
+                @include respond-to(wide) {
+                    font-size: 1.125rem; // 18px
+                }
     	    }
+    	}
+    }
+}
+
+.submenu.open .submenu-wrapper {
+    display: block;
+    z-index: 500;
+
+    @include respond-to(wide) {
+        box-shadow: 0 0.8em 1.35em -0.5em rgba(0,0,0,0.3);
+    }
+}
+
+
+/* Animierter Toggle-Button */
+
+@mixin line {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background: #555;
+    transition: 0.3s;
+}
+
+.site-menu-toggle {
+    margin-top: 6px;
+    padding: 2*$unit;
+    cursor: pointer;
+    display: inline-block;
+    border: 0 !important;
+    background: transparent !important;
+    transition: all .3s ease-out !important;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    .lines {
+        @include line;
+        position: relative;
+
+        &:before,
+        &:after {
+            @include line;
+            position: absolute;
+            left:0;
+            content: '';
+            transform-origin: center;
         }
 
-        & > ul > li {
-    		width: 100%;
-        	display: inline-block;
-        	padding: 0 1em 0;
+        &:before {
+            top: 10px;
+        }
 
-            // Überschrift für Menüspalte
-    	    h4 {
-    		    color: inherit;
-                padding-top: 1em;
-                padding-bottom: .6em;
-    		    margin: 0;
-    		    font-size: 1rem; // 16px
-    		    font-weight: 400;
-                text-transform: uppercase;
-
-    		    @include respond-to(medium) {
-                    font-size: 1.25rem; // 20px
-                    padding-top: 0;
-                    padding-bottom: 1.2em;
-    		    }
-    	    }
-
-            &:not(:first-of-type) h4 {
-                border-top: 1px solid #ddd;
-                margin-top: 1em;
-
-                @include respond-to(medium) {
-                    border-top: none;
-                    margin-top: 0;
-                }
-            }
-
-    	    // Menüpunkt
-            ul > li {
-                padding: 0;
-
-                a {
-                    @include a-tag-basic-settings();
-                    line-height: 1.8em;
-    		        color: inherit;
-                    border-bottom-color: transparent;
-                    font-size: 1rem; // 16px
-
-                    @include respond-to(large) {
-                        font-size: 1.125rem; // 18px
-                    }
-    	        }
-    	    }
+        &:after {
+            top: -10px;
         }
     }
 
-    .submenu.open .submenu-wrapper {
-        display: block;
-        z-index: 500;
+    &.toggle-on .lines {
+        background: transparent;
 
-        @include respond-to(large) {
-            box-shadow: 0 0.8em 1.35em -0.5em rgba(0,0,0,0.3);
+        &:before,
+        &:after{
+            transform-origin: center;
+            top: 0;
+            width: 30px;
+        }
+
+        &:before{
+            transform: rotate(45deg);
+        }
+
+        &:after{
+            transform: rotate(-45deg);
         }
     }
 }

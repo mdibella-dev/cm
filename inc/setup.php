@@ -137,7 +137,7 @@ function congressomat_enqueue_scripts()
 
 
     // Registrieren und Laden eigener Skripte
-    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.min.js', array( 'jquery' ), false, true );
+    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'congressomat' );
 
 

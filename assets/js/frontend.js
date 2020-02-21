@@ -3,7 +3,7 @@ jQuery(function($) {
 // Megamenu
 var cbpHorizontalMenu = (function() {
 
-    var $listItems = $( '#primary > ul > li' ),
+    var $listItems = $( '.site-menu > ul > li' ),
         $menuItems = $listItems.children( 'a' ),
         $body   = $( 'body' ),
         current = -1;
@@ -51,9 +51,9 @@ cbpHorizontalMenu.init();
 
 
 // Toggle button
-$( '#toggle' ).click( function() {
-    $( this ).toggleClass( 'on' );
-    $( '#primary' ).toggleClass( 'on' );
+$( '.site-menu-toggle' ).click( function() {
+    $( this ).toggleClass( 'toggle-on' );
+    $( '.site-menu' ).toggleClass( 'toggle-on' );
 } );
 
 
