@@ -124,15 +124,13 @@
 
 
 /**
- * Set 1
- * session-date,session-time-range|session-title,session-subtitle|session-location
+ * Set 1: session-date,session-time-range|session-title,session-subtitle|session-location
  **/
 
 .event-table.has-set-1 {
 
     @include respond-to(medium) {
         div.row {
-            display: -webkit-flex;
             display: flex;
         }
 
@@ -141,8 +139,7 @@
         }
 
         div.cell:nth-of-type(2) {
-            -webkit-flex-grow: 2;
-                    flex-grow: 2;
+            flex-grow: 2;
         }
 
         div.cell:nth-of-type(3) {
@@ -158,11 +155,8 @@
 
 
 /**
- * Set 2
- * session-time-begin|session-title,session-subtitle,session-location|session-speaker
- *
- * Set 3
- * session-time-begin|session-title,session-subtitle|session-speaker
+ * Set 2: session-time-begin|session-title,session-subtitle,session-location|session-speaker
+ * Set 3: session-time-begin|session-title,session-subtitle|session-speaker
  **/
 
 .event-table.has-set-2,
@@ -174,7 +168,6 @@
 
     @include respond-to(medium) {
         div.row {
-            display: -webkit-flex;
             display: flex;
         }
 
@@ -183,8 +176,7 @@
         }
 
         div.cell:nth-of-type(2) {
-            -webkit-flex-grow: 2;
-                    flex-grow: 2;
+            flex-grow: 2;
         }
 
         div.cell:nth-of-type(3) {
