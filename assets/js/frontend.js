@@ -52,8 +52,7 @@ cbpHorizontalMenu.init();
 
 // Toggle button
 $( '.site-menu-toggle' ).click( function() {
-    $( this ).toggleClass( 'toggle-on' );
-    $( '.site-menu' ).toggleClass( 'toggle-on' );
+    $( 'body' ).toggleClass( 'toggle-on' );
 } );
 
 

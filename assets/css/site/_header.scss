@@ -1,71 +1,85 @@
+/**
+ * Elemente der Kopfzeile (Header)
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
 /* Site header */
 
 #header {
     z-index: 400;
     display: block;
     width: 100%;
-    box-sizing: content-box;
+    //padding: 1rem;
+    border-bottom: 1px solid #aaa;
+    //box-shadow: $menu-boxshadow;
 }
-
+/*
 #header-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    margin: 0 auto;
 
     // ab 960px (large)
     @include respond-to(large) {
-        margin: 0 auto;
-        width: calc(10 * calc(100vw/12) );
-    }
-
-    // ab 1280px (wide):
-    @include respond-to(wide) {
         flex-wrap: nowrap;
-        width: calc(8 * calc(100vw/12) );
+        max-width: 64rem;
+        justify-content: space-between;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
+#header-titles-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
 
-/* Abstand */
-
-#header-spacer {
-    display: none;
-    width: 0;
-
-    @include respond-to(wide) {
-        display: block;
-        width: 5%;
+    // ab 960px (large)
+    @include respond-to(large) {
+        width: 200px; // hardcoded
     }
 }
 
-
-/* Site branding */
 
 #header-branding {
     width: 50%;
     margin: 0;
 
-    @include respond-to(wide) {
-        width: 20%;
+    // ab 960px (large)
+    @include respond-to(large) {
+        width: 200px;
     }
 }
-
-/* Hauptmenü */
 
 #header-menu-toggle {
     text-align: right !important;
     width: 50%;
 
-    @include respond-to(wide) {
+    // ab 960px (large): Toggle verstecken
+    @include respond-to(large) {
         display: none;
         width: 0;
     }
 }
 
 #header-menu {
+    display: none;
     width: 100%;
+    margin-top: 1rem;
 
-    @include respond-to(wide) {
-        width: 75%;
+    // ab 960px (large)
+    @include respond-to(large) {
+        display: block;
+        width: auto;
+        margin-top: 0;
     }
 }
+
+body.toggle-on #header-menu {
+    display: block;
+}
+*/

@@ -12,6 +12,10 @@
 @import "vendors/_normalize";
 
 
+/* Variablen */
+@import "common/_vars";
+
+
 /* Mixins */
 
 @import "mixins/_mixins";
@@ -19,8 +23,6 @@
 
 
 
-
-@import "common/_vars";
 @import "common/_gutenberg-attributes";
 @import "common/_color-palette";
 @import "frontend/_basics";

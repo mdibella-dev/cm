@@ -125,13 +125,14 @@
         // ab 960px (large)
         @include respond-to(large) {
             padding: 2rem 0;
-            width: calc(10 * calc(100vw/12) );
+            //width: calc(10 * calc(100vw/12) );
+            max-width: 64rem;
         }
 
         // ab 1280px (wide):
         @include respond-to(wide) {
             padding: 4rem 0;
-            width: calc(8 * calc(100vw/12) );
+        //    width: calc(8 * calc(100vw/12) );
         }
     }
 }

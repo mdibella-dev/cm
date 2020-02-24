@@ -8,28 +8,12 @@
 
 
 .site-menu {
-    width: 100%;
-    display: none;
-
-    // Unterstützung für #toggle
-    &.toggle-on {
-        display: block;
-    }
-
-    @include respond-to(wide) {
-        display: block;
-    }
-
-    // Generell
-    ul {
-    	margin: 0;
-    	padding: 0;
-    	list-style-type: none;
-    }
-
     // Toplevel
     & > ul {
 	    width: 100%;
+        margin: 0;
+    	padding: 0;
+    	list-style-type: none;
 
 		@include respond-to(wide) {
 			display: flex;
@@ -37,9 +21,8 @@
             justify-content: space-between;
         }
 
-
 	    & > li {
-		    display: block;
+		    display: inline-block;
             padding:0;
             -webkit-hyphens: none;
                 -ms-hyphens: none;
@@ -50,7 +33,7 @@
             }
 
 		    @include respond-to(wide) {
-			    display: inline-block;
+		//	    display: inline-block;
 		    }
         }
 
@@ -58,23 +41,22 @@
 		    display: block;
             padding: 1em 2*$unit;
     		width: 100%;
-    		font-weight: 400;
+    		font-weight: 500;
             font-size: 1rem;
+            font-size: 0.875rem;
     		color: #555;
             text-transform: uppercase;
             text-decoration: none;
             border: unset;
-
-        	@include respond-to(wide) {
-        		padding: 3*$unit 2*$unit;
-        	}
         }
 
         & > li > a:hover,
     	& > li.open > a,
     	& > li.open > a:hover {
-    		color: #555;
-    		background: #ddd;
+            background: inherit;
+            color: inherit;
+    	//	color: #555;
+    	//	background: #ddd;
     	}
     }
 }
@@ -84,22 +66,26 @@
 	display: none;
 	background: #eee;
     color: #555;
-	width: 100%;
-	left: 0;
+	left: -1em;
 	position: relative;
     padding: 1em 0;
+    //margin-left: -1em;
+    width: calc(100% + 2em);
 
-	@include respond-to(wide) {
+	@include respond-to(large) {
 		position: absolute;
-        padding: 2em 0;
+        left: 0;
+        width: 100%;
+        //padding: 2em 0;
     }
 
     & > ul {
         width: 100%;
+        list-style-type: none;
         margin: 0 auto;
         padding: 0;
 
-        @include respond-to(wide) {
+        @include respond-to(large) {
     	    width: 90%;
     	    max-width: 80em;
             display: flex;
@@ -125,11 +111,11 @@
             padding-bottom: .6em;
     		margin: 0;
     		font-size: 1rem; // 16px
-    		font-weight: 400;
+    		font-weight: 500;
             text-transform: uppercase;
 
-    		@include respond-to(wide) {
-                font-size: 1.25rem; // 20px
+    		@include respond-to(large) {
+                font-size: 1.125rem; // 20px
                 padding-top: 0;
                 padding-bottom: 1.2em;
     		}
@@ -139,7 +125,7 @@
             border-top: 1px solid #ddd;
             margin-top: 1em;
 
-            @include respond-to(wide) {
+            @include respond-to(large) {
                 border-top: none;
                 margin-top: 0;
             }
@@ -154,10 +140,10 @@
                 line-height: 1.8em;
     		    color: inherit;
                 border-bottom-color: transparent;
-                font-size: 1rem; // 16px
+                font-size: 0.875rem;
 
                 @include respond-to(wide) {
-                    font-size: 1.125rem; // 18px
+                    font-size: 1rem;
                 }
     	    }
     	}
@@ -169,7 +155,7 @@
     z-index: 500;
 
     @include respond-to(wide) {
-        box-shadow: 0 0.8em 1.35em -0.5em rgba(0,0,0,0.3);
+        box-shadow: $menu-boxshadow;
     }
 }
 
@@ -185,8 +171,7 @@
 }
 
 .site-menu-toggle {
-    margin-top: 6px;
-    padding: 2*$unit;
+    padding: $unit 0;
     cursor: pointer;
     display: inline-block;
     border: 0 !important;
@@ -196,45 +181,125 @@
     &:focus {
         outline: none !important;
     }
+}
 
-    .lines {
+.site-menu-toggle .lines {
+    @include line;
+    position: relative;
+
+    &:before,
+    &:after {
         @include line;
-        position: relative;
-
-        &:before,
-        &:after {
-            @include line;
-            position: absolute;
-            left:0;
-            content: '';
-            transform-origin: center;
-        }
-
-        &:before {
-            top: 10px;
-        }
-
-        &:after {
-            top: -10px;
-        }
+        position: absolute;
+        left:0;
+        content: '';
+        transform-origin: center;
     }
 
-    &.toggle-on .lines {
-        background: transparent;
+    &:before {
+        top: 10px;
+    }
 
-        &:before,
-        &:after{
-            transform-origin: center;
-            top: 0;
-            width: 30px;
-        }
-
-        &:before{
-            transform: rotate(45deg);
-        }
-
-        &:after{
-            transform: rotate(-45deg);
-        }
+    &:after {
+        top: -10px;
     }
 }
+
+body.toggle-on .site-menu-toggle .lines {
+    background: transparent;
+
+    &:before,
+    &:after{
+        transform-origin: center;
+        top: 0;
+        width: 30px;
+    }
+
+    &:before{
+        transform: rotate(45deg);
+    }
+
+    &:after{
+        transform: rotate(-45deg);
+    }
+}
+
+body.toggle-on .site-menu {
+    display: block;
+}
+
+
+
+
+
+/*
+
+    .hover {
+      font-size: 36px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        width: 0px;
+        height: 5px;
+        margin: 5px 0 0;
+        transition: all 0.2s ease-in-out;
+        transition-duration: 0.75s;
+        opacity: 0;
+        background-color: darken(orange,5%);
+      }
+      &.hover-1 {
+        &:before,
+        &:after {
+          left: 0;
+        }
+      }
+      &.hover-2 {
+        &:before,
+        &:after {
+          right: 0;
+        }
+      }
+      &.hover-3 {
+        &:before {
+          left: 50%;
+        }
+        &:after {
+          right: 50%;
+        }
+      }
+      &.hover-4 {
+        &:before {
+          left: 0;
+        }
+        &:after {
+          right: 0;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .hover {
+        &:before,
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
+        &.hover-3,
+        &.hover-4 {
+          &:before,
+          &:after {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+} */
