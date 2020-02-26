@@ -8,8 +8,9 @@
 
 
 
+
 /**
- * Entfernt diverse Menüeinträge, um Usability zu erhöhen
+ * Entfernt diverse Menüeinträge, um die Usability zu erhöhen
  *
  * @since 	2.0.0
  **/
@@ -19,6 +20,8 @@ function congressomat_ajust_admin_menu()
 	$page = remove_submenu_page( 'edit.php?post_type=session', 'post-new.php?post_type=session' );
 	$page = remove_submenu_page( 'edit.php?post_type=partner', 'post-new.php?post_type=partner' );
 }
+
+add_action( 'admin_menu', 'congressomat_ajust_admin_menu', 999 );
 
 
 
@@ -43,3 +46,5 @@ function congressomat_adjust_acf_dialog()
 </script>
 <?php
 }
+
+add_action( 'acf/input/admin_head', 'congressomat_adjust_acf_dialog' );

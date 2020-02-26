@@ -8,6 +8,7 @@
 
 
 
+
 /**
  * Setzt die Länge des Excerpts
  *
@@ -19,6 +20,8 @@ function congressomat_excerpt_length( $length )
 {
 	return 30;
 }
+
+add_filter( 'excerpt_length', 'congressomat_excerpt_length', 999 );
 
 
 
@@ -32,6 +35,8 @@ function congressomat_excerpt_more( $more )
 {
 	return '...';
 }
+
+add_filter( 'excerpt_more', 'congressomat_excerpt_more' );
 
 
 
@@ -57,3 +62,8 @@ function congressomat_special_replacements( $text )
 
     return $text;
 }
+
+add_filter( 'the_title', 'congressomat_special_replacements', 12 );
+add_filter( 'the_content' , 'congressomat_special_replacements' , 12);
+add_filter( 'the_title_rss', 'congressomat_special_replacements', 12 );
+add_filter( 'the_content_feed', 'congressomat_special_replacements', 12 );

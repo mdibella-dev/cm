@@ -8,6 +8,7 @@
 
 
 
+
 /**
  * Entfernt Höhen- und Breiten-Angaben bei Thumbnails
  *
@@ -20,10 +21,12 @@ function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thum
     return $html;
 }
 
+add_filter( 'post_thumbnail_html', 'congressomat_remove_thumbnail_width_height', 10, 5 );
+
 
 
 /**
- * Entfernt die Skriptversionen
+ * Entfernt die Skriptversion
  *
  * @source  http://diywpblog.com/wordpress-optimization-remove-query-strings-from-static-resources/
  * @since   1.0.0
@@ -34,6 +37,9 @@ function congressomat_remove_script_version( $src )
     $parts = explode( '?ver', $src );
     return $parts[0];
 }
+
+add_filter( 'script_loader_src', 'congressomat_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'congressomat_remove_script_version', 15, 1 );
 
 
 
@@ -52,6 +58,9 @@ function congressomat_remove_styles_scripts()
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
+
+add_action( 'wp_enqueue_scripts', 'congressomat_remove_styles_scripts', 9985 );
+
 
 
 
@@ -92,3 +101,5 @@ function congressomat_remove_post_classes( $classes, $class, $post_id )
 
     return $classes;
 }
+
+add_filter( 'post_class', 'congressomat_remove_post_classes', 10, 3 );

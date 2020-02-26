@@ -8,6 +8,7 @@
 
 
 
+
 /**
  * Block Editor für diverse Post Types deaktivieren
  *
@@ -30,6 +31,9 @@ function congressomat_disable_block_editor( $current_status, $post_type )
     return $current_status;
 }
 
+add_filter( 'gutenberg_can_edit_post_type', 'congressomat_disable_block_editor' );
+add_filter( 'use_block_editor_for_post_type', 'congressomat_disable_block_editor', 10, 2);
+
 
 
 /**
@@ -48,3 +52,5 @@ function congressomat_add_block_editor_assets()
 		               0, //filemtime( get_template_directory() . '/assets/js/block-editor.js' ),
 		               true	);
 }
+
+add_action( 'enqueue_block_editor_assets', 'congressomat_add_block_editor_assets' );
