@@ -22,7 +22,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
      **/
 
     $default_atts = array(
-        'show'    => get_option( 'posts_per_page' ),
+        'show'    => '',
         'paged'   => '0',
         'exclude' => '',
         'shuffle' => '0',
@@ -43,6 +43,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
 
     // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
     if( $paged == 1 ) :
+        $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
             'exclude'        => $exclude_ids,
             'post_type'      => 'post',
