@@ -8,11 +8,17 @@
 
 
 
-// Notices ausschalten
+/**
+ * Notices ausschalten
+ **/
+
 error_reporting( E_ALL ^ E_NOTICE );
 
 
-// Konstanten
+/**
+ * Konstanten
+ **/
+
 define( 'SOCIAL_MEDIA', array(
     '1' => array(
         'name' => 'Facebook',
@@ -41,15 +47,18 @@ define( 'SOCIAL_MEDIA', array(
 ) );
 
 
-// Funktionsbibliothek einbinden
+/**
+ * Funktionsbibliothek einbinden
+ **/
+
 require_once( get_template_directory() . '/inc/setup.php' );
-require_once( get_template_directory() . '/inc/hooks.php' );
 require_once( get_template_directory() . '/inc/block-editor.php' );
 require_once( get_template_directory() . '/inc/backend.php' );
 require_once( get_template_directory() . '/inc/performance.php' );
 require_once( get_template_directory() . '/inc/snippets.php' );
 require_once( get_template_directory() . '/inc/core.php' );
-require_once( get_template_directory() . '/inc/classes/class-megamenu-walker.php' );
+
+// Shortcodes
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );
