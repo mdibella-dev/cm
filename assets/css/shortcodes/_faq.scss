@@ -37,7 +37,6 @@
         border-bottom: 1px solid #ddd;
         padding: 1.25em 0;
         cursor: pointer;
-        display: -webkit-flex;
         display: flex;
 
         & > span {
@@ -56,16 +55,18 @@
                 width: 3*$unit;
             }
 
-            i {
+            & > i {
                 transition: all .5s ease-out;
             }
         }
+    }
 
-        &.on .faq-arrow > i {
-            -webkit-transform-origin: center;
-                    transform-origin: center;
-            -webkit-transform: rotate(90deg);
-                    transform: rotate(90deg);
+    .faq-question.on {
+        border-bottom-color: #f3f3f3;
+
+        .faq-arrow > i {
+            transform-origin: center;
+            transform: rotate(90deg);
         }
     }
 
@@ -75,6 +76,7 @@
         background: #f3f3f3;
         margin-bottom: 1rem;
         padding: 1rem 3*$unit;
+        border-top: unset;
 
         @include respond-to(medium) {
             margin-bottom: 2rem;

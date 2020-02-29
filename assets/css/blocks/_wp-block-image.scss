@@ -23,6 +23,7 @@
         }
     }
 
+
     figcaption {
         background: #f3f3f3;
         color: #777;
@@ -36,6 +37,7 @@
         @include respond-to(medium) {
             font-size: 1rem !important;
         }
+
 
         &::before {
             display: inline-block;

@@ -56,4 +56,12 @@ wp.domReady( () => {
 		label: 'Mit Bildbeschreibung',
 		isDefault: false
 	} );
+
+
+	// Cover
+	wp.blocks.registerBlockStyle( 'core/cover', {
+		name: 'with-overlay',
+		label: 'Mit Überlagerung',
+		isDefault: false
+	} );
 } );
