@@ -28,9 +28,11 @@
         -ms-hyphens: auto;
             hyphens: auto;
     line-height: 1.5;
+    font-size: 1rem;
 
     @include respond-to(medium) {
         line-height: 1.75;
+        font-size: 1.2rem;
     }
 }
 
@@ -45,24 +47,5 @@
         -webkit-hyphens: none;
             -ms-hyphens: none;
                 hyphens: none;
-    }
-}
-
-
-
-@mixin set-block-position-and-size() {
-    // Blöcke standardmäßg zentrieren und größtmögliche Breite geben
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-
-    @include respond-to(large) {
-        // ab 960px (large): Abstand zum linken und rechten Bildschirmrand weiter erhöhen durch Reduktion der (prozentualen) Arbeitsfläche
-        width: calc(10 * calc(100vw/12) );
-    }
-
-    @include respond-to(wide) {
-        // ab 1280px (wide): Abstand zum linken und rechten Bildschirmrand noch weiter erhöhen
-        width: calc(8 * calc(100vw/12) );
     }
 }
