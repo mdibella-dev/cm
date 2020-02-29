@@ -69,3 +69,17 @@
         background: #000 !important;
     }
 }
+
+
+.wp-block-button.is-fa-button > .wp-block-button__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding:0;
+
+    @include respond-to(medium) {
+        padding: 0;
+    }
+}

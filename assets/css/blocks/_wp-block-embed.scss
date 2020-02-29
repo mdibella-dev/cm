@@ -1,0 +1,14 @@
+/**
+ * Custom Styles für wp-block-embed
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+.wp-block-embed {
+    // Der standardmäßige untere Abstand (margin-bottom) von 1em auf den oberen und unteren Abstand aufteilen
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}

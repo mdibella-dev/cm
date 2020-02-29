@@ -11,13 +11,15 @@
 .wp-block-table.is-style-default,
 .wp-block-table.is-style-default-with-header-row,
 .wp-block-table.is-style-default-with-header-column {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 1rem;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1rem;
 
-    @include respond-to(medium) {
-        font-size: 1.125rem;
-        line-height: 1.4;
+        @include respond-to(medium) {
+            font-size: 1.125rem;
+            line-height: 1.4;
+        }
     }
 
     tr {
@@ -95,5 +97,24 @@
             -ms-hyphens: none;
                 hyphens: none;
         font-weight: 300;
+    }
+}
+
+
+/**
+ * wp-block-table
+ **/
+
+.wp-block-table.is-style-default-with-header-column.two-columns-30-70 {
+    td:first-of-type {
+        @include respond-to(medium) {
+            width: 30%;
+        }
+    }
+
+    td:last-of-type {
+        @include respond-to(medium) {
+            width: 70%;
+        }
     }
 }

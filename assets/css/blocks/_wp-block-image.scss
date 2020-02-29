@@ -9,6 +9,18 @@
 .wp-block-image.is-style-with-caption {
     figure {
         line-height: 0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        @include respond-to(medium) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @include respond-to(large) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
     }
 
     figcaption {
