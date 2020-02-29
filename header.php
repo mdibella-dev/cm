@@ -29,8 +29,6 @@
 	<?php
 	if( has_nav_menu( 'primary' ) ) :
 		wp_nav_menu( array(
-			'menu'       	 => ' ',
-		    'menu_class'     => '',
 		    'theme_location' => 'primary',
 		    'container'  	 => false,
 		) );

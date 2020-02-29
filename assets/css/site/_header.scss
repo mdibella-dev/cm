@@ -13,73 +13,18 @@
     z-index: 400;
     display: block;
     width: 100%;
-    //padding: 1rem;
-    border-bottom: 1px solid #aaa;
-    //box-shadow: $menu-boxshadow;
 }
-/*
-#header-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
 
-    // ab 960px (large)
-    @include respond-to(large) {
-        flex-wrap: nowrap;
-        max-width: 64rem;
-        justify-content: space-between;
-        padding-left: 0;
-        padding-right: 0;
+
+/* Unterstützung für QuadMenu Megamenü */
+
+#quadmenu {
+    box-shadow: $menu-boxshadow;
+
+    .quadmenu-dropdown-stretch-dropdown {
+        @include respond-to(large) {
+            box-shadow: $menu-boxshadow;
+        }
     }
+
 }
-
-#header-titles-wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-
-    // ab 960px (large)
-    @include respond-to(large) {
-        width: 200px; // hardcoded
-    }
-}
-
-
-#header-branding {
-    width: 50%;
-    margin: 0;
-
-    // ab 960px (large)
-    @include respond-to(large) {
-        width: 200px;
-    }
-}
-
-#header-menu-toggle {
-    text-align: right !important;
-    width: 50%;
-
-    // ab 960px (large): Toggle verstecken
-    @include respond-to(large) {
-        display: none;
-        width: 0;
-    }
-}
-
-#header-menu {
-    display: none;
-    width: 100%;
-    margin-top: 1rem;
-
-    // ab 960px (large)
-    @include respond-to(large) {
-        display: block;
-        width: auto;
-        margin-top: 0;
-    }
-}
-
-body.toggle-on #header-menu {
-    display: block;
-}
-*/
