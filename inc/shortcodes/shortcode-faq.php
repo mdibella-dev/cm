@@ -29,6 +29,9 @@ function congressomat_shortcode_faq( $atts, $content = null )
      **/
 
     if( have_rows( 'faq', $faq ) ) :
+
+        // Beginn der Ausgabenpufferung
+        ob_start();
 ?>
 
 <div class="faq-accordion">
