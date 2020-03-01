@@ -7,29 +7,18 @@
 
 
 
-.article {
-    /*
-    & > * {
-        margin-bottom: 1rem;
+.paragraph-header {
+    @include h-tag-basic-settings();
+    font-size: 1.25rem; // 20px
+    margin-top: 2rem; // !!!
+    margin-bottom: 1rem;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-    } */
+    @include respond-to(medium) {
+        font-size: 1.375rem; // 22px
+    }
 
-
-    & > h2 {
-        @include h-tag-basic-settings();
-        font-size: 1.25rem; // 20px
-        margin-top: 2rem; // !!!
-
-        @include respond-to(medium) {
-            font-size: 1.375rem; // 22px
-        }
-
-        @include respond-to(large) {
-            margin-top: 4rem; // !!!
-        }
+    @include respond-to(large) {
+        margin-top: 4rem; // !!!
     }
 
 }
