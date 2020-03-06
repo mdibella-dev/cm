@@ -1,0 +1,26 @@
+/**
+ * Custom Styles für wp-block-quote
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+.wp-block-quote {
+  position: relative;
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 2.4em;
+  line-height: 1.5em;
+
+  &:before {
+      content: '\201C';
+      position: absolute;
+      top: 0.25em;
+      left: -0.15em;
+      color: #fafafa;
+      font-size: 6em;
+      z-index: -1;
+   }
+}
