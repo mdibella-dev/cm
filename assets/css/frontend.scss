@@ -12,23 +12,18 @@
 @import "vendors/_normalize";
 
 
-/* Variablen */
-
-@import "common/_vars";
-
-
 /* Mixins */
 
 @import "mixins/_mixins";
 @import "mixins/_media-breakpoints";
 
 
+/* UNSORTIERT */
 
-@import "common/_gutenberg-attributes";
-@import "common/_color-palette";
-@import "frontend/_basics";
-@import "frontend/_article";
-@import "frontend/_speaker-profile";
+@import "unsorted/_vars";
+@import "unsorted/_basics";
+@import "unsorted/_article";
+@import "unsorted/_speaker-profile";
 
 
 /* Seitenelemente */
@@ -37,14 +32,10 @@
 @import "site/_header";
 
 
-/* Shortcodes */
+/* Block-Editor (Gutenberg) */
 
-@import "shortcodes/_partner-list";
-@import "shortcodes/_partner-table";
-@import "shortcodes/_teaser-list";
-@import "shortcodes/_event-table";
-@import "shortcodes/_speaker-grid";
-@import "shortcodes/_faq";
+@import "block-editor/_attributes";
+@import "block-editor/_color-palette";
 
 
 /* Blocks */
@@ -55,3 +46,13 @@
 @import "blocks/_wp-block-image";
 @import "blocks/_wp-block-cover";
 @import "blocks/_wp-block-embed";
+
+
+/* Shortcodes */
+
+@import "shortcodes/_partner-list";
+@import "shortcodes/_partner-table";
+@import "shortcodes/_teaser-list";
+@import "shortcodes/_event-table";
+@import "shortcodes/_speaker-grid";
+@import "shortcodes/_faq";
