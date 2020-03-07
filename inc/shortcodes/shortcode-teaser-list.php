@@ -22,10 +22,11 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
      **/
 
     $default_atts = array(
-        'show'    => '',
-        'paged'   => '0',
-        'exclude' => '',
-        'shuffle' => '0',
+        'show'      => '',
+        'paged'     => '0',
+        'exclude'   => '',
+        'shuffle'   => '0',
+        'category'  => '0',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
@@ -46,6 +47,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
             'exclude'        => $exclude_ids,
+            'category'       => $category,
             'post_type'      => 'post',
             'post_status'    => 'publish',
             'posts_per_page' => -1
@@ -81,6 +83,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
         'post_type'      => 'post',
         'post_status'    => 'publish',
         'order'          => 'DESC',
+        'category'       => $category,
         'orderby'        => $orderby,
         'posts_per_page' => $show,
         'offset'         => $offset,
