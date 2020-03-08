@@ -1,3 +1,12 @@
+/**
+ * Grundlegende Einstellungen für Tags
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
 html,
 body {
     height: 100%;
@@ -36,28 +45,9 @@ body {
     box-sizing: border-box;
 }
 
-/*
-a {
-    text-decoration: none;
-
-    &:focus {
-        outline: none;
-    }
-}*/
 
 a {
-    transition: all .3s ease-out;
-    color: #555;
-    border-bottom: 1px solid #ccc;
-    padding: 2px;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-        background: #ccc;
-        border-bottom: 1px solid transparent;
-        outline: none;
-    }
+    @include a-tag-basic-settings();
 }
 
 
@@ -115,7 +105,6 @@ h6 {
 
 p {
     @include p-tag-basic-settings();
-
 }
 
 
