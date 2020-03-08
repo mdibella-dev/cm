@@ -31,16 +31,12 @@
     .teaser-list-element {
         line-height: 0;
         text-align: left;
-        display: -webkit-flex;
         display: flex;
-        -webkit-flex-wrap: wrap;
-                flex-wrap: wrap;
-        -webkit-align-items: flex-start;
-                align-items: flex-start;
+        flex-wrap: wrap;
+        align-items: flex-start;
 
         @include respond-to(medium) {
-            -webkit-flex-wrap: nowrap;
-                    flex-wrap: nowrap;
+            flex-wrap: nowrap;
         }
 
         // Bildkomponente des Teasers
@@ -52,13 +48,11 @@
             @include respond-to(small) {
                 // ab 600px (small): Komponente nebeneinander anzeigen
                 display: inline-block;
-                -webkit-flex-basis: 25%;
-                        flex-basis: 25%;
+                flex-basis: 25%;
             }
 
             @include respond-to(wide) {
-                -webkit-flex-basis: 30%;
-                        flex-basis: 30%;
+                flex-basis: 30%;
             }
 
             a {
@@ -82,31 +76,31 @@
             @include respond-to(small) {
                 // ab 600px (small): Komponente nebeneinander anzeigen
                 display: inline-block;
-                -webkit-flex-basis: 75%;
-                        flex-basis: 75%;
+                flex-basis: 75%;
                 padding-top: 0;
                 padding-left: 2*$unit;
             }
 
             @include respond-to(wide) {
-                -webkit-flex-basis: 70%;
-                        flex-basis: 70%;
+                flex-basis: 70%;
                 padding-left: 4*$unit;
             }
 
             h2 {
                 @include h-tag-basic-settings();
                 font-size: 1.313rem; // 21px
-                margin-bottom: 1em;
+                margin-bottom: 0.35rem;
             }
 
             p {
                 @include p-tag-basic-settings();
+                font-size: .925rem;
+
                 @include respond-to(medium) {
                     line-height: 1.5;
-                    font-size: 1.15rem;
+                    font-size: 1rem
                 }
-                margin-bottom: 1.5em;
+                margin-bottom: 0.35rem;
             }
 
             a {
@@ -124,7 +118,6 @@
         // jeweils eine überhalb und eine unterhalb der Liste
         nav {
             text-align: center;
-            display: -webkit-flex;
             display: flex;
             width: auto;
             max-width: 600px;
@@ -151,14 +144,10 @@
 
             .pageinfo {
                 padding: 0 2*$unit;
-                display: -webkit-flex;
                 display: flex;
-                -webkit-flex-grow: 2;
-                        flex-grow: 2;
-                -webkit-justify-content: center;
-                        justify-content: center;
-                -webkit-align-items: center;
-                        align-items: center;
+                flex-grow: 2;
+                justify-content: center;
+                align-items: center;
 
                 span {
                     @include p-tag-basic-settings();
