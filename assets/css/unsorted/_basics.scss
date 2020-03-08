@@ -36,11 +36,26 @@ body {
     box-sizing: border-box;
 }
 
-
+/*
 a {
     text-decoration: none;
 
     &:focus {
+        outline: none;
+    }
+}*/
+
+a {
+    transition: all .3s ease-out;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    padding: 2px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        background: #ccc;
+        border-bottom: 1px solid transparent;
         outline: none;
     }
 }
@@ -52,7 +67,8 @@ img {
         height: auto;
     }
 
-    &.aligncenter {
+    &.aligncenter,
+    &.align-center  {
         margin-left: auto;
         margin-right: auto;
     }
