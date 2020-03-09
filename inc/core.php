@@ -138,16 +138,22 @@ function congressomat_sort_sessions_by_timestamp( $sessions )
 
         // Zeitstempel und sortierfähiges Array bilden
         foreach( $sessions as $session ) :
-            $timestamp = strtotime( get_field( 'programmpunkt-datum', $session->ID )
-                                    . ''
-                                    . get_field( 'programmpunkt-von', $session->ID ) );
+            $timestamp_from = strtotime( get_field( 'programmpunkt-datum', $session->ID )
+                                         . ' '
+                                         . get_field( 'programmpunkt-von', $session->ID ) );
 
-            if( $timestamp === false ) :
+            $timestamp_to   = strtotime( get_field( 'programmpunkt-datum', $session->ID )
+                                         . ' '
+                                         . get_field( 'programmpunkt-bis', $session->ID ) );
+
+            if( $timestamp_from !== false ) :
+                $sort[ $timestamp_from ] = $session;
+            elseif ( $timestamp_to !== false ) :
+                $sort[ $timestamp_to ] = $session;
+            else :
                 $unable_to_sort = true;
                 break;
             endif;
-
-            $sort[ $timestamp ] = $session;
         endforeach;
 
         // Sortieren wenn möglich

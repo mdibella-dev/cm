@@ -188,3 +188,32 @@
         }
     }
 }
+
+
+.event-table.has-set-4 {
+
+    @include respond-to(medium) {
+        div.row {
+            display: flex;
+        }
+
+        div.cell:nth-of-type(1) {
+            display: inline-block;
+            width: 25%;
+            white-space: nowrap;
+        }
+
+        div.cell:nth-of-type(2) {
+            display: flex;
+            width: 75%;
+
+            & > div:nth-of-type(1) {
+                flex-grow: 2;
+            }
+        }
+
+        *[data-type='session-speaker'] {
+            text-align: right;
+        }
+    }
+}

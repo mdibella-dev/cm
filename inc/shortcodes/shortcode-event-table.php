@@ -34,12 +34,9 @@ function congressomat_shortcode_event_table( $atts, $content = null )
 
     $output  = '';
     $rowset  = array();
-    $rowsets = array( '1' => 'session-date,session-time-range|session-title,session-subtitle|session-location',
-                      '2' => 'session-time-begin|session-title,session-subtitle,session-location|session-speaker',
-                      '3' => 'session-time-begin|session-title,session-subtitle|session-speaker' );
 
 
-    if( ( 1 <= $set ) and ( $set <= sizeof( $rowsets) ) ) :
+    if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_ROWSET) ) ) :
 
         /**
          * Schritt 1
@@ -66,21 +63,23 @@ function congressomat_shortcode_event_table( $atts, $content = null )
              * Rowset vorbereiten
              **/
 
-            $pass_1 = explode( '|', $rowsets[ $set ] );  // 1. Durchlauf
+            // 1. Durchlauf
+            $pass_1 = explode( '|', EVENT_TABLE_ROWSET[ $set ] );
 
+            // 2. Durchlauf
             foreach( $pass_1 as $pass_2 ) :
-                $rowset[] = explode( ',', $pass_2 );     // 2. Durchlauf
+                $rowset[] = explode( ',', $pass_2 );
             endforeach;
             $rows = '';
 
             foreach( $sessions as $session ) :
                 $row = '';
 
-                foreach( $rowset as $pass_1 ) :
+                foreach( $rowset as $pass_3 ) :
                     $cell = '';
-
-                    foreach( $pass_1 as $pass_2 ) :
-                        $cell .= sprintf( '<div data-type="%1$s">%2$s</div>', $pass_2, congressomat_get_session_data( $pass_2, $session ) );
+                    foreach( $pass_3 as $data_key ) :
+                        print_r( $data_key);
+                        $cell .= sprintf( '<div data-type="%1$s">%2$s</div>', $data_key, congressomat_get_session_data( $data_key, $session ) );
                     endforeach;
 
                     $row .= sprintf( '<div class="cell">%1$s</div>', $cell );
@@ -97,8 +96,87 @@ function congressomat_shortcode_event_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'event-table', 'congressomat_shortcode_event_table' );
+//add_shortcode( 'event-table', 'congressomat_shortcode_event_table_2' );
 
+
+
+function congressomat_shortcode_event_table_2( $atts, $content = null )
+{
+    /**
+     * Parameter auslesen
+     **/
+
+    $default_atts = array(
+        'event'   => '',
+        'speaker' => '',
+        'set'     => '1',
+    );
+
+    extract( shortcode_atts( $default_atts, $atts ) );
+
+
+
+    if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_SETLIST ) ) ) :
+
+        /**
+         * Schritt 1
+         * Daten holen
+         **/
+
+        if( !empty( $speaker) ) :
+            $sessions = congressomat_get_sessions_by_speaker( $speaker, 'ACTIVE' );
+        elseif( !empty( $event ) ) :
+            $sessions = congressomat_get_sessions_by_event( $event );
+        else :
+            $sessions = null;
+        endif;
+
+
+        /**
+         * Schritt 2
+         * Jede Session entlang der Setlist abarbeiten
+         **/
+
+        if( $sessions ) :
+
+            // 1. Durchlauf
+            $pass_1 = explode( '|', EVENT_TABLE_SETLIST[ $set ] );
+
+            // 2. Durchlauf
+            $setlist = array();
+            foreach( $pass_1 as $pass_2 ) :
+                $setlist[] = explode( ',', $pass_2 );
+            endforeach;
+
+            // Ausgabe vorbereiten
+            $output = sprintf( '<div class="event-table has-set-%1$s">', $set );
+
+            foreach( $sessions as $session ) :
+                $output .= '<div class="row">';
+
+                foreach( $setlist as $pass_3 ) :
+
+                    $output .= '<div class="cell">';
+
+                    foreach( $pass_3 as $data_key ) :
+                        $output .= sprintf( '<div data-type="%1$s">%2$s</div>', $data_key, congressomat_get_session_data( $data_key, $session ) );
+                    endforeach;
+
+                    $output .= '</div>';
+                endforeach;
+
+                $output .= '</div>';
+            endforeach;
+
+            $output .= '</div>';
+        endif;
+    endif;
+
+    // Ausgabe
+    return $output;
+}
+
+add_shortcode( 'event-table', 'congressomat_shortcode_event_table_2' );
 
 
 /**
@@ -119,18 +197,20 @@ function congressomat_get_session_data( $data_key, $session )
         break;
 
         case 'session-time-range' :
-            $value = sprintf( '%1$s bis %2$s',
-                              get_field( 'programmpunkt-von', $session->ID ),
-                              get_field( 'programmpunkt-bis', $session->ID ) );
+            $value = get_field( 'programmpunkt-alternative-zeitangabe', $session->ID );
+
+            if( empty( $value ) ) :
+                $value = sprintf( '%1$s bis %2$s',
+                    get_field( 'programmpunkt-von', $session->ID ),
+                    get_field( 'programmpunkt-bis', $session->ID ) );
+            endif;
         break;
 
         case 'session-title' :
-            // $value = $session->post_title;
             $value = apply_filters( 'the_content', $session->post_title );
         break;
 
         case 'session-subtitle' :
-            //$value = get_field( 'programmpunkt-untertitel', $session->ID );
             $value = apply_filters( 'the_content', get_field( 'programmpunkt-untertitel', $session->ID ) );
         break;
 
