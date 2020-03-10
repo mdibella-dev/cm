@@ -25,57 +25,87 @@ function congressomat_get_sessions( $args )
         'event_filter'   => 'ACTIVE',
         'speaker'        => '',
         'posts_per_page' => -1,
+        'date'           => '',
     );
     extract( wp_parse_args( $args, $default_args ) );
 
-    // Allgemeine Suchparameter setzen
+
+    /**
+     * Abfrage konstruieren
+     **/
+
+    // grundlegende Suchparameter
     $query = array(
         'posts_per_page' => $posts_per_page,
         'post_status'    => 'publish',
         'post_type'      => 'session',
     );
 
-    // Event setzen
+
+    // Behandlung von event/event_filter
     if( congressomat_get_event( $event ) !== null ) :
+        // Suche nach spezifischen Event
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'event',
             'field'    => 'term_id',
             'terms'    => $event,
         ) );
     else :
+        // Suche nach aktiven/inaktiven Events
         $event_list   = congressomat_get_active_events();
         $event_filter = strtoupper( trim( $event_filter ) );
 
-        switch( $event_filter ) :
-            case 'INACTIVE' :
-                $query[ 'tax_query' ] = array( array(
-                    'taxonomy' => 'event',
-                    'field'    => 'term_id',
-                    'terms'    => $event_list,
-                    'operator' => 'NOT IN',
-                ) );
-            break;
-
-            case 'ACTIVE' :
-            default:
-                $query[ 'tax_query' ] = array( array(
-                    'taxonomy' => 'event',
-                    'field'    => 'term_id',
-                    'terms'    => $event_list,
-                    'operator' => 'IN',
-                ) );
-            break;
-        endswitch;
+        if( $event_filter == 'INACTIVE' ) :
+            $query[ 'tax_query' ] = array( array(
+                'taxonomy' => 'event',
+                'field'    => 'term_id',
+                'terms'    => $event_list,
+                'operator' => 'NOT IN',
+            ) );
+        else : // == ACTIVE
+            $query[ 'tax_query' ] = array( array(
+                'taxonomy' => 'event',
+                'field'    => 'term_id',
+                'terms'    => $event_list,
+                'operator' => 'IN',
+            ) );
+        endif;
     endif;
 
-    // Speaker setzen
-    if ( !empty( $speaker ) and is_numeric( $speaker ) ) :
-        $query[ 'meta_query' ] = array( array(
-            'key'     => 'programmpunkt-referenten',
-            'value'   => $speaker,
-            'compare' => 'LIKE',
-        ) );
+
+    // Behandlung von speaker/date
+    if( !empty( $speaker ) or !empty( $date ) ) :
+        $query[ 'meta_query' ] = array();
+
+        // Suche nach den Sessions eines bestimmten Referenten
+        if( !empty( $speaker ) and is_numeric( $speaker ) ) :
+            $query[ 'meta_query' ][] = array(
+                'key'     => 'programmpunkt-referenten',
+                'value'   => $speaker,
+                'compare' => 'LIKE',
+            );
+        endif;
+
+
+        // Suche nach den Sessions an einem bestimmten Tag
+        if( !empty( $date ) ) :
+            // @see: https://www.php.net/manual/de/function.strtotime.php#122937
+            $date = str_replace( '.', '-', $date );
+
+            if( ( $timestamp = strtotime( $date) ) !== false ) :
+                $query[ 'meta_query' ][] = array(
+                    'key'   => 'programmpunkt-datum',
+                    'value' => date( 'Ymd', $timestamp ),
+                );
+            endif;
+        endif;
+
     endif;
+
+
+    /**
+     * Abfrage durchführen
+     **/
 
     // Passende Sessions ermitteln
     $sessions = get_posts( $query );
@@ -95,9 +125,12 @@ function congressomat_get_sessions( $args )
  * @since   1.0.0
  **/
 
-function congressomat_get_sessions_by_event( $event )
+function congressomat_get_sessions_by_event( $event, $date = '' )
 {
-    return congressomat_get_sessions( array( 'event' => $event ) );
+    return congressomat_get_sessions( array(
+        'event' => $event,
+        'date'  => $date,
+    ) );
 }
 
 
@@ -108,14 +141,17 @@ function congressomat_get_sessions_by_event( $event )
  *
  * @uses    congressomat_get_sessions
  * @param   int     $speaker
- * @param   string  $event_filter  ACTIVE, INACTIVE, ALL
+ * @param   string  $event_filter  ACTIVE, INACTIVE
  * @return  array
  * @since   1.0.0
  **/
 
-function congressomat_get_sessions_by_speaker( $speaker, $event_filter = 'ALL' )
+function congressomat_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' )
 {
-    return congressomat_get_sessions( array( 'speaker' => $speaker, 'event_filter'=> $event_filter ) );
+    return congressomat_get_sessions( array(
+        'speaker'      => $speaker,
+        'event_filter' => $event_filter,
+    ) );
 }
 
 
@@ -136,6 +172,7 @@ function congressomat_sort_sessions_by_timestamp( $sessions )
         $unable_to_sort = false;
         $sort           = array();
 
+
         // Zeitstempel und sortierfähiges Array bilden
         foreach( $sessions as $session ) :
             $timestamp_from = strtotime( get_field( 'programmpunkt-datum', $session->ID )
@@ -155,6 +192,7 @@ function congressomat_sort_sessions_by_timestamp( $sessions )
                 break;
             endif;
         endforeach;
+
 
         // Sortieren wenn möglich
         if( $unable_to_sort == false ) :
@@ -185,12 +223,14 @@ function congressomat_get_active_events()
     	'meta_value' => '1'
     );
 
+
     // Passende Events ermitteln
     $terms = get_terms( $query );
 
     if( $terms === false ) :
         return null;
     endif;
+
 
     // Rückgabedaten erstellen
     $events = array();
@@ -265,6 +305,7 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
                 endforeach;
             endif;
         endforeach;
+
 
         // Speaker nach Vor- und Nachnamen sortieren
         return congressomat_sort_speaker_datasets( $speaker_list );
@@ -342,6 +383,7 @@ function congressomat_get_location( $location )
 
     return null;
 }
+
 
 
 /**

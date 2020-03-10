@@ -5,9 +5,9 @@
  * Erzeugt eine Tabelle mit dem Zeitplan eines bestimmten Events
  *
  * Folgende Parameter können verwendet werden:
+ * @param   set      Die gewählte Set-Vorlage
  * @param   event    Die Identifikationsnummer des Events
  * @param   speaker  Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
- * @param   set      Die gewählte Set-Vorlage
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
@@ -22,14 +22,18 @@ function congressomat_shortcode_event_table( $atts, $content = null )
      **/
 
     $default_atts = array(
-        'event'   => '',
-        'speaker' => '',
         'set'     => '1',
+        'speaker' => '',
+        'event'   => '',
+        'date'    => '',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
+    /**
+     * Bei valider Setlist fortfahren
+     **/
 
     if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_SETLIST ) ) ) :
 
@@ -39,9 +43,16 @@ function congressomat_shortcode_event_table( $atts, $content = null )
          **/
 
         if( !empty( $speaker) ) :
-            $sessions = congressomat_get_sessions_by_speaker( $speaker, 'ACTIVE' );
+
+            // Nach (aktiven) Sessions des angegebenen Speakers suchen
+            $sessions = congressomat_get_sessions_by_speaker( $speaker );
+
         elseif( !empty( $event ) ) :
-            $sessions = congressomat_get_sessions_by_event( $event );
+
+            // Nach den Sessions des angegebenen Events suchen
+            // ggf. nach Tag filtern
+            $sessions = congressomat_get_sessions_by_event( $event, $date );
+
         else :
             $sessions = null;
         endif;
