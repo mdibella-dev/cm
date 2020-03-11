@@ -17,21 +17,21 @@
         flex-wrap: wrap;
         align-items: flex-start;
         align-content: space-between;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         // responsive Größen- und Abstandsanpassung der Gridelemente
         li {
             padding: 0;
-            margin: 1rem 0;
+            margin: 1rem;
             height: auto;
-            width: 48%;
+            width: calc(50% - 2rem);
 
             @include respond-to(medium) {
-                width: 31%;
+                width: calc(33% - 2rem);
             }
 
             @include respond-to(large) {
-                width: 23%;
+                width: calc(25% - 2rem);
             }
         }
     }

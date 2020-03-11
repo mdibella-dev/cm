@@ -124,10 +124,12 @@
 
 
 /**
- * Set 1: session-date,session-time-range|session-title,session-subtitle|session-location
+ * Set 1: session-date,session-time-range,session-location|session-title,session-subtitle
+ * Set 4: session-date,session-time-range|session-title,session-subtitle
  **/
 
-.event-table.has-set-1 {
+.event-table.has-set-1,
+.event-table.has-set-4 {
 
     @include respond-to(medium) {
         div.row {
@@ -136,27 +138,19 @@
 
         div.cell:nth-of-type(1) {
             white-space: nowrap;
+            width: 25%;
         }
 
         div.cell:nth-of-type(2) {
             flex-grow: 2;
         }
-
-        div.cell:nth-of-type(3) {
-            white-space: nowrap;
-        }
-
-        *[data-type='session-location'] {
-            text-align: center;
-        }
     }
 }
 
 
-
 /**
  * Set 2: session-time-begin|session-title,session-subtitle,session-location|session-speaker
- * Set 3: session-time-begin|session-title,session-subtitle|session-speaker
+ * Set 3: session-time-range|session-title,session-subtitle|session-speaker
  **/
 
 .event-table.has-set-2,
@@ -167,6 +161,10 @@
     }
 
     @include respond-to(medium) {
+        *[data-type='session-speaker'] {
+            text-align: right;
+        }
+
         div.row {
             display: flex;
         }
@@ -182,10 +180,6 @@
 
         div.cell:nth-of-type(3) {
             white-space: nowrap;
-        }
-
-        *[data-type='session-speaker'] {
-            text-align: right;
         }
     }
 }
