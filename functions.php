@@ -48,10 +48,10 @@ define( 'SOCIAL_MEDIA', array(
 
 
 define( 'EVENT_TABLE_SETLIST', array(
-    '1' => 'session-date,session-time-range|session-title,session-subtitle|session-location',
+    '1' => 'session-date,session-time-range,session-location|session-title,session-subtitle',
     '2' => 'session-time-begin|session-title,session-subtitle,session-location|session-speaker',
-    //'3' => 'session-time-begin|session-title,session-subtitle|session-speaker',
     '3' => 'session-time-range|session-title,session-subtitle|session-speaker',
+    '4' => 'session-date,session-time-range|session-title,session-subtitle',
 ) );
 
 
