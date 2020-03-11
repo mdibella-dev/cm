@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom Template für einfache Download-Links
+ * Custom Template für einfache Download-Links mit Beschreibung
  *
  * @author Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
@@ -24,5 +24,6 @@ endif;
             title="<?php _e( 'Datei herunterladen', 'congressomat' ); ?>">
             <?php $dlm_download->the_title(); ?>
         </a>
+        <?php $dlm_download->the_excerpt(); ?>
     </div>
 </div>
