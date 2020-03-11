@@ -22,6 +22,10 @@
         padding-right: $unit;
     }
 
+    .wp-block-cover__inner-container > *:last-child {
+        margin-bottom: unset !important;
+    }
+
 }
 
 
