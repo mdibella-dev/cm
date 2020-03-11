@@ -41,9 +41,9 @@ get_header();
                             // Position oder Berufstitel bekannt?
                             if( !empty( $speaker[ 'position' ] ) ) :
                             ?>
-                            <p class="speaker-position">
+                            <h3 class="speaker-position">
                                 <?php echo $speaker[ 'position' ]; ?>
-                            </p>
+                            </h3>
                             <?php
                             endif;
 
