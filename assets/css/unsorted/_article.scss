@@ -90,18 +90,6 @@
 }
 
 
-.download a::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 500;
-    content: "\f358";
-    padding-right: $unit;
-}
-
 .article-wrapper,
 .section-wrapper,
 .footer-widgets-wrapper {
@@ -125,4 +113,20 @@
         //    width: calc(8 * calc(100vw/12) );
         }
     }
+}
+
+
+
+
+.download a {
+    all: unset;
+
+    i {
+        color: #555;
+    }
+
+    span {
+        @include a-tag-basic-settings();
+    }
+
 }
