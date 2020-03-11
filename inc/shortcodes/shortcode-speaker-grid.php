@@ -35,7 +35,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
      * Daten abrufen und aufbereiten
      **/
 
-    $speakers = congressomat_get_speaker_datasets( ( $event == '-1' )? congressomat_get_active_events() : $event );
+    $speakers = congressomat_get_speaker_datasets( ( $event == '-1' )? implode( ',', congressomat_get_active_events() ) : $event );
 
     if( $speakers ) :
 
