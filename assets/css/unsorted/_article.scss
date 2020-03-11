@@ -103,14 +103,12 @@
         // ab 960px (large)
         @include respond-to(large) {
             padding: 2rem 0;
-            //width: calc(10 * calc(100vw/12) );
             max-width: 64rem;
         }
 
         // ab 1280px (wide):
         @include respond-to(wide) {
             padding: 4rem 0;
-        //    width: calc(8 * calc(100vw/12) );
         }
     }
 }
@@ -118,15 +116,18 @@
 
 
 
-.download a {
-    all: unset;
+.download {
+    @include p-tag-basic-settings();
+    display: flex;
+    align-items: baseline;
+    padding: .5rem 0;
 
     i {
         color: #555;
     }
 
-    span {
-        @include a-tag-basic-settings();
+    div {
+        flex-grow: 2;
+        margin-left: 2rem;
     }
-
 }
