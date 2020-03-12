@@ -16,7 +16,7 @@ if( !defined( 'ABSPATH' ) ) :
 endif;
 
 ?>
-<div class="download">
+<div class="download download-link">
     <i class="fas fa-download"></i>
     <div>
         <a href="<?php $dlm_download->the_download_link(); ?>"
@@ -24,6 +24,8 @@ endif;
             title="<?php _e( 'Datei herunterladen', 'congressomat' ); ?>">
             <?php $dlm_download->the_title(); ?>
         </a>
-        <?php $dlm_download->the_excerpt(); ?>
+        <p class="description">
+            <?php echo strip_tags( get_the_excerpt( $dlm_download->get_id() ) ); ?>
+        </p>
     </div>
 </div>

@@ -114,9 +114,11 @@
 }
 
 
+/**
+ * download-monitor
+ **/
 
-
-.download {
+.download-link {
     @include p-tag-basic-settings();
     display: flex;
     align-items: baseline;
@@ -130,4 +132,38 @@
         flex-grow: 2;
         margin-left: 2rem;
     }
+
+    p.description {
+        font-size: 95%;
+
+        @include respond-to(medium) {
+            font-size: 85%;
+        }
+    }
+}
+
+.download-image {
+    a {
+        display: block;
+        padding: 0;
+        transition: all 0.3s 0s ease-in-out;
+        box-shadow: 0 5px 40px -5px rgba(0,0,0,0.5);
+        border: 5px solid #fff;
+        line-height: 0;
+
+        &:hover,
+        &:focus {
+            border: 5px solid #fff;
+            transform: scale(1.5, 1.5) rotate(5deg);
+            box-shadow: 15px 15px 20px -5px rgba(0,0,0,0.5);
+        }
+    }
+
+    img {
+        /*
+        width:
+        height: */
+    }
+
+
 }

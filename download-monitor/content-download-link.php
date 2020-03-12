@@ -16,7 +16,7 @@ if( !defined( 'ABSPATH' ) ) :
 endif;
 
 ?>
-<div class="download">
+<div class="download download-link">
     <i class="fas fa-download"></i>
     <div>
         <a href="<?php $dlm_download->the_download_link(); ?>"
