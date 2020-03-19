@@ -77,13 +77,12 @@
 
         // ab 960px (large)
         @include respond-to(large) {
-            padding: 2rem 0;
             max-width: 64rem;
         }
 
         // ab 1280px (wide):
         @include respond-to(wide) {
-            padding: 4rem 0;
+            padding: 4rem 1rem;
         }
     }
 }
