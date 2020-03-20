@@ -191,12 +191,6 @@ function congressomat_enqueue_scripts()
     wp_enqueue_script( 'congressomat' );
 
 
-    /**
-     * Integration von FontAwesome5
-     **/
-
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fa5/css/fontawesome-all.min.css' );
-
 
     /**
      * Registrieren und Laden des Standard-Stylesheets von Congressomat
