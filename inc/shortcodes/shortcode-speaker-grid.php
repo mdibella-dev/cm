@@ -73,33 +73,36 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
         ob_start();
 
 ?>
-<div class='speaker-grid'>
+<div class="speaker-grid">
 
     <ul>
 
         <?php foreach( $speaker_list as $speaker ) : ?>
 
         <li>
-            <figure class="squared">
+            <figure class="speaker-grid-figure">
 
-                <a href="<?php echo $speaker[ 'permalink' ]; ?>"
+                <a class="speaker-grid-figure-image">
+                   href="<?php echo $speaker[ 'permalink' ]; ?>"
                    title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
                    <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?>
                 </a>
 
-                <figcaption class="speaker-caption">
+                <figcaption class="speaker-grid-figure-caption">
+                    <div class="speaker-grid-figure-caption__inner-container">
 
-                    <p class="speaker-title-name">
-                        <a href="<?php echo $speaker[ 'permalink' ]; ?>"
-                           title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
-                           <?php echo $speaker[ 'title_name' ]; ?>
-                        </a>
-                    </p>
+                        <p class="speaker-title-name">
+                            <a href="<?php echo $speaker[ 'permalink' ]; ?>"
+                               title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
+                               <?php echo $speaker[ 'title_name' ]; ?>
+                            </a>
+                        </p>
 
-                    <p class="speaker-position">
-                        <?php echo $speaker[ 'position' ]; ?>
-                    </p>
-
+                        <p class="speaker-position">
+                            <?php echo $speaker[ 'position' ]; ?>
+                        </p>
+                        
+                    </div>
                 </figcaption>
 
             </figure>

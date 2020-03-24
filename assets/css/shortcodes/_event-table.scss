@@ -43,11 +43,7 @@
     }
 
     div.cell {
-        padding: $unit;
-
-        @include respond-to(medium) {
-            padding: 2*$unit;
-        }
+        padding: 2*$unit;
 
         @include respond-to(large) {
             padding: 3*$unit;

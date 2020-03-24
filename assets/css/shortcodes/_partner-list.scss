@@ -9,12 +9,9 @@
 
 .partner-list {
     list-style: none;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-justify-content: center;
-            justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto !important;
     padding: 0 !important;
 
@@ -23,11 +20,15 @@
         padding: 0 !important;
         width: calc(50% - #{4*$unit});
 
+        @include respond-to(small) {
+            width: calc(33% - #{4*$unit});
+        }
+
         @include respond-to(medium) {
             width: calc(25% - #{4*$unit});
         }
 
-        @include respond-to(medium) {
+        @include respond-to(large) {
             width: calc(20% - #{4*$unit});
         }
     }
