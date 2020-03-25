@@ -26,6 +26,10 @@
         height: auto;
         width: 100%;
 
+        @include respond-to(medium) {
+            width: calc(50% - 2rem);
+        }
+
         @include respond-to(large) {
             width: calc(25% - 2rem);
         }
@@ -37,7 +41,7 @@
     transition: all 0.5s 0s ease-in-out;
     display: flex;
 
-    @include respond-to(large) {
+    @include respond-to(medium) {
         display: block;
     }
 
@@ -100,7 +104,7 @@
         align-items: center;
         align-content: center;
 
-        @include respond-to(large) {
+        @include respond-to(medium) {
             width: 100%;
             margin-top: $unit;
         }
@@ -120,10 +124,6 @@
             -webkit-hyphens: none;
                 -ms-hyphens: none;
                     hyphens: none;
-
-            @include respond-to(medium) {
-                font-size: 1rem;
-            }
         }
 
         .speaker-title-name a {
