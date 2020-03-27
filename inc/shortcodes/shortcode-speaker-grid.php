@@ -82,7 +82,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
         <li>
             <figure class="speaker-grid-figure">
 
-                <a class="speaker-grid-figure-image">
+                <a class="speaker-grid-figure-image"
                    href="<?php echo $speaker[ 'permalink' ]; ?>"
                    title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
                    <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?>
@@ -101,7 +101,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
                         <p class="speaker-position">
                             <?php echo $speaker[ 'position' ]; ?>
                         </p>
-                        
+
                     </div>
                 </figcaption>
 
