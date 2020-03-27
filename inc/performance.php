@@ -25,23 +25,6 @@ add_filter( 'post_thumbnail_html', 'congressomat_remove_thumbnail_width_height',
 
 
 
-/**
- * Entfernt die Skriptversion
- *
- * @source  http://diywpblog.com/wordpress-optimization-remove-query-strings-from-static-resources/
- * @since   1.0.0
- **/
-
-function congressomat_remove_script_version( $src )
-{
-    $parts = explode( '?ver', $src );
-    return $parts[0];
-}
-
-add_filter( 'script_loader_src', 'congressomat_remove_script_version', 15, 1 );
-add_filter( 'style_loader_src', 'congressomat_remove_script_version', 15, 1 );
-
-
 
 /**
  * Entfernt diversen Ballast
