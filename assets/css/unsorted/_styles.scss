@@ -116,27 +116,11 @@
 .section-title,
 .section-subtitle {
     margin-bottom: 2rem;
-/*
-    @include respond-to(medium) {
-        margin-bottom: 3rem;
-    }
-
-    @include respond-to(large) {
-        margin-bottom: 4rem;
-    } */
 }
 
 
 .section-title + .section-subtitle {
-    margin-top: -1.3rem;
-/*
-        @include respond-to(medium) {
-            margin-top: -2.3rem;
-        }
-
-        @include respond-to(large) {
-            margin-top: -3rem;
-        }*/
+    margin-top: -1.5rem;
 }
 
 
