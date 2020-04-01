@@ -13,7 +13,20 @@ __Tested up to:__ WordPress 5.3
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
-### 2.0.0 (WIP)
+### 2.1.0
+**Geändert:** Kommentierung und Code-Refaktorierung
+**Geändert:** Templates für Download-Monitor
+**Geändert:** Shortcode Event-Table
+**Geändert:** FontAwesome5-Integration
+**Geändert:** Hauptnavigation (QuadMenu-Integration)
+**Hinzugefügt:** Unterstützung für multiple Programmpunktzuweisungen
+**Hinzugefügt:** Beschreibung für Programmpunke
+**Hinzugefügt:** .accordion
+**Entfernt:** congressomat_excerpt_more()
+**Entfernt:** congressomat_remove_script_version()
+**Entfernt:** congressomat_special_replacements()
+
+### 2.0.0
 **Geändert:** Verzeichnisstruktur des Themes  
 **Geändert:** Changelog und Readme miteinander verschmolzen
 **Geändert:** Menüs im Backend
