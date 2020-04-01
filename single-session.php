@@ -36,7 +36,9 @@ get_header();
                             echo apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', get_the_ID() ) );
                             ?>
                         </div>
+
                     </div>
+                    
                 </div>
             </div>
 

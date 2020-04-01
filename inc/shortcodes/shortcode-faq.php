@@ -44,13 +44,8 @@ function congressomat_shortcode_faq( $atts, $content = null )
 
         <li class="faq-element">
             <div class="faq-question">
-                <span class="faq-arrow">
-                    <i class="fal fa-long-arrow-right"></i>
-                </span>
-
-                <span>
-                    <?php echo wp_strip_all_tags( apply_filters( 'the_content', get_sub_field( 'question' ) ) ); ?>
-                </span>
+                <span class="faq-arrow"><i class="fal fa-long-arrow-right"></i></span>
+                <span><?php echo wp_strip_all_tags( apply_filters( 'the_content', get_sub_field( 'question' ) ) ); ?></span>
             </div>
 
             <div class="faq-answer">
