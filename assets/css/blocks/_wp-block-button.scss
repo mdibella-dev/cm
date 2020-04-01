@@ -19,7 +19,7 @@
     text-transform: uppercase;
     display: inline-block;
     cursor: pointer;
-    transition: all .5s ease-in-out !important;
+    transition: all .3s ease-in-out !important;
     border-radius: 0;
     border-width: 2px;
     border-style: solid;
@@ -35,10 +35,9 @@
 
     &:hover,
     &:focus {
-        border-color: #000 !important;
-        background: #000 !important;
-        color: #fff !important;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.12);
+        border-color: rgba !important;
+        background: #000; //!important;
+        color: #fff; // !important;
     }
 }
 
@@ -54,6 +53,10 @@
 }
 
 
+
+
+
+
 /* Style "Black Ghost" */
 
 .wp-block-button.is-style-black-ghost > .wp-block-button__link {
@@ -64,6 +67,7 @@
 
     &:hover,
     &:focus {
+        color: #fff;
         background: #000 !important;
     }
 }
@@ -79,6 +83,7 @@
 
     &:hover,
     &:focus {
+        color: #fff;
         background: #000 !important;
     }
 }
@@ -90,6 +95,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50% !important;
+    border-color: transparent;
+    background-color: transparent;
     width: 60px;
     height: 60px;
     padding:0;
@@ -97,4 +105,11 @@
     @include respond-to(medium) {
         padding: 0;
     }
+}
+
+
+.wp-block-button.is-fa-button > .wp-block-button__link:hover,
+.wp-block-button.is-fa-button > .wp-block-button__link:focus {
+    border-color: transparent !important;
+    background-color: rgba(0,0,0,0.1) !important;
 }
