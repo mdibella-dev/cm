@@ -13,6 +13,8 @@ __Tested up to:__ WordPress 5.3
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
+### 2.2.0
+
 ### 2.1.0
 **Geändert:** Kommentierung und Code-Refaktorierung
 **Geändert:** Templates für Download-Monitor
