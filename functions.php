@@ -15,9 +15,13 @@
 error_reporting( E_ALL ^ E_NOTICE );
 
 
+
 /**
  * Konstanten
  **/
+
+
+/** Soziale Netze **/
 
 define( 'SOCIAL_MEDIA', array(
     '1' => array(
@@ -42,16 +46,31 @@ define( 'SOCIAL_MEDIA', array(
     ),
     '6' => array(
         'name' => 'LinkedIn',
-        'icon' => 'fab fa-linkedin-in'
+        'icon' => 'fab fa-linkedin-in',
     ),
 ) );
 
 
+/** Vorkonfigurierte Sets für Eventtabellen **/
+/** a = linke Spalte mit Orts- und Zeitangaben; b = mittlere Spalte mit Titel etc. **/
+
 define( 'EVENT_TABLE_SETLIST', array(
-    '1' => 'session-date,session-time-range,session-location|session-title,session-subtitle',
-    '2' => 'session-time-begin|session-title,session-subtitle,session-location|session-speaker',
-    '3' => 'session-time-range|session-title,session-subtitle|session-speaker',
-    '4' => 'session-date,session-time-range|session-title,session-subtitle',
+    '1' => array(
+        'a' => 'session-date,session-time-range,session-location',
+        'b' => 'session-title,session-subtitle',
+    ),
+    '2' => array(
+        'a' => 'session-time-begin,session-location',
+        'b' => 'session-title,session-subtitle,session-speaker',
+    ),
+    '3' => array(
+        'a' => 'session-time-range',
+        'b' => 'session-title,session-subtitle,session-speaker',
+    ),
+    '4' => array(
+        'a' => 'session-date,session-time-range',
+        'b' => 'session-title,session-subtitle',
+    ),
 ) );
 
 
@@ -67,7 +86,9 @@ require_once( get_template_directory() . '/inc/performance.php' );
 require_once( get_template_directory() . '/inc/snippets.php' );
 require_once( get_template_directory() . '/inc/core.php' );
 
-// Shortcodes
+
+/** Shortcodes **/
+
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );
