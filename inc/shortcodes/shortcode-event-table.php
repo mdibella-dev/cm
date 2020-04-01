@@ -5,15 +5,14 @@
  * Erzeugt eine Tabelle mit dem Zeitplan eines bestimmten Events
  *
  * Folgende Parameter können verwendet werden:
- * @param   set      Die gewählte Set-Vorlage
- * @param   event    Die Identifikationsnummer des Events
- * @param   speaker  Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten.
+ * @param   set             Die gewählte Set-Vorlage
+ * @param   event           Die Identifikationsnummer des Events
+ * @param   speaker         Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten
+ * @param   show_details    Anzeige der Details ermöglichen (true, false)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
-
-
 
 function congressomat_shortcode_event_table( $atts, $content = null )
 {

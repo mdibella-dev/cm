@@ -20,7 +20,6 @@ error_reporting( E_ALL ^ E_NOTICE );
  * Konstanten
  **/
 
-
 /** Soziale Netze **/
 
 define( 'SOCIAL_MEDIA', array(

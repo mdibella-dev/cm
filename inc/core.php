@@ -356,6 +356,7 @@ function congressomat_sort_speaker_datasets( $speaker_list )
         $forename[$key] = $row[ 'forename' ];
         $lastname[$key] = $row[ 'lastname' ];
     endforeach;
+
     array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
 
     return $speaker_list;

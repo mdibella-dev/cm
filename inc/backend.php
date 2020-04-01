@@ -29,7 +29,7 @@ add_action( 'admin_menu', 'congressomat_ajust_admin_menu', 999 );
  * Fügt ein JS-Script hinzu, um diverse Standard-Eingabefelder von WordPress in eine neue Maske (ACF) zu verschieben
  *
  * @source http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
- * @since 2.0
+ * @since 2.0.0
  */
 
 function congressomat_adjust_acf_dialog()
