@@ -16,7 +16,7 @@
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>"/>
 	<meta name="author" content="G&amp;S Verlag GbR">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="geo.region" content="DE-NW" />
 	<meta name="geo.placename" content="K&ouml;ln" />
 	<meta name="geo.position" content="50.957827;7.017787"/>
