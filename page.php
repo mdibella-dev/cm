@@ -22,7 +22,7 @@ get_header();
         <article>
             <div class="article-wrapper">
                 <div class="article-wrapper__inner-container article">
-                    <h1>
+                    <h1 class="page-title">
                         <?php echo get_the_title(); ?>
                     </h1>
                     <?php the_content(); ?>
