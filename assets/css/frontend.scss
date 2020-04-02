@@ -18,15 +18,11 @@
 @import "mixins/_media-breakpoints";
 
 
-/* UNSORTIERT */
+/* Seitenelemente / generelle Einstellungen */
 
-@import "unsorted/_vars";
-@import "unsorted/_basics";
-@import "unsorted/_styles";
-
-
-/* Seitenelemente */
-
+@import "site/_vars";
+@import "site/_basics";
+@import "site/_styles";
 @import "site/_footer";
 @import "site/_header";
 @import "site/_quadmenu";
