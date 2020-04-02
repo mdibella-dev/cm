@@ -53,6 +53,13 @@
 }
 
 
+.edit-post-text-editor__body {
+    @media (min-width: 600px) {
+        max-width: 580px;
+    }
+}
+
+
 // Korrektur der Zentrierung
 .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] {
     @include respond-to(small) {
@@ -60,6 +67,7 @@
         margin-right: auto;
     }
 }
+
 
 
 
