@@ -7,13 +7,16 @@ __Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-bloc
 
 __Requires at least:__ 5.3  
 
-__Tested up to:__ WordPress 5.3  
+__Tested up to:__ WordPress 5.4  
 
 
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### 2.2.0
+**Hinzugefügt:** .post-title, .page-title
+**Fixed:** Extrafreiraum bei .teaser-image
+**Fixed:** Breite des Blockeditors (Codeview)
 
 ### 2.1.0
 **Geändert:** Kommentierung und Code-Refaktorierung

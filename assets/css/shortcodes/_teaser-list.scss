@@ -58,6 +58,7 @@
             a {
                 all: initial;
                 display: block;
+                line-height: 0;
 
                 img {
                     width: 100%;
@@ -88,7 +89,7 @@
 
             h2 {
                 @include h-tag-basic-settings();
-                font-size: 1.213rem; 
+                font-size: 1.213rem;
                 margin-bottom: 0.35rem;
             }
 
