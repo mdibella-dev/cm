@@ -179,15 +179,22 @@ endif;
 function congressomat_enqueue_scripts()
 {
     /**
-     * Skripte registrieren und in den Footer laden
+     * Verschieben der von WordPress gelieferten jQuery
      **/
 
-    // Verschieben der von WordPress gelieferten jQuery
+    // (alle Versionen von) jQuery entfernen
     wp_deregister_script( 'jquery' );
+
+    // jQuery erneut registrieren
     wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, false, true );
     wp_enqueue_script( 'jquery' );
 
-    // Skript von Congressomat
+
+
+    /**
+     * Theme-Skript registrieren und in den Footer laden
+     **/
+
     wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'congressomat' );
 
