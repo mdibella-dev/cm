@@ -1,0 +1,115 @@
+/**
+ * Custom Styles für wp-block-button
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+
+.wp-block-button {
+    margin-bottom: 0;
+}
+
+
+.wp-block-button > .wp-block-button__link {
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .3s ease-in-out !important;
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #999;
+    background: #fff;
+    color: #999;
+    padding: $unit 2*$unit;
+
+    @include respond-to(medium) {
+        padding: 2*$unit 3*$unit;
+    }
+
+
+    &:hover,
+    &:focus {
+        border-color: rgba !important;
+        background: #000; //!important;
+        color: #fff; // !important;
+    }
+}
+
+
+/* gesperrter Button */
+
+.wp-block-button.disabled > .wp-block-button__link {
+    pointer-events: none;
+    cursor: default;
+    color: #ddd !important;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+
+
+
+
+
+/* Style "Black Ghost" */
+
+.wp-block-button.is-style-black-ghost > .wp-block-button__link {
+    background: transparent !important;
+    border-color: #000;
+    color: #000;
+
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        background: #000 !important;
+    }
+}
+
+
+/* Style "White Ghost" */
+
+.wp-block-button.is-style-white-ghost > .wp-block-button__link {
+    background: transparent !important;
+    border-color: #fff;
+    color: #fff;
+
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        background: #000 !important;
+    }
+}
+
+
+/* Button mit Fontawesome */
+
+.wp-block-button.is-fa-button > .wp-block-button__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% !important;
+    border-color: transparent;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    padding:0;
+
+    @include respond-to(medium) {
+        padding: 0;
+    }
+}
+
+
+.wp-block-button.is-fa-button > .wp-block-button__link:hover,
+.wp-block-button.is-fa-button > .wp-block-button__link:focus {
+    border-color: transparent !important;
+    background-color: rgba(0,0,0,0.1) !important;
+}

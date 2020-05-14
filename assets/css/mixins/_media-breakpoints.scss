@@ -1,0 +1,44 @@
+/**
+ * Mixin zur Realisierung von responsiven Websites.
+ * Die Media Breakpoints entsprechen den Angaben des Gutenberg Viewport Moduls.
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+/**
+ * Respond-To
+ *
+ * @source https://davidwalsh.name/write-media-queries-sass
+ * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ * @param  int  $breakpoint  einer der folgenden Werte: mobile, small, medium, large, wide, huge
+ **/
+
+@mixin respond-to($breakpoint) {
+
+    /**
+     * Liste der möglichen Breakpoints
+     *
+     * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
+     **/
+
+    $breakpoints: (
+        mobile: 30rem,      // = 480px
+        small:  35.5rem,    // = 600px,
+        medium: 48.875rem,  // = 782px,
+        large:  60rem,      // = 960px,
+        wide:   80rem,      // = 1280px,
+        huge:   90rem,      // = 1440px
+    ) !default;
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        $value: map-get($breakpoints, $breakpoint);
+
+        @media (min-width: #{$value}) {
+            @content;
+        }
+    }
+}

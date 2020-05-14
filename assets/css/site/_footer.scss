@@ -1,0 +1,132 @@
+/**
+ * Elemente der Fußzeile (Footer)
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+#footer {
+    z-index: 200;
+    display: block;
+    width: 100%;
+    box-sizing: content-box;
+    background: #999;
+    color: #555;
+}
+
+
+.footer-widgets-wrapper {
+    .footer-widgets-wrapper__inner-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include respond-to(large) {
+            flex-wrap: nowrap;
+        }
+    }
+
+
+    .widget-area {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 2*$unit;
+        }
+
+        @include respond-to(large) {
+            width: 33%;
+
+            &:not(:last-child) {
+                margin-right: $unit;
+                margin-bottom: 0;
+            }
+
+            &:not(:first-child) {
+                margin-left: $unit;
+            }
+        }
+
+        @include respond-to(wide) {
+            &:not(:last-child) {
+                margin-right: 2*$unit;
+            }
+
+            &:not(:first-child) {
+                margin-left: 2*$unit;
+            }
+        }
+    }
+
+
+    .widget_nav_menu ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+
+
+        & > li {
+            line-height: 2.5em;
+            color: #ddd;
+            padding: 5px 0;
+            font-size: 90%;
+            font-weight: 400;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #bbb;
+            }
+
+
+            a {
+                @include a-tag-basic-settings();
+                border-bottom: none !important;
+                color: inherit;
+
+                &:hover,
+                &:focus {
+                    background: #ddd;
+                    color: #999;
+                }
+            }
+        }
+    }
+}
+
+
+#footer-social {
+    display: block;
+
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        @include respond-to(medium) {
+            justify-content: left;
+        }
+    }
+
+
+    li {
+        padding: 0;
+    }
+/*
+
+    li + li {
+        margin-left: $unit;
+
+        @include respond-to(large) {
+            margin-left: 1.5*$unit;
+        }
+    }
+
+    .wp-block-button > .wp-block-button__link {
+        border-color: #ddd;
+        color: #ddd;
+    } */
+}

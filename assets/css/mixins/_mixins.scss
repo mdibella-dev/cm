@@ -1,0 +1,51 @@
+/**
+ * Mixins
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+@mixin a-tag-basic-settings() {
+    transition: all .3s ease-out;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 3px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        background: #ccc;
+        border-bottom: 1px solid transparent;
+        outline: none;
+    }
+}
+
+
+@mixin p-tag-basic-settings() {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    line-height: 1.5;
+    font-size: 1rem;
+
+    @include respond-to(medium) {
+        line-height: 1.65;
+        font-size: 1.2rem;
+    }
+}
+
+
+@mixin h-tag-basic-settings() {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    line-height: 1.3;
+
+    @include respond-to(large) {
+        -webkit-hyphens: none;
+            -ms-hyphens: none;
+                hyphens: none;
+    }
+}

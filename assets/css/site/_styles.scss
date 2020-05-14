@@ -1,0 +1,242 @@
+/**
+ * Styles für dieses Thema
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+/**
+ * Beiträge
+ **/
+
+/* Überschrift für Absätze */
+
+.paragraph-header {
+    @include h-tag-basic-settings();
+    font-size: 1.25rem; // 20px
+    margin-top: 2rem; // !!!
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        font-size: 1.375rem; // 22px
+    }
+
+    @include respond-to(large) {
+        margin-top: 4rem; // !!!
+    }
+}
+
+
+/* Einleitender Absatz (lead, teaser) */
+
+.lead {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    font-weight: 300 !important;
+    font-size: 1.325em !important;
+    line-height: 1.5 !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    @include respond-to(medium) {
+        line-height: 1.5 !important;
+        font-size: 1.5rem !important;
+    }
+}
+
+
+/* Neon-Texteffekt */
+
+.neon-glow {
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px,
+                 #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+}
+
+
+
+/* Fußnoten */
+
+.footnote {
+    font-size: 0.875rem !important;
+    font-weight: 300;
+
+    sup {
+        padding-right: 0.5*$unit;
+    }
+}
+
+
+
+/**
+ * Wrapper
+ **/
+
+.article-wrapper,
+.section-wrapper,
+.footer-widgets-wrapper {
+    width: 100%;
+
+    & > div[class*="__inner-container"] {
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
+
+        // ab 960px (large)
+        @include respond-to(large) {
+            max-width: 64rem;
+        }
+
+        // ab 1280px (wide):
+        @include respond-to(wide) {
+            padding: 4rem 1rem;
+        }
+    }
+}
+
+
+
+/**
+ * Sektionen
+ **/
+
+.section-title {
+    font-size: 26px;
+    font-weight: 300;
+
+    @include respond-to(medium) {
+        font-size: 34px;
+    }
+}
+
+
+.section-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+
+    @include respond-to(medium) {
+        font-size: 24px;
+    }
+}
+
+
+.section-title,
+.section-subtitle {
+    margin-bottom: 2rem;
+}
+
+
+.section-title + .section-subtitle {
+    margin-top: -1.5rem;
+}
+
+
+
+/**
+ * Stile für die Profilseite eines Referenten
+ **/
+
+.wp-block-columns.single-speaker__columns .wp-block-column:first-of-type {
+}
+
+
+.single-speaker__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        background: #aaa;
+    }
+}
+
+
+.single-speaker__social-media {
+    ul {
+        all: initial;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    li {
+        all: initial;
+        padding: 0;
+        display: inline-block;
+        margin: 2px;
+    }
+}
+
+
+
+/**
+ * Plugin: download-monitor
+ **/
+
+/* Template: link, link-excerpt */
+
+.download-link {
+    @include p-tag-basic-settings();
+    display: flex;
+    align-items: baseline;
+    padding: .5rem 0;
+
+
+    i {
+        color: #555;
+    }
+
+
+    div {
+        flex-grow: 2;
+        margin-left: 1rem;
+    }
+
+
+    p.description {
+        font-size: 95%;
+
+        @include respond-to(medium) {
+            font-size: 85%;
+        }
+    }
+}
+
+
+/* Template: image */
+
+.download-image {
+    a {
+        display: block;
+        padding: 0;
+        transition: all 0.3s 0s ease-in-out;
+        box-shadow: 0 5px 40px -5px rgba(0,0,0,0.5);
+        border: 5px solid #fff;
+        line-height: 0;
+
+
+        &:hover,
+        &:focus {
+            border: 5px solid #fff;
+            transform: scale(1.5, 1.5) rotate(5deg);
+            box-shadow: 15px 15px 20px -5px rgba(0,0,0,0.5);
+        }
+    }
+}
+
+
+
+/**
+ * Weitere Stile
+ **/
+
+@import "_accordion";

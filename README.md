@@ -42,4 +42,4 @@ __Tested up to:__ WordPress 5.4
 **Geändert:** Prefix "mdb_" zu "congressomat_"; Textdomäne und Package zu "congressomat"  
 
 ### 1.0.0
-Erstveröffentlichung  
+Erstveröffentlichung 

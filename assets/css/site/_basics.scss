@@ -1,0 +1,154 @@
+/**
+ * Grundlegende Einstellungen für Tags
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+html,
+body {
+    height: 100%;
+    font-family: $font-sans;
+   	font-size: $font-size;
+	font-weight: normal;
+    -moz-osx-font-smoothing: grayscale;
+     -webkit-font-smoothing: antialiased;
+             text-rendering: geometricPrecision;
+}
+
+
+html {
+    margin: 0 !important;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #555;
+}
+
+
+* {
+    color: inherit;
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+a {
+    @include a-tag-basic-settings();
+}
+
+
+img {
+    &.size-full {
+        width: 100%;
+        height: auto;
+    }
+
+    &.aligncenter,
+    &.align-center  {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+button {
+    &:focus {
+        outline: none !important;
+    }
+}
+
+
+/* Abstände */
+
+p,
+ol,
+ul {
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        margin-bottom: 1.5rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 2rem;
+}
+
+
+p {
+    @include p-tag-basic-settings();
+}
+
+
+ol,
+ul {
+    padding: 0 0 0 2*$unit;
+
+    li {
+        @include p-tag-basic-settings();
+        padding-left: $unit;
+
+        a {
+            @include a-tag-basic-settings();
+        }
+    }
+}
+
+
+h1 {
+    @include h-tag-basic-settings();
+    font-size: 1.625rem; // 26px
+
+    @include respond-to(medium) {
+        font-size: 2rem; // 32 px
+    }
+}
+
+
+b, strong {
+    font-weight: bold;
+}
+
+
+
+/**
+ * Ausrichtung
+ **/
+
+.align-left {
+    text-align: left;
+}
+
+
+.align-center {
+    text-align: center;
+}
+
+
+.align-right {
+    text-align: right;
+}
