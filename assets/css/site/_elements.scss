@@ -1,11 +1,22 @@
 /**
- * Elemente der Fußzeile (Footer)
+ * Seitenelemente
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  **/
 
 
+
+/* Site header */
+
+#header {
+    z-index: 400;
+    display: block;
+    width: 100%;
+}
+
+
+/* Site footer */
 
 #footer {
     z-index: 200;
@@ -129,4 +140,21 @@
         border-color: #ddd;
         color: #ddd;
     } */
+}
+
+
+/* Unterstützung für QuadMenu Megamenü */
+
+#quadmenu {
+    box-shadow: $menu-boxshadow;
+
+    .quadmenu-dropdown-stretch-dropdown {
+        @include respond-to(large) {
+            box-shadow: $menu-boxshadow;
+        }
+    }
+
+    a.quadmenu-navbar-brand {
+        border-bottom-color: transparent;
+    }
 }
