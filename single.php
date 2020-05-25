@@ -21,7 +21,7 @@ get_header();
 
         <article>
             <div class="article-wrapper">
-                <div class="article-wrapper__inner-container article">
+                <div class="article-wrapper__inner-container">
                     <h1 class="post-title">
                         <?php echo get_the_title(); ?>
                     </h1>
