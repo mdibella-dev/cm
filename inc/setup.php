@@ -19,16 +19,12 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
 
      function congressomat_theme_setup()
      {
-        /**
-         * Unterstützung für Übersetzungen
-         **/
+        /** Unterstützung für Übersetzungen **/
 
 	    load_theme_textdomain( 'congressomat', get_template_directory() . '/lang' );
 
 
-        /**
-         * HTML5-Konformität für bestimmte WordPress-Core-Elementen
-         **/
+        /** HTML5-Konformität für bestimmte WordPress-Core-Elementen **/
 
         add_theme_support( 'html5', array(
             'comment-list',
@@ -41,16 +37,12 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         ) );
 
 
-        /**
-         * Responsive Einbettung von Embeds ermöglichen
-         **/
+        /** Responsive Einbettung von Embeds ermöglichen **/
 
         add_theme_support( 'responsive-embeds' );
 
 
-        /**
-         * Thumbnails
-         **/
+        /** Thumbnails **/
 
         // Thumbnails auch für Posts
         add_theme_support( 'post-thumbnails' );
@@ -64,9 +56,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         endif;
 
 
-        /**
-         * Blockeditor (Gutenberg)
-         **/
+        /** Blockeditor (Gutenberg) **/
 
         // Unterstützung für "align full"/"align wide"
          add_theme_support( 'align-wide' );
@@ -99,11 +89,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         add_theme_support( 'editor-color-palette', $blockeditor_palette );
 
 
-        /**
-         * Mediengrößen
-         *
-         * Größenangaben entsprechen den Gutenberg Media Queries
-        **/
+        /** Mediengröße (Größenangaben entsprechen den Gutenberg Media Queries) **/
 
         if( ( get_option( 'medium_size_w' ) != 782 ) ) :
             update_option( 'medium_size_w', 782 );
@@ -122,16 +108,12 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         remove_image_size( 'medium_large' );
 
 
-        /**
-         * Navigation
-         **/
+        /** Navigation **/
 
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'congressomat' ) );
 
 
-        /**
-         * Widgets
-         **/
+        /** Widget Areas **/
 
         register_sidebar( array(
     	    'name'			=> __( 'Footer #1', 'congressomat' ),
@@ -178,36 +160,14 @@ endif;
 
 function congressomat_enqueue_scripts()
 {
-    /**
-     * Verschieben der von WordPress gelieferten jQuery
-     **/
+    /** Theme-Skript **/
 
-    // (alle Versionen von) jQuery entfernen
-    wp_deregister_script( 'jquery' );
-
-    // jQuery erneut registrieren
-    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, false, true );
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
 
 
+    /** Standard-Stylesheet von Congressomat **/
 
-    /**
-     * Theme-Skript registrieren und in den Footer laden
-     **/
-
-    wp_register_script( 'congressomat', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-    wp_enqueue_script( 'congressomat' );
-
-
-
-    /**
-     * Registrieren und Laden des Standard-Stylesheets von Congressomat
-     *
-     * style.css im Hauptverzeichnis dient nur zur Theme-Identifikation und -Versionierung
-     * Die (komprimierten) Stilangaben befinden sich tatsächlich in frontend(.min).css
-     **/
-
-    wp_enqueue_style( 'congressomat', get_template_directory_uri() . '/assets/css/frontend.min.css' );
+    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css' );
 }
 
 add_action( 'wp_enqueue_scripts', 'congressomat_enqueue_scripts', 9990 );
