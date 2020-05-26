@@ -15,16 +15,20 @@
 
 .paragraph-header {
     @include h-tag-basic-settings();
-    font-size: 1.25rem; // 20px
-    margin-top: 2rem; // !!!
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-top: 2rem;
     margin-bottom: 1rem;
 
     @include respond-to(medium) {
-        font-size: 1.375rem; // 22px
+        font-size: 1.375rem;
+        margin-bottom: 1.25rem;
     }
 
     @include respond-to(large) {
-        margin-top: 4rem; // !!!
+        font-size: 1.5rem;
+        margin-top: 4rem;
+        margin-bottom: 2.5rem;
     }
 }
 
@@ -54,7 +58,6 @@
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px,
                  #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
 }
-
 
 
 /* Fußnoten */
