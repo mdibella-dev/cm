@@ -15,6 +15,7 @@ __Tested up to:__ WordPress 5.4
 
 ### 2.2.0
 **Hinzugefügt:** .post-title, .page-title  
+**Hinzugefügt:** Spacer-Block   
 **Fixed:** Extrafreiraum bei .teaser-image  
 **Fixed:** Breite des Blockeditors (Codeview)  
 **Geändert:** Verzeichnisstruktur  
@@ -42,4 +43,4 @@ __Tested up to:__ WordPress 5.4
 **Geändert:** Prefix "mdb_" zu "congressomat_"; Textdomäne und Package zu "congressomat"  
 
 ### 1.0.0
-Erstveröffentlichung 
+Erstveröffentlichung
