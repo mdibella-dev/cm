@@ -116,33 +116,16 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
         ?>
 
         <li>
-            <article class="<?php echo implode( ' ', get_post_class( 'teaser-list-element', $post->ID ) ); ?>">
-
-                <div class="teaser-image">
-
-                    <a href="<?php the_permalink(); ?>"
-                       title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>"
-                       rel="prev">
+            <article class="<?php echo implode( ' ', get_post_class( $post->ID ) ); ?>">
+                <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
+                    <div class="teaser-image">
                         <?php the_post_thumbnail( $post->ID, 'full' ); ?>
-                    </a>
-
-                </div>
-
-                <div class="teaser-content">
-
-                    <h2><?php the_title(); ?></h2>
-
-                    <?php the_excerpt(); ?>
-
-                    <p>
-                        <a href="<?php the_permalink(); ?>"
-                           title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>"
-                           rel="next">
-                           <?php _e( 'Mehr erfahren', 'congressomat' ); ?>
-                        </a>
-                    </p>
-
-                </div>
+                    </div>
+                    <div class="teaser-content">
+                        <h2><?php the_title(); ?></h2>
+                        <?php the_excerpt(); ?>
+                    </div>
+                </a>
             </article>
         </li>
 
