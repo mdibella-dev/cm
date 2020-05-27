@@ -18,8 +18,9 @@ __Tested up to:__ WordPress 5.4
 **Hinzugefügt:** Spacer-Block   
 **Fixed:** Extrafreiraum bei .teaser-image  
 **Fixed:** Breite des Blockeditors (Codeview)  
-**Geändert:** Verzeichnisstruktur 
+**Geändert:** Verzeichnisstruktur
 **Geändert:** Teaser ohne 'Mehr'-Schalter  
+**Geändert:** Referenten-Seite (Backport von Winterakademie) 
 
 ### 2.1.0
 **Geändert:** Kommentierung und Code-Refaktorierung   
