@@ -16,7 +16,7 @@
 .paragraph-header {
     @include h-tag-basic-settings();
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: bold;
     margin-top: 2rem;
     margin-bottom: 1rem;
 
@@ -42,6 +42,7 @@
     font-weight: 300 !important;
     font-size: 1.325em !important;
     line-height: 1.5 !important;
+    letter-spacing: -0.5px;
     margin-top: 2rem;
     margin-bottom: 2rem;
 
@@ -49,14 +50,6 @@
         line-height: 1.5 !important;
         font-size: 1.5rem !important;
     }
-}
-
-
-/* Neon-Texteffekt */
-
-.neon-glow {
-    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px,
-                 #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
 }
 
 
