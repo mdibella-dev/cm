@@ -8,7 +8,7 @@
 
 
 .wp-block-button,
-.wp-block-button.is-style-shaded {
+.wp-block-button.is-style-default-with-shadow {
     margin-bottom: 0;
 
     & > .wp-block-button__link {
@@ -48,9 +48,9 @@
 }
 
 
-.wp-block-button.is-style-shaded {
+.wp-block-button.is-style-default-with-shadow  {
     & > .wp-block-button__link {
-        box-shadow: 0 0 15px -3px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 15px -3px rgba(0,0,0,0.3);
 
         &:active {
             box-shadow: 0 -2px 15px -3px rgba(0,0,0,0.3);
@@ -59,7 +59,7 @@
 }
 
 
-/* Button mit Fontawesome */
+/** Button mit Fontawesome **/
 
 .wp-block-button.is-fa-button > .wp-block-button__link {
     display: flex;
