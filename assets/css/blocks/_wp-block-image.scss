@@ -6,49 +6,29 @@
  **/
 
 
-.wp-block-image.is-style-with-caption {
+.wp-block-image {
+    margin: 0;
+
     figure {
         line-height: 0;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-
-        @include respond-to(medium) {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @include respond-to(large) {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
     }
 
-
     figcaption {
-        background: #f3f3f3;
-        color: #777;
-        margin: 0;
-        padding: 1em;
-        line-height: 1.2 !important;
-        font-size: 0.875rem !important;
-        font-weight: 300 !important;
-        text-align: left;
+        @include figcaption-tag-basic-settings();
+    }
+}
 
-        @include respond-to(medium) {
-            font-size: 1rem !important;
-        }
+.article-wrapper__inner-container > .wp-block-image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
+    @include respond-to(medium) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 
-        &::before {
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 500;
-            content: "\f062";
-            padding-right: $unit;
-        }
+    @include respond-to(large) {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 }
