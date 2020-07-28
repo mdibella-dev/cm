@@ -7,84 +7,54 @@
 
 
 
-
-.wp-block-button {
+.wp-block-button,
+.wp-block-button.is-style-shaded {
     margin-bottom: 0;
-}
 
+    & > .wp-block-button__link {
+        all: unset;
+        font-size: 1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 0;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #999;
+        background: #fff;
+        color: #999;
+        display: inline-block;
+        padding: $unit 2*$unit;
+        cursor: pointer;
+        transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+        position: relative;
+        top: 0;
+        left: 0;
 
-.wp-block-button > .wp-block-button__link {
-    font-size: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-    cursor: pointer;
-    transition: all .3s ease-in-out !important;
-    border-radius: 0;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #999;
-    background: #fff;
-    color: #999;
-    padding: $unit 2*$unit;
+        @include respond-to(medium) {
+            padding: 2*$unit 3*$unit;
+        }
 
-    @include respond-to(medium) {
-        padding: 2*$unit 3*$unit;
-    }
+        &:hover,
+        &:focus {
+            border-color: #999;
+            background: #999;
+            color: #fff;
+        }
 
-
-    &:hover,
-    &:focus {
-        border-color: rgba !important;
-        background: #000; //!important;
-        color: #fff; // !important;
-    }
-}
-
-
-/* gesperrter Button */
-
-.wp-block-button.disabled > .wp-block-button__link {
-    pointer-events: none;
-    cursor: default;
-    color: #ddd !important;
-    background: transparent !important;
-    border-color: transparent !important;
-}
-
-
-
-
-
-
-/* Style "Black Ghost" */
-
-.wp-block-button.is-style-black-ghost > .wp-block-button__link {
-    background: transparent !important;
-    border-color: #000;
-    color: #000;
-
-
-    &:hover,
-    &:focus {
-        color: #fff;
-        background: #000 !important;
+        &:active {
+            top: 2px;
+        }
     }
 }
 
 
-/* Style "White Ghost" */
+.wp-block-button.is-style-shaded {
+    & > .wp-block-button__link {
+        box-shadow: 0 0 15px -3px rgba(0,0,0,0.3);
 
-.wp-block-button.is-style-white-ghost > .wp-block-button__link {
-    background: transparent !important;
-    border-color: #fff;
-    color: #fff;
-
-
-    &:hover,
-    &:focus {
-        color: #fff;
-        background: #000 !important;
+        &:active {
+            box-shadow: 0 -2px 15px -3px rgba(0,0,0,0.3);
+        }
     }
 }
 
