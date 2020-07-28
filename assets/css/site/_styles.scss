@@ -129,12 +129,38 @@
  * Stile für die Profilseite eines Referenten
  **/
 
-.wp-block-columns.single-speaker-profile {
+.single-speaker-profile {
     margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
 
-    @media (max-width: 35.5rem ) {
-        .wp-block-column::not(:first-of-type) {
+    @include respond-to(small) {
+        flex-wrap: nowrap;
+    }
+
+    .single-speaker-profile__column {
+        flex-grow: 0;
+        flex-basis: 100%;
+
+        &:first-child {
+            @include respond-to(small) {
+                flex-basis: 25%;
+                flex-grow: 0;
+            }
+        }
+
+        &:last-child {
             margin-top: 1rem;
+
+            @include respond-to(small) {
+                margin-top: 0;
+                flex-grow: 1;
+                padding-left: 2rem;
+            }
+
+            @include respond-to(large) {
+                padding-left: 4rem;
+            }
         }
     }
 
@@ -144,12 +170,11 @@
     .speaker-image {
         width: 100%;
         height: auto;
-        margin-bottom: 1rem;
 
         img {
             width: 100%;
             height: 100%;
-            background: #aaa;
+            background: #fafafa;
             box-shadow: 0 1px 2px rgba(0,0,0,0.12);
         }
     }
@@ -160,8 +185,7 @@
             width: 100%;
             list-style-type: none;
             padding: 0;
-            margin: 0;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
             display: flex;
             justify-content: center;
         }

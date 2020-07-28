@@ -24,7 +24,7 @@ get_header();
                     $speaker = congressomat_get_speaker_dataset( get_the_ID() );
             ?>
 
-            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
                 <div class="wp-block-group__inner-container">
 
                     <?php
@@ -35,9 +35,9 @@ get_header();
                      **/
                     ?>
 
-                    <div class="wp-block-columns single-speaker-profile">
+                    <div class="single-speaker-profile">
 
-                        <div class="wp-block-column" style="flex-basis: 25%;">
+                        <div class="single-speaker-profile__column">
 
                             <figure class="speaker-image">
                                 <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?>
@@ -70,7 +70,7 @@ get_header();
 
                         </div>
 
-                        <div class="wp-block-column">
+                        <div class="single-speaker-profile__column">
 
                             <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
 
@@ -119,7 +119,7 @@ get_header();
              * @since 1.0.0
              **/
             ?>
-            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
                 <div class="wp-block-group__inner-container">
                     <h2 class="has-text-align-center section-title">
                         <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>
