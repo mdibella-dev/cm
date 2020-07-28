@@ -14,12 +14,10 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 
-
     @include respond-to(medium) {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-
 
     &:before {
         content: '\201C';
@@ -51,7 +49,6 @@
     position: relative;
     left: 0;
     top: -1em;
-
     font-family: $font-sans;
     font-style: normal;
     font-weight: 300;
