@@ -66,6 +66,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         $blockeditor_palette  = array();
         $congressomat_palette = array(
             'Weiß, white, #fff',
+            'Schwarz 5%, black-05, #fafafa',
             'Schwarz 10%, black-10, #e5e5e5',
             'Schwarz 20%, black-20, #ccc',
             'Schwarz 30%, black-30, #b2b2b2',
