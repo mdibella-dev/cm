@@ -1,67 +1,61 @@
 wp.domReady( () => {
-	// Nichtgenutzte Standardstile entfernen
-	wp.blocks.unregisterBlockStyle( 'core/button', 'default' );
-	wp.blocks.unregisterBlockStyle( 'core/button', 'circular' );
-	wp.blocks.unregisterBlockStyle( 'core/button', 'outline' );
-	wp.blocks.unregisterBlockStyle( 'core/button', 'squared' );
-	wp.blocks.unregisterBlockStyle( 'core/button', 'shadow' );
-	wp.blocks.unregisterBlockStyle( 'core/button', '3d' );
-	wp.blocks.unregisterBlockStyle( 'core/table', 'regular' );
-	wp.blocks.unregisterBlockStyle( 'core/table', 'stripes' );
 
+	/** core/button **/
 
-	// Button
-	wp.blocks.registerBlockStyle( 'core/button', {
-		name: 'default',
-		label: 'Default',
-		isDefault: true
-	} );
+	wp.blocks.unregisterBlockStyle( 'core/button', [ 'default', 'fill', 'outline' ] );
 
 	wp.blocks.registerBlockStyle( 'core/button', {
-		name: 'black-ghost',
-		label: 'Ghost (schwarz)',
-		isDefault: false
-	} );
-
-	wp.blocks.registerBlockStyle( 'core/button', {
-		name: 'white-ghost',
-		label: 'Ghost (weiß)',
-		isDefault: false
-	} );
-
-
-	// Table
-	wp.blocks.registerBlockStyle( 'core/table', {
 		name: 'default',
 		label: 'Standard',
 		isDefault: true
 	} );
 
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'default-with-shadow',
+		label: 'Schattiert',
+		isDefault: false
+	} );
+
+
+	/** core/table **/
+
+	wp.blocks.unregisterBlockStyle( 'core/table', [ 'regular', 'stripes' ] );
+
+	wp.blocks.registerBlockStyle( 'core/table', {
+		name: 'default',
+		label: 'Standard',
+		isDefault: true,
+	} );
+
 	wp.blocks.registerBlockStyle( 'core/table', {
 		name: 'default-with-header-column',
-		label: 'Standard mit Titelspalte',
-		isDefault: false
+		label: 'Mit Titelspalte',
+		isDefault: false,
 	} );
 
 	wp.blocks.registerBlockStyle( 'core/table', {
 		name: 'default-with-header-row',
-		label: 'Standard mit Titelzeile',
-		isDefault: false
+		label: 'Mit Titelzeile',
+		isDefault: false,
 	} );
 
 
-	// Image
+	/** core/image **/
+
+	wp.blocks.unregisterBlockStyle( 'core/image', [ 'rounded' ] );
+
 	wp.blocks.registerBlockStyle( 'core/image', {
 		name: 'with-caption',
-		label: 'Mit Bildbeschreibung',
-		isDefault: false
+		label: 'Mit Beschreibung',
+		isDefault: false,
 	} );
 
 
-	// Cover
+	/** core/cover **/
+
 	wp.blocks.registerBlockStyle( 'core/cover', {
 		name: 'with-overlay',
 		label: 'Mit Überlagerung',
-		isDefault: false
+		isDefault: false,
 	} );
 } );
