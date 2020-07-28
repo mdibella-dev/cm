@@ -24,7 +24,7 @@ get_header();
                     $speaker = congressomat_get_speaker_dataset( get_the_ID() );
             ?>
 
-            <div class="wp-block-group section-wrapper mb-0 mt-0">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
 
                     <?php
@@ -35,15 +35,15 @@ get_header();
                      **/
                     ?>
 
-                    <div class="wp-block-columns single-speaker__columns">
+                    <div class="wp-block-columns single-speaker-profile">
 
                         <div class="wp-block-column" style="flex-basis: 25%;">
 
-                            <figure class="single-speaker__image">
+                            <figure class="speaker-image">
                                 <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?>
                             </figure>
 
-                            <div class="single-speaker__social-media">
+                            <div class="speaker-social-media">
                                 <ul>
                                     <?php
                                     while( have_rows( 'referent-social-media' ) ) :
@@ -72,13 +72,13 @@ get_header();
 
                         <div class="wp-block-column">
 
-                            <h2 class="section-title"><?php echo $speaker[ 'title_name' ]; ?></h2>
+                            <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
 
                             <?php
                             // Position oder Berufstitel bekannt?
                             if( !empty( $speaker[ 'position' ] ) ) :
                             ?>
-                            <h3 class="section-subtitle"><?php echo $speaker[ 'position' ]; ?></h3>
+                            <h3 class="speaker-position"><?php echo $speaker[ 'position' ]; ?></h3>
                             <?php
                             endif;
                             ?>
@@ -87,16 +87,18 @@ get_header();
 
                         </div>
                     </div>
+                </div>
+            </div>
 
-
-                    <?php
-                    /**
-                     * Veranstaltungen mit diesem Referenten
-                     *
-                     * @since 1.0.0
-                     **/
-                    ?>
-
+            <?php
+            /**
+             * Veranstaltungen mit diesem Referenten
+             *
+             * @since 1.0.0
+             **/
+            ?>
+            <div class="wp-block-group section-wrapper mb-0 mt-0">
+                <div class="wp-block-group__inner-container">
                     <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 
                     <h2 class="has-text-align-center section-title">
@@ -117,7 +119,7 @@ get_header();
              * @since 1.0.0
              **/
             ?>
-            <div class="wp-block-group section-wrapper mb-0 mt-0">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
                     <h2 class="has-text-align-center section-title">
                         <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>
