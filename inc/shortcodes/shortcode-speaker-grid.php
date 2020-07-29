@@ -80,33 +80,20 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
         <?php foreach( $speaker_list as $speaker ) : ?>
 
         <li>
-            <figure class="speaker-grid-figure">
+            <a  class="speaker-grid-element"
+                href="<?php echo $speaker[ 'permalink' ]; ?>"
+                title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
 
-                <a class="speaker-grid-figure-image"
-                   href="<?php echo $speaker[ 'permalink' ]; ?>"
-                   title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
-                   <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full' ); ?>
-                </a>
-
-                <figcaption class="speaker-grid-figure-caption">
-                    <div class="speaker-grid-figure-caption__inner-container">
-
-                        <p class="speaker-title-name">
-                            <a href="<?php echo $speaker[ 'permalink' ]; ?>"
-                               title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
-                               <?php echo $speaker[ 'title_name' ]; ?>
-                            </a>
-                        </p>
-
-                        <p class="speaker-position">
-                            <?php echo $speaker[ 'position' ]; ?>
-                        </p>
-
-                    </div>
-                </figcaption>
-
-            </figure>
-
+                <figure>
+                    <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'class' => 'speaker-image' ) ); ?>
+                    <figcaption>
+                        <div>
+                            <p class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></p>
+                            <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
+                        </div>
+                    </figcaption>
+                </figure>
+            </a>
         </li>
 
         <?php endforeach; ?>
