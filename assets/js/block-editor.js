@@ -16,6 +16,12 @@ wp.domReady( () => {
 		isDefault: false
 	} );
 
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'grey-with-shadow',
+		label: 'Grau, schattiert',
+		isDefault: false
+	} );
+
 
 	/** core/table **/
 

@@ -1,11 +1,11 @@
 # Congressomat
-Congressomat ist ein Wordpress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
+Congressomat ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
 
 __Contributors:__ rdg-dibella
 
 __Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-blocks, landing-pages, page-templates, shortcodes, child-theme-ready, gutenberg, custom-post-types, responsive
 
-__Requires at least:__ 5.3  
+__Requires at least:__ WordPress 5.3  
 
 __Tested up to:__ WordPress 5.4  
 
@@ -14,10 +14,14 @@ __Tested up to:__ WordPress 5.4
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### 2.3.0
-**Hinzugefügt:** Mixin für figcaption (betrifft Embeds, Bilder)
+**Hinzugefügt:** Mixin für <figcaption> (betrifft Embeds, Bilder)
+**Hinzugefügt:** Button-Stil Grau-Schattiert
+**Fixed:** Farbpalette  
 **Geändert:** Abstände bei Embeds, Bildern
+**Geändert:** single-speaker.php + Klassen
 **Geändert:** Button-Stile
 **Entfernt:** .is-style-with-caption
+
 
 ### 2.2.0
 **Hinzugefügt:** .post-title, .page-title  
