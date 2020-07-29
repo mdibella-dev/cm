@@ -18,6 +18,7 @@ __Tested up to:__ WordPress 5.4
 **Hinzugefügt:** Button-Stil Grau-Schattiert
 **Fixed:** Farbpalette  
 **Geändert:** Abstände bei Embeds, Bildern
+**Geändert:** speaker-grid
 **Geändert:** single-speaker.php + Klassen
 **Geändert:** Button-Stile
 **Entfernt:** .is-style-with-caption
