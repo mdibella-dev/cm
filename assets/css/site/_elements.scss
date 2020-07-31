@@ -148,7 +148,7 @@
 #quadmenu {
     box-shadow: $menu-boxshadow;
 
-    .quadmenu-dropdown-stretch-dropdown {
+    .quadmenu-dropdown-menu {
         @include respond-to(large) {
             box-shadow: $menu-boxshadow;
         }
