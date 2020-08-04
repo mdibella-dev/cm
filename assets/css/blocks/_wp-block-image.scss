@@ -12,23 +12,36 @@
     figure {
         line-height: 0;
     }
+}
+
+
+.wp-block-image.is-style-with-caption {
 
     figcaption {
         @include figcaption-tag-basic-settings();
     }
-}
 
-.article-wrapper__inner-container > .wp-block-image {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    &:not(:first-child) {
+        margin-top: 1rem;
 
-    @include respond-to(medium) {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        @include respond-to(medium) {
+            margin-top: 2rem;
+        }
+
+        @include respond-to(large) {
+            margin-top: 3rem;
+        }
     }
 
-    @include respond-to(large) {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include respond-to(medium) {
+            margin-bottom: 2rem;
+        }
+
+        @include respond-to(large) {
+            margin-bottom: 3rem;
+        }
     }
 }
