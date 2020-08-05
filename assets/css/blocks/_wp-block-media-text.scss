@@ -23,3 +23,15 @@
         padding: 0 0 2rem;
     }
 }
+
+.wp-block-media-text + .wp-block-media-text {
+    margin-top: 2rem;
+
+    @include respond-to(large) {
+        margin-top: 4rem;
+    }
+
+    @include respond-to(wide) {
+        margin-top: 6rem;
+    }
+}

@@ -8,6 +8,18 @@
 
 
 .wp-block-table {
+    // Abstand wie bei <p>
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        margin-bottom: 1.5rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // Einzelne Komponenten
     table {
         border-collapse: collapse;
         width: 100%;
@@ -41,30 +53,32 @@
             padding-top: 1.25rem;
             padding-bottom: 1.25rem;
         }
-    }
 
-    // Gutter bei horizontaler Ausrichtung
-    td:not(:first-of-type) {
-        @include respond-to(medium) {
-            padding-left: 1rem;
+        // Gutter bei horizontaler Ausrichtung
+        &:not(:first-of-type) {
+            @include respond-to(medium) {
+                padding-left: 1rem;
+            }
+
+            @include respond-to(large) {
+                padding-left: 2rem;
+            }
         }
 
-        @include respond-to(large) {
-            padding-left: 2rem;
-        }
-    }
+        &:not(:last-of-type) {
+            @include respond-to(medium) {
+                padding-right: 1rem;
+            }
 
-    td:not(:last-of-type) {
-        @include respond-to(medium) {
-            padding-right: 1rem;
-        }
-
-        @include respond-to(large) {
-            padding-right: 2rem;
+            @include respond-to(large) {
+                padding-right: 2rem;
+            }
         }
     }
 }
 
+
+/* Stil: Default mit Beschreibungszeile */
 
 .wp-block-table.is-style-default-with-header-column {
     td:first-of-type {
@@ -84,6 +98,8 @@
 }
 
 
+/* Stil: Default mit Beschreibungsspalte */
+
 .wp-block-table.is-style-default-with-header-row {
     tr:first-of-type {
         p {
@@ -96,11 +112,9 @@
 }
 
 
-/**
- * wp-block-table
- **/
+/* Sonderform für zweispaltige Tabellen (Verhältnis 30/70) */
 
-.wp-block-table.is-style-default-with-header-column.two-columns-30-70 {
+.wp-block-table.two-columns-30-70 {
     td:first-of-type {
         @include respond-to(medium) {
             width: 30%;

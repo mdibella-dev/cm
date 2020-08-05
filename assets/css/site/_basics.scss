@@ -72,8 +72,6 @@ button {
 }
 
 
-/* Abstände */
-
 p,
 ol,
 ul {
@@ -86,16 +84,6 @@ ul {
     &:last-child {
         margin-bottom: 0;
     }
-}
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 2rem;
 }
 
 
@@ -119,6 +107,16 @@ ul {
 }
 
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 2rem;
+}
+
+
 h1 {
     @include h-tag-basic-settings();
     font-size: 1.625rem; // 26px
@@ -131,24 +129,4 @@ h1 {
 
 b, strong {
     font-weight: bold;
-}
-
-
-
-/**
- * Ausrichtung
- **/
-
-.align-left {
-    text-align: left;
-}
-
-
-.align-center {
-    text-align: center;
-}
-
-
-.align-right {
-    text-align: right;
 }
