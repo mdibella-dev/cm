@@ -13,7 +13,10 @@ __Tested up to:__ WordPress 5.4
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
-### 2.3.0
+### 2.3.0  
+**Hinzugefügt:** Posttype für Ausstellungsflächen
+**Hinzugefügt:** Taxonomie für Ausstellerpakete
+**Hinzugefügt:** Gemeinsames Admin-Menü für alle Congressomat-Komponenten (ausgenommen FAQ)
 **Hinzugefügt:** Mixin für <figcaption> (betrifft Embeds, Bilder)
 **Hinzugefügt:** Button-Stil Grau-Schattiert
 **Fixed:** Farbpalette  
