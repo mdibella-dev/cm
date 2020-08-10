@@ -8,7 +8,6 @@
 
 
 
-
 /**
  * Setzt die Länge des Excerpts
  *

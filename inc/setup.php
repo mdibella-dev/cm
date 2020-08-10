@@ -19,12 +19,12 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
 
      function congressomat_theme_setup()
      {
-        /** Unterstützung für Übersetzungen **/
+        /* Ermöglichung einer Internationalisierung */
 
 	    load_theme_textdomain( 'congressomat', get_template_directory() . '/lang' );
 
 
-        /** HTML5-Konformität für bestimmte WordPress-Core-Elementen **/
+        /* HTML5-Konformität für bestimmte WordPress-Core-Elemente */
 
         add_theme_support( 'html5', array(
             'comment-list',
@@ -37,17 +37,18 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         ) );
 
 
-        /** Responsive Einbettung von Embeds ermöglichen **/
+        /* Ermöglichen einer responsiven Einbettung von Embeds */
 
         add_theme_support( 'responsive-embeds' );
 
 
-        /** Thumbnails **/
+        /*
+         * Thumbnails
+         * - Unterstützung von Thumbnails für jeden Beitragstyp
+         * - Fetlegung der Thumbnailgröße auf 240x240px;
+         */
 
-        // Thumbnails auch für Posts
         add_theme_support( 'post-thumbnails' );
-
-        // Thumbnailgröße
         set_post_thumbnail_size( 240, 240, false );
 
         if( ( get_option( 'thumbnail_size_w' ) != 240 ) ) :
@@ -56,41 +57,83 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         endif;
 
 
-        /** Blockeditor (Gutenberg) **/
+        /*
+         * Block-Editor (Gutenberg)
+         * - Unterstützung für benutzerdefinierte Farbpalette
+         * - Unterstützung für "align full"/"align wide
+         */
 
-        // Unterstützung für "align full"/"align wide"
-         add_theme_support( 'align-wide' );
-
-        // Farbpalette
-        // Farben und Farbnamen entstammen https://coolors.co/
-        $blockeditor_palette  = array();
-        $congressomat_palette = array(
-            'Weiß, white, #fff',
-            'Schwarz 5%, black-05, #fafafa',
-            'Schwarz 10%, black-10, #e5e5e5',
-            'Schwarz 20%, black-20, #ccc',
-            'Schwarz 30%, black-30, #b2b2b2',
-            'Schwarz 40%, black-40, #999',
-            'Schwarz 50%, black-50, #7f7f7f',
-            'Schwarz 60%, black-60, #666',
-            'Schwarz 70%, black-70, #4c4c4c',
-            'Schwarz 80%, black-80, #333',
-            'Schwarz 90%, black-90, #191919',
-            'Schwarz, black, #000'
+        $palette = array(
+            array(
+                'name'  => __( 'Weiß', 'congressomat' ),
+                'slug'  => 'white',
+                'color' => '#ffffff',
+            ),
+            array(
+                'name'  => __( 'Schwarz 5%', 'congressomat' ),
+                'slug'  => 'black-05',
+                'color' => '#fafafa',
+            ),
+            array(
+                'name'  => __( 'Schwarz 10%', 'congressomat' ),
+                'slug'  => 'black-10',
+                'color' => '#e5e5e5',
+            ),
+            array(
+                'name'  => __( 'Schwarz 20%', 'congressomat' ),
+                'slug'  => 'black-20',
+                'color' => '#cccccc',
+            ),
+            array(
+                'name'  => __( 'Schwarz 30%', 'congressomat' ),
+                'slug'  => 'black-30',
+                'color' => '#b2b2b2',
+            ),
+            array(
+                'name'  => __( 'Schwarz 40%', 'congressomat' ),
+                'slug'  => 'black-40',
+                'color' => '#999999',
+            ),
+            array(
+                'name'  => __( 'Schwarz 50%', 'congressomat' ),
+                'slug'  => 'black-50',
+                'color' => '#7f7f7f',
+            ),
+            array(
+                'name'  => __( 'Schwarz 60%', 'congressomat' ),
+                'slug'  => 'black-60',
+                'color' => '#666666',
+            ),
+            array(
+                'name'  => __( 'Schwarz 70%', 'congressomat' ),
+                'slug'  => 'black-70',
+                'color' => '#4c4c4c',
+            ),
+            array(
+                'name'  => __( 'Schwarz 80%', 'congressomat' ),
+                'slug'  => 'black-80',
+                'color' => '#333333',
+            ),
+            array(
+                'name'  => __( 'Schwarz 90%', 'congressomat' ),
+                'slug'  => 'black-90',
+                'color' => '#191919',
+            ),
+            array(
+                'name'  => __( 'Schwarz', 'congressomat' ),
+                'slug'  => 'black',
+                'color' => '#000000',
+            ),
         );
 
-        foreach( $congressomat_palette as $set ) :
-            $part                  = explode( ',', $set );
-            $blockeditor_palette[] = array(
-                'name'  => __( trim( $part[0] ), 'congressomat' ),
-                'slug'  => trim( $part[1] ),
-                'color' => trim( $part[2] )
-            );
-        endforeach;
-        add_theme_support( 'editor-color-palette', $blockeditor_palette );
+        add_theme_support( 'editor-color-palette', $palette );
+        add_theme_support( 'align-wide' );
 
 
-        /** Mediengröße (Größenangaben entsprechen den Gutenberg Media Queries) **/
+        /*
+         * Anpassung der Mediengrößen
+         * Größenangaben entsprechen den Gutenberg Media Queries
+         */
 
         if( ( get_option( 'medium_size_w' ) != 782 ) ) :
             update_option( 'medium_size_w', 782 );
@@ -109,12 +152,9 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         remove_image_size( 'medium_large' );
 
 
-        /** Navigation **/
+        /* Registrierung der Navigationsmenüs und Widget Areas */
 
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'congressomat' ) );
-
-
-        /** Widget Areas **/
 
         register_sidebar( array(
     	    'name'			=> __( 'Footer #1', 'congressomat' ),
@@ -161,13 +201,7 @@ endif;
 
 function congressomat_enqueue_scripts()
 {
-    /** Theme-Skript **/
-
     wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-
-
-    /** Standard-Stylesheet von Congressomat **/
-
     wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css' );
 }
 
