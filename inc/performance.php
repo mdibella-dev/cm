@@ -70,9 +70,9 @@ function congressomat_remove_post_classes( $classes, $class, $post_id )
                 ( false !== strpos( $check, 'hentry' ) ) or
                 ( false !== strpos( $check, 'type-' ) )
               ) :
-                // nicht übernehmen
+                /* nicht übernehmen */
             else :
-                // ansonsten hinzufügen
+                /* ansonsten hinzufügen */
                 $checked_classes[] = $check;
             endif;
 

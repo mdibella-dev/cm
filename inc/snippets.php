@@ -11,8 +11,8 @@
 /**
  * Setzt die Länge des Excerpts
  *
- * @param	int		$length
  * @since 	1.0.0
+ * @param	int		$length
  **/
 
 function congressomat_excerpt_length( $length )

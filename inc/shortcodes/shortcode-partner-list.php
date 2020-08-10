@@ -13,9 +13,7 @@
 
 function congressomat_shortcode_partner_list( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'partnership' => '',
@@ -24,11 +22,11 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /**
+    /*
      * Daten abrufen und aufbereiten
-     **/
+     * Optional kann hierbei nach Kooperationsform gefiltert werden
+     */
 
-    // Grundlegende Datenabfrage
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -37,7 +35,6 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
         'orderby'        => 'title',
     );
 
-    // Optional: Nach Kooperationsform filtern
     if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
@@ -46,17 +43,12 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
         ) );
     endif;
 
-    // Daten holen
     $partners = get_posts( $query );
 
 
-    /**
-     * Ausgabe
-     **/
+    /* Ausgabe */
 
     if( $partners ) :
-
-        // Beginn der Ausgabenpufferung
         ob_start();
 ?>
 
@@ -69,15 +61,14 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
 </ul>
 
 <?php
-        // Ende der Ausgabenpufferung
+        /* Ausgabenpufferung beenden und Puffer ausgeben */
+        
         $output_buffer = ob_get_contents();
         ob_end_clean();
-
-        // Ausgabe
         return $output_buffer;
     endif;
 
-    return null;
+    return NULL;
 }
 
 add_shortcode( 'partner-list', 'congressomat_shortcode_partner_list' );

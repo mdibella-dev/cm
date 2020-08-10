@@ -13,9 +13,7 @@
 
 function congressomat_shortcode_faq( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'faq' => '',
@@ -24,13 +22,9 @@ function congressomat_shortcode_faq( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /**
-     * Daten abrufen und aufbereiten
-     **/
+    /* Daten abrufen und aufbereiten */
 
     if( have_rows( 'faq', $faq ) ) :
-
-        // Beginn der Ausgabenpufferung
         ob_start();
 ?>
 
@@ -62,11 +56,10 @@ function congressomat_shortcode_faq( $atts, $content = null )
 </div>
 
 <?php
-        // Ende der Ausgabenpufferung
+        /* Ausgabenpufferung beenden und Puffer ausgeben */
+        
         $output_buffer = ob_get_contents();
         ob_end_clean();
-
-        // Ausgabe
         return $output_buffer;
     endif;
 

@@ -17,7 +17,7 @@
 
 function congressomat_shortcode_teaser_list( $atts, $content = null )
 {
-    /* Ermittelung der übergebenen Parameter */
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'show'      => '',
@@ -30,9 +30,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /**
-     * Variablen setzen
-     **/
+    /* Variablen setzen */
 
     global $post;
            $exclude_ids = explode( ',', str_replace( " ", "", $exclude ) );
@@ -40,7 +38,8 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
            $orderby     = 'date';
 
 
-    // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
+    /* In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln */
+
     if( $paged == 1 ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
@@ -61,8 +60,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
             $current_page = $get_prt;
         endif;
 
-        // Startpunkt ermitteln
-        $offset = ($current_page - 1) * $show;
+        $offset = ($current_page - 1) * $show; /* Startpunkt */
     else :
         $show = empty ( $show )? 4 : $show;
 
@@ -72,9 +70,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
     endif;
 
 
-    /**
-     * Anhand der zuvor ermittelten Daten die Artikel abrufen
-     **/
+    /* Daten abrufen und aufbereiten */
 
     $query = array(
         'exclude'        => $exclude_ids,
@@ -89,13 +85,10 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
     $articles = get_posts( $query );
 
 
-    /**
-     * Ausgabe vorbereiten
-     **/
+    /* Ausgabe vorbereiten */
 
     if( $articles ) :
 
-        // Ausgabe puffern
         ob_start();
 ?>
 
@@ -143,15 +136,14 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
 </div>
 
 <?php
-        // Ende der Ausgabenpufferung
+        /* Ausgabenpufferung beenden und Puffer ausgeben */
+
         $output_buffer = ob_get_contents();
         ob_end_clean();
-
-        // Ausgabe
         return $output_buffer;
     endif;
 
-    return null;
+    return NULL;
 }
 
 add_shortcode( 'teaser-list', 'congressomat_shortcode_teaser_list' );

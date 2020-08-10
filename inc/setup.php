@@ -19,12 +19,12 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
 
      function congressomat_theme_setup()
      {
-        /* Ermöglichung einer Internationalisierung */
+        /* Internationalisierung ermöglichen */
 
 	    load_theme_textdomain( 'congressomat', get_template_directory() . '/lang' );
 
 
-        /* HTML5-Konformität für bestimmte WordPress-Core-Elemente */
+        /* HTML5-konformer Umgang von diversen WordPress-Core-Elementen ermöglichen */
 
         add_theme_support( 'html5', array(
             'comment-list',
@@ -37,7 +37,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         ) );
 
 
-        /* Ermöglichen einer responsiven Einbettung von Embeds */
+        /* Responsiven Einbettung von Embeds ermöglichen*/
 
         add_theme_support( 'responsive-embeds' );
 
@@ -59,8 +59,8 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
 
         /*
          * Block-Editor (Gutenberg)
-         * - Unterstützung für benutzerdefinierte Farbpalette
-         * - Unterstützung für "align full"/"align wide
+         * - Benutzerdefinierte Farbpalette einrichten
+         * - "align full"/"align wide" ermöglichen
          */
 
         $palette = array(
@@ -131,7 +131,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
 
 
         /*
-         * Anpassung der Mediengrößen
+         * Mediengrößen anpassen
          * Größenangaben entsprechen den Gutenberg Media Queries
          */
 
@@ -152,7 +152,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         remove_image_size( 'medium_large' );
 
 
-        /* Registrierung der Navigationsmenüs und Widget Areas */
+        /* Navigationsmenüs und Widget Areas registrieren */
 
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'congressomat' ) );
 

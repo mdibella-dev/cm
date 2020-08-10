@@ -17,12 +17,10 @@
 
 function congressomat_shortcode_speaker_grid( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
-        'event'   => '-1', // nur aktive Events
+        'event'   => '-1', /* nur aktive Events */
         'exclude' => '',
         'show'    => 0,
         'shuffle' => 0,
@@ -31,45 +29,44 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /**
-     * Daten abrufen und aufbereiten
-     **/
+    /* Daten abrufen und aufbereiten */
 
     $speakers = congressomat_get_speaker_datasets( ( $event == '-1' )? implode( ',', congressomat_get_active_events() ) : $event );
 
     if( $speakers ) :
 
-        // Optional: Ausschluss bestimmtet Speaker
+        /* Optional: Ausschluss bestimmtet Speaker */
+        
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
-            if( in_array( $speaker[ 'id' ], $exclude_ids ) == false ) :
+            if( false == in_array( $speaker[ 'id' ], $exclude_ids ) ) :
                 $speaker_list[] = $speaker;
             endif;
         endforeach;
 
 
-        // Optional: Beschnitt der Ausgabe
-        if( ( is_numeric( $show ) == true )
+        /* Optional: Beschnitt der Ausgabe */
+
+        if( ( true == is_numeric( $show ) )
             and ( $show > 0 )
             and ( $show < sizeof( $speaker_list ) ) ) :
 
-            // Optional: Ausgabe durchmischen
-            if( $shuffle == 1 ) :
+            /* Optional: Ausgabe durchmischen */
+
+            if( 1 == $shuffle ) :
                 shuffle( $speaker_list );
                 $speaker_list = array_slice( $speaker_list, 0, $show );
                 $speaker_list = congressomat_sort_speaker_datasets( $speaker_list );
             else :
                 $speaker_list = array_slice( $speaker_list, 0, $show );
             endif;
+
         endif;
 
 
-        /**
-         * Ausgabe
-         **/
+        /* Ausgabe */
 
-        // Beginn der Ausgabenpufferung
         ob_start();
 
 ?>
@@ -103,15 +100,14 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
 </div>
 
 <?php
-        // Ende der Ausgabenpufferung
+        /* Ausgabenpufferung beenden und Puffer ausgeben */
+
         $output_buffer = ob_get_contents();
         ob_end_clean();
-
-        // Ausgabe
         return $output_buffer;
     endif;
 
-    return null;
+    return NULL;
 }
 
 add_shortcode( 'speaker-grid', 'congressomat_shortcode_speaker_grid' );

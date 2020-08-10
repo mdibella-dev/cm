@@ -16,9 +16,7 @@
 
 function congressomat_shortcode_partner_table( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'partnership' => '',
@@ -28,7 +26,11 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Abfrage zusammenstellen
+    /*
+     * Daten abrufen und aufbereiten
+     * Optional kann hierbei nach Kooperationsform gefiltert werden
+     */
+
     $query = array(
              'post_type'      => 'partner',
              'post_status'    => 'publish',
@@ -36,7 +38,6 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
              'order'          => 'ASC',
              'orderby'        => 'title' );
 
-    // Nach Kooperationsform filtern
     if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
                                        'taxonomy' => 'partnership',
@@ -44,30 +45,27 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
                                        'terms'    => explode(',', $partnership ) ) );
     endif;
 
-    // Daten holen
     $partners = get_posts( $query );
 
-    // Ausgabe vorbereiten
+
+    /* Ausgabe */
+
     $output = '';
 
     if( $partners ) :
-        // Variable setzen
         $rows       = array();
         $field_keys = explode( ',', strtoupper( str_replace(" ", "", $fieldset ) ) );
 
-        /**
-         * Schritt 1
-         * Alle gefundenen Partner durchlaufen und entsprechende Tabellenzeilen generieren
-         **/
+
+        /* Alle gefundenen Partner durchlaufen und entsprechende Tabellenzeilen generieren */
 
         foreach( $partners as $partner ) :
-            // Tabellenzellen zurücksetzen
             unset( $cells );
 
-            // Alle Feldschlüssel in der designierten Reihenfolge durchlaufen
             foreach( $field_keys as $field_key ) :
 
                 switch( $field_key ) :
+
                     case 'LOGO':
                         $link  = get_field( 'partner-webseite', $partner->ID );
                         $image = get_the_post_thumbnail( $partner->ID, 'full' );
@@ -80,15 +78,14 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
                         else :
                             $cells[ 'partner-logo' ] = $image;
                         endif;
+
                     break;
 
                     case 'BESCHREIBUNG':
-                        // Alle möglichen Inhalte holen
                         $title       = get_the_title( $partner->ID);
                         $description = get_field( 'partner-beschreibung', $partner->ID );
                         $link        = get_field( 'partner-webseite', $partner->ID );
 
-                        // Ausgabe erstellen
                         if( !empty( $title ) ) :
                             $cells[ 'partner-description' ] .= sprintf( '<h2 class="title">%1$s</h2>', $title );
                         endif;
@@ -105,15 +102,14 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
                                                                                  __( 'Externen Link aufrufen', 'congressomat' ),
                                                                                  $url[ 'host' ] ) );
                         endif;
+
                     break;
 
                     case 'MESSESTAND':
-                        // Alle möglichen Inhalte holen
                         $exhibition = get_field( 'messestand', $partner->ID );
                         $location   = congressomat_get_location( $exhibition[ 'partner-messestand-ort' ] );
                         $number     = $exhibition[ 'partner-messestand-nummer' ];
 
-                        // Ausgabe erstellen
                         if( !empty( $number ) or !empty( $location ) ) :
                             $strings = array();
 
@@ -129,11 +125,16 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
                         else :
                             $cells[ 'partner-exhibition' ] = '';
                         endif;
+
                     break;
+
                 endswitch;
+
             endforeach;
 
-            // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
+
+            /* Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen */
+
             $row_content = '';
 
             foreach( $cells as $class => $cell ) :
@@ -141,13 +142,11 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
             endforeach;
 
             $rows[] = sprintf( '<tr>%1$s</tr>', $row_content );
+
         endforeach;
 
 
-        /**
-         * Schritt 2
-         * Ausgabe vorbereiten
-         **/
+        /* Ausgabe vorbereiten */
 
         $output .= '<table class="partner-table">';
         $output .= '<tbody>';
@@ -160,7 +159,6 @@ function congressomat_shortcode_partner_table( $atts, $content = null )
         $output .= '</table>';
     endif;
 
-    // Ausgabe
     return $output;
 }
 

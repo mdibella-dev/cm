@@ -16,9 +16,7 @@
 
 function congressomat_shortcode_event_table( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'set'          => '1',
@@ -31,58 +29,48 @@ function congressomat_shortcode_event_table( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /**
-     * Bei valider Setlist fortfahren
-     **/
+    /* Bei valider Setlist fortfahren */
 
     if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_SETLIST ) ) ) :
 
-        /**
-         * Schritt 1
+        /*
          * Daten holen
-         **/
+         * Entweder nach (aktiven) Sessions des angegebenen Speakers suchen (Variante 1)
+         * oder nach den Sessions des angegebenen Events suchen (Variante 2)
+         */
 
         if( !empty( $speaker) ) :
-
-            // Nach (aktiven) Sessions des angegebenen Speakers suchen
             $sessions = congressomat_get_sessions_by_speaker( $speaker );
-
         elseif( !empty( $event ) ) :
-
-            // Nach den Sessions des angegebenen Events suchen
-            // ggf. nach Tag filtern
             $sessions = congressomat_get_sessions_by_event( $event, $date );
-
         else :
             $sessions = null;
         endif;
 
 
-        /**
-         * Schritt 2
-         * Jede Session entlang der Setlist abarbeiten
-         **/
+        /* Jede Session entlang der Setlist abarbeiten */
 
         if( $sessions ) :
             $a_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['a'] );
             $b_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['b'] );
 
-            // Ausgabe vorbereiten
+
+            /* Ausgabe vorbereiten */
+
             $output = sprintf( '<div class="event-table has-set-%1$s">', $set );
 
             foreach( $sessions as $session ) :
                 $output .= '<div class="event-table__session">';
 
 
-                /**
-                 * 1. Die durch a_set konfigurierten Elemente abarbeiten
-                 **/
+                /* Die durch a_set konfigurierten Elemente abarbeiten */
 
                 $output .= '<div class="event-table__session-schedule">';
 
                 foreach( $a_set as $data_key ) :
 
                     switch( $data_key ) :
+
                         case 'session-date' :
                             $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
@@ -118,6 +106,7 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                                 congressomat_get_location( get_field( 'programmpunkt-location', $session->ID ) )
                             );
                         break;
+
                     endswitch;
 
                 endforeach;
@@ -125,15 +114,14 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                /**
-                 * 2. Die durch b_set konfigurierten Elemente abarbeiten
-                 **/
+                /* Die durch b_set konfigurierten Elemente abarbeiten */
 
                 $output .= '<div class="event-table__session-overview">';
 
                 foreach( $b_set as $data_key ) :
 
                     switch( $data_key ) :
+
                         case 'session-title' :
                             $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
@@ -168,7 +156,9 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                                     implode( ' ', $speakers_list )
                                 );
                             endif;
+
                         break;
+
                     endswitch;
 
                 endforeach;
@@ -176,23 +166,16 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                /**
-                 * 3. Anzeige der Detailinformationen (wenn vorhanden) ermöglichen
-                 **/
+                /* Anzeige der Detailinformationen (wenn vorhanden) ermöglichen */
 
                 $details = apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', $session->ID ) );
 
                 if( ( $show_details == true ) and !empty( $details ) ):
-
-                    // Toggle
                     $output .= '<div class="event-table__session-toggle"><span><i class="far fa-angle-down"></i></span></div>';
-
-                    // Details
                     $output .= sprintf ('<div class="event-table__session-details">%1$s</div>', $details );
                 endif;
 
                 $output .= '</div>';
-
 
             endforeach;
 
@@ -200,7 +183,6 @@ function congressomat_shortcode_event_table( $atts, $content = null )
         endif;
     endif;
 
-    // Ausgabe
     return $output;
 }
 

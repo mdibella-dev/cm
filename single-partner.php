@@ -17,7 +17,7 @@ get_header();
                 while( have_posts() ) :
                     the_post();
 
-                    /** Datensatz holen **/
+                    /* Datensatz holen */
 
                     $dataset = congressomat_get_partner_dataset( get_the_ID() );
             ?>
