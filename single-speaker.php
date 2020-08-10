@@ -99,7 +99,6 @@ get_header();
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
-                    <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 
                     <h2 class="has-text-align-center section-title">
                         <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'congressomat' ), $speaker[ 'title_name' ] ); ?>
@@ -126,6 +125,7 @@ get_header();
                     </h2>
 
                     <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) ); ?>
+                    
                 </div>
             </div>
 
