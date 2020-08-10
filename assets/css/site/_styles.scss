@@ -113,7 +113,6 @@
     }
 }
 
-
 .section-subtitle {
     font-size: 18px;
     font-weight: 300;
@@ -204,6 +203,10 @@
             padding: 0;
             display: inline-block;
             margin: 2px;
+        }
+
+        .is-fa-button {
+            color: #888;
         }
     }
 

@@ -14,7 +14,6 @@
         margin: 0;
         padding: 0;
 
-
         li {
             padding: 0;
             width: 100%;
@@ -25,7 +24,6 @@
     // Einzelnes Akkordeonelement, beinhaltet Cation & Content
     .accordion-element {
         width: 100%;
-
 
         &:last-of-type .accordion-caption:not(.open) {
             border-bottom: none;
