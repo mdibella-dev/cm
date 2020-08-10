@@ -17,9 +17,7 @@
 
 function congressomat_shortcode_teaser_list( $atts, $content = null )
 {
-    /**
-     * Parameter auslesen
-     **/
+    /* Ermittelung der übergebenen Parameter */
 
     $default_atts = array(
         'show'      => '',

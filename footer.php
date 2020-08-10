@@ -23,6 +23,7 @@
                     <div class="widget-area">
                         <?php dynamic_sidebar( 'footer-three' ); ?>
                     </div>
+                    
                 </div>
 
             </section>

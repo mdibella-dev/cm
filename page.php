@@ -12,8 +12,12 @@ get_header();
     <main id="main">
         <?php
         if ( have_posts() ) :
-            // Beginn der Ausgabenpufferung
+
+            /* Ausgabenpufferung beginnen */
             ob_start();
+
+
+            /* The Loop */
 
             while( have_posts() ) :
                 the_post();
@@ -33,11 +37,11 @@ get_header();
         <?php
             endwhile;
 
-            // Ende der Ausgabenpufferung
+
+            /* Ausgabenpufferung beenden und Puffer ausgeben */
+
             $output_buffer = ob_get_contents();
             ob_end_clean();
-
-            // Ausgabe
             echo $output_buffer;
         endif;
         ?>

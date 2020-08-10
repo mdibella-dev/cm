@@ -13,20 +13,26 @@ get_header();
         <article>
         <?php
         if ( have_posts() ) :
-            // Beginn der Ausgabenpufferung
+
+            /* Ausgabenpufferung beginnen */
+
             ob_start();
+
+
+            /* The Loop */
 
             while( have_posts() ) :
                 the_post();
                 the_content();
             endwhile;
 
-            // Ende der Ausgabenpufferung
+
+            /* Ausgabenpufferung beenden und Puffer ausgeben */
+
             $output_buffer = ob_get_contents();
             ob_end_clean();
-
-            // Ausgabe
             echo $output_buffer;
+
         endif;
         ?>
         </article>

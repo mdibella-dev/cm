@@ -14,14 +14,17 @@ get_header();
 
             <?php
             if( have_posts() ) :
-                // Beginn der Ausgabenpufferung
+
+                /* Ausgabenpufferung beginnen */
+
                 ob_start();
 
                 while( have_posts() ) :
                     the_post();
 
-                    // Referentendaten holen
-                    $speaker = congressomat_get_speaker_dataset( get_the_ID() );
+                    /* Datensatz holen */
+
+                    $data = congressomat_get_speaker_dataset( get_the_ID() );
             ?>
 
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
@@ -40,7 +43,7 @@ get_header();
                         <div class="single-speaker-profile__column">
 
                             <figure class="speaker-image">
-                                <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'alt' => $speaker[ 'title_name' ] ) ); ?>
+                                <?php echo get_the_post_thumbnail( $data[ 'id' ], 'full', array( 'alt' => $data[ 'title_name' ] ) ); ?>
                             </figure>
 
                             <div class="speaker-social-media">
@@ -57,7 +60,7 @@ get_header();
                                                 class="wp-block-button__link"
                                                 rel="external nofollow"
                                                 target="_blank"
-                                                title="<?php echo sprintf( __( 'Profil von %1$s auf %2$s', 'congressomat' ), $speaker[ 'name' ], SOCIAL_MEDIA[ $service ][ 'name' ] ); ?>">
+                                                title="<?php echo sprintf( __( 'Profil von %1$s auf %2$s', 'congressomat' ), $data[ 'name' ], SOCIAL_MEDIA[ $service ][ 'name' ] ); ?>">
                                                 <i class="<?php echo SOCIAL_MEDIA[ $service ][ 'icon' ]; ?>"></i>
                                             </a>
                                         </div>
@@ -72,18 +75,19 @@ get_header();
 
                         <div class="single-speaker-profile__column">
 
-                            <h2 class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></h2>
+                            <h2 class="speaker-title-name"><?php echo $data[ 'title_name' ]; ?></h2>
 
                             <?php
-                            // Position oder Berufstitel bekannt?
-                            if( !empty( $speaker[ 'position' ] ) ) :
+                            /* Position oder Berufstitel bekannt? */
+
+                            if( !empty( $data[ 'position' ] ) ) :
                             ?>
-                            <h3 class="speaker-position"><?php echo $speaker[ 'position' ]; ?></h3>
+                            <h3 class="speaker-position"><?php echo $data[ 'position' ]; ?></h3>
                             <?php
                             endif;
                             ?>
 
-                            <div class="article"><?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
+                            <div class="article"><?php echo apply_filters( 'the_content', $data[ 'description' ] ); ?></div>
 
                         </div>
                     </div>
@@ -101,12 +105,12 @@ get_header();
                 <div class="wp-block-group__inner-container">
 
                     <h2 class="has-text-align-center section-title">
-                        <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'congressomat' ), $speaker[ 'title_name' ] ); ?>
+                        <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'congressomat' ), $data[ 'title_name' ] ); ?>
                     </h2>
 
                     <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 
-                    <?php echo do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $speaker[ 'id' ] ) ); ?>
+                    <?php echo do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) ); ?>
                 </div>
             </div>
 
@@ -124,19 +128,19 @@ get_header();
                         <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>
                     </h2>
 
-                    <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) ); ?>
-                    
+                    <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $data[ 'id' ] ) ); ?>
+
                 </div>
             </div>
 
             <?php
             endwhile;
 
-            // Ausgabenpuffer sichern; Pufferung beenden
+
+            /* Ausgabenpufferung beenden und Puffer ausgeben */
+
             $output_buffer = ob_get_contents();
             ob_end_clean();
-
-            // Ausgabe
             echo $output_buffer;
         endif;
         ?>

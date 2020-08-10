@@ -2,9 +2,9 @@
 /**
  * Custom Template für bildbasierte Downloads
  *
- * @author Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- * @uses Plugin download-monitor
+ * @uses    Plugin download-monitor
  */
 
 
