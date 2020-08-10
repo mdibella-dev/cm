@@ -353,8 +353,8 @@ function congressomat_get_speaker_dataset( $speaker )
 function congressomat_sort_speaker_datasets( $speaker_list )
 {
     foreach( $speaker_list as $key => $row ) :
-        $forename[$key] = $row[ 'forename' ];
-        $lastname[$key] = $row[ 'lastname' ];
+        $forename[ $key ] = $row[ 'forename' ];
+        $lastname[ $key ] = $row[ 'lastname' ];
     endforeach;
 
     array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
@@ -406,4 +406,29 @@ function congressomat_get_event( $event )
     endif;
 
     return null;
+}
+
+
+
+/**
+ * Liefert den Datensatz eines bestimmten Partners
+ *
+ * @param  int    $partner
+ * @return array
+ * @since  2.3.0
+ **/
+
+function congressomat_get_partner_dataset( $partner )
+{
+    $post = get_post( $partner );
+
+    $data[ 'id' ]        = $partner;
+    $data[ 'permalink' ] = get_post_permalink( $post );
+    $data[ 'address' ]   = get_field( 'partner-anschrift', $post );
+    $data[ 'phone' ]     = get_field( 'partner-telefon', $post );
+    $data[ 'fax' ]       = get_field( 'partner-telefax', $post );
+    $data[ 'mail' ]      = get_field( 'partner-mail', $post );
+    $data[ 'website' ]   = get_field( 'partner-webseite', $post );
+
+    return $data;
 }
