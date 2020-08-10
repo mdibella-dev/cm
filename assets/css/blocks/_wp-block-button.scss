@@ -78,7 +78,6 @@
 }
 
 
-
 /** Button mit Fontawesome **/
 
 .wp-block-button.is-fa-button > .wp-block-button__link {
@@ -91,12 +90,12 @@
     width: 40px;
     height: 40px;
     padding:0;
+    color: #888;
 
     @include respond-to(medium) {
         padding: 0;
     }
 }
-
 
 .wp-block-button.is-fa-button > .wp-block-button__link:hover,
 .wp-block-button.is-fa-button > .wp-block-button__link:focus {

@@ -11,6 +11,7 @@
  * Beiträge
  **/
 
+
 /* Überschrift für Absätze */
 
 .paragraph-header {
@@ -82,12 +83,14 @@
         padding: 2rem 1rem;
         width: 100%;
 
-        // ab 960px (large)
+        /* ab 960px (large) */
+
         @include respond-to(large) {
             max-width: 64rem;
         }
 
-        // ab 1280px (wide):
+        /* ab 1280px (wide) */
+
         @include respond-to(wide) {
             padding: 4rem 1rem;
         }
@@ -163,11 +166,15 @@
             @include respond-to(large) {
                 padding-left: 4rem;
             }
+
+            @include respond-to(wide) {
+                padding-left: 6rem;
+            }
         }
     }
 
 
-    /** Einzelne Beschreibungsbestandteile  **/
+    /* Einzelne Beschreibungsbestandteile  */
 
     .speaker-image {
         width: 100%;
@@ -236,6 +243,7 @@
 /**
  * Plugin: download-monitor
  **/
+
 
 /* Template: link, link-excerpt */
 

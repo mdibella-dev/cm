@@ -76,7 +76,6 @@
         padding-left: 0;
         margin: 0;
 
-
         & > li {
             line-height: 2.5em;
             color: #ddd;
@@ -87,7 +86,6 @@
             &:not(:last-child) {
                 border-bottom: 1px solid #bbb;
             }
-
 
             a {
                 @include a-tag-basic-settings();
@@ -108,7 +106,6 @@
 #footer-social {
     display: block;
 
-
     ul {
         width: 100%;
         list-style-type: none;
@@ -121,7 +118,6 @@
             justify-content: left;
         }
     }
-
 
     li {
         padding: 0;
