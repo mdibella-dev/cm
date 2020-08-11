@@ -35,22 +35,22 @@ get_header();
 
                     <div class="single-partner-profile">
 
-                        <div class="single-partner-profile__column bigger-column">
+                        <div class="single-partner-profile__column">
 
 
 
                         </div>
 
-                        <div class="single-partner-profile__column smaller-column">
+                        <div class="single-partner-profile__column">
 
                             <figure class="partner-image">
                                 <?php echo get_the_post_thumbnail(); ?>
                             </figure>
 
-                            <ul>
+                            <ul class="partner-contact">
                             <?php
                             if( $dataset[ 'phone' ] ) :
-                                echo sprintf( '<li class="partner-%1$s"><span>%2$s</span><span>%3$s</span></li>',
+                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'phone',
                                     __( 'Telefon', 'congressomat' ),
                                     $dataset[ 'phone' ],
@@ -58,7 +58,7 @@ get_header();
                             endif;
 
                             if( $dataset[ 'fax' ] ) :
-                                echo sprintf( '<li class="partner-%1$s"><span>%2$s</span><span>%3$s</span></li>',
+                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'fax',
                                     __( 'Telefax', 'congressomat' ),
                                     $dataset[ 'fax' ],
@@ -66,7 +66,7 @@ get_header();
                             endif;
 
                             if( $dataset[ 'mail' ] ) :
-                                echo sprintf( '<li class="partner-%1$s"><span>%2$s</span><span>%3$s</span></li>',
+                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'mail',
                                     __( 'E-Mail', 'congressomat' ),
                                     $dataset[ 'mail' ],
@@ -74,7 +74,7 @@ get_header();
                             endif;
 
                             if( $dataset[ 'website' ] ) :
-                                echo sprintf( '<li class="partner-%1$s"><span>%2$s</span><span>%3$s</span></li>',
+                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'webseite',
                                     __( 'Web', 'congressomat' ),
                                     $dataset[ 'website' ],
