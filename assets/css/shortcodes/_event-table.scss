@@ -19,6 +19,7 @@
     border-radius: $ui-border-radius;
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
     padding: 2*$unit;
 
     @include respond-to(large) {
@@ -38,7 +39,8 @@
     }
 
 
-    // Bereich für Datums-, Zeit- und Ortsangaben
+    /* Bereich für Datums-, Zeit- und Ortsangaben */
+
     & > div:nth-of-type(1) {
         white-space: nowrap;
         width: 100%;
@@ -51,7 +53,8 @@
     }
 
 
-    // Bereich für Titel, Untertitel und Referentenbilder
+    /* Bereich für Titel, Untertitel und Referentenbilder */
+
     & > div:nth-of-type(2) {
         flex-grow: 2;
         width: 75%;
@@ -62,28 +65,33 @@
     }
 
 
-    // Bereich für Toggle
+    /* Bereich für Toggle */
+
     & > div:nth-of-type(3) {
         text-align: right;
         width: auto;
     }
 
 
-    // Bereich für Details
+    /* Bereich für Details */
+
     & > div:nth-of-type(4) {
         width: 100%;
         display: none;
         padding-top: 1.25rem;
+
+        @include respond-to(wide) {
+            padding-top: 2.25rem;
+        }
     }
 
 }
 
 
-/** Toggle-Element **/
+/* Toggle-Element */
 
 .event-table__session-toggle {
     display: inline-block;
-
 
     span {
         width: 40px;
@@ -99,11 +107,9 @@
 
     }
 
-
     span:hover {
         background-color: rgba(0,0,0,0.1) !important;
     }
-
 
     span > i {
         font-size: 1.25rem;
@@ -121,13 +127,12 @@
 
 
 
-/** Datentypen **/
+/* Datentypen */
 
 .event-table *[data-type='session-speaker'] {
     line-height: 1;
     white-space: nowrap;
     margin-top: 1.25rem;
-
 
     a {
         width: 60px;
@@ -137,7 +142,6 @@
         padding: 0;
         border: none;
 
-
         & > img {
             width: 100%;
             height: 100%;
@@ -145,20 +149,16 @@
             box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.1);
             transition: all 0.5s 0s ease-in-out;
         }
-
     }
-
 
     a:hover,
     a:focus {
         padding: 0;
         border: none;
 
-
         img {
             transform: scale(1.5, 1.5);
         }
-
     }
 }
 

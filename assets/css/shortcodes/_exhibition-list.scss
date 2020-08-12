@@ -48,6 +48,9 @@
     }
 
     figure {
+        width: 200px;
+        margin: 0 auto;
+
         @include respond-to(medium) {
             width: 100px;
             margin-right: 2rem;
@@ -73,15 +76,18 @@
         justify-content: space-between;
     }
 
-    div:nth-child(3) {
-        display:none;
+
+    /* Bereich für die Adresse */
+
+    div:nth-child(1) {
+        margin-bottom: 1rem;
 
         @include respond-to(medium) {
-            display: block;
-            flex-basis: 6rem;
-            margin-top: -10px;
+            margin-bottom: 0;
         }
     }
+
+    /* Bereich für die Standinformation */
 
     div:nth-child(2) div {
         display: table;
@@ -97,6 +103,19 @@
                 display: table-cell;
                 width: 50%;
             }
+        }
+    }
+
+
+    /* Bereich für die Schaltfläche */
+
+    div:nth-child(3) {
+        display:none;
+
+        @include respond-to(medium) {
+            display: block;
+            flex-basis: 6rem;
+            margin-top: -10px;
         }
     }
 }
