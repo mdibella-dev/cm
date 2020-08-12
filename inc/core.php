@@ -353,16 +353,16 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
 
 function congressomat_get_speaker_dataset( $speaker )
 {
-    $post = get_post( $speaker );
+    $speaker_post = get_post( $speaker );
 
     $data[ 'id' ]          = $speaker;
-    $data[ 'firstname' ]   = get_field( 'referent-vorname', $post );
-    $data[ 'lastname' ]    = get_field( 'referent-nachname', $post );
+    $data[ 'firstname' ]   = get_field( 'referent-vorname', $speaker_post );
+    $data[ 'lastname' ]    = get_field( 'referent-nachname', $speaker_post );
     $data[ 'name' ]        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
-    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $post ), $data[ 'name' ] ) );
-    $data[ 'position' ]    = get_field( 'referent-position', $post );
-    $data[ 'description' ] = get_field( 'referent-beschreibung', $post );
-    $data[ 'permalink' ]   = get_post_permalink( $speaker );
+    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $speaker_post ), $data[ 'name' ] ) );
+    $data[ 'position' ]    = get_field( 'referent-position', $speaker_post );
+    $data[ 'description' ] = get_field( 'referent-beschreibung', $speaker_post );
+    $data[ 'permalink' ]   = get_post_permalink( $speaker_post );
 
     return $data;
 }
@@ -442,21 +442,38 @@ function congressomat_get_event( $event )
  * Liefert den Datensatz eines bestimmten Partners
  *
  * @since  2.3.0
- * @param  int    $partner
+ * @param  int    $partner_id
  * @return array
  **/
 
 function congressomat_get_partner_dataset( $partner )
 {
-    $post = get_post( $partner );
+    $partner_post = get_post( $partner );
 
-    $data[ 'id' ]        = $partner;
-    $data[ 'permalink' ] = get_post_permalink( $post );
-    $data[ 'address' ]   = get_field( 'partner-anschrift', $post );
-    $data[ 'phone' ]     = get_field( 'partner-telefon', $post );
-    $data[ 'fax' ]       = get_field( 'partner-telefax', $post );
-    $data[ 'mail' ]      = get_field( 'partner-mail', $post );
-    $data[ 'website' ]   = get_field( 'partner-webseite', $post );
+    $data[ 'id' ]               = $partner;
+    $data[ 'permalink' ]        = get_post_permalink( $partner_post );
+    $data[ 'title' ]            = get_the_title( $partner_post );
+    $data[ 'address' ]          = get_field( 'partner-anschrift', $partner_post );
+    $data[ 'phone' ]            = get_field( 'partner-telefon', $partner_post );
+    $data[ 'fax' ]              = get_field( 'partner-telefax', $partner_post );
+    $data[ 'mail' ]             = get_field( 'partner-mail', $partner_post );
+    $data[ 'website' ]          = get_field( 'partner-webseite', $partner_post );
+    $data[ 'exhibition-spaces'] = array();
+
+    while( have_rows( 'partner-exhibition-spaces', $partner_post ) ) :
+        the_row();
+
+        $space          = get_sub_field( 'partner-exhibition-space', $partner_post );
+        $space_post     = get_post( $space );
+        $space_location = get_term( get_field( 'exhibition-space-location', $space_post ),'location' );
+        $space_package  = get_term( get_field( 'exhibition-space-package', $space_post ), 'exhibition_package' );
+
+        $data[ 'exhibition-spaces'][] = array(
+            'signature' => get_the_title( $space_post ),
+            'location'  => $space_location->name,
+            'package'   => $space_package->name,
+        );
+    endwhile;
 
     return $data;
 }
