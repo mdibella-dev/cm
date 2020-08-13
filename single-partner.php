@@ -19,7 +19,7 @@ get_header();
 
                     /* Datensatz holen */
 
-                    $dataset = congressomat_get_partner_dataset( get_the_ID() );
+                    $data = congressomat_get_partner_dataset( get_the_ID() );
             ?>
 
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
@@ -48,40 +48,40 @@ get_header();
                             </figure>
 
                             <ul class="partner-contact">
-                            <?php
-                            if( $dataset[ 'phone' ] ) :
+                            <?php/*
+                            if( $data[ 'phone' ] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'phone',
                                     __( 'Telefon', 'congressomat' ),
-                                    $dataset[ 'phone' ],
+                                    $data[ 'phone' ],
                                     );
                             endif;
 
-                            if( $dataset[ 'fax' ] ) :
+                            if( $data[ 'fax' ] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'fax',
                                     __( 'Telefax', 'congressomat' ),
-                                    $dataset[ 'fax' ],
+                                    $data[ 'fax' ],
                                     );
                             endif;
 
-                            if( $dataset[ 'mail' ] ) :
+                            if( $data[ 'mail' ] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'mail',
                                     __( 'E-Mail', 'congressomat' ),
-                                    $dataset[ 'mail' ],
+                                    $data[ 'mail' ],
                                     );
                             endif;
 
-                            if( $dataset[ 'website' ] ) :
+                            if( $data[ 'website' ] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'webseite',
                                     __( 'Web', 'congressomat' ),
-                                    $dataset[ 'website' ],
+                                    $data[ 'website' ],
                                     );
-                            endif;
+                            endif;*/
                             ?>
-                            </ul>
+                        </ul>
 
                         </div>
                     </div>
@@ -90,21 +90,27 @@ get_header();
 
             <?php
             /**
-             * Weitere Referenten anzeigen
+             * Unternehmensadresse in Google Maps anzeigen
              *
-             * @since 1.0.0
+             * @since 2.3.0
              **/
-            ?>
-<!--            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
-                <div class="wp-block-group__inner-container">
-                    <h2 class="has-text-align-center section-title">
-                        <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>                    <div class="article">
-                        <?php echo apply_filters( 'the_content', $speaker[ 'description' ] ); ?></div>
-                    </h2>
 
-                    <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $speaker[ 'id' ] ) ); ?>
+            if( !empty( $data[ 'address' ] ) ) :
+
+                $google_maps_query =
+                'https://www.google.com/maps/embed/v1/place?q='
+                . urlencode( str_replace( '<br>', ', ', $data[ 'address' ] ) )
+                . '&amp;maptype=roadmap&amp;zoom=16&amp;key=AIzaSyBABldTSNGLjLd8gLSgHaqxmuUqoi6HouI';
+
+            ?>
+            <div class="wp-block-webfactory-map">
+                <div class="wp-block-webfactory-map">
+                    <iframe width="100%" height="420px" src="<?php echo $google_maps_query; ?>" frameborder="0"></iframe>
                 </div>
-            </div>-->
+            </div>
+            <?php
+            endif;
+            ?>
 
             <?php
             endwhile;
