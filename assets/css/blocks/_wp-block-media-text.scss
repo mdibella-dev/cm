@@ -6,13 +6,22 @@
  **/
 
 
+
+.wp-block-media-text__media img,
+.wp-block-media-text__media video {
+    height: auto; /* Bugfix: Seit WP 5.5 wird das Medium gestretcht */
+}
+
+
 .wp-block-media-text:not(.has-media-on-the-right) .wp-block-media-text__content {
     padding-right: 0;
 }
 
+
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
     padding-left: 0;
 }
+
 
 @media (max-width: 600px) {
     .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
@@ -23,6 +32,7 @@
         padding: 0 0 2rem;
     }
 }
+
 
 .wp-block-media-text + .wp-block-media-text {
     margin-top: 2rem;
