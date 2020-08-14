@@ -37,7 +37,7 @@ function congressomat_admin_menu()
 		'manage_options',
 		'edit-tags.php?taxonomy=event&post_type=session',
 		'',
-		'',
+		0,
 	);
 
 	add_submenu_page(
@@ -47,7 +47,7 @@ function congressomat_admin_menu()
 		'manage_options',
 		'edit-tags.php?taxonomy=location&post_type=session',
 		'',
-		'',
+		0,
 	);
 
 	add_submenu_page(
@@ -57,7 +57,7 @@ function congressomat_admin_menu()
 		'manage_options',
 		'edit-tags.php?taxonomy=partnership&post_type=session',
 		'',
-		'',
+		0,
 	);
 
 	add_submenu_page(
@@ -67,7 +67,7 @@ function congressomat_admin_menu()
 		'manage_options',
 		'edit-tags.php?taxonomy=exhibition_package&post_type=session',
 		'',
-		'',
+		0,
 	);
 }
 

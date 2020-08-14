@@ -6,13 +6,19 @@
  **/
 
 
+
+/**
+ * Einbindung von Bibliotheken
+ **/
+
+
 /* Mixins */
 
 @import "mixins/_mixins";
 @import "mixins/_media-breakpoints";
 
 
-/* UNSORTIERT */
+/* Seitenelemente / generelle Einstellungen */
 
 @import "site/_vars";
 
@@ -28,7 +34,12 @@
 @import "blocks/_wp-block-button";
 @import "blocks/_wp-block-quote";
 @import "blocks/_wp-block-table";
-
+@import "blocks/_wp-block-image";
+@import "blocks/_wp-block-cover";
+@import "blocks/_wp-block-embed";
+@import "blocks/_wp-block-spacer";
+@import "blocks/_wp-block-media-text";
+@import "blocks/third-party/_wp-block-webfactory-map";
 
 
 
@@ -36,12 +47,31 @@
  * Globale Einstellungen, themenunabhängig
  **/
 
-// Maximale Arbeitsbreite
-.wp-block {
+
+/*
+ * Blöcke auf der ersten Ebene maximal verbreitern,
+ * aber einen Puffer von 5% lassen, um nicht an den Rand stoßen
+ */
+
+  Maximale Arbeitsbreite
+.is-root-container > .wp-block {
     @include respond-to(large) {
-        max-width: none;
+        max-width: 95% !important;
     }
 }
+
+
+/*
+ * Verhindert, dass große Elemente (z.B. wp-block-cover) "aus den Rahmen fallen"
+ * und nicht zentriert sind
+ */
+
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
 
 
 .edit-post-text-editor {
@@ -60,22 +90,11 @@
 }
 
 
-// Korrektur der Zentrierung
-.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] {
-    @include respond-to(small) {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-
-
 
 /**
  * Themenspezifische Einstellungen
  **/
 
-// Schriftfamilie
 .editor-post-title__block .editor-post-title__input,
 .editor-styles-wrapper {
     font-family: $font-sans !important;
