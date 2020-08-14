@@ -27,7 +27,7 @@ get_header();
                     $data = congressomat_get_speaker_dataset( get_the_ID() );
             ?>
 
-            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
 
                     <?php
@@ -122,7 +122,7 @@ get_header();
              * @since 1.0.0
              **/
             ?>
-            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-05-background-color has-background">
+            <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
                     <h2 class="has-text-align-center section-title">
                         <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>
