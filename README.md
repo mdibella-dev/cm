@@ -14,17 +14,24 @@ __Tested up to:__ WordPress 5.4
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### 2.3.0  
-**Hinzugefügt:** Posttype für Ausstellungsflächen
-**Hinzugefügt:** Taxonomie für Ausstellerpakete
-**Hinzugefügt:** Gemeinsames Admin-Menü für alle Congressomat-Komponenten (ausgenommen FAQ)
-**Hinzugefügt:** Mixin für <figcaption> (betrifft Embeds, Bilder)
-**Hinzugefügt:** Button-Stil Grau-Schattiert
+**Hinzugefügt:** Detail-Seite für Kooperationspartner    
+**Hinzugefügt:** Posttype für Ausstellungsflächen  
+**Hinzugefügt:** Taxonomie für Ausstellerpakete  
+**Hinzugefügt:** Gemeinsames Admin-Menü für alle Congressomat-Komponenten (ausgenommen FAQ)  
+**Hinzugefügt:** Mixin für <figcaption> (betrifft Embeds, Bilder)  
+**Hinzugefügt:** Button-Stil Grau-Schattiert  
+**Hinzugefügt:** Shortcode [icon-wall]  
+**Hinzugefügt:** Shortcode [exhibition-list]  
+**Hinzugefügt:** Darstellung von Blocks im Block-Editor  
 **Fixed:** Farbpalette  
-**Geändert:** Abstände bei Embeds, Bildern
-**Geändert:** speaker-grid
-**Geändert:** single-speaker.php + Klassen
-**Geändert:** Button-Stile
-**Entfernt:** .is-style-with-caption
+**Fixed:** Darstellung von .wp-block-cover im Block-Editor  
+**Fixed:** Breite von Blocks nach Root-Element im Block-Editor   
+**Geändert:** Abstände bei Embeds, Bildern  
+**Geändert:** speaker-grid  
+**Geändert:** single-speaker.php + Klassen  
+**Geändert:** Button-Stile  
+**Entfernt:** .is-style-with-caption  
+**Entfernt:** Shortcode [partner-list]  
 
 
 ### 2.2.0
@@ -32,9 +39,9 @@ __Tested up to:__ WordPress 5.4
 **Hinzugefügt:** Spacer-Block   
 **Fixed:** Extrafreiraum bei .teaser-image  
 **Fixed:** Breite des Blockeditors (Codeview)  
-**Geändert:** Verzeichnisstruktur
+**Geändert:** Verzeichnisstruktur  
 **Geändert:** Teaser ohne 'Mehr'-Schalter  
-**Geändert:** Referenten-Seite (Backport von Winterakademie)
+**Geändert:** Referenten-Seite (Backport von Winterakademie)  
 
 ### 2.1.0
 **Geändert:** Kommentierung und Code-Refaktorierung   
