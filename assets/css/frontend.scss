@@ -1,9 +1,10 @@
 /**
  * Frontend-Styles für dieses Thema
  *
-* @author  Marco Di Bella <mdb@marcodibella.de>
-* @package congressomat
-**/
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
 
 
 
@@ -42,12 +43,13 @@
 @import "blocks/_wp-block-embed";
 @import "blocks/_wp-block-spacer";
 @import "blocks/_wp-block-media-text";
+@import "blocks/third-party/_wp-block-webfactory-map";
 
 
 /* Shortcodes */
 
 @import "shortcodes/_exhibition-list";
-@import "shortcodes/_partner-list";
+@import "shortcodes/_icon-wall";
 @import "shortcodes/_partner-table";
 @import "shortcodes/_teaser-list";
 @import "shortcodes/_event-table";

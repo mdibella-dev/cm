@@ -16,16 +16,11 @@
     margin: 0 auto !important;
     padding: 0 !important;
 
-
     li {
         margin: 0 !important;
         padding: 2rem;
         width: calc(50%);
 
-    /*    @include respond-to(small) {
-            width: calc(33%);
-        }
-*/
         @include respond-to(medium) {
             width: calc(25%);
         }
@@ -35,9 +30,19 @@
         }
     }
 
-
     img {
         width: 100%;
         height: auto;
+    }
+
+    a {
+        border-bottom: none;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+            background: transparent;
+            border-bottom: none;
+        }
     }
 }

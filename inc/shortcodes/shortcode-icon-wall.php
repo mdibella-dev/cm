@@ -25,9 +25,17 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
-    /*$link = str_lower()
-    if( $li)
-*/
+    $link         = strtolower( trim( $link ) );
+    $link_options = array(
+        'none',
+        'internal',
+        'external',
+    );
+
+    if( !in_array( $link, $link_options ) ) :
+        $link = 'none';
+    endif;
+
 
     /*
      * Daten abrufen und aufbereiten
@@ -60,9 +68,57 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
 ?>
 
 <ul class="icon-wall">
-    <?php foreach( $partners as $partner ) : ?>
+    <?php
+    foreach( $partners as $partner ) :
+
+        /* Datensatz holen */
+
+        $data = congressomat_get_partner_dataset( $partner->ID );
+    ?>
     <li>
-        <?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
+        <?php
+        switch( $link ) :
+
+            case 'internal' :
+                echo sprintf( '<a href="%1$s" target="_self" title="%2$s">',
+                    $data[ 'permalink' ],
+                    __( 'Detailsseite aufrufen'),
+                );
+            break;
+
+            case 'external' :
+                if( !empty( $data[ 'website' ] ) ) :
+                    echo sprintf( '<a href="%1$s" target="blank" title="%2$s">',
+                        $data[ 'website' ],
+                        __( 'Webseite aufrufen'),
+                    );
+                endif;
+            break;
+
+            case 'none' :
+            break;
+
+        endswitch;
+
+        echo get_the_post_thumbnail( $partner->ID, 'full' );
+
+        switch( $link ) :
+
+            case 'internal' :
+                echo '</a>';
+            break;
+
+            case 'external' :
+                if( !empty( $data[ 'website' ] ) ) :
+                    echo '</a>';
+                endif;
+            break;
+
+            case 'none' :
+            break;
+
+        endswitch;
+        ?>
     </li>
     <?php endforeach; ?>
 </ul>
