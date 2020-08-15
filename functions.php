@@ -81,6 +81,6 @@ require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-partner-table.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-partner-list.php' );
+require_once( get_template_directory() . '/inc/shortcodes/shortcode-icon-wall.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-exhibition-list.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-faq.php' );

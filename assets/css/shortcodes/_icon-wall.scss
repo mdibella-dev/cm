@@ -1,5 +1,5 @@
 /**
- * Liste mit Kongresspartnern
+ * Erzeugt eine "Mauer" mit den Logos der Kooperationspartner
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
@@ -7,36 +7,37 @@
 
 
 
-.partner-list {
+.icon-wall {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin: 0 auto !important;
     padding: 0 !important;
 
 
     li {
-        margin: $unit 2*$unit;
-        padding: 0 !important;
-        width: calc(50% - #{4*$unit});
+        margin: 0 !important;
+        padding: 2rem;
+        width: calc(50%);
 
-        @include respond-to(small) {
-            width: calc(33% - #{4*$unit});
+    /*    @include respond-to(small) {
+            width: calc(33%);
         }
-
+*/
         @include respond-to(medium) {
-            width: calc(25% - #{4*$unit});
+            width: calc(25%);
         }
 
         @include respond-to(large) {
-            width: calc(20% - #{4*$unit});
+            width: calc(20%);
         }
     }
 
 
     img {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 }

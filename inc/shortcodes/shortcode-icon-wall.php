@@ -1,26 +1,33 @@
 <?php
 /**
- * Shortcode [partner-list]
- * Erzeugt eine Liste mit den Kooperationspartnern
+ * Shortcode [icon-wall]
+ * Erzeugt eine "Mauer" mit den Logos der Kooperationspartner
  *
  * Folgende Parameter können verwendet werden:
- * @param   partnership (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
+ * @param   partnership (optional)
+ *                      Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
+ * @param   link        (optional)
+ *                      Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
 
-function congressomat_shortcode_partner_list( $atts, $content = null )
+function congressomat_shortcode_icon_wall( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
     $default_atts = array(
         'partnership' => '',
+        'link'        => 'none',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
+    /*$link = str_lower()
+    if( $li)
+*/
 
     /*
      * Daten abrufen und aufbereiten
@@ -52,7 +59,7 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
         ob_start();
 ?>
 
-<ul class="partner-list">
+<ul class="icon-wall">
     <?php foreach( $partners as $partner ) : ?>
     <li>
         <?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
@@ -62,7 +69,7 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
 
 <?php
         /* Ausgabenpufferung beenden und Puffer ausgeben */
-        
+
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;
@@ -71,4 +78,4 @@ function congressomat_shortcode_partner_list( $atts, $content = null )
     return NULL;
 }
 
-add_shortcode( 'partner-list', 'congressomat_shortcode_partner_list' );
+add_shortcode( 'icon-wall', 'congressomat_shortcode_icon_wall' );
