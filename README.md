@@ -7,7 +7,7 @@ __Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-bloc
 
 __Requires at least:__ WordPress 5.3  
 
-__Tested up to:__ WordPress 5.4  
+__Tested up to:__ WordPress 5.5  
 
 
 ## Changelog
@@ -18,7 +18,7 @@ __Tested up to:__ WordPress 5.4
 **Hinzugefügt:** Posttype für Ausstellungsflächen  
 **Hinzugefügt:** Taxonomie für Ausstellerpakete  
 **Hinzugefügt:** Gemeinsames Admin-Menü für alle Congressomat-Komponenten (ausgenommen FAQ)  
-**Hinzugefügt:** Mixin für <figcaption> (betrifft Embeds, Bilder)  
+**Hinzugefügt:** Mixin für figcaption (betrifft Embeds, Bilder)  
 **Hinzugefügt:** Button-Stil Grau-Schattiert  
 **Hinzugefügt:** Shortcode [icon-wall]  
 **Hinzugefügt:** Shortcode [exhibition-list]  
