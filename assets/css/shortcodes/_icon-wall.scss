@@ -17,8 +17,11 @@
     padding: 0 !important;
 
     li {
+        fonts-size: 0;
+        line-height: 0;
+        text-align: center;
         margin: 0 !important;
-        padding: 2rem;
+        padding: 1rem 2rem;
         width: calc(50%);
 
         @include respond-to(medium) {
@@ -30,6 +33,10 @@
         }
     }
 
+    .is-squared img {
+        max-width: 85px;
+    }
+
     img {
         width: 100%;
         height: auto;
@@ -38,6 +45,7 @@
     a {
         border-bottom: none;
         padding: 0;
+        display: inline-block;
 
         &:hover,
         &:focus {

@@ -74,8 +74,19 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
         /* Datensatz holen */
 
         $data = congressomat_get_partner_dataset( $partner->ID );
+
+
+        /* Quadratische Logos? */
+
+        $thumb = wp_get_attachment_metadata( get_post_thumbnail_id( $data[ 'id' ] ) );
+
+        if( $thumb[ 'width' ] == $thumb[ 'height' ] ) :
+            $li_class = ' class="is-squared"';
+        else :
+            $li_class = '';
+        endif;
     ?>
-    <li>
+    <li<?php echo $li_class; ?>>
         <?php
         switch( $link ) :
 
@@ -100,7 +111,7 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
 
         endswitch;
 
-        echo get_the_post_thumbnail( $partner->ID, 'full' );
+        echo get_the_post_thumbnail( $data[ 'id' ], 'full' );
 
         switch( $link ) :
 
