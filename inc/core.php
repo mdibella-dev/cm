@@ -458,6 +458,7 @@ function congressomat_get_partner_dataset( $partner )
     $data[ 'fax' ]              = get_field( 'partner-telefax', $partner_post );
     $data[ 'mail' ]             = get_field( 'partner-mail', $partner_post );
     $data[ 'website' ]          = get_field( 'partner-webseite', $partner_post );
+    $data[ 'description' ]      = get_field( 'partner-beschreibung', $partner_post );
     $data[ 'exhibition-spaces'] = array();
 
     while( have_rows( 'partner-exhibition-spaces', $partner_post ) ) :
