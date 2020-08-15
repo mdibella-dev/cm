@@ -244,89 +244,89 @@
 
 
 /**
- * Stile für die Profilseite eines Kooperationspartners
+ * Stile für die Detailseite eines Kooperationspartners
  **/
 
-.single-partner-profile {
-    margin-bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
+.single-partner-details {
+    margin: 2rem 0;
 
-    @include respond-to(small) {
-        flex-wrap: nowrap;
-    }
-
-    .single-partner-profile__column {
-        flex-grow: 0;
-        flex-basis: 100%;
-
-        &:first-child {
-            @include respond-to(small) {
-                margin-top: 0;
-                flex-grow: 0;
-                flex-shrink: 1;
-                padding-left: 2rem;
-            }
-
-            @include respond-to(large) {
-                padding-left: 4rem;
-            }
-
-            @include respond-to(wide) {
-                padding-left: 6rem;
-            }
-        }
-
-        &:last-child {
-            margin-top: 1rem;
-
-            @include respond-to(small) {
-                flex-basis: 30%;
-                flex-grow: 1;
-                flex-shrink: 0;
-            }
-
-        }
-    }
-
-
-    /* Einzelne Beschreibungsbestandteile  */
-
-    .partner-image {
+    @include respond-to(medium) {
+        margin: 3rem 0;
         width: 100%;
-        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-        img {
+    & > div {
+        padding: 0 1rem;
+    }
+
+    p, ul, ol, li {
+        line-height: 1.4;
+        font-size: 1rem;
+    }
+
+
+    /* Bereich für das Unternehmenslogo */
+
+    & > div:nth-child(1) {
+        figure {
+            width: 200px;
+            margin: 2rem 0;
+
+            @include respond-to(medium) {
+                margin: 0 auto;
+            }
+        }
+
+        figure img {
             width: 100%;
-            height: 100%;
         }
     }
 
-    .partner-contact {
-        width: 100%;
-        list-style-type: none;
-        padding: 0;
-        display: table;
 
-        li {
-            padding: 0;
-            display: table-row;
-            font-size: .9rem;
+    /* Bereich für die Adresse */
+
+    & > div:nth-child(2) {
+        margin: 2rem 0;
+
+        @include respond-to(medium) {
+            margin: 0;
         }
+    }
 
-        li > span {
-            display: table-cell;
-            -webkit-hyphens: none;
-                -ms-hyphens: none;
-                    hyphens: none;
 
-            &:first-of-type::after {
-                content: ':';
-                margin-right: 1rem;
+    /* Bereich für die Kontaktmöglichkeiten */
+
+    & > div:nth-child(3) {
+        ul {
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+            display: table;
+
+            li {
+                padding: 0;
+                display: table-row;
+            }
+
+            li > span {
+                display: table-cell;
+                -webkit-hyphens: none;
+                    -ms-hyphens: none;
+                        hyphens: none;
+
+                &:first-of-type::after {
+                    content: ':';
+                    margin-right: 1rem;
+                }
             }
         }
     }
 }
+
 
 
 /**
