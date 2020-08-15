@@ -89,10 +89,15 @@ get_header();
                             endif;
 
                             if( $data[ 'website' ] ) :
-                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
+
+                                $url = parse_url( $data[ 'website' ] );
+
+                                echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span><a href="%3$s" target="_blank" title="%5$s">%4$s</a></span></li>',
                                     'webseite',
                                     __( 'Web', 'congressomat' ),
                                     $data[ 'website' ],
+                                    $url[ 'host' ],
+                                    __( 'Webseite besuchen', 'congressomat' ),
                                     );
                             endif;
                             ?>
