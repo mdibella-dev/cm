@@ -45,6 +45,17 @@
             top: 2px;
         }
     }
+
+    &.disabled > .wp-block-button__link {
+        .wp-block-button__link {
+            pointer-events: none;
+            cursor: default;
+
+            &:active {
+                top: 0;
+            }
+        }
+    }
 }
 
 .wp-block-button.is-style-default-with-shadow {
@@ -90,7 +101,7 @@
     width: 40px;
     height: 40px;
     padding:0;
-    color: #888;
+    color: #999;
 
     @include respond-to(medium) {
         padding: 0;
