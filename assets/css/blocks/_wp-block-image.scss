@@ -21,6 +21,11 @@
         @include figcaption-tag-basic-settings();
     }
 
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
     &:not(:first-child) {
         margin-top: 1rem;
 
