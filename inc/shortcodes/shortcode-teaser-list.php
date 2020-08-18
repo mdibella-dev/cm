@@ -160,7 +160,7 @@ function congressomat_shortcode_teaser_list__echo_pagination( $current_page, $ma
 {
     echo '<nav>';
 
-    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="far fa-chevron-left"></i></a></div>',
+    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="fas fa-chevron-left"></i></a></div>',
                   add_query_arg( 'prt', $current_page - 1 ),
                   __( 'Vorhergehende Seite', 'congressomat' ),
                   ( $current_page != 1 )? '' : ' disabled' );
@@ -168,7 +168,7 @@ function congressomat_shortcode_teaser_list__echo_pagination( $current_page, $ma
     echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
                   sprintf( __( 'Seite %1$s/%2$s', 'congressomat' ), $current_page, $max_page ) );
 
-    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="far fa-chevron-right"></i></a></div>',
+    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="fas fa-chevron-right"></i></a></div>',
                   add_query_arg( 'prt', $current_page + 1 ),
                   __( 'Nächste Seite', 'congressomat' ),
                   ( $current_page != $max_page )? '' : ' disabled' );
