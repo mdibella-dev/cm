@@ -31,7 +31,9 @@ get_header();
                     if( !empty( $data[ 'description' ] ) ) :
                         echo $data[ 'description' ];
                     else :
-                        /* keine Beschreibung vorhanden */
+                    ?>
+                    <p style="text-align: center;"><?php echo __( 'Keine Beschreibung verfügbar.', 'congressomat'); ?></p>
+                    <?php
                     endif;
                     ?>
 
