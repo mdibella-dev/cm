@@ -14,6 +14,7 @@ __Tested up to:__ WordPress 5.5
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### 2.3.0  
+**Hinzugefügt:** Versionierung des Stylesheets   
 **Hinzugefügt:** Detail-Seite für Kooperationspartner    
 **Hinzugefügt:** Posttype für Ausstellungsflächen  
 **Hinzugefügt:** Taxonomie für Ausstellerpakete  

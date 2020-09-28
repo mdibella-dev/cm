@@ -202,7 +202,7 @@ endif;
 function congressomat_enqueue_scripts()
 {
     wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css' );
+    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '2.3.0' );
 }
 
 add_action( 'wp_enqueue_scripts', 'congressomat_enqueue_scripts', 9990 );
