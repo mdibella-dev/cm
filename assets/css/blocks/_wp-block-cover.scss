@@ -9,6 +9,7 @@
 
 .wp-block-cover,
 .wp-block-cover-image {
+    min-height: 530px;
 
     .wp-block-cover-image-text,
     .wp-block-cover-text,
@@ -22,10 +23,15 @@
         padding-right: $unit;
     }
 
-    .wp-block-cover__inner-container > *:last-child {
-        margin-bottom: unset !important;
+    .wp-block-cover__inner-container {
+        margin: 0;
+
+        & > *:last-child {
+            margin-bottom: unset !important;
+        }
     }
 }
+
 
 
 /* Stil: Mit Overlay */
