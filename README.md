@@ -24,6 +24,7 @@ __Tested up to:__ WordPress 5.5
 **Hinzugefügt:** Shortcode [icon-wall]  
 **Hinzugefügt:** Shortcode [exhibition-list]  
 **Hinzugefügt:** Darstellung von Blocks im Block-Editor  
+**Fixed:** Line-Height bei wp-block-image  
 **Fixed:** Farbpalette  
 **Fixed:** Darstellung von .wp-block-cover im Block-Editor  
 **Fixed:** Breite von Blocks nach Root-Element im Block-Editor   
