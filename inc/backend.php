@@ -87,27 +87,12 @@ function congressomat_admin_menu_order( $menu_order )
 		   $admin_menu_slug = 'edit.php?post_type=session';
 		   $sorted    		= array();
 
-	/** @todo: Internationalisierung **/
 
-	$sort_order = array(
-		'Programmpunkte',
-		'Veranstaltungen',
-		'Örtlichkeiten',
-		'Referenten',
-		'Kooperationspartner',
-		'Kooperationsformen',
-		'Ausstellungsflächen',
-		'Ausstellungspakete',
-	 );
+	foreach( $submenu[ $admin_menu_slug ] as $submenu_item ) :
+		$sorted[ $submenu_item[0] ] = $submenu_item;
+	endforeach;
 
-	for( $i = 0; $i != sizeof( $sort_order ); $i++ ) :
-		foreach( $submenu[ $admin_menu_slug ] as $submenu_item ) :
-			if( $submenu_item[0] == $sort_order[ $i ]) :
-				$sorted[] = $submenu_item;
-				break;
-			endif;
-		endforeach;
-	endfor;
+	ksort( $sorted );
 
 	$submenu[ $admin_menu_slug ] = $sorted;
 
