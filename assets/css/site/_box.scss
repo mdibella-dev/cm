@@ -1,0 +1,73 @@
+/**
+ * Box
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat
+ **/
+
+
+
+
+.box {
+    background: #fff;
+    box-shadow: 0 0 18px -5px rgba(0,0,0,0.2);
+    padding: 30px 20px;
+    margin: 2rem auto;
+
+    padding: 40px;
+
+
+    @include respond-to(medium) {
+        padding: 40px;
+    }
+
+    h2 {
+        font-weight: 200;
+        font-size: 36px;
+        text-align: center;
+
+        @include respond-to(medium) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid #eee;
+        margin: 2rem 0;
+
+        @include respond-to(medium) {
+            margin: 3rem 0;
+        }
+    }
+}
+
+/*
+    form {
+        text-align: center;
+
+        label,
+        input[type='password'] {
+            // entspricht dem mixin für p-tags aus cm
+            -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                    hyphens: auto;
+            line-height: 1.5;
+            font-size: 1rem;
+
+            @include respond-to(medium) {
+                line-height: 1.65;
+                font-size: 1.2rem;
+            }
+        }
+
+        input[type='password'] {
+            margin-left: 20px;
+        }
+
+        div:nth-child(2) {
+            margin-top: 2rem;
+        }
+    }
+}
+*/

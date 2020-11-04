@@ -10,6 +10,8 @@
 .wp-block-button,
 .wp-block-button.is-style-default-with-shadow {
     margin-bottom: 0;
+    border: 0;
+    background: none;
 
     & > .wp-block-button__link {
         all: unset;
