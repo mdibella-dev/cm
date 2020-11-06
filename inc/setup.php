@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) OR exit;
 
 
 
-if ( ! function_exists( 'congressomat_theme_setup' ) ) :
+if ( ! function_exists( 'cm_theme_setup' ) ) :
 
     /**
      * Führt grundlegende Einstellungen für das Thema durch.
@@ -20,7 +20,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
      * @since   1.0.0
      */
 
-     function congressomat_theme_setup()
+     function cm_theme_setup()
      {
         /* Internationalisierung ermöglichen */
 
@@ -190,7 +190,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
         ) );
     }
 
-    add_action( 'after_setup_theme', 'congressomat_theme_setup' );
+    add_action( 'after_setup_theme', 'cm_theme_setup' );
 
 endif;
 
@@ -202,10 +202,10 @@ endif;
  * @since   1.0.0
  */
 
-function congressomat_enqueue_scripts()
+function cm_enqueue_scripts()
 {
     wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '2.3.0' );
+    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '2.4.0' );
 }
 
-add_action( 'wp_enqueue_scripts', 'congressomat_enqueue_scripts', 9990 );
+add_action( 'wp_enqueue_scripts', 'cm_enqueue_scripts', 9990 );

@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function congressomat_shortcode_exhibition_list( $atts, $content = null )
+function cm_shortcode_exhibition_list( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -71,7 +71,7 @@ function congressomat_shortcode_exhibition_list( $atts, $content = null )
 
         /* Datensatz holen */
 
-        $data = congressomat_get_partner_dataset( $partner->ID );
+        $data = cm_get_partner_dataset( $partner->ID );
     ?>
 
     <li class="exhibition-list-element">
@@ -144,4 +144,4 @@ function congressomat_shortcode_exhibition_list( $atts, $content = null )
     return NULL;
 }
 
-add_shortcode( 'exhibition-list', 'congressomat_shortcode_exhibition_list' );
+add_shortcode( 'exhibition-list', 'cm_shortcode_exhibition_list' );

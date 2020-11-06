@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) OR exit;
  * @since 	2.3.0
  */
 
-function congressomat_admin_menu()
+function cm_admin_menu()
 {
 	$admin_menu_slug = 'edit.php?post_type=session';
 
@@ -74,7 +74,7 @@ function congressomat_admin_menu()
 	);
 }
 
-add_action( 'admin_menu', 'congressomat_admin_menu', 999 );
+add_action( 'admin_menu', 'cm_admin_menu', 999 );
 
 
 
@@ -85,7 +85,7 @@ add_action( 'admin_menu', 'congressomat_admin_menu', 999 );
  * @todo 	- Internationalisierung
  */
 
-function congressomat_admin_menu_order( $menu_order )
+function cm_admin_menu_order( $menu_order )
 {
 	global $submenu;
 		   $admin_menu_slug = 'edit.php?post_type=session';
@@ -118,7 +118,7 @@ function congressomat_admin_menu_order( $menu_order )
 }
 
 add_filter( 'custom_menu_order', '__return_true' );
-add_filter( 'menu_order', 'congressomat_admin_menu_order' );
+add_filter( 'menu_order', 'cm_admin_menu_order' );
 
 
 
@@ -130,7 +130,7 @@ add_filter( 'menu_order', 'congressomat_admin_menu_order' );
  * @see		http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
  */
 
-function congressomat_adjust_acf_dialog()
+function cm_adjust_acf_dialog()
 {
 ?>
 <script type="text/javascript">
@@ -145,4 +145,4 @@ function congressomat_adjust_acf_dialog()
 <?php
 }
 
-add_action( 'acf/input/admin_head', 'congressomat_adjust_acf_dialog' );
+add_action( 'acf/input/admin_head', 'cm_adjust_acf_dialog' );

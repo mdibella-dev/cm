@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function congressomat_shortcode_event_table( $atts, $content = null )
+function cm_shortcode_event_table( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -51,9 +51,9 @@ function congressomat_shortcode_event_table( $atts, $content = null )
          */
 
         if( !empty( $speaker) ) :
-            $sessions = congressomat_get_sessions_by_speaker( $speaker );
+            $sessions = cm_get_sessions_by_speaker( $speaker );
         elseif( !empty( $event ) ) :
-            $sessions = congressomat_get_sessions_by_event( $event, $date );
+            $sessions = cm_get_sessions_by_event( $event, $date );
         else :
             $sessions = null;
         endif;
@@ -114,7 +114,7 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                         case 'session-location' :
                             $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
-                                congressomat_get_location( get_field( 'programmpunkt-location', $session->ID ) )
+                                cm_get_location( get_field( 'programmpunkt-location', $session->ID ) )
                             );
                         break;
 
@@ -154,7 +154,7 @@ function congressomat_shortcode_event_table( $atts, $content = null )
                                 unset( $speakers_list );
 
                                 foreach( $speakers as $speaker ) :
-                                    $speaker_dataset = congressomat_get_speaker_dataset( $speaker );
+                                    $speaker_dataset = cm_get_speaker_dataset( $speaker );
                                     $speakers_list[] = sprintf(
                                         '<a href="%1$s" title="%2$s">%3$s</a>',
                                         $speaker_dataset[ 'permalink' ],
@@ -197,4 +197,4 @@ function congressomat_shortcode_event_table( $atts, $content = null )
     return $output;
 }
 
-add_shortcode( 'event-table', 'congressomat_shortcode_event_table' );
+add_shortcode( 'event-table', 'cm_shortcode_event_table' );

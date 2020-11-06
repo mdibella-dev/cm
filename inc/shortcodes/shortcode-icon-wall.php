@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function congressomat_shortcode_icon_wall( $atts, $content = null )
+function cm_shortcode_icon_wall( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -83,7 +83,7 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
 
         /* Datensatz holen */
 
-        $data = congressomat_get_partner_dataset( $partner->ID );
+        $data = cm_get_partner_dataset( $partner->ID );
 
 
         /* Quadratische Logos? */
@@ -155,4 +155,4 @@ function congressomat_shortcode_icon_wall( $atts, $content = null )
     return NULL;
 }
 
-add_shortcode( 'icon-wall', 'congressomat_shortcode_icon_wall' );
+add_shortcode( 'icon-wall', 'cm_shortcode_icon_wall' );

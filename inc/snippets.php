@@ -16,9 +16,9 @@
  * @param	int		$length
  */
 
-function congressomat_excerpt_length( $length )
+function cm_excerpt_length( $length )
 {
 	return 30;
 }
 
-add_filter( 'excerpt_length', 'congressomat_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'cm_excerpt_length', 999 );

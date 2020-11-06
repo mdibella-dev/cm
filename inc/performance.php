@@ -18,13 +18,13 @@ defined( 'ABSPATH' ) OR exit;
  * @since   1.0.0
  */
 
-function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
+function cm_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
 {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
 
-add_filter( 'post_thumbnail_html', 'congressomat_remove_thumbnail_width_height', 10, 5 );
+add_filter( 'post_thumbnail_html', 'cm_remove_thumbnail_width_height', 10, 5 );
 
 
 
@@ -35,7 +35,7 @@ add_filter( 'post_thumbnail_html', 'congressomat_remove_thumbnail_width_height',
  * @since   1.0.0
  */
 
-function congressomat_remove_styles_scripts()
+function cm_remove_styles_scripts()
 {
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'rsd_link' );
@@ -45,7 +45,7 @@ function congressomat_remove_styles_scripts()
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 
-add_action( 'wp_enqueue_scripts', 'congressomat_remove_styles_scripts', 9985 );
+add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
 
 
 
@@ -56,7 +56,7 @@ add_action( 'wp_enqueue_scripts', 'congressomat_remove_styles_scripts', 9985 );
  * @since   1.0.0
  */
 
-function congressomat_remove_post_classes( $classes, $class, $post_id )
+function cm_remove_post_classes( $classes, $class, $post_id )
 {
     $checked_classes = array();
 
@@ -88,4 +88,4 @@ function congressomat_remove_post_classes( $classes, $class, $post_id )
     return $classes;
 }
 
-add_filter( 'post_class', 'congressomat_remove_post_classes', 10, 3 );
+add_filter( 'post_class', 'cm_remove_post_classes', 10, 3 );

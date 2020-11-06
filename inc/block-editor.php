@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) OR exit;
  * @param   string  $post_type
  */
 
-function congressomat_disable_block_editor( $current_status, $post_type )
+function cm_disable_block_editor( $current_status, $post_type )
 {
     if( ( $post_type === 'session' ) or
         ( $post_type === 'exhibitor' ) or
@@ -35,8 +35,8 @@ function congressomat_disable_block_editor( $current_status, $post_type )
     return $current_status;
 }
 
-add_filter( 'gutenberg_can_edit_post_type', 'congressomat_disable_block_editor' );
-add_filter( 'use_block_editor_for_post_type', 'congressomat_disable_block_editor', 10, 2);
+add_filter( 'gutenberg_can_edit_post_type', 'cm_disable_block_editor' );
+add_filter( 'use_block_editor_for_post_type', 'cm_disable_block_editor', 10, 2);
 
 
 
@@ -48,7 +48,7 @@ add_filter( 'use_block_editor_for_post_type', 'congressomat_disable_block_editor
  * @see     https://www.billerickson.net/block-styles-in-gutenberg/
  */
 
-function congressomat_add_block_editor_assets()
+function cm_add_block_editor_assets()
 {
     wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', false, 0, 'all' );
 	wp_enqueue_script( 'block-editor', get_template_directory_uri() . '/assets/js/block-editor.js',
@@ -57,4 +57,4 @@ function congressomat_add_block_editor_assets()
 		               true	);
 }
 
-add_action( 'enqueue_block_editor_assets', 'congressomat_add_block_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'cm_add_block_editor_assets' );

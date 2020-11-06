@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function congressomat_shortcode_teaser_list( $atts, $content = null )
+function cm_shortcode_teaser_list( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -107,7 +107,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( $paged == 1 ) :
-        congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
@@ -140,7 +140,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( $paged == 1 ) :
-        congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
@@ -157,7 +157,7 @@ function congressomat_shortcode_teaser_list( $atts, $content = null )
     return NULL;
 }
 
-add_shortcode( 'teaser-list', 'congressomat_shortcode_teaser_list' );
+add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
 
 
 
@@ -167,7 +167,7 @@ add_shortcode( 'teaser-list', 'congressomat_shortcode_teaser_list' );
  * @since 1.0.0
  **/
 
-function congressomat_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
+function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
     echo '<nav>';
 

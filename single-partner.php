@@ -20,7 +20,7 @@ get_header();
 
                     /* Datensatz holen */
 
-                    $data = congressomat_get_partner_dataset( get_the_ID() );
+                    $data = cm_get_partner_dataset( get_the_ID() );
             ?>
 
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">

@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function congressomat_shortcode_speaker_grid( $atts, $content = null )
+function cm_shortcode_speaker_grid( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -42,7 +42,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
 
     /* Daten abrufen und aufbereiten */
 
-    $speakers = congressomat_get_speaker_datasets( ( $event == '-1' )? implode( ',', congressomat_get_active_events() ) : $event );
+    $speakers = cm_get_speaker_datasets( ( $event == '-1' )? implode( ',', cm_get_active_events() ) : $event );
 
     if( $speakers ) :
 
@@ -68,7 +68,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
             if( 1 == $shuffle ) :
                 shuffle( $speaker_list );
                 $speaker_list = array_slice( $speaker_list, 0, $show );
-                $speaker_list = congressomat_sort_speaker_datasets( $speaker_list );
+                $speaker_list = cm_sort_speaker_datasets( $speaker_list );
             else :
                 $speaker_list = array_slice( $speaker_list, 0, $show );
             endif;
@@ -121,4 +121,4 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
     return NULL;
 }
 
-add_shortcode( 'speaker-grid', 'congressomat_shortcode_speaker_grid' );
+add_shortcode( 'speaker-grid', 'cm_shortcode_speaker_grid' );
