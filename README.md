@@ -13,6 +13,11 @@ __Tested up to:__ WordPress 5.5
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
+### 2.4.0  
+**Geändert:** Code-Stil  
+**Geändert:** Prefix "congressomat_" zu "cm_"  
+
+
 ### 2.3.0  
 **Hinzugefügt:** Versionierung des Stylesheets   
 **Hinzugefügt:** Detail-Seite für Kooperationspartner    
