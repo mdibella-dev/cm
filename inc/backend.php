@@ -2,11 +2,13 @@
 /**
  * Backend
  *
- * @since   1.0.0
+ * @since   2.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) OR exit;
 
 
 
@@ -80,6 +82,7 @@ add_action( 'admin_menu', 'congressomat_admin_menu', 999 );
  * Sortiert das Congressomat-Menü
  *
  * @since 	2.3.0
+ * @todo 	- Internationalisierung
  */
 
 function congressomat_admin_menu_order( $menu_order )
@@ -88,7 +91,6 @@ function congressomat_admin_menu_order( $menu_order )
 		   $admin_menu_slug = 'edit.php?post_type=session';
 		   $sorted    		= array();
 
-	/** @todo: Internationalisierung **/
 
 	$sort_order = array(
 		'Programmpunkte',
@@ -124,8 +126,8 @@ add_filter( 'menu_order', 'congressomat_admin_menu_order' );
 /**
  * Fügt ein JS-Script hinzu, um diverse Standard-Eingabefelder von WordPress in eine neue Maske (ACF) zu verschieben
  *
- * @since 2.0.0
- * @source http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ * @since 	2.0.0
+ * @see		http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
  */
 
 function congressomat_adjust_acf_dialog()

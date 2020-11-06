@@ -9,12 +9,8 @@
  */
 
 
+defined( 'ABSPATH' ) OR exit;
 
-/* Aussteigen, wenn direkt aufgerufen */
-
-if( !defined( 'ABSPATH' ) ) :
-    exit;
-endif;
 
 
 ?>

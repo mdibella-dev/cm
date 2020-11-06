@@ -8,15 +8,17 @@
  */
 
 
+defined( 'ABSPATH' ) OR exit;
+
 
 
 /**
  * Block Editor für diverse Post Types deaktivieren
  *
  * @since   1.0.0
- * @source  https://digwp.com/2018/04/how-to-disable-gutenberg/
- * @source  https://stackoverflow.com/questions/52199629/how-to-disable-gutenberg-editor-for-certain-post-types/52199630
- * @source  https://www.billerickson.net/disabling-gutenberg-certain-templates/
+ * @see     https://digwp.com/2018/04/how-to-disable-gutenberg/
+ * @see     https://stackoverflow.com/questions/52199629/how-to-disable-gutenberg-editor-for-certain-post-types/52199630
+ * @see     https://www.billerickson.net/disabling-gutenberg-certain-templates/
  *
  * @param   bool    $current_status
  * @param   string  $post_type
@@ -42,8 +44,8 @@ add_filter( 'use_block_editor_for_post_type', 'congressomat_disable_block_editor
  * Script- und Stil-Modifikationen für den Block Editor
  *
  * @since   1.0.0
- * @source  https://die-netzialisten.de/wordpress/gutenberg-breite-des-editors-anpassen/
- * @source  https://www.billerickson.net/block-styles-in-gutenberg/
+ * @see     https://die-netzialisten.de/wordpress/gutenberg-breite-des-editors-anpassen/
+ * @see     https://www.billerickson.net/block-styles-in-gutenberg/
  */
 
 function congressomat_add_block_editor_assets()

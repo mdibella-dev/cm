@@ -8,11 +8,15 @@
  */
 
 
+defined( 'ABSPATH' ) OR exit;
+
+
 
 /**
  * Liefert ein Array mit Sessions
  *
  * @since   1.0.0
+ *
  * @param   array   $args
  * @return  array
  **/
@@ -133,6 +137,7 @@ function congressomat_get_sessions( $args )
  * Liefert die zu einem bestimmten Event gehörenden Sessions
  *
  * @since   1.0.0
+ *
  * @param   int     $event
  * @return  array
  **/
@@ -152,6 +157,7 @@ function congressomat_get_sessions_by_event( $event, $date = '' )
  * Dabei kann nach aktiven, inaktiven oder allen Sessions gefiltert werden
  *
  * @since   1.0.0
+ *
  * @param   int     $speaker
  * @param   string  $event_filter
  * @return  array
@@ -171,9 +177,10 @@ function congressomat_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE
  * Sortiert ein Array mit Sessions aufsteigend nach Zeitstempel
  *
  * @since   1.0.0
+ *
  * @param   array   $sessions
  * @return  array
- **/
+ */
 
 function congressomat_sort_sessions_by_timestamp( $sessions )
 {
@@ -236,8 +243,9 @@ function congressomat_sort_sessions_by_timestamp( $sessions )
  * Ermittelt die derzeit aktiven Events
  *
  * @since  1.0.0
+ *
  * @return array
- **/
+ */
 
 function congressomat_get_active_events()
 {
@@ -266,9 +274,10 @@ function congressomat_get_active_events()
  * Ermittelt die Speaker aus allen Sessions von einem oder mehreren Events
  *
  * @since  1.0.0
+ *
  * @param  string  $event_list_string  eine kommaseparierte Liste mit Events (IDs)
  * @return array
- **/
+ */
 
 function congressomat_get_speaker_datasets( $event_list_string = '' )
 {
@@ -348,9 +357,10 @@ function congressomat_get_speaker_datasets( $event_list_string = '' )
  * Liefert den Datensatz eines bestimmten Speakers
  *
  * @since  1.0.0
+ *
  * @param  int    $speaker
  * @return array
- **/
+ */
 
 function congressomat_get_speaker_dataset( $speaker )
 {
@@ -374,6 +384,7 @@ function congressomat_get_speaker_dataset( $speaker )
  * Sortiert eine Liste von Speaker-Datensätzen nach Vor- und Nachnamen
  *
  * @since  1.0.0
+ *
  * @param  array  $speaker_list Die unsortierte Liste
  * @return array                Die sortierte List
  */
@@ -396,6 +407,7 @@ function congressomat_sort_speaker_datasets( $speaker_list )
  * Ermittelt den Namen einer Location
  *
  * @since  1.0.0
+ *
  * @param  int      $location
  * @return string
  */
@@ -420,6 +432,7 @@ function congressomat_get_location( $location )
  * Ermittelt den Namen eines Events
  *
  * @since  1.0.0
+ *
  * @param  int      $event
  * @return string
  */
@@ -443,9 +456,10 @@ function congressomat_get_event( $event )
  * Liefert den Datensatz eines bestimmten Partners
  *
  * @since  2.3.0
+ *
  * @param  int    $partner_id
  * @return array
- **/
+ */
 
 function congressomat_get_partner_dataset( $partner )
 {

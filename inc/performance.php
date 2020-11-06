@@ -8,6 +8,8 @@
  */
 
 
+defined( 'ABSPATH' ) OR exit;
+
 
 
 /**
