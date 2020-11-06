@@ -2,9 +2,10 @@
 /**
  * Hauptfunktion zum Einrichten der von diesem Thema unterstützten Optionen
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 
 
@@ -15,7 +16,7 @@ if ( ! function_exists( 'congressomat_theme_setup' ) ) :
      * Führt grundlegende Einstellungen für das Thema durch.
      *
      * @since   1.0.0
-     **/
+     */
 
      function congressomat_theme_setup()
      {
@@ -197,7 +198,7 @@ endif;
  * (Ent-)Lädt eine Reihe von notwendigen JS-Scripts und Stylesheets.
  *
  * @since   1.0.0
- **/
+ */
 
 function congressomat_enqueue_scripts()
 {

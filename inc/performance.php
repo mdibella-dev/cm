@@ -2,9 +2,10 @@
 /**
  * Funktionen zu Optimierung der Webseite
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 
 
@@ -13,7 +14,7 @@
  * Entfernt Höhen- und Breiten-Angaben bei Thumbnails
  *
  * @since   1.0.0
- **/
+ */
 
 function congressomat_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
 {
@@ -30,7 +31,7 @@ add_filter( 'post_thumbnail_html', 'congressomat_remove_thumbnail_width_height',
  * Entfernt diversen Ballast
  *
  * @since   1.0.0
- **/
+ */
 
 function congressomat_remove_styles_scripts()
 {
@@ -51,7 +52,7 @@ add_action( 'wp_enqueue_scripts', 'congressomat_remove_styles_scripts', 9985 );
  * Entfernt unnötige Beitrags-Klassen
  *
  * @since   1.0.0
- **/
+ */
 
 function congressomat_remove_post_classes( $classes, $class, $post_id )
 {

@@ -2,9 +2,10 @@
 /**
  * Snippets
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 
 
@@ -13,7 +14,7 @@
  *
  * @since 	1.0.0
  * @param	int		$length
- **/
+ */
 
 function congressomat_excerpt_length( $length )
 {

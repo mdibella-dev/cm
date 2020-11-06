@@ -2,9 +2,10 @@
 /**
  * Template für den Fußbereich einer Seite
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 ?>
         <footer id="footer">
 
@@ -23,7 +24,7 @@
                     <div class="widget-area">
                         <?php dynamic_sidebar( 'footer-three' ); ?>
                     </div>
-                    
+
                 </div>
 
             </section>

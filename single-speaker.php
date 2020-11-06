@@ -2,9 +2,10 @@
 /**
  * Einzelseite eines Referenten
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 get_header();
 ?>
@@ -35,7 +36,7 @@ get_header();
                      * Beschreibung des Referenten
                      *
                      * @since 1.1.0
-                     **/
+                     */
                     ?>
 
                     <div class="single-speaker-profile">
@@ -99,7 +100,7 @@ get_header();
              * Veranstaltungen mit diesem Referenten
              *
              * @since 1.0.0
-             **/
+             */
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
@@ -120,7 +121,7 @@ get_header();
              * Weitere Referenten anzeigen
              *
              * @since 1.0.0
-             **/
+             */
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">

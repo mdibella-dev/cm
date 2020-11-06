@@ -2,6 +2,7 @@
 /**
  * Custom Template für einfache Download-Links
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  * @uses    Plugin download-monitor

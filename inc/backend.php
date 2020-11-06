@@ -2,9 +2,10 @@
 /**
  * Backend
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 
 
@@ -14,7 +15,7 @@
  * Hinweis: Menüpunkte für Posttypes werden bei deren Registrierung erzeugt
  *
  * @since 	2.3.0
- **/
+ */
 
 function congressomat_admin_menu()
 {
@@ -79,7 +80,7 @@ add_action( 'admin_menu', 'congressomat_admin_menu', 999 );
  * Sortiert das Congressomat-Menü
  *
  * @since 	2.3.0
- **/
+ */
 
 function congressomat_admin_menu_order( $menu_order )
 {

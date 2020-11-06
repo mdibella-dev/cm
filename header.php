@@ -2,9 +2,10 @@
 /**
  * Template für den Kopfbereich einer Seite
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
 	 * Domäne muss zuvor im fontawesome-account registriert worden sein
 	 *
 	 * @used-by FontAwesome Plugin (https://wordpress.org/plugins/font-awesome/)
-  	 **/
+  	 */
 	?>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-TxKWSXbsweFt0o2WqfkfJRRNVaPdzXJ/YLqgStggBVRREXkwU7OKz+xXtqOU4u8+" crossorigin="anonymous">
 

@@ -2,18 +2,14 @@
 /**
  * Custom Template für einfache Download-Links mit Beschreibung
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  * @uses    Plugin download-monitor
  */
 
 
-
-/* Aussteigen, wenn direkt aufgerufen */
-
-if( !defined( 'ABSPATH' ) ) :
-    exit;
-endif;
+defined( 'ABSPATH' ) OR exit;
 
 
 ?>

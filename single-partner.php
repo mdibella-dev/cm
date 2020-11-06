@@ -2,9 +2,10 @@
 /**
  * Einzelseite eines Kooperationspartners
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 get_header();
 ?>
@@ -45,7 +46,7 @@ get_header();
              * Kontaktdaten etc
              *
              * @since 2.3.0
-             **/
+             */
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
@@ -113,7 +114,7 @@ get_header();
              * Unternehmensadresse in Google Maps anzeigen
              *
              * @since 2.3.0
-             **/
+             */
 
             if( !empty( $data[ 'address' ] ) ) :
 

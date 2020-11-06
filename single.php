@@ -2,9 +2,10 @@
 /**
  * Template für Beiträge
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 get_header();
 ?>
@@ -44,7 +45,7 @@ get_header();
             $output_buffer = ob_get_contents();
             ob_end_clean();
             echo $output_buffer;
-            
+
         endif;
         ?>
     </main>

@@ -2,9 +2,10 @@
 /**
  * Template Name: Landingpage
  *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
 
 get_header();
 ?>
