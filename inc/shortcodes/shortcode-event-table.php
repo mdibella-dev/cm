@@ -2,7 +2,6 @@
 /**
  * Shortcode [event-table]
  *
- * @since   2.1.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */

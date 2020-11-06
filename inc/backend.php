@@ -2,7 +2,6 @@
 /**
  * Backend
  *
- * @since   2.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */

@@ -2,7 +2,6 @@
 /**
  * Funktionen zu Optimierung der Webseite
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */

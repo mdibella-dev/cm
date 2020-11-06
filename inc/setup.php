@@ -2,7 +2,6 @@
 /**
  * Hauptfunktion zum Einrichten der von diesem Thema unterstützten Optionen
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */

@@ -2,7 +2,6 @@
 /**
  * Template für Seiten/Beträge aller Art (Fallback)
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
