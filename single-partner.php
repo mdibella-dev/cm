@@ -28,8 +28,8 @@ get_header();
                     <h2 class="section-title has-text-align-center"><?php echo $data[ 'title' ]; ?></h2>
 
                     <?php
-                    if( !empty( $data[ 'description' ] ) ) :
-                        echo $data[ 'description' ];
+                    if( !empty( $data['description'] ) ) :
+                        echo $data['description'];
                     else :
                     ?>
                     <p style="text-align: center;"><?php echo __( 'Keine Beschreibung verfügbar.', 'congressomat'); ?></p>
@@ -44,7 +44,7 @@ get_header();
             /**
              * Kontaktdaten etc
              *
-             * @since 2.3.0
+             * @since   2.3.0
              */
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
@@ -60,45 +60,45 @@ get_header();
                         </div>
 
                         <div>
-                            <p><?php echo $data[ 'address' ];?></p>
+                            <p><?php echo $data['address'];?></p>
                         </div>
 
                         <div>
                             <ul>
                             <?php
-                            if( $data[ 'phone' ] ) :
+                            if( $data['phone'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'phone',
                                     __( 'Telefon', 'congressomat' ),
-                                    $data[ 'phone' ],
+                                    $data['phone'],
                                     );
                             endif;
 
-                            if( $data[ 'fax' ] ) :
+                            if( $data['fax'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'fax',
                                     __( 'Telefax', 'congressomat' ),
-                                    $data[ 'fax' ],
+                                    $data['fax'],
                                     );
                             endif;
 
-                            if( $data[ 'mail' ] ) :
+                            if( $data['mail'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'mail',
                                     __( 'E-Mail', 'congressomat' ),
-                                    $data[ 'mail' ],
+                                    $data['mail'],
                                     );
                             endif;
 
-                            if( $data[ 'website' ] ) :
+                            if( $data['website'] ) :
 
-                                $url = parse_url( $data[ 'website' ] );
+                                $url = parse_url( $data['website'] );
 
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span><a href="%3$s" target="_blank" title="%5$s">%4$s</a></span></li>',
                                     'webseite',
                                     __( 'Web', 'congressomat' ),
-                                    $data[ 'website' ],
-                                    $url[ 'host' ],
+                                    $data['website'],
+                                    $url['host'],
                                     __( 'Webseite besuchen', 'congressomat' ),
                                     );
                             endif;
@@ -112,14 +112,14 @@ get_header();
             /**
              * Unternehmensadresse in Google Maps anzeigen
              *
-             * @since 2.3.0
+             * @since   2.3.0
              */
 
-            if( !empty( $data[ 'address' ] ) ) :
+            if( !empty( $data['address'] ) ) :
 
                 $google_maps_query =
                 'https://www.google.com/maps/embed/v1/place?q='
-                . urlencode( str_replace( '<br>', ', ', $data[ 'address' ] ) )
+                . urlencode( str_replace( '<br>', ', ', $data['address'] ) )
                 . '&amp;maptype=roadmap&amp;zoom=16&amp;key=AIzaSyBABldTSNGLjLd8gLSgHaqxmuUqoi6HouI';
 
             ?>

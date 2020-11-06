@@ -20,11 +20,11 @@ defined( 'ABSPATH' ) OR exit;
  *          - set           die gewählte Set-Vorlage
  *          - event         die Identifikationsnummer des Events
  *          - speaker       die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten
- *          - show_details  Anzeige der Details ermöglichen (true, false)
+ *          - show_details  Anzeige der Details ermöglichen (TRUE, FALSE)
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_event_table( $atts, $content = null )
+function cm_shortcode_event_table( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -33,7 +33,7 @@ function cm_shortcode_event_table( $atts, $content = null )
         'speaker'      => '',
         'event'        => '',
         'date'         => '',
-        'show_details' => 'false',
+        'show_details' => 'FALSE',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
@@ -54,7 +54,7 @@ function cm_shortcode_event_table( $atts, $content = null )
         elseif( !empty( $event ) ) :
             $sessions = cm_get_sessions_by_event( $event, $date );
         else :
-            $sessions = null;
+            $sessions = NULL;
         endif;
 
 
@@ -149,7 +149,7 @@ function cm_shortcode_event_table( $atts, $content = null )
                         case 'session-speaker' :
                             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-                            if( $speakers != null ) :
+                            if( $speakers != NULL ) :
                                 unset( $speakers_list );
 
                                 foreach( $speakers as $speaker ) :
@@ -180,7 +180,7 @@ function cm_shortcode_event_table( $atts, $content = null )
 
                 $details = apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', $session->ID ) );
 
-                if( ( $show_details == true ) and !empty( $details ) ):
+                if( ( $show_details == TRUE ) and !empty( $details ) ):
                     $output .= '<div class="event-table__session-toggle"><span><i class="far fa-angle-down"></i></span></div>';
                     $output .= sprintf ('<div class="event-table__session-details">%1$s</div>', $details );
                 endif;

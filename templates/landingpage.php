@@ -12,7 +12,7 @@ get_header();
     <main id="main">
         <article>
         <?php
-        if ( have_posts() ) :
+        if( have_posts() ) :
 
             ob_start();
 

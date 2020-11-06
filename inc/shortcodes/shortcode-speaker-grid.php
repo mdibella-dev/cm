@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_speaker_grid( $atts, $content = null )
+function cm_shortcode_speaker_grid( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -50,7 +50,7 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
-            if( false == in_array( $speaker[ 'id' ], $exclude_ids ) ) :
+            if( FALSE == in_array( $speaker['id'], $exclude_ids ) ) :
                 $speaker_list[] = $speaker;
             endif;
         endforeach;
@@ -58,9 +58,9 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
 
         /* Optional: Beschnitt der Ausgabe */
 
-        if( ( true == is_numeric( $show ) )
-            and ( $show > 0 )
-            and ( $show < sizeof( $speaker_list ) ) ) :
+        if( ( TRUE == is_numeric( $show ) )
+            AND ( $show > 0 )
+            AND ( $show < sizeof( $speaker_list ) ) ) :
 
             /* Optional: Ausgabe durchmischen */
 
@@ -88,15 +88,15 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
 
         <li>
             <a  class="speaker-grid-element"
-                href="<?php echo $speaker[ 'permalink' ]; ?>"
-                title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker[ 'title_name' ] ); ?>">
+                href="<?php echo $speaker['permalink']; ?>"
+                title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker['title_name'] ); ?>">
 
                 <figure>
-                    <?php echo get_the_post_thumbnail( $speaker[ 'id' ], 'full', array( 'class' => 'speaker-image' ) ); ?>
+                    <?php echo get_the_post_thumbnail( $speaker['id'], 'full', array( 'class' => 'speaker-image' ) ); ?>
                     <figcaption>
                         <div>
-                            <p class="speaker-title-name"><?php echo $speaker[ 'title_name' ]; ?></p>
-                            <p class="speaker-position"><?php echo $speaker[ 'position' ]; ?></p>
+                            <p class="speaker-title-name"><?php echo $speaker['title_name']; ?></p>
+                            <p class="speaker-position"><?php echo $speaker['position']; ?></p>
                         </div>
                     </figcaption>
                 </figure>

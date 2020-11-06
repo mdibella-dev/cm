@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_partner_table( $atts, $content = null )
+function cm_shortcode_partner_table( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -97,28 +97,28 @@ function cm_shortcode_partner_table( $atts, $content = null )
                         $link        = get_field( 'partner-webseite', $partner->ID );
 
                         if( !empty( $title ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<h2 class="title">%1$s</h2>', $title );
+                            $cells['partner-description'] .= sprintf( '<h2 class="title">%1$s</h2>', $title );
                         endif;
 
                         if( !empty( $description ) ) :
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="description">%1$s</span>', apply_filters( 'the_content', $description ) );
+                            $cells['partner-description'] .= sprintf( '<span class="description">%1$s</span>', apply_filters( 'the_content', $description ) );
                         endif;
 
                         if( !empty( $link ) ) :
                             $url                             = parse_url( $link );
-                            $cells[ 'partner-description' ] .= sprintf( '<span class="link">%1$s</span>',
+                            $cells['partner-description'] .= sprintf( '<span class="link">%1$s</span>',
                                                                         sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                                  $link,
                                                                                  __( 'Externen Link aufrufen', 'congressomat' ),
-                                                                                 $url[ 'host' ] ) );
+                                                                                 $url['host'] ) );
                         endif;
 
                     break;
 
                     case 'MESSESTAND':
                         $exhibition = get_field( 'messestand', $partner->ID );
-                        $location   = cm_get_location( $exhibition[ 'partner-messestand-ort' ] );
-                        $number     = $exhibition[ 'partner-messestand-nummer' ];
+                        $location   = cm_get_location( $exhibition['partner-messestand-ort'] );
+                        $number     = $exhibition['partner-messestand-nummer'];
 
                         if( !empty( $number ) or !empty( $location ) ) :
                             $strings = array();
@@ -131,9 +131,9 @@ function cm_shortcode_partner_table( $atts, $content = null )
                                 $strings[] = $location;
                             endif;
 
-                            $cells[ 'partner-exhibition' ] = sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
+                            $cells['partner-exhibition'] = sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
                         else :
-                            $cells[ 'partner-exhibition' ] = '';
+                            $cells['partner-exhibition'] = '';
                         endif;
 
                     break;

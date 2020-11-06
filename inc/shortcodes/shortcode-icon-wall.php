@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_icon_wall( $atts, $content = null )
+function cm_shortcode_icon_wall( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 

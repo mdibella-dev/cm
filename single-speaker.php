@@ -108,7 +108,7 @@ get_header();
                         <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'congressomat' ), $data[ 'title_name' ] ); ?>
                     </h2>
 
-                    <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                    <div style="height:20px" aria-hidden="TRUE" class="wp-block-spacer"></div>
 
                     <?php echo do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) ); ?>
                 </div>

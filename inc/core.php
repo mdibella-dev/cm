@@ -51,7 +51,7 @@ function cm_get_sessions( $args )
      * bzw. eine Filterung nach aktiven oder inaktiven Sessions (Variante 2) hinzu.
      */
 
-    if( null !== cm_get_event( $event ) ) :
+    if( NULL !== cm_get_event( $event ) ) :
 
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'event',
@@ -66,7 +66,7 @@ function cm_get_sessions( $args )
 
         if( 'INACTIVE' === $event_filter ) :
 
-            $query[ 'tax_query' ] = array( array(
+            $query['tax_query'] = array( array(
                 'taxonomy' => 'event',
                 'field'    => 'term_id',
                 'terms'    => $event_list,
@@ -75,7 +75,7 @@ function cm_get_sessions( $args )
 
         elseif( 'ACTIVE' === $event_filter ) :
 
-            $query[ 'tax_query' ] = array( array(
+            $query['tax_query'] = array( array(
                 'taxonomy' => 'event',
                 'field'    => 'term_id',
                 'terms'    => $event_list,
@@ -94,12 +94,12 @@ function cm_get_sessions( $args )
      * und/oder die Suche nach den Session, die an einem bestimmten Datum stattfinden, hinzu.
      */
 
-    if( !empty( $speaker ) or !empty( $date ) ) :
-        $query[ 'meta_query' ] = array();
+    if( !empty( $speaker ) OR !empty( $date ) ) :
+        $query['meta_query'] = array();
 
-        if( !empty( $speaker ) and is_numeric( $speaker ) ) :
+        if( !empty( $speaker ) AND is_numeric( $speaker ) ) :
 
-            $query[ 'meta_query' ][] = array(
+            $query['meta_query'][] = array(
                 'key'     => 'programmpunkt-referenten',
                 'value'   => $speaker,
                 'compare' => 'LIKE',
@@ -112,8 +112,8 @@ function cm_get_sessions( $args )
             /** @see: https://www.php.net/manual/de/function.strtotime.php#122937 **/
             $date = str_replace( '.', '-', $date );
 
-            if( ( $timestamp = strtotime( $date) ) !== false ) :
-                $query[ 'meta_query' ][] = array(
+            if( ( $timestamp = strtotime( $date) ) !== FALSE ) :
+                $query['meta_query'][] = array(
                     'key'   => 'programmpunkt-datum',
                     'value' => date( 'Ymd', $timestamp ),
                 );
@@ -183,8 +183,8 @@ function cm_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' )
 
 function cm_sort_sessions_by_timestamp( $sessions )
 {
-    if( is_array( $sessions ) == true ) :
-        $unable_to_sort = false;
+    if( TRUE == is_array( $sessions ) ) :
+        $unable_to_sort = FALSE;
         $sort           = array();
 
         /* Bildung eines sortierfähigen Arrays */
@@ -212,12 +212,12 @@ function cm_sort_sessions_by_timestamp( $sessions )
              * Andernfalls Abbruch, da eine Sortierung nicht möglich ist.
              */
 
-            if( false !== $timestamp_from ) :
+            if( FALSE !== $timestamp_from ) :
                 $sort[ $timestamp_from ] = $session;
-            elseif ( false !== $timestamp_to ) :
+            elseif ( FALSE !== $timestamp_to ) :
                 $sort[ $timestamp_to ] = $session;
             else :
-                $unable_to_sort = true;
+                $unable_to_sort = TRUE;
                 break;
             endif;
 
@@ -226,7 +226,7 @@ function cm_sort_sessions_by_timestamp( $sessions )
 
         /* Durchführung der Sortierung (wenn möglich) */
 
-        if( false === $unable_to_sort ) :
+        if( FALSE === $unable_to_sort ) :
             ksort( $sort );
             $sessions = array_values( $sort );
         endif;
@@ -251,13 +251,13 @@ function cm_get_active_events()
     $events = array();
     $terms  = get_terms( array(
         'taxonomy'   => 'event',
-        'hide_empty' => 'false', // true?
+        'hide_empty' => 'FALSE', // TRUE?
         'meta_key'   => 'event-status',
     	'meta_value' => '1',
     ) );
 
-    if( $terms === false ) :
-        return null;
+    if( FALSE === $terms ) :
+        return NULL;
     endif;
 
     foreach( $terms as $term ) :
@@ -324,13 +324,13 @@ function cm_get_speaker_datasets( $event_list_string = '' )
         foreach( $sessions as $session ) :
             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-            if( $speakers != NULL ) :
+            if( NULL != $speakers ) :
 
                 foreach( $speakers as $speaker ) :
 
                     /* Nicht hinzufügen, wenn bereits in der Liste */
 
-                    if( false == in_array( $speaker, $finds_list ) ) :
+                    if( FALSE == in_array( $speaker, $finds_list ) ) :
                         $finds_list[]   = $speaker;
                         $speaker_list[] = cm_get_speaker_dataset( $speaker );
                     endif;
@@ -365,14 +365,14 @@ function cm_get_speaker_dataset( $speaker )
 {
     $speaker_post = get_post( $speaker );
 
-    $data[ 'id' ]          = $speaker;
-    $data[ 'firstname' ]   = get_field( 'referent-vorname', $speaker_post );
-    $data[ 'lastname' ]    = get_field( 'referent-nachname', $speaker_post );
-    $data[ 'name' ]        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
-    $data[ 'title_name' ]  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $speaker_post ), $data[ 'name' ] ) );
-    $data[ 'position' ]    = get_field( 'referent-position', $speaker_post );
-    $data[ 'description' ] = get_field( 'referent-beschreibung', $speaker_post );
-    $data[ 'permalink' ]   = get_post_permalink( $speaker_post );
+    $data['id']          = $speaker;
+    $data['firstname']   = get_field( 'referent-vorname', $speaker_post );
+    $data['lastname']    = get_field( 'referent-nachname', $speaker_post );
+    $data['name']        = trim( sprintf( '%1$s %2$s', $data[ 'firstname' ], $data[ 'lastname' ] ) );
+    $data['title_name']  = trim( sprintf( '%1$s %2$s', get_field( 'referent-titel', $speaker_post ), $data[ 'name' ] ) );
+    $data['position']    = get_field( 'referent-position', $speaker_post );
+    $data['description'] = get_field( 'referent-beschreibung', $speaker_post );
+    $data['permalink']   = get_post_permalink( $speaker_post );
 
     return $data;
 }
@@ -391,8 +391,8 @@ function cm_get_speaker_dataset( $speaker )
 function cm_sort_speaker_datasets( $speaker_list )
 {
     foreach( $speaker_list as $key => $row ) :
-        $forename[ $key ] = $row[ 'forename' ];
-        $lastname[ $key ] = $row[ 'lastname' ];
+        $forename[ $key ] = $row['forename'];
+        $lastname[ $key ] = $row['lastname'];
     endforeach;
 
     array_multisort( $lastname, SORT_ASC, SORT_STRING, $forename, SORT_ASC, SORT_STRING, $speaker_list );
@@ -416,7 +416,7 @@ function cm_get_location( $location )
     if( !empty( $location ) ) :
         $term = get_term_by( 'term_taxonomy_id', $location, 'location' );
 
-        if( $term !== false ) :
+        if( $term !== FALSE ) :
             return $term->name;
         endif;
 
@@ -441,7 +441,7 @@ function cm_get_event( $event )
     if( !empty( $event ) ) :
         $term = get_term_by( 'term_taxonomy_id', $event, 'event' );
 
-        if( $term !== false ) :
+        if( $term !== FALSE ) :
             return $term->name;
         endif;
     endif;
@@ -464,16 +464,16 @@ function cm_get_partner_dataset( $partner )
 {
     $partner_post = get_post( $partner );
 
-    $data[ 'id' ]               = $partner;
-    $data[ 'permalink' ]        = get_post_permalink( $partner_post );
-    $data[ 'title' ]            = get_the_title( $partner_post );
-    $data[ 'address' ]          = get_field( 'partner-anschrift', $partner_post );
-    $data[ 'phone' ]            = get_field( 'partner-telefon', $partner_post );
-    $data[ 'fax' ]              = get_field( 'partner-telefax', $partner_post );
-    $data[ 'mail' ]             = get_field( 'partner-mail', $partner_post );
-    $data[ 'website' ]          = get_field( 'partner-webseite', $partner_post );
-    $data[ 'description' ]      = get_field( 'partner-beschreibung', $partner_post );
-    $data[ 'exhibition-spaces'] = array();
+    $data['id']                = $partner;
+    $data['permalink']         = get_post_permalink( $partner_post );
+    $data['title']             = get_the_title( $partner_post );
+    $data['address']           = get_field( 'partner-anschrift', $partner_post );
+    $data['phone']             = get_field( 'partner-telefon', $partner_post );
+    $data['fax']               = get_field( 'partner-telefax', $partner_post );
+    $data['mail']              = get_field( 'partner-mail', $partner_post );
+    $data['website']           = get_field( 'partner-webseite', $partner_post );
+    $data['description']       = get_field( 'partner-beschreibung', $partner_post );
+    $data['exhibition-spaces'] = array();
 
     while( have_rows( 'partner-exhibition-spaces', $partner_post ) ) :
         the_row();
@@ -483,7 +483,7 @@ function cm_get_partner_dataset( $partner )
         $space_location = get_term( get_field( 'exhibition-space-location', $space_post ),'location' );
         $space_package  = get_term( get_field( 'exhibition-space-package', $space_post ), 'exhibition_package' );
 
-        $data[ 'exhibition-spaces'][] = array(
+        $data['exhibition-spaces'][] = array(
             'signature' => get_the_title( $space_post ),
             'location'  => $space_location->name,
             'package'   => $space_package->name,

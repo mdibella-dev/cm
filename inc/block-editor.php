@@ -25,10 +25,8 @@ defined( 'ABSPATH' ) OR exit;
 
 function cm_disable_block_editor( $current_status, $post_type )
 {
-    if( ( $post_type === 'session' ) or
-        ( $post_type === 'exhibitor' ) or
-        ( $post_type === 'speaker' ) ) :
-        return false;
+    if( ( 'session' === $post_type  ) OR ( 'exhibitor' === $post_type ) OR ( 'speaker'  === $post_type ) ) :
+        return FALSE;
     endif;
 
     return $current_status;
@@ -49,11 +47,11 @@ add_filter( 'use_block_editor_for_post_type', 'cm_disable_block_editor', 10, 2);
 
 function cm_add_block_editor_assets()
 {
-    wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', false, 0, 'all' );
+    wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', FALSE, 0, 'all' );
 	wp_enqueue_script( 'block-editor', get_template_directory_uri() . '/assets/js/block-editor.js',
 		               array( 'wp-blocks', 'wp-dom' ),
 		               0, //filemtime( get_template_directory() . '/assets/js/block-editor.js' ),
-		               true	);
+		               TRUE	);
 }
 
 add_action( 'enqueue_block_editor_assets', 'cm_add_block_editor_assets' );

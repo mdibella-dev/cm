@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) OR exit;
 
 
 
-if ( ! function_exists( 'cm_theme_setup' ) ) :
+if( !function_exists( 'cm_theme_setup' ) ) :
 
     /**
      * Führt grundlegende Einstellungen für das Thema durch.
@@ -51,7 +51,7 @@ if ( ! function_exists( 'cm_theme_setup' ) ) :
          */
 
         add_theme_support( 'post-thumbnails' );
-        set_post_thumbnail_size( 240, 240, false );
+        set_post_thumbnail_size( 240, 240, FALSE );
 
         if( ( get_option( 'thumbnail_size_w' ) != 240 ) ) :
             update_option( 'thumbnail_size_w', 240 );
@@ -203,7 +203,7 @@ endif;
 
 function cm_enqueue_scripts()
 {
-    wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
+    wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), FALSE, TRUE );
     wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '2.4.0' );
 }
 

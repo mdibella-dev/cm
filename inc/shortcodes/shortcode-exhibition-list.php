@@ -18,11 +18,11 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @param   array   $atts   die Attribute (Parameter) des Shorcodes
  *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                                     Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
+ *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_exhibition_list( $atts, $content = null )
+function cm_shortcode_exhibition_list( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 

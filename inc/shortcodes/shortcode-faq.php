@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_faq( $atts, $content = null )
+function cm_shortcode_faq( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -73,7 +73,7 @@ function cm_shortcode_faq( $atts, $content = null )
         return $output_buffer;
     endif;
 
-    return null;
+    return NULL;
 }
 
 add_shortcode( 'faq', 'cm_shortcode_faq' );

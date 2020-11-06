@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) OR exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_teaser_list( $atts, $content = null )
+function cm_shortcode_teaser_list( $atts, $content = NULL )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -50,17 +50,17 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
     /* In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln */
 
-    if( $paged == 1 ) :
+    if( 1 == $paged ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
             'exclude'        => $exclude_ids,
             'category'       => $category,
             'post_type'      => 'post',
             'post_status'    => 'publish',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
         );
         $max_page = ceil( sizeof( get_posts( $haystack ) ) / $show ) ;
-        $get_prt  = isset( $_GET[ 'prt' ] )? $_GET[ 'prt' ] : 1;
+        $get_prt  = isset( $_GET['prt'] )? $_GET['prt'] : 1;
 
         if( $get_prt <= 1 ) :
             $current_page = 1;
@@ -74,7 +74,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     else :
         $show = empty ( $show )? 4 : $show;
 
-        if( $shuffle == 1 ) :
+        if( 1 == $shuffle ) :
             $orderby = 'rand';
         endif;
     endif;
@@ -102,10 +102,10 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         ob_start();
 ?>
 
-<div class="teaser-list<?php echo ( $paged == 1 )? ' teaser-list-has-pagination' : ''; ?>">
+<div class="teaser-list<?php echo ( 1 == $paged )? ' teaser-list-has-pagination' : ''; ?>">
 
     <?php
-    if( $paged == 1 ) :
+    if( 1 == $paged ) :
         cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
@@ -118,7 +118,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
         <li>
             <article class="<?php echo implode( ' ', get_post_class( $post->ID ) ); ?>">
-                <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php _e( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
+                <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php echo __( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
                     <div class="teaser-image">
                         <?php the_post_thumbnail( $post->ID, 'full' ); ?>
                     </div>
@@ -138,7 +138,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     </ul>
 
     <?php
-    if( $paged == 1 ) :
+    if( 1 == $paged ) :
         cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
@@ -173,7 +173,7 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="fas fa-chevron-left"></i></a></div>',
                   add_query_arg( 'prt', $current_page - 1 ),
                   __( 'Vorhergehende Seite', 'congressomat' ),
-                  ( $current_page != 1 )? '' : ' disabled' );
+                  ( 1 != $current_page )? '' : ' disabled' );
 
     echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
                   sprintf( __( 'Seite %1$s/%2$s', 'congressomat' ), $current_page, $max_page ) );
@@ -181,6 +181,6 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="fas fa-chevron-right"></i></a></div>',
                   add_query_arg( 'prt', $current_page + 1 ),
                   __( 'Nächste Seite', 'congressomat' ),
-                  ( $current_page != $max_page )? '' : ' disabled' );
+                  ( $max_page != $current_page )? '' : ' disabled' );
     echo '</nav>';
 }

@@ -11,7 +11,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<title><?php wp_title( '', true ); ?></title>
+	<title><?php wp_title( '', TRUE ); ?></title>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>"/>
 	<meta name="author" content="G&amp;S Verlag GbR">
@@ -41,7 +41,7 @@
 	if( has_nav_menu( 'primary' ) ) :
 		wp_nav_menu( array(
 		    'theme_location' => 'primary',
-		    'container'  	 => false,
+		    'container'  	 => FALSE,
 		) );
 	endif;
 	?>

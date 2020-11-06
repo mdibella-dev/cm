@@ -11,7 +11,7 @@ get_header();
 
     <main id="main">
         <?php
-        if ( have_posts() ) :
+        if( have_posts() ) :
 
             /* Ausgabenpufferung beginnen */
             ob_start();
