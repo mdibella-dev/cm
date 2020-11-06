@@ -2,11 +2,13 @@
 /**
  * Initialisiert das Thema und stellt eine Reihe von Zusatzfunktionen bereit
  *
- * @since   1.0.0 
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) OR exit;
 
 
 /* Notices ausschalten */
@@ -14,7 +16,11 @@
 error_reporting( E_ALL ^ E_NOTICE );
 
 
-/* Konstanten: Soziale Netze */
+/* Konstanten */
+
+/*
+ * Soziale Netze
+ */
 
 define( 'SOCIAL_MEDIA', array(
     '1' => array(
@@ -45,7 +51,7 @@ define( 'SOCIAL_MEDIA', array(
 
 
 /*
- * Konstanten: Vorkonfigurierte Sets für Eventtabellen
+ * Vorkonfigurierte Sets für Eventtabellen;
  * a = linke Spalte mit Orts- und Zeitangaben;
  * b = mittlere Spalte mit Titel etc.
  */
@@ -68,6 +74,7 @@ define( 'EVENT_TABLE_SETLIST', array(
         'b' => 'session-title,session-subtitle',
     ),
 ) );
+
 
 
 /* Funktionsbibliothek einbinden */

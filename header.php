@@ -7,7 +7,6 @@
  * @package congressomat
  */
 ?>
-
 <!DOCTYPE html>
 
 <html <?php language_attributes(); ?>>
@@ -24,8 +23,8 @@
 	<meta name="ICBM" content="50.957827, 7.017787" />
 
 	<?php
-	/**
- 	 * Integration von FontAwesome5 CDN
+	/*
+     * Integration von FontAwesome5 CDN
 	 * Domäne muss zuvor im fontawesome-account registriert worden sein
 	 *
 	 * @used-by FontAwesome Plugin (https://wordpress.org/plugins/font-awesome/)

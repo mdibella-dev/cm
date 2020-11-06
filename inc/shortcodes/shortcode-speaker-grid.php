@@ -2,17 +2,28 @@
 /**
  * Shortcode [speaker-grid]
  *
- * Erzeugt eine Grid-Ansicht mit den Bildern, Namen und Positionsbeschreibungen der Referenten eines oder mehrerer Events.
- * Wird keine Angaben zu den Events gemacht, so werden die im Backend als aktiv gekennzeichneten Events zur Grundlage gemacht.
- *
- * Folgende Parameter können verwendet werden:
- * @param   event   (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
- * @param   exclude (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
- * @param   show    (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
- * @param   shuffle (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
- *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen einer Grid-Ansicht mit den Bildern, Namen und Positionsbeschreibungen der Referenten eines oder mehrerer Events.
+ * Wird keine Angaben zu den Events gemacht, so werden die im Backend als aktiv gekennzeichneten Events zur Grundlage gemacht.
+ *
+ * @since   1.0.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - event         (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
+ *          - exclude       (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
+ *          - show          (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
+ *          - shuffle       (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_speaker_grid( $atts, $content = null )
@@ -36,7 +47,7 @@ function congressomat_shortcode_speaker_grid( $atts, $content = null )
     if( $speakers ) :
 
         /* Optional: Ausschluss bestimmtet Speaker */
-        
+
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :

@@ -1,17 +1,27 @@
 <?php
 /**
  * Shortcode [icon-wall]
- * Erzeugt eine "Mauer" mit den Logos der Kooperationspartner
  *
- * Folgende Parameter können verwendet werden:
- * @param   partnership (optional)
- *                      Die Kooperationsform(en) nach der gefiltert werden soll.
- *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
- * @param   link        (optional)
- *                      Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
- *
+ * @since   2.3.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen einer "Mauer" mit den Logos der Kooperationspartner
+ *
+ * @since   2.3.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
+ *          - link          (optional) Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_icon_wall( $atts, $content = null )

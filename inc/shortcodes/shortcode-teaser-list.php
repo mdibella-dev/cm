@@ -2,18 +2,29 @@
 /**
  * Shortcode [teaser-list]
  *
- * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
- *
- * Folgende Parameter können verwendet werden:
- * @param   paged   (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- * @param   show    (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *                             Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
- * @param   exclude (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
- * @param   shuffle (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
- *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
- **/
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
+ *
+ * @since   1.0.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - paged         (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ *          - show          (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
+ *                          Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
+ *          - exclude       (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ *          - shuffle       (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ * @return  string          die vom Shortcode erzeugte Ausgabe
+ */
 
 function congressomat_shortcode_teaser_list( $atts, $content = null )
 {

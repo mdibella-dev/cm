@@ -2,13 +2,24 @@
 /**
  * Shortcode [faq]
  *
- * Erzeugt eine Liste mit den Kooperationspartnern
- *
- * Folgende Parameter können verwendet werden:
- * @param   faq
- *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen eines Akkordion-Elements für FAQ
+ *
+ * @since   1.0.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - faq           der gewählte FAQ-Satz
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_faq( $atts, $content = null )
@@ -57,7 +68,7 @@ function congressomat_shortcode_faq( $atts, $content = null )
 
 <?php
         /* Ausgabenpufferung beenden und Puffer ausgeben */
-        
+
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;

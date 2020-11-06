@@ -2,16 +2,27 @@
 /**
  * Shortcode [event-table]
  *
- * Erzeugt eine Tabelle mit dem Zeitplan eines bestimmten Events
- *
- * Folgende Parameter können verwendet werden:
- * @param   set             Die gewählte Set-Vorlage
- * @param   event           Die Identifikationsnummer des Events
- * @param   speaker         Die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten
- * @param   show_details    Anzeige der Details ermöglichen (true, false)
- *
+ * @since   2.1.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen einer Tabelle mit dem Zeitplan eines bestimmten Events
+ *
+ * @since   2.1.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - set           die gewählte Set-Vorlage
+ *          - event         die Identifikationsnummer des Events
+ *          - speaker       die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten
+ *          - show_details  Anzeige der Details ermöglichen (true, false)
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_event_table( $atts, $content = null )

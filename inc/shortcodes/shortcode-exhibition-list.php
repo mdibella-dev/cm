@@ -1,14 +1,26 @@
 <?php
 /**
  * Shortcode [exhibition-list]
- * Erzeugt eine (Aussteller-)Liste mit den Kooperationspartnern
  *
- * Folgende Parameter können verwendet werden:
- * @param   partnership (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
- *
+ * @since   2.3.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen einer (Aussteller-)Liste mit den Kooperationspartnern
+ *
+ * @since   2.3.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                                     Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_exhibition_list( $atts, $content = null )

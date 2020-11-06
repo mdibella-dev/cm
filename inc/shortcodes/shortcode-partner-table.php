@@ -1,17 +1,28 @@
 <?php
 /**
  * Shortcode [partner-table]
- * Erzeugt eine Tabelle mit den Kooperationspartnern
  *
- * Folgende Parameter können verwendet werden:
- * @param   partnership (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                      Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
- * @param   fieldset    Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
- *                      Folgende Werte sind derzeit möglich:
- *                      LOGO, BESCHREIBUNG, MESSESTAND
- *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
+ */
+
+
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen einer Tabelle mit den Kooperationspartnern
+ *
+ * @since   1.0.0
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
+ *          - fieldset      Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
+ *                          Folgende Werte sind derzeit möglich: LOGO, BESCHREIBUNG, MESSESTAND
+ * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
 function congressomat_shortcode_partner_table( $atts, $content = null )
