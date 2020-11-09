@@ -397,6 +397,31 @@
 
 
 
+
+
+
+.box {
+    background: #fff;
+    box-shadow: 0 0 18px -5px rgba(0,0,0,0.2);
+    padding: 30px 20px;
+    margin: 2rem auto;
+
+    @include respond-to(medium) {
+        padding: 40px;
+    }
+
+    h2 {
+        font-weight: 200;
+        font-size: 36px;
+        text-align: center;
+
+        @include respond-to(medium) {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+
 /**
  * Weitere Stile
  **/
