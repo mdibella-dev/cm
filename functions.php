@@ -10,6 +10,7 @@
 defined( 'ABSPATH' ) OR exit;
 
 
+
 /* Notices ausschalten */
 
 error_reporting( E_ALL ^ E_NOTICE );
@@ -84,6 +85,7 @@ require_once( get_template_directory() . '/inc/backend.php' );
 require_once( get_template_directory() . '/inc/performance.php' );
 require_once( get_template_directory() . '/inc/snippets.php' );
 require_once( get_template_directory() . '/inc/core.php' );
+
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );

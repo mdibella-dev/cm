@@ -53,7 +53,7 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 240, 240, FALSE );
 
-        if( ( get_option( 'thumbnail_size_w' ) != 240 ) ) :
+        if( ( 240 != get_option( 'thumbnail_size_w' ) ) ) :
             update_option( 'thumbnail_size_w', 240 );
             update_option( 'thumbnail_size_h', 240 );
         endif;
@@ -137,12 +137,12 @@ if( !function_exists( 'cm_theme_setup' ) ) :
          * Größenangaben entsprechen den Gutenberg Media Queries
          */
 
-        if( ( get_option( 'medium_size_w' ) != 782 ) ) :
+        if( ( 782 != get_option( 'medium_size_w' ) ) ) :
             update_option( 'medium_size_w', 782 );
             update_option( 'medium_size_h', 9999 );
         endif;
 
-        if( ( get_option( 'large_size_w' ) != 960 ) ) :
+        if( ( 960 != get_option( 'large_size_w' ) ) ) :
             update_option( 'large_size_w', 960 );
             update_option( 'large_size_h', 9999 );
         endif;
@@ -151,7 +151,6 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         add_image_size ( 'small', 600, 9999 );
         add_image_size ( 'wide', 1280, 9999 );
         add_image_size ( 'huge', 1440, 9999 );
-        remove_image_size( 'medium_large' );
 
 
         /* Navigationsmenüs und Widget Areas registrieren */
