@@ -63,9 +63,9 @@ __Tested up to:__ WordPress 5.9
 **Hinzugefügt:** Unterstützung für multiple Programmpunktzuweisungen  
 **Hinzugefügt:** Beschreibung für Programmpunke  
 **Hinzugefügt:** .accordion  
-**Entfernt:** congressomat_excerpt_more()  
-**Entfernt:** congressomat_remove_script_version()  
-**Entfernt:** congressomat_special_replacements()  
+**Entfernt:** cm_excerpt_more()  
+**Entfernt:** cm_remove_script_version()  
+**Entfernt:** cm_special_replacements()  
 
 ### 2.0.0
 **Geändert:** Verzeichnisstruktur des Themes  
@@ -74,7 +74,6 @@ __Tested up to:__ WordPress 5.9
 **Fixed:** Eingabedialog für einen Programmpunkt  
 **Fixed:** Anzeige aller Sessions eines Speakers  
 **Geändert:** Registrierung der Widget-Areas  
-**Geändert:** Prefix "mdb_" zu "congressomat_"; Textdomäne und Package zu "congressomat"  
 
 ### 1.0.0
 Erstveröffentlichung
