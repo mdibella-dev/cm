@@ -3,7 +3,7 @@
  * Snippets
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 

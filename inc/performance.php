@@ -3,7 +3,7 @@
  * Funktionen zu Optimierung der Webseite
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -63,14 +63,14 @@ function cm_remove_post_classes( $classes, $class, $post_id )
 
         foreach( $classes as $check ) :
 
-            if( ( FALSE !== strpos( $check, 'has-post-thumbnail' ) )
-                OR ( FALSE !== strpos( $check, 'sticky' ) )
-                OR ( FALSE !== strpos( $check, 'status-' ) )
-                OR ( FALSE !== strpos( $check, 'category-' ) )
-                OR ( FALSE !== strpos( $check, 'tag-' ) )
-                OR ( FALSE !== strpos( $check, 'post_format-' ) )
-                OR ( FALSE !== strpos( $check, 'hentry' ) )
-                OR ( FALSE !== strpos( $check, 'type-' ) )
+            if( ( false !== strpos( $check, 'has-post-thumbnail' ) )
+                or ( false !== strpos( $check, 'sticky' ) )
+                or ( false !== strpos( $check, 'status-' ) )
+                or ( false !== strpos( $check, 'category-' ) )
+                or ( false !== strpos( $check, 'tag-' ) )
+                or ( false !== strpos( $check, 'post_format-' ) )
+                or ( false !== strpos( $check, 'hentry' ) )
+                or ( false !== strpos( $check, 'type-' ) )
               ) :
                 /* nicht übernehmen */
             else :

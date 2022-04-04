@@ -3,7 +3,7 @@
  * Einzelseite eines Kooperationspartners
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -32,7 +32,7 @@ get_header();
                         echo $data['description'];
                     else :
                     ?>
-                    <p style="text-align: center;"><?php echo __( 'Keine Beschreibung verfügbar.', 'congressomat'); ?></p>
+                    <p style="text-align: center;"><?php echo __( 'Keine Beschreibung verfügbar.', 'cm'); ?></p>
                     <?php
                     endif;
                     ?>
@@ -47,7 +47,7 @@ get_header();
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
-                    <h2 class="section-title has-text-align-center"><?php echo __( 'Kontaktinformationen', 'congressomat' ); ?></h2>
+                    <h2 class="section-title has-text-align-center"><?php echo __( 'Kontaktinformationen', 'cm' ); ?></h2>
                     <div class="single-partner-details">
                         <div>
                             <figure>
@@ -63,7 +63,7 @@ get_header();
                             if( $data['phone'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'phone',
-                                    __( 'Telefon', 'congressomat' ),
+                                    __( 'Telefon', 'cm' ),
                                     $data['phone'],
                                     );
                             endif;
@@ -71,7 +71,7 @@ get_header();
                             if( $data['fax'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'fax',
-                                    __( 'Telefax', 'congressomat' ),
+                                    __( 'Telefax', 'cm' ),
                                     $data['fax'],
                                     );
                             endif;
@@ -79,7 +79,7 @@ get_header();
                             if( $data['mail'] ) :
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'mail',
-                                    __( 'E-Mail', 'congressomat' ),
+                                    __( 'E-Mail', 'cm' ),
                                     $data['mail'],
                                     );
                             endif;
@@ -90,10 +90,10 @@ get_header();
 
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span><a href="%3$s" target="_blank" title="%5$s">%4$s</a></span></li>',
                                     'webseite',
-                                    __( 'Web', 'congressomat' ),
+                                    __( 'Web', 'congresscmomat' ),
                                     $data['website'],
                                     $url['host'],
-                                    __( 'Webseite besuchen', 'congressomat' ),
+                                    __( 'Webseite besuchen', 'cm' ),
                                     );
                             endif;
                             ?>

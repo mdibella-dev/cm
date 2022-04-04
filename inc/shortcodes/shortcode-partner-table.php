@@ -3,7 +3,7 @@
  * Shortcode [partner-table]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_partner_table( $atts, $content = NULL )
+function cm_shortcode_partner_table( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -83,7 +83,7 @@ function cm_shortcode_partner_table( $atts, $content = NULL )
                         if( !empty( $link ) ) :
                             $cells[ 'partner-logo' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                 $link,
-                                                                __( 'Externen Link aufrufen', 'congressomat' ),
+                                                                __( 'Externen Link aufrufen', 'cm' ),
                                                                 $image );
                         else :
                             $cells[ 'partner-logo' ] = $image;
@@ -109,7 +109,7 @@ function cm_shortcode_partner_table( $atts, $content = NULL )
                             $cells['partner-description'] .= sprintf( '<span class="link">%1$s</span>',
                                                                         sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
                                                                                  $link,
-                                                                                 __( 'Externen Link aufrufen', 'congressomat' ),
+                                                                                 __( 'Externen Link aufrufen', 'cm' ),
                                                                                  $url['host'] ) );
                         endif;
 
@@ -124,7 +124,7 @@ function cm_shortcode_partner_table( $atts, $content = NULL )
                             $strings = array();
 
                             if( !empty( $number ) ) :
-                                $strings[] = sprintf( __( 'Stand %1$s', 'congressomat' ), $number );
+                                $strings[] = sprintf( __( 'Stand %1$s', 'cm' ), $number );
                             endif;
 
                             if( !empty( $location ) ) :

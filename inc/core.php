@@ -3,7 +3,7 @@
  * Zentrale Funktionen des Themes
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -51,7 +51,7 @@ function cm_get_sessions( $args )
      * bzw. eine Filterung nach aktiven oder inaktiven Sessions (Variante 2) hinzu.
      */
 
-    if( NULL !== cm_get_event( $event ) ) :
+    if( null !== cm_get_event( $event ) ) :
 
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'event',
@@ -94,10 +94,10 @@ function cm_get_sessions( $args )
      * und/oder die Suche nach den Session, die an einem bestimmten Datum stattfinden, hinzu.
      */
 
-    if( !empty( $speaker ) OR !empty( $date ) ) :
+    if( !empty( $speaker ) or !empty( $date ) ) :
         $query['meta_query'] = array();
 
-        if( !empty( $speaker ) AND is_numeric( $speaker ) ) :
+        if( !empty( $speaker ) and is_numeric( $speaker ) ) :
 
             $query['meta_query'][] = array(
                 'key'     => 'programmpunkt-referenten',
@@ -112,7 +112,7 @@ function cm_get_sessions( $args )
             /** @see: https://www.php.net/manual/de/function.strtotime.php#122937 **/
             $date = str_replace( '.', '-', $date );
 
-            if( ( $timestamp = strtotime( $date) ) !== FALSE ) :
+            if( ( $timestamp = strtotime( $date) ) !== false ) :
                 $query['meta_query'][] = array(
                     'key'   => 'programmpunkt-datum',
                     'value' => date( 'Ymd', $timestamp ),
@@ -183,8 +183,8 @@ function cm_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' )
 
 function cm_sort_sessions_by_timestamp( $sessions )
 {
-    if( TRUE == is_array( $sessions ) ) :
-        $unable_to_sort = FALSE;
+    if( true == is_array( $sessions ) ) :
+        $unable_to_sort = false;
         $sort           = array();
 
         /* Bildung eines sortierfähigen Arrays */
@@ -212,12 +212,12 @@ function cm_sort_sessions_by_timestamp( $sessions )
              * Andernfalls Abbruch, da eine Sortierung nicht möglich ist.
              */
 
-            if( FALSE !== $timestamp_from ) :
+            if( false !== $timestamp_from ) :
                 $sort[ $timestamp_from ] = $session;
-            elseif ( FALSE !== $timestamp_to ) :
+            elseif ( false !== $timestamp_to ) :
                 $sort[ $timestamp_to ] = $session;
             else :
-                $unable_to_sort = TRUE;
+                $unable_to_sort = true;
                 break;
             endif;
 
@@ -226,7 +226,7 @@ function cm_sort_sessions_by_timestamp( $sessions )
 
         /* Durchführung der Sortierung (wenn möglich) */
 
-        if( FALSE === $unable_to_sort ) :
+        if( false === $unable_to_sort ) :
             ksort( $sort );
             $sessions = array_values( $sort );
         endif;
@@ -251,13 +251,13 @@ function cm_get_active_events()
     $events = array();
     $terms  = get_terms( array(
         'taxonomy'   => 'event',
-        'hide_empty' => 'FALSE', // TRUE?
+        'hide_empty' => 'false',
         'meta_key'   => 'event-status',
-    	'meta_value' => '1',
+        'meta_value' => '1',
     ) );
 
-    if( FALSE === $terms ) :
-        return NULL;
+    if( false === $terms ) :
+        return null;
     endif;
 
     foreach( $terms as $term ) :
@@ -324,13 +324,13 @@ function cm_get_speaker_datasets( $event_list_string = '' )
         foreach( $sessions as $session ) :
             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-            if( NULL != $speakers ) :
+            if( null != $speakers ) :
 
                 foreach( $speakers as $speaker ) :
 
                     /* Nicht hinzufügen, wenn bereits in der Liste */
 
-                    if( FALSE == in_array( $speaker, $finds_list ) ) :
+                    if( false == in_array( $speaker, $finds_list ) ) :
                         $finds_list[]   = $speaker;
                         $speaker_list[] = cm_get_speaker_dataset( $speaker );
                     endif;
@@ -347,7 +347,7 @@ function cm_get_speaker_datasets( $event_list_string = '' )
         return cm_sort_speaker_datasets( $speaker_list );
     endif;
 
-    return NULL;
+    return null;
 }
 
 
@@ -416,13 +416,13 @@ function cm_get_location( $location )
     if( !empty( $location ) ) :
         $term = get_term_by( 'term_taxonomy_id', $location, 'location' );
 
-        if( $term !== FALSE ) :
+        if( $term !== false ) :
             return $term->name;
         endif;
 
     endif;
 
-    return NULL;
+    return null;
 }
 
 
@@ -441,12 +441,12 @@ function cm_get_event( $event )
     if( !empty( $event ) ) :
         $term = get_term_by( 'term_taxonomy_id', $event, 'event' );
 
-        if( $term !== FALSE ) :
+        if( $term !== false ) :
             return $term->name;
         endif;
     endif;
 
-    return NULL;
+    return null;
 }
 
 

@@ -3,7 +3,7 @@
  * Einzelseite eines Referenten
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -61,7 +61,7 @@ get_header();
                                                 class="wp-block-button__link"
                                                 rel="external nofollow"
                                                 target="_blank"
-                                                title="<?php echo sprintf( __( 'Profil von %1$s auf %2$s', 'congressomat' ), $data[ 'name' ], SOCIAL_MEDIA[ $service ][ 'name' ] ); ?>">
+                                                title="<?php echo sprintf( __( 'Profil von %1$s auf %2$s', 'cm' ), $data[ 'name' ], SOCIAL_MEDIA[ $service ][ 'name' ] ); ?>">
                                                 <i class="<?php echo SOCIAL_MEDIA[ $service ][ 'icon' ]; ?>"></i>
                                             </a>
                                         </div>
@@ -100,7 +100,7 @@ get_header();
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
                     <h2 class="has-text-align-center section-title">
-                        <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'congressomat' ), $data[ 'title_name' ] ); ?>
+                        <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'cm' ), $data[ 'title_name' ] ); ?>
                     </h2>
                     <div style="height:20px" aria-hidden="TRUE" class="wp-block-spacer"></div>
                     <?php echo do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) ); ?>
@@ -118,7 +118,7 @@ get_header();
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
                     <h2 class="has-text-align-center section-title">
-                        <?php echo __( 'Weitere Referenten', 'congressomat' ); ?>
+                        <?php echo __( 'Weitere Referenten', 'cm' ); ?>
                     </h2>
                     <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $data[ 'id' ] ) ); ?>
                 </div>

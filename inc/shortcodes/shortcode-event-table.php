@@ -3,7 +3,7 @@
  * Shortcode [event-table]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_event_table( $atts, $content = NULL )
+function cm_shortcode_event_table( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -33,7 +33,7 @@ function cm_shortcode_event_table( $atts, $content = NULL )
         'speaker'      => '',
         'event'        => '',
         'date'         => '',
-        'show_details' => 'FALSE',
+        'show_details' => 'false',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
@@ -180,7 +180,7 @@ function cm_shortcode_event_table( $atts, $content = NULL )
 
                 $details = apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', $session->ID ) );
 
-                if( ( $show_details == TRUE ) and !empty( $details ) ):
+                if( ( $show_details == true ) and !empty( $details ) ):
                     $output .= '<div class="event-table__session-toggle"><span><i class="far fa-angle-down"></i></span></div>';
                     $output .= sprintf ('<div class="event-table__session-details">%1$s</div>', $details );
                 endif;

@@ -3,7 +3,7 @@
  * Shortcode [faq]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_faq( $atts, $content = NULL )
+function cm_shortcode_faq( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -73,7 +73,7 @@ function cm_shortcode_faq( $atts, $content = NULL )
         return $output_buffer;
     endif;
 
-    return NULL;
+    return null;
 }
 
 add_shortcode( 'faq', 'cm_shortcode_faq' );

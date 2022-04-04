@@ -3,7 +3,7 @@
  * Shortcode [exhibition-list]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_exhibition_list( $atts, $content = NULL )
+function cm_shortcode_exhibition_list( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -94,8 +94,8 @@ function cm_shortcode_exhibition_list( $atts, $content = NULL )
                     ?>
                         <div>
                             <div>
-                                <div><?php echo __( 'Bereich', 'congressomat' ); ?></div>
-                                <div><?php echo __( 'Stand', 'congressomat' ); ?></div>
+                                <div><?php echo __( 'Bereich', 'cm' ); ?></div>
+                                <div><?php echo __( 'Stand', 'cm' ); ?></div>
                             </div>
                         <?php
                         foreach( $data[ 'exhibition-spaces' ] as $space ) :

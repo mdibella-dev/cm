@@ -1,5 +1,5 @@
-# Congressomat
-Congressomat ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
+# CM
+CM ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
 
 __Contributors:__ rdg-dibella
 
@@ -7,7 +7,7 @@ __Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-bloc
 
 __Requires at least:__ WordPress 5.3  
 
-__Tested up to:__ WordPress 5.5  
+__Tested up to:__ WordPress 5.9  
 
 
 ## Changelog
@@ -15,15 +15,18 @@ __Tested up to:__ WordPress 5.5
 
 ### 2.4.0  
 **Geändert:** Code-Stil  
-**Geändert:** Prefix "congressomat_" zu "cm_"  
+**Geändert:** Textdomäne  
+**Geändert:** Package  
 
+### 2.4.0  
+**Geändert:** Code-Stil  
 
 ### 2.3.0  
 **Hinzugefügt:** Versionierung des Stylesheets   
 **Hinzugefügt:** Detail-Seite für Kooperationspartner    
 **Hinzugefügt:** Posttype für Ausstellungsflächen  
 **Hinzugefügt:** Taxonomie für Ausstellerpakete  
-**Hinzugefügt:** Gemeinsames Admin-Menü für alle Congressomat-Komponenten (ausgenommen FAQ)  
+**Hinzugefügt:** Gemeinsames Admin-Menü für alle CM-Komponenten (ausgenommen FAQ)  
 **Hinzugefügt:** Mixin für figcaption (betrifft Embeds, Bilder)  
 **Hinzugefügt:** Button-Stil Grau-Schattiert  
 **Hinzugefügt:** Shortcode [icon-wall]  
@@ -39,7 +42,6 @@ __Tested up to:__ WordPress 5.5
 **Geändert:** Button-Stile  
 **Entfernt:** .is-style-with-caption  
 **Entfernt:** Shortcode [partner-list]  
-
 
 ### 2.2.0
 **Hinzugefügt:** .post-title, .page-title  

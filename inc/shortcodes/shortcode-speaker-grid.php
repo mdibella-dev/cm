@@ -3,7 +3,7 @@
  * Shortcode [speaker-grid]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_speaker_grid( $atts, $content = NULL )
+function cm_shortcode_speaker_grid( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -89,7 +89,7 @@ function cm_shortcode_speaker_grid( $atts, $content = NULL )
         <li>
             <a  class="speaker-grid-element"
                 href="<?php echo $speaker['permalink']; ?>"
-                title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker['title_name'] ); ?>">
+                title="<?php echo sprintf( __( 'Mehr über %1$s erfahren', 'cm' ), $speaker['title_name'] ); ?>">
 
                 <figure>
                     <?php echo get_the_post_thumbnail( $speaker['id'], 'full', array( 'class' => 'speaker-image' ) ); ?>
@@ -117,7 +117,7 @@ function cm_shortcode_speaker_grid( $atts, $content = NULL )
         return $output_buffer;
     endif;
 
-    return NULL;
+    return null;
 }
 
 add_shortcode( 'speaker-grid', 'cm_shortcode_speaker_grid' );

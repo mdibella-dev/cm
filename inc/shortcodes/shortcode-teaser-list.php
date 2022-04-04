@@ -3,7 +3,7 @@
  * Shortcode [teaser-list]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_teaser_list( $atts, $content = NULL )
+function cm_shortcode_teaser_list( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -118,7 +118,7 @@ function cm_shortcode_teaser_list( $atts, $content = NULL )
 
         <li>
             <article class="<?php echo implode( ' ', get_post_class( $post->ID ) ); ?>">
-                <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php echo __( 'Mehr erfahren', 'congressomat' ); ?>" rel="prev">
+                <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php echo __( 'Mehr erfahren', 'cm' ); ?>" rel="prev">
                     <div class="teaser-image">
                         <?php the_post_thumbnail( $post->ID, 'full' ); ?>
                     </div>
@@ -172,15 +172,15 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="fas fa-chevron-left"></i></a></div>',
                   add_query_arg( 'prt', $current_page - 1 ),
-                  __( 'Vorhergehende Seite', 'congressomat' ),
+                  __( 'Vorhergehende Seite', 'cm' ),
                   ( 1 != $current_page )? '' : ' disabled' );
 
     echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
-                  sprintf( __( 'Seite %1$s/%2$s', 'congressomat' ), $current_page, $max_page ) );
+                  sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ) );
 
     echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="fas fa-chevron-right"></i></a></div>',
                   add_query_arg( 'prt', $current_page + 1 ),
-                  __( 'Nächste Seite', 'congressomat' ),
+                  __( 'Nächste Seite', 'cm' ),
                   ( $max_page != $current_page )? '' : ' disabled' );
     echo '</nav>';
 }

@@ -3,7 +3,7 @@
  * Shortcode [icon-wall]
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function cm_shortcode_icon_wall( $atts, $content = NULL )
+function cm_shortcode_icon_wall( $atts, $content = null )
 {
     /* Übergebene Parameter ermitteln */
 
@@ -98,11 +98,10 @@ function cm_shortcode_icon_wall( $atts, $content = NULL )
     <li<?php echo $li_class; ?>>
         <?php
         switch( $link ) :
-
             case 'internal' :
                 echo sprintf( '<a href="%1$s" target="_self" title="%2$s">',
                     $data[ 'permalink' ],
-                    __( 'Detailsseite aufrufen'),
+                    __( 'Detailsseite aufrufen', 'cm' ),
                 );
             break;
 
@@ -110,20 +109,18 @@ function cm_shortcode_icon_wall( $atts, $content = NULL )
                 if( !empty( $data[ 'website' ] ) ) :
                     echo sprintf( '<a href="%1$s" target="blank" title="%2$s">',
                         $data[ 'website' ],
-                        __( 'Webseite aufrufen'),
+                        __( 'Webseite aufrufen', 'cm' ),
                     );
                 endif;
             break;
 
             case 'none' :
             break;
-
         endswitch;
 
         echo get_the_post_thumbnail( $data[ 'id' ], 'full' );
 
         switch( $link ) :
-
             case 'internal' :
                 echo '</a>';
             break;
@@ -136,7 +133,6 @@ function cm_shortcode_icon_wall( $atts, $content = NULL )
 
             case 'none' :
             break;
-
         endswitch;
         ?>
     </li>
@@ -151,7 +147,7 @@ function cm_shortcode_icon_wall( $atts, $content = NULL )
         return $output_buffer;
     endif;
 
-    return NULL;
+    return null;
 }
 
 add_shortcode( 'icon-wall', 'cm_shortcode_icon_wall' );

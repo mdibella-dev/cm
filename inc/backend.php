@@ -3,7 +3,7 @@
  * Backend
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
- * @package congressomat
+ * @package cm
  */
 
 
@@ -23,8 +23,8 @@ function cm_admin_menu()
 	$admin_menu_slug = 'edit.php?post_type=session';
 
 	add_menu_page(
-		__( 'Congressomat', 'congressomat' ),
-		__( 'Congressomat', 'congressomat' ),
+		__( 'Congressomat', 'cm' ),
+		__( 'Congressomat', 'cm' ),
 		'manage_options',
 		$admin_menu_slug,
 		'',
@@ -34,8 +34,8 @@ function cm_admin_menu()
 
 	add_submenu_page(
 		$admin_menu_slug,
-		__( 'Veranstaltungen', 'congressomat' ),
-		__( 'Veranstaltungen', 'congressomat' ),
+		__( 'Veranstaltungen', 'cm' ),
+		__( 'Veranstaltungen', 'cm' ),
 		'manage_options',
 		'edit-tags.php?taxonomy=event&post_type=session',
 		'',
@@ -44,8 +44,8 @@ function cm_admin_menu()
 
 	add_submenu_page(
 		$admin_menu_slug,
-		__( 'Örtlichkeiten', 'congressomat' ),
-		__( 'Örtlichkeiten', 'congressomat' ),
+		__( 'Örtlichkeiten', 'cm' ),
+		__( 'Örtlichkeiten', 'cm' ),
 		'manage_options',
 		'edit-tags.php?taxonomy=location&post_type=session',
 		'',
@@ -54,8 +54,8 @@ function cm_admin_menu()
 
 	add_submenu_page(
 		$admin_menu_slug,
-		__( 'Kooperationsformen', 'congressomat' ),
-		__( 'Kooperationsformen', 'congressomat' ),
+		__( 'Kooperationsformen', 'cm' ),
+		__( 'Kooperationsformen', 'cm' ),
 		'manage_options',
 		'edit-tags.php?taxonomy=partnership&post_type=session',
 		'',
@@ -64,8 +64,8 @@ function cm_admin_menu()
 
 	add_submenu_page(
 		$admin_menu_slug,
-		__( 'Ausstellungspakete', 'congressomat' ),
-		__( 'Ausstellungspakete', 'congressomat' ),
+		__( 'Ausstellungspakete', 'cm' ),
+		__( 'Ausstellungspakete', 'cm' ),
 		'manage_options',
 		'edit-tags.php?taxonomy=exhibition_package&post_type=session',
 		'',
