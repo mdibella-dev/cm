@@ -34,7 +34,6 @@ get_header();
                 <div>
             </div>
         </article>
-
         <?php
             endwhile;
 
