@@ -7,7 +7,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -69,7 +69,7 @@ function cm_remove_post_classes( $classes, $class, $post_id )
                 OR ( FALSE !== strpos( $check, 'category-' ) )
                 OR ( FALSE !== strpos( $check, 'tag-' ) )
                 OR ( FALSE !== strpos( $check, 'post_format-' ) )
-                OR ( FALSE !== strpos( $check, 'hentry' ) ) 
+                OR ( FALSE !== strpos( $check, 'hentry' ) )
                 OR ( FALSE !== strpos( $check, 'type-' ) )
               ) :
                 /* nicht übernehmen */

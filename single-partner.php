@@ -6,27 +6,27 @@
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) or exit;
+
+
+
 get_header();
 ?>
 
     <main id="main">
         <article>
-
             <?php
             if( have_posts() ) :
                 while( have_posts() ) :
                     the_post();
 
-                    /* Datensatz holen */
-
+                    // Datensatz holen
                     $data = cm_get_partner_dataset( get_the_ID() );
             ?>
-
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
-
                     <h2 class="section-title has-text-align-center"><?php echo $data[ 'title' ]; ?></h2>
-
                     <?php
                     if( !empty( $data['description'] ) ) :
                         echo $data['description'];
@@ -36,10 +36,8 @@ get_header();
                     <?php
                     endif;
                     ?>
-
                 </div>
             </div>
-
             <?php
             /**
              * Kontaktdaten etc
@@ -49,20 +47,16 @@ get_header();
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
-
                     <h2 class="section-title has-text-align-center"><?php echo __( 'Kontaktinformationen', 'congressomat' ); ?></h2>
-
                     <div class="single-partner-details">
                         <div>
                             <figure>
                                 <?php echo get_the_post_thumbnail(); ?>
                             </figure>
                         </div>
-
                         <div>
                             <p><?php echo $data['address'];?></p>
                         </div>
-
                         <div>
                             <ul>
                             <?php
@@ -107,7 +101,6 @@ get_header();
                         </div>
 
                     </div>
-
             <?php
             /**
              * Unternehmensadresse in Google Maps anzeigen
@@ -121,9 +114,7 @@ get_header();
                 'https://www.google.com/maps/embed/v1/place?q='
                 . urlencode( str_replace( '<br>', ', ', $data['address'] ) )
                 . '&amp;maptype=roadmap&amp;zoom=16&amp;key=AIzaSyBABldTSNGLjLd8gLSgHaqxmuUqoi6HouI';
-
             ?>
-
                     <div class="wp-block-webfactory-map">
                         <div class="wp-block-webfactory-map">
                             <iframe width="100%" height="420px" src="<?php echo $google_maps_query; ?>" frameborder="0"></iframe>
@@ -134,13 +125,10 @@ get_header();
             <?php
             endif;
             ?>
-
             <?php
             endwhile;
-
         endif;
         ?>
-
         </article>
     </main>
 

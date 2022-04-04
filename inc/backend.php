@@ -7,7 +7,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) OR exit;
  * Erstellt das Congressomat-Menü
  * Hinweis: Menüpunkte für Posttypes werden bei deren Registrierung erzeugt
  *
- * @since 	2.3.0
+ * @since 2.3.0
  */
 
 function cm_admin_menu()
@@ -80,8 +80,8 @@ add_action( 'admin_menu', 'cm_admin_menu', 999 );
 /**
  * Sortiert das Congressomat-Menü
  *
- * @since 	2.3.0
- * @todo 	- Internationalisierung
+ * @since 2.3.0
+ * @todo  Internationalisierung
  */
 
 function cm_admin_menu_order( $menu_order )

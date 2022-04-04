@@ -6,6 +6,11 @@
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) or exit;
+
+
+
 get_header();
 ?>
 

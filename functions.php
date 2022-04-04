@@ -7,18 +7,19 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
-/* Notices ausschalten */
+/**
+ * Notices ausschalten
+ */
 
 error_reporting( E_ALL ^ E_NOTICE );
 
 
-/* Konstanten */
 
-/*
+/**
  * Soziale Netze
  */
 
@@ -50,7 +51,7 @@ define( 'SOCIAL_MEDIA', array(
 ) );
 
 
-/*
+/**
  * Vorkonfigurierte Sets für Eventtabellen;
  * a = linke Spalte mit Orts- und Zeitangaben;
  * b = mittlere Spalte mit Titel etc.
@@ -77,7 +78,9 @@ define( 'EVENT_TABLE_SETLIST', array(
 
 
 
-/* Funktionsbibliothek einbinden */
+/**
+ * Funktionsbibliothek einbinden
+ */
 
 require_once( get_template_directory() . '/inc/setup.php' );
 require_once( get_template_directory() . '/inc/block-editor.php' );

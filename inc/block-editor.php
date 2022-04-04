@@ -7,7 +7,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -18,7 +18,6 @@ defined( 'ABSPATH' ) OR exit;
  * @see     https://digwp.com/2018/04/how-to-disable-gutenberg/
  * @see     https://stackoverflow.com/questions/52199629/how-to-disable-gutenberg-editor-for-certain-post-types/52199630
  * @see     https://www.billerickson.net/disabling-gutenberg-certain-templates/
- *
  * @param   bool    $current_status
  * @param   string  $post_type
  */

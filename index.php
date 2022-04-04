@@ -6,9 +6,13 @@
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) or exit;
+
+
+
 get_header();
 ?>
-
     <main id="main">
         <article>
             <?php
@@ -19,6 +23,5 @@ get_header();
             ?>
         </article>
     </main>
-
 <?php
 get_footer();

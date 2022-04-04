@@ -5,6 +5,12 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package congressomat
  */
+
+
+ defined( 'ABSPATH' ) or exit;
+
+
+
 ?>
         <footer id="footer">
 

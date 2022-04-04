@@ -7,6 +7,9 @@
  */
 
 
+defined( 'ABSPATH' ) or exit;
+
+
 
 /**
  * Setzt die Länge des Excerpts

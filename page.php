@@ -6,6 +6,11 @@
  * @package congressomat
  */
 
+
+defined( 'ABSPATH' ) or exit;
+
+
+
 get_header();
 ?>
 
@@ -13,16 +18,12 @@ get_header();
         <?php
         if( have_posts() ) :
 
-            /* Ausgabenpufferung beginnen */
+            // Ausgabenpufferung beginnen
             ob_start();
-
-
-            /* The Loop */
 
             while( have_posts() ) :
                 the_post();
         ?>
-
         <article>
             <div class="article-wrapper">
                 <div class="article-wrapper__inner-container">
@@ -37,9 +38,7 @@ get_header();
         <?php
             endwhile;
 
-
-            /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+            // Ausgabenpufferung beenden und Puffer ausgeben
             $output_buffer = ob_get_contents();
             ob_end_clean();
             echo $output_buffer;
