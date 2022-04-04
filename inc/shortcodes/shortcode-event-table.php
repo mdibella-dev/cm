@@ -26,8 +26,7 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_event_table( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'set'          => '1',
         'speaker'      => '',
@@ -35,46 +34,37 @@ function cm_shortcode_event_table( $atts, $content = null )
         'date'         => '',
         'show_details' => 'false',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /* Bei valider Setlist fortfahren */
-
+    // Bei valider Setlist fortfahren */
     if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_SETLIST ) ) ) :
 
-        /*
-         * Daten holen
-         * Entweder nach (aktiven) Sessions des angegebenen Speakers suchen (Variante 1)
-         * oder nach den Sessions des angegebenen Events suchen (Variante 2)
-         */
-
+        // Daten holen
+        // Entweder nach (aktiven) Sessions des angegebenen Speakers suchen (Variante 1) oder nach den Sessions des angegebenen Events suchen (Variante 2)
         if( !empty( $speaker) ) :
             $sessions = cm_get_sessions_by_speaker( $speaker );
         elseif( !empty( $event ) ) :
             $sessions = cm_get_sessions_by_event( $event, $date );
         else :
-            $sessions = NULL;
+            $sessions = nul;
         endif;
 
 
-        /* Jede Session entlang der Setlist abarbeiten */
-
+        // Jede Session entlang der Setlist abarbeiten
         if( $sessions ) :
             $a_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['a'] );
             $b_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['b'] );
 
 
-            /* Ausgabe vorbereiten */
-
+            // Ausgabe vorbereiten
             $output = sprintf( '<div class="event-table has-set-%1$s">', $set );
 
             foreach( $sessions as $session ) :
                 $output .= '<div class="event-table__session">';
 
 
-                /* Die durch a_set konfigurierten Elemente abarbeiten */
-
+                // Die durch a_set konfigurierten Elemente abarbeiten
                 $output .= '<div class="event-table__session-schedule">';
 
                 foreach( $a_set as $data_key ) :
@@ -82,14 +72,16 @@ function cm_shortcode_event_table( $atts, $content = null )
                     switch( $data_key ) :
 
                         case 'session-date' :
-                            $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                            $output .= sprintf(
+                                '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
                                 get_field( 'programmpunkt-datum', $session->ID )
                             );
                         break;
 
                         case 'session-time-begin' :
-                            $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                            $output .= sprintf(
+                                '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
                                 get_field( 'programmpunkt-von', $session->ID )
                             );
@@ -99,7 +91,8 @@ function cm_shortcode_event_table( $atts, $content = null )
                             $data = get_field( 'programmpunkt-alternative-zeitangabe', $session->ID );
 
                             if( empty( $data ) ) :
-                                $data = sprintf( '%1$s bis %2$s',
+                                $data = sprintf(
+                                    '%1$s bis %2$s',
                                     get_field( 'programmpunkt-von', $session->ID ),
                                     get_field( 'programmpunkt-bis', $session->ID ) );
                             endif;
@@ -111,7 +104,8 @@ function cm_shortcode_event_table( $atts, $content = null )
                         break;
 
                         case 'session-location' :
-                            $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                            $output .= sprintf(
+                                '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
                                 cm_get_location( get_field( 'programmpunkt-location', $session->ID ) )
                             );
@@ -124,8 +118,7 @@ function cm_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                /* Die durch b_set konfigurierten Elemente abarbeiten */
-
+                // Die durch b_set konfigurierten Elemente abarbeiten
                 $output .= '<div class="event-table__session-overview">';
 
                 foreach( $b_set as $data_key ) :
@@ -133,14 +126,16 @@ function cm_shortcode_event_table( $atts, $content = null )
                     switch( $data_key ) :
 
                         case 'session-title' :
-                            $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                            $output .= sprintf(
+                                '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
                                 $session->post_title
                             );
                         break;
 
                         case 'session-subtitle' :
-                            $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                            $output .= sprintf(
+                                '<div data-type="%1$s">%2$s</div>',
                                 $data_key,
                                 get_field( 'programmpunkt-untertitel', $session->ID )
                             );
@@ -149,7 +144,7 @@ function cm_shortcode_event_table( $atts, $content = null )
                         case 'session-speaker' :
                             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-                            if( $speakers != NULL ) :
+                            if( $speakers != null ) :
                                 unset( $speakers_list );
 
                                 foreach( $speakers as $speaker ) :
@@ -161,7 +156,8 @@ function cm_shortcode_event_table( $atts, $content = null )
                                         get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
                                 endforeach;
 
-                                $output .= sprintf( '<div data-type="%1$s">%2$s</div>',
+                                $output .= sprintf(
+                                    '<div data-type="%1$s">%2$s</div>',
                                     $data_key,
                                     implode( ' ', $speakers_list )
                                 );
@@ -176,8 +172,7 @@ function cm_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                /* Anzeige der Detailinformationen (wenn vorhanden) ermöglichen */
-
+                // Anzeige der Detailinformationen (wenn vorhanden) ermöglichen
                 $details = apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', $session->ID ) );
 
                 if( ( $show_details == true ) and !empty( $details ) ):

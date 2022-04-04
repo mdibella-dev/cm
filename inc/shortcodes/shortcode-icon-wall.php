@@ -25,13 +25,11 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_icon_wall( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'partnership' => '',
         'link'        => 'none',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
     $link         = strtolower( trim( $link ) );
@@ -46,11 +44,8 @@ function cm_shortcode_icon_wall( $atts, $content = null )
     endif;
 
 
-    /*
-     * Daten abrufen und aufbereiten
-     * Optional kann hierbei nach Kooperationsform gefiltert werden
-     */
-
+    // Daten abrufen und aufbereiten
+    // Optional kann hierbei nach Kooperationsform gefiltert werden
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -59,7 +54,7 @@ function cm_shortcode_icon_wall( $atts, $content = null )
         'orderby'        => 'title',
     );
 
-    if( !empty( $partnership ) ) :
+    if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
             'field'    => 'term_id',
@@ -70,8 +65,7 @@ function cm_shortcode_icon_wall( $atts, $content = null )
     $partners = get_posts( $query );
 
 
-    /* Ausgabe */
-
+    // Ausgabe
     if( $partners ) :
         ob_start();
 ?>
@@ -80,34 +74,33 @@ function cm_shortcode_icon_wall( $atts, $content = null )
     <?php
     foreach( $partners as $partner ) :
 
-        /* Datensatz holen */
-
+        // Datensatz holen
         $data = cm_get_partner_dataset( $partner->ID );
 
 
-        /* Quadratische Logos? */
-
-        $thumb = wp_get_attachment_metadata( get_post_thumbnail_id( $data[ 'id' ] ) );
+        // Quadratische Logos?
+        $li_class = '';
+        $thumb    = wp_get_attachment_metadata( get_post_thumbnail_id( $data[ 'id' ] ) );
 
         if( $thumb[ 'width' ] == $thumb[ 'height' ] ) :
             $li_class = ' class="is-squared"';
-        else :
-            $li_class = '';
         endif;
     ?>
     <li<?php echo $li_class; ?>>
         <?php
         switch( $link ) :
             case 'internal' :
-                echo sprintf( '<a href="%1$s" target="_self" title="%2$s">',
+                echo sprintf(
+                    '<a href="%1$s" target="_self" title="%2$s">',
                     $data[ 'permalink' ],
                     __( 'Detailsseite aufrufen', 'cm' ),
                 );
             break;
 
             case 'external' :
-                if( !empty( $data[ 'website' ] ) ) :
-                    echo sprintf( '<a href="%1$s" target="blank" title="%2$s">',
+                if( ! empty( $data[ 'website' ] ) ) :
+                    echo sprintf(
+                        '<a href="%1$s" target="blank" title="%2$s">',
                         $data[ 'website' ],
                         __( 'Webseite aufrufen', 'cm' ),
                     );
@@ -140,8 +133,7 @@ function cm_shortcode_icon_wall( $atts, $content = null )
 </ul>
 
 <?php
-        /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+        // Ausgabenpufferung beenden und Puffer ausgeben
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;

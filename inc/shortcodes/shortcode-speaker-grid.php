@@ -27,43 +27,35 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_speaker_grid( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
-        'event'   => '-1', /* nur aktive Events */
+        'event'   => '-1', // nur aktive Events
         'exclude' => '',
         'show'    => 0,
         'shuffle' => 0,
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /* Daten abrufen und aufbereiten */
-
+    // Daten abrufen und aufbereiten
     $speakers = cm_get_speaker_datasets( ( $event == '-1' )? implode( ',', cm_get_active_events() ) : $event );
 
     if( $speakers ) :
 
-        /* Optional: Ausschluss bestimmtet Speaker */
-
+        // Optional: Ausschluss bestimmtet Speaker
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
-            if( FALSE == in_array( $speaker['id'], $exclude_ids ) ) :
+            if( false == in_array( $speaker['id'], $exclude_ids ) ) :
                 $speaker_list[] = $speaker;
             endif;
         endforeach;
 
 
-        /* Optional: Beschnitt der Ausgabe */
+        // Optional: Beschnitt der Ausgabe */
+        if( ( true == is_numeric( $show ) ) and ( $show > 0 ) and ( $show < sizeof( $speaker_list ) ) ) :
 
-        if( ( TRUE == is_numeric( $show ) )
-            AND ( $show > 0 )
-            AND ( $show < sizeof( $speaker_list ) ) ) :
-
-            /* Optional: Ausgabe durchmischen */
-
+            // Optional: Ausgabe durchmischen
             if( 1 == $shuffle ) :
                 shuffle( $speaker_list );
                 $speaker_list = array_slice( $speaker_list, 0, $show );
@@ -75,10 +67,8 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         endif;
 
 
-        /* Ausgabe */
-
+        // Ausgabe
         ob_start();
-
 ?>
 <div class="speaker-grid">
 
@@ -110,8 +100,7 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
 </div>
 
 <?php
-        /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+        // Ausgabenpufferung beenden und Puffer ausgeben
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;

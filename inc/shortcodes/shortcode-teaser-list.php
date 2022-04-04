@@ -27,8 +27,7 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_teaser_list( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'show'      => '',
         'paged'     => '0',
@@ -36,11 +35,10 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         'shuffle'   => '0',
         'category'  => '0',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /* Variablen setzen */
+    // Variablen setzen
 
     global $post;
            $exclude_ids = explode( ',', str_replace( " ", "", $exclude ) );
@@ -48,8 +46,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
            $orderby     = 'date';
 
 
-    /* In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln */
-
+    // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
     if( 1 == $paged ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
@@ -80,8 +77,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     endif;
 
 
-    /* Daten abrufen und aufbereiten */
-
+    // Daten abrufen und aufbereiten
     $query = array(
         'exclude'        => $exclude_ids,
         'post_type'      => 'post',
@@ -95,13 +91,10 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     $articles = get_posts( $query );
 
 
-    /* Ausgabe vorbereiten */
-
+    // Ausgabe vorbereiten
     if( $articles ) :
-
         ob_start();
 ?>
-
 <div class="teaser-list<?php echo ( 1 == $paged )? ' teaser-list-has-pagination' : ''; ?>">
 
     <?php
@@ -146,14 +139,13 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 </div>
 
 <?php
-        /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+        // Ausgabenpufferung beenden und Puffer ausgeben
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;
     endif;
 
-    return NULL;
+    return null;
 }
 
 add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );

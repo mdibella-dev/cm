@@ -26,40 +26,36 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_partner_table( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'partnership' => '',
         'fieldset'    => '',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /*
-     * Daten abrufen und aufbereiten
-     * Optional kann hierbei nach Kooperationsform gefiltert werden
-     */
-
+    // Daten abrufen und aufbereiten
+    // Optional kann hierbei nach Kooperationsform gefiltert werden
     $query = array(
-             'post_type'      => 'partner',
-             'post_status'    => 'publish',
-             'posts_per_page' => '-1',
-             'order'          => 'ASC',
-             'orderby'        => 'title' );
+        'post_type'      => 'partner',
+        'post_status'    => 'publish',
+        'posts_per_page' => '-1',
+        'order'          => 'ASC',
+        'orderby'        => 'title'
+    );
 
     if( !empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
-                                       'taxonomy' => 'partnership',
-                                       'field'    => 'term_id',
-                                       'terms'    => explode(',', $partnership ) ) );
+            'taxonomy' => 'partnership',
+            'field'    => 'term_id',
+            'terms'    => explode(',', $partnership )
+        ) );
     endif;
 
     $partners = get_posts( $query );
 
 
-    /* Ausgabe */
-
+    // Ausgabe
     $output = '';
 
     if( $partners ) :
@@ -143,8 +139,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
             endforeach;
 
 
-            /* Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen */
-
+            // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
             $row_content = '';
 
             foreach( $cells as $class => $cell ) :
@@ -156,8 +151,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
         endforeach;
 
 
-        /* Ausgabe vorbereiten */
-
+        // Ausgabe vorbereiten
         $output .= '<table class="partner-table">';
         $output .= '<tbody>';
 

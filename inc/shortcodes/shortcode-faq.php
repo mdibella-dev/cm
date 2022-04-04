@@ -23,29 +23,24 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_faq( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'faq' => '',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /* Daten abrufen und aufbereiten */
-
+    // Daten abrufen und aufbereiten
     if( have_rows( 'faq', $faq ) ) :
         ob_start();
 ?>
 
 <div class="faq-accordion">
     <ul>
-
         <?php
         while( have_rows( 'faq', $faq ) ) :
             the_row();
         ?>
-
         <li class="faq-element">
             <div class="faq-question">
                 <span class="faq-arrow"><i class="fal fa-long-arrow-right"></i></span>
@@ -56,18 +51,13 @@ function cm_shortcode_faq( $atts, $content = null )
                 <?php echo apply_filters( 'the_content', get_sub_field( 'answer' ) );?>
             </div>
         </li>
-
         <?php
         endwhile;
         ?>
-
     </ul>
-
 </div>
-
 <?php
-        /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+        // Ausgabenpufferung beenden und Puffer ausgeben
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;

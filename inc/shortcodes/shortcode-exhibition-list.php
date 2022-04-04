@@ -24,20 +24,15 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_exhibition_list( $atts, $content = null )
 {
-    /* Übergebene Parameter ermitteln */
-
+    // Übergebene Parameter ermitteln
     $default_atts = array(
         'partnership' => '',
     );
-
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    /*
-     * Daten abrufen und aufbereiten
-     * Optional kann hierbei nach Kooperationsform gefiltert werden
-     */
-
+    // Daten abrufen und aufbereiten
+    // Optional kann hierbei nach Kooperationsform gefiltert werden
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -57,37 +52,26 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
     $partners = get_posts( $query );
 
 
-    /* Ausgabe */
-
+    // Ausgabe
     if( $partners ) :
         ob_start();
 ?>
-
 <ul class="exhibition-list">
-
     <?php
     foreach( $partners as $partner ) :
-
-        /* Datensatz holen */
-
+        // Datensatz holen
         $data = cm_get_partner_dataset( $partner->ID );
     ?>
 
     <li class="exhibition-list-element">
-
         <a href="<?php echo $data[ 'permalink' ]; ?>">
-
             <figure>
                 <?php echo get_the_post_thumbnail( $partner->ID, 'full' ); ?>
             </figure>
-
             <div>
-
                 <h3><?php echo $data[ 'title' ]; ?></h3>
-
                 <div class="exhibition-list-layout">
                     <div><?php echo $data[ 'address' ];?></div>
-
                     <div>
                     <?php
                     if( !empty( $data[ 'exhibition-spaces' ] ) ) :
@@ -112,7 +96,6 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                     endif;
                     ?>
                     </div>
-
                     <div>
                         <div class="wp-block-button is-fa-button">
                             <span class="wp-block-button__link">
@@ -121,26 +104,19 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </a>
-
     </li>
-
     <?php endforeach; ?>
-
 </ul>
-
 <?php
-        /* Ausgabenpufferung beenden und Puffer ausgeben */
-
+        // Ausgabenpufferung beenden und Puffer
         $output_buffer = ob_get_contents();
         ob_end_clean();
         return $output_buffer;
     endif;
 
-    return NULL;
+    return null;
 }
 
 add_shortcode( 'exhibition-list', 'cm_shortcode_exhibition_list' );
