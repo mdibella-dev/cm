@@ -17,6 +17,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Code-Stil  
 **Geändert:** Textdomäne  
 **Geändert:** Package  
+**Geändert:** Menüreihenfolge  
 
 ### 2.4.0  
 **Geändert:** Code-Stil  
