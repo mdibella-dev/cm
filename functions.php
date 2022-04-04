@@ -86,6 +86,11 @@ require_once( get_template_directory() . '/inc/backend.php' );
 require_once( get_template_directory() . '/inc/performance.php' );
 require_once( get_template_directory() . '/inc/core.php' );
 
+require_once( get_template_directory() . '/inc/taxonomies/taxonomy-partnership.php' );
+require_once( get_template_directory() . '/inc/taxonomies/taxonomy-event.php' );
+
+require_once( get_template_directory() . '/inc/post-types/post-type-speaker.php' );
+
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );

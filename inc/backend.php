@@ -23,8 +23,8 @@ function cm_admin_menu()
     $admin_menu_slug = 'edit.php?post_type=session';
 
     add_menu_page(
-        __( 'Congressmanagement', 'cm' ),
-        __( 'Congressmanagement', 'cm' ),
+        __( 'Congress-Management', 'cm' ),
+        __( 'Congress-Management', 'cm' ),
         'manage_options',
         $admin_menu_slug,
         '',
