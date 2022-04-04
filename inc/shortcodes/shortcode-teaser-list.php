@@ -162,13 +162,13 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
     ob_start();
 ?>
 <nav>
-    <div class="wp-block-button is-fa-button<?php echo ( 1 != $current_page )? '' : ' disabled' ); ?>">
+    <div class="wp-block-button is-fa-button<?php echo ( 1 != $current_page )? '' : ' disabled'; ?>">
         <a href="<?php echo add_query_arg( 'prt', $current_page - 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Vorhergehende Seite', 'cm' ); ?>" rel="prev"><i class="fas fa-chevron-left"></i></a>
     </div>
     <div class="pageinfo">
-        <span><?php echo sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ) ); ?></span>
+        <span><?php echo sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ); ?></span>
     </div>
-    <div class="wp-block-button is-fa-button<?php echo ( $max_page != $current_page )? '' : ' disabled' ); ?>">
+    <div class="wp-block-button is-fa-button<?php echo ( $max_page != $current_page )? '' : ' disabled'; ?>">
         <a href="<?php echo add_query_arg( 'prt', $current_page + 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Nächste Seite', 'cm' ); ?>" rel="next"><i class="fas fa-chevron-right"></i></a>
     </div>
 </nav>
