@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-if( !function_exists( 'cm_theme_setup' ) ) :
+if( ! function_exists( 'cm_theme_setup' ) ) :
 
     /**
      * Führt grundlegende Einstellungen für das Thema durch.
@@ -21,13 +21,11 @@ if( !function_exists( 'cm_theme_setup' ) ) :
 
      function cm_theme_setup()
      {
-        /* Internationalisierung ermöglichen */
+        // Internationalisierung ermöglichen
+        load_theme_textdomain( 'cm', get_template_directory() . '/lang' );
 
-	    load_theme_textdomain( 'cm', get_template_directory() . '/lang' );
 
-
-        /* HTML5-konformer Umgang von diversen WordPress-Core-Elementen ermöglichen */
-
+        // HTML5-konformer Umgang von diversen WordPress-Core-Elementen ermöglichen
         add_theme_support( 'html5', array(
             'comment-list',
             'comment-form',
@@ -39,17 +37,11 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         ) );
 
 
-        /* Responsiven Einbettung von Embeds ermöglichen*/
-
+        // Responsiven Einbettung von Embeds ermöglichen
         add_theme_support( 'responsive-embeds' );
 
 
-        /*
-         * Thumbnails
-         * - Unterstützung von Thumbnails für jeden Beitragstyp
-         * - Fetlegung der Thumbnailgröße auf 240x240px;
-         */
-
+        // Unterstützung von Thumbnails für jeden Beitragstyp
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 240, 240, false );
 
@@ -59,7 +51,7 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         endif;
 
 
-        /*
+        /**
          * Block-Editor (Gutenberg)
          * - Benutzerdefinierte Farbpalette einrichten
          * - "align full"/"align wide" ermöglichen
@@ -132,11 +124,7 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         add_theme_support( 'align-wide' );
 
 
-        /*
-         * Mediengrößen anpassen
-         * Größenangaben entsprechen den Gutenberg Media Queries
-         */
-
+        // Mediengrößen anpassen
         if( ( 782 != get_option( 'medium_size_w' ) ) ) :
             update_option( 'medium_size_w', 782 );
             update_option( 'medium_size_h', 9999 );
@@ -153,10 +141,10 @@ if( !function_exists( 'cm_theme_setup' ) ) :
         add_image_size ( 'huge', 1440, 9999 );
 
 
-        /* Navigationsmenüs und Widget Areas registrieren */
-
+        // Navigationsmenüs registrieren
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'cm' ) );
 
+        // Widget Areas registrieren
         register_sidebar( array(
     	    'name'			=> __( 'Footer #1', 'cm' ),
     	    'id'			=> 'footer-one',
@@ -202,8 +190,19 @@ endif;
 
 function cm_enqueue_scripts()
 {
-    wp_enqueue_script( 'congressomat-script', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-    wp_enqueue_style( 'congressomat-style', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '2.4.0' );
+    wp_enqueue_script(
+        'congressomat-script',
+        get_template_directory_uri() . '/assets/js/frontend.js',
+        array( 'jquery' ),
+        false,
+        true
+    );
+    wp_enqueue_style(
+        'congressomat-style',
+        get_template_directory_uri() . '/assets/css/frontend.min.css',
+        array(),
+        '2.4.0'
+    );
 }
 
 add_action( 'wp_enqueue_scripts', 'cm_enqueue_scripts', 9990 );
