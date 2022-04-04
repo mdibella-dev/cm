@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or exit;
 <html <?php language_attributes(); ?>>
 
 <head>
-    <title><?php wp_title( '', TRUE ); ?></title>
+    <title><?php wp_title( '', true ); ?></title>
 
     <meta charset="<?php bloginfo( 'charset' ); ?>"/>
     <meta name="author" content="G&amp;S Verlag GbR">
