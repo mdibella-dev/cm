@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) or exit;
     <meta name="geo.placename" content="K&ouml;ln" />
     <meta name="geo.position" content="50.957827;7.017787"/>
     <meta name="ICBM" content="50.957827, 7.017787" />
-    
+
     <?php
     /**
      * Integration von FontAwesome5 CDN
@@ -39,9 +39,7 @@ defined( 'ABSPATH' ) or exit;
 
      <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
-
     <header id="header">
     <?php
     if( has_nav_menu( 'primary' ) ) :
