@@ -19,16 +19,16 @@ get_header();
         <?php
         if( have_posts() ) :
 
-            ob_start();
+            ob_start(); // notwendig?
 
             while( have_posts() ) :
                 the_post();
                 the_content();
             endwhile;
 
-            $output_buffer = ob_get_contents();
+            $output = ob_get_contents();
             ob_end_clean();
-            echo $output_buffer;
+            echo $output;
 
         endif;
         ?>

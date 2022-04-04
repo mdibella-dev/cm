@@ -128,9 +128,9 @@ get_header();
             endwhile;
 
             // Ausgabenpufferung beenden und Puffer ausgeben
-            $output_buffer = ob_get_contents();
+            $output = ob_get_contents();
             ob_end_clean();
-            echo $output_buffer;
+            echo $output;
         endif;
         ?>
 
