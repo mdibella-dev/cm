@@ -18,7 +18,6 @@ defined( 'ABSPATH' ) or exit;
 error_reporting( E_ALL ^ E_NOTICE );
 
 
-
 /**
  * Soziale Netze
  */
@@ -75,7 +74,6 @@ define( 'EVENT_TABLE_SETLIST', array(
         'b' => 'session-title,session-subtitle',
     ),
 ) );
-
 
 
 /**
