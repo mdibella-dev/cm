@@ -41,7 +41,7 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
         'orderby'        => 'title',
     );
 
-    if( !empty( $partnership ) ) :
+    if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
             'field'    => 'term_id',
@@ -74,7 +74,7 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                     <div><?php echo $data[ 'address' ];?></div>
                     <div>
                     <?php
-                    if( !empty( $data[ 'exhibition-spaces' ] ) ) :
+                    if( ! empty( $data[ 'exhibition-spaces' ] ) ) :
                     ?>
                         <div>
                             <div>
@@ -111,9 +111,9 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
 </ul>
 <?php
         // Ausgabenpufferung beenden und Puffer
-        $output_buffer = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        return $output_buffer;
+        return $output;
     endif;
 
     return null;

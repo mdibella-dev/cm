@@ -14,15 +14,14 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
  *
- * @since   1.0.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - paged         (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- *          - show          (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *                          Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
- *          - exclude       (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
- *          - shuffle       (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @since  1.0.0
+ * @param  array $atts    die Attribute (Parameter) des Shorcodes
+ *         - paged        (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ *         - show         (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
+ *                        Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
+ *         - exclude      (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ *         - shuffle      (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ * @return string         die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_teaser_list( $atts, $content = null )
@@ -67,7 +66,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
             $current_page = $get_prt;
         endif;
 
-        $offset = ($current_page - 1) * $show; /* Startpunkt */
+        $offset = ($current_page - 1) * $show; // Startpunkt
     else :
         $show = empty ( $show )? 4 : $show;
 
@@ -140,9 +139,9 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
 <?php
         // Ausgabenpufferung beenden und Puffer ausgeben
-        $output_buffer = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        return $output_buffer;
+        return $output;
     endif;
 
     return null;
@@ -156,23 +155,26 @@ add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
  * Hilfsfunktion für die Teaserliste zur Ausgabe einer Pagination
  *
  * @since 1.0.0
- **/
+ */
 
 function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
-    echo '<nav>';
-
-    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="prev"><i class="fas fa-chevron-left"></i></a></div>',
-                  add_query_arg( 'prt', $current_page - 1 ),
-                  __( 'Vorhergehende Seite', 'cm' ),
-                  ( 1 != $current_page )? '' : ' disabled' );
-
-    echo sprintf( '<div class="pageinfo"><span>%1$s</span></div>',
-                  sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ) );
-
-    echo sprintf( '<div class="wp-block-button is-fa-button%3$s"><a href="%1$s" class="wp-block-button__link" title="%2$s" rel="next"><i class="fas fa-chevron-right"></i></a></div>',
-                  add_query_arg( 'prt', $current_page + 1 ),
-                  __( 'Nächste Seite', 'cm' ),
-                  ( $max_page != $current_page )? '' : ' disabled' );
-    echo '</nav>';
+    ob_start();
+?>
+<nav>
+    <div class="wp-block-button is-fa-button<?php echo ( 1 != $current_page )? '' : ' disabled' ); ?>">
+        <a href="<?php echo add_query_arg( 'prt', $current_page - 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Vorhergehende Seite', 'cm' ); ?>" rel="prev"><i class="fas fa-chevron-left"></i></a>
+    </div>
+    <div class="pageinfo">
+        <span><?php echo sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ) ); ?></span>
+    </div>
+    <div class="wp-block-button is-fa-button<?php echo ( $max_page != $current_page )? '' : ' disabled' ); ?>">
+        <a href="<?php echo add_query_arg( 'prt', $current_page + 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Nächste Seite', 'cm' ); ?>" rel="next"><i class="fas fa-chevron-right"></i></a>
+    </div>
+</nav>
+<?php
+    // Ausgabenpufferung beenden und Puffer ausgeben
+    $output = ob_get_contents();
+    ob_end_clean();
+    return $output;
 }

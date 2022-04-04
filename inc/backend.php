@@ -81,7 +81,6 @@ add_action( 'admin_menu', 'cm_admin_menu', 999 );
  * Sortiert das Congressomat-Menü
  *
  * @since 2.3.0
- * @todo  Internationalisierung
  */
 
 function cm_admin_menu_order( $menu_order )
@@ -125,8 +124,8 @@ add_filter( 'menu_order', 'cm_admin_menu_order' );
 /**
  * Fügt ein JS-Script hinzu, um diverse Standard-Eingabefelder von WordPress in eine neue Maske (ACF) zu verschieben
  *
- * @since 	2.0.0
- * @see		http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ * @since 2.0.0
+ * @see   http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
  */
 
 function cm_adjust_acf_dialog()

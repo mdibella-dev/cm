@@ -14,11 +14,10 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Shortcode zum Erzeugen eines Akkordion-Elements für FAQ
  *
- * @since   1.0.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - faq           der gewählte FAQ-Satz
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @since  1.0.0
+ * @param  array   $atts    die Attribute (Parameter) des Shorcodes
+ *         - faq            der gewählte FAQ-Satz
+ * @return string           die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_faq( $atts, $content = null )
@@ -58,9 +57,9 @@ function cm_shortcode_faq( $atts, $content = null )
 </div>
 <?php
         // Ausgabenpufferung beenden und Puffer ausgeben
-        $output_buffer = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        return $output_buffer;
+        return $output;
     endif;
 
     return null;

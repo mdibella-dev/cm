@@ -47,7 +47,7 @@ function cm_shortcode_event_table( $atts, $content = null )
         elseif( !empty( $event ) ) :
             $sessions = cm_get_sessions_by_event( $event, $date );
         else :
-            $sessions = nul;
+            $sessions = null;
         endif;
 
 
@@ -55,7 +55,6 @@ function cm_shortcode_event_table( $atts, $content = null )
         if( $sessions ) :
             $a_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['a'] );
             $b_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['b'] );
-
 
             // Ausgabe vorbereiten
             $output = sprintf( '<div class="event-table has-set-%1$s">', $set );
@@ -144,7 +143,7 @@ function cm_shortcode_event_table( $atts, $content = null )
                         case 'session-speaker' :
                             $speakers = get_field( 'programmpunkt-referenten', $session->ID );
 
-                            if( $speakers != null ) :
+                            if( null != $speakers ) :
                                 unset( $speakers_list );
 
                                 foreach( $speakers as $speaker ) :
@@ -152,7 +151,10 @@ function cm_shortcode_event_table( $atts, $content = null )
                                     $speakers_list[] = sprintf(
                                         '<a href="%1$s" title="%2$s">%3$s</a>',
                                         $speaker_dataset[ 'permalink' ],
-                                        sprintf( __( 'Mehr über %1$s erfahren', 'congressomat' ), $speaker_dataset[ 'title_name' ] ),
+                                        sprintf(
+                                            __( 'Mehr über %1$s erfahren', 'cm' ),
+                                            $speaker_dataset[ 'title_name' ]
+                                        ),
                                         get_the_post_thumbnail( $speaker_dataset[ 'id' ], 'full' ) );
                                 endforeach;
 

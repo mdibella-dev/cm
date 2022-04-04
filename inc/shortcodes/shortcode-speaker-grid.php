@@ -15,14 +15,13 @@ defined( 'ABSPATH' ) or exit;
  * Shortcode zum Erzeugen einer Grid-Ansicht mit den Bildern, Namen und Positionsbeschreibungen der Referenten eines oder mehrerer Events.
  * Wird keine Angaben zu den Events gemacht, so werden die im Backend als aktiv gekennzeichneten Events zur Grundlage gemacht.
  *
- * @since   1.0.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - event         (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
- *          - exclude       (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
- *          - show          (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
- *          - shuffle       (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @since  1.0.0
+ * @param  array   $atts    die Attribute (Parameter) des Shorcodes
+ *         - event          (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
+ *         - exclude        (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
+ *         - show           (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
+ *         - shuffle        (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
+ * @return string           die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_speaker_grid( $atts, $content = null )
@@ -71,11 +70,8 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         ob_start();
 ?>
 <div class="speaker-grid">
-
     <ul>
-
         <?php foreach( $speaker_list as $speaker ) : ?>
-
         <li>
             <a  class="speaker-grid-element"
                 href="<?php echo $speaker['permalink']; ?>"
@@ -92,18 +88,15 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
                 </figure>
             </a>
         </li>
-
         <?php endforeach; ?>
-
     </ul>
-
 </div>
 
 <?php
         // Ausgabenpufferung beenden und Puffer ausgeben
-        $output_buffer = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        return $output_buffer;
+        return $output;
     endif;
 
     return null;

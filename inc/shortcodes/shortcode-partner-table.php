@@ -14,14 +14,13 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Shortcode zum Erzeugen einer Tabelle mit den Kooperationspartnern
  *
- * @since   1.0.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ * @since  1.0.0
+ * @param  array   $atts    die Attribute (Parameter) des Shorcodes
+ *         - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
  *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
- *          - fieldset      Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
+ *         - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
  *                          Folgende Werte sind derzeit möglich: LOGO, BESCHREIBUNG, MESSESTAND
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @return string           die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_partner_table( $atts, $content = null )
@@ -44,7 +43,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
         'orderby'        => 'title'
     );
 
-    if( !empty( $partnership ) ) :
+    if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
             'field'    => 'term_id',
@@ -63,8 +62,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
         $field_keys = explode( ',', strtoupper( str_replace(" ", "", $fieldset ) ) );
 
 
-        /* Alle gefundenen Partner durchlaufen und entsprechende Tabellenzeilen generieren */
-
+        // Alle gefundenen Partner durchlaufen und entsprechende Tabellenzeilen generieren
         foreach( $partners as $partner ) :
             unset( $cells );
 
@@ -77,10 +75,12 @@ function cm_shortcode_partner_table( $atts, $content = null )
                         $image = get_the_post_thumbnail( $partner->ID, 'full' );
 
                         if( !empty( $link ) ) :
-                            $cells[ 'partner-logo' ] = sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
-                                                                $link,
-                                                                __( 'Externen Link aufrufen', 'cm' ),
-                                                                $image );
+                            $cells[ 'partner-logo' ] = sprintf(
+                                '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
+                                $link,
+                                __( 'Externen Link aufrufen', 'cm' ),
+                                $image
+                            );
                         else :
                             $cells[ 'partner-logo' ] = $image;
                         endif;
@@ -92,21 +92,31 @@ function cm_shortcode_partner_table( $atts, $content = null )
                         $description = get_field( 'partner-beschreibung', $partner->ID );
                         $link        = get_field( 'partner-webseite', $partner->ID );
 
-                        if( !empty( $title ) ) :
-                            $cells['partner-description'] .= sprintf( '<h2 class="title">%1$s</h2>', $title );
+                        if( ! empty( $title ) ) :
+                            $cells['partner-description'] .= sprintf(
+                                '<h2 class="title">%1$s</h2>',
+                                $title
+                            );
                         endif;
 
-                        if( !empty( $description ) ) :
-                            $cells['partner-description'] .= sprintf( '<span class="description">%1$s</span>', apply_filters( 'the_content', $description ) );
+                        if( ! empty( $description ) ) :
+                            $cells['partner-description'] .= sprintf(
+                                '<span class="description">%1$s</span>',
+                                apply_filters( 'the_content', $description )
+                            );
                         endif;
 
-                        if( !empty( $link ) ) :
-                            $url                             = parse_url( $link );
-                            $cells['partner-description'] .= sprintf( '<span class="link">%1$s</span>',
-                                                                        sprintf( '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
-                                                                                 $link,
-                                                                                 __( 'Externen Link aufrufen', 'cm' ),
-                                                                                 $url['host'] ) );
+                        if( ! empty( $link ) ) :
+                            $url                           = parse_url( $link );
+                            $cells['partner-description'] .= sprintf(
+                                '<span class="link">%1$s</span>',
+                                sprintf(
+                                    '<a href="%1$s" target="_blank" title="%2$s" rel="external">%3$s</a>',
+                                    $link,
+                                    __( 'Externen Link aufrufen', 'cm' ),
+                                    $url['host']
+                                )
+                            );
                         endif;
 
                     break;
@@ -116,18 +126,24 @@ function cm_shortcode_partner_table( $atts, $content = null )
                         $location   = cm_get_location( $exhibition['partner-messestand-ort'] );
                         $number     = $exhibition['partner-messestand-nummer'];
 
-                        if( !empty( $number ) or !empty( $location ) ) :
+                        if( ! empty( $number ) or !empty( $location ) ) :
                             $strings = array();
 
-                            if( !empty( $number ) ) :
-                                $strings[] = sprintf( __( 'Stand %1$s', 'cm' ), $number );
+                            if( ! empty( $number ) ) :
+                                $strings[] = sprintf(
+                                    __( 'Stand %1$s', 'cm' ),
+                                    $number
+                                );
                             endif;
 
-                            if( !empty( $location ) ) :
+                            if( ! empty( $location ) ) :
                                 $strings[] = $location;
                             endif;
 
-                            $cells['partner-exhibition'] = sprintf( '<span class="exhibition">%1$s</span>', implode( ', ', $strings ) );
+                            $cells['partner-exhibition'] = sprintf(
+                                '<span class="exhibition">%1$s</span>',
+                                implode( ', ', $strings )
+                            );
                         else :
                             $cells['partner-exhibition'] = '';
                         endif;
@@ -143,10 +159,17 @@ function cm_shortcode_partner_table( $atts, $content = null )
             $row_content = '';
 
             foreach( $cells as $class => $cell ) :
-                $row_content .= sprintf( '<td class="%1$s">%2$s</td>', $class, $cell );
+                $row_content .= sprintf(
+                    '<td class="%1$s">%2$s</td>',
+                    $class,
+                    $cell
+                );
             endforeach;
 
-            $rows[] = sprintf( '<tr>%1$s</tr>', $row_content );
+            $rows[] = sprintf(
+                '<tr>%1$s</tr>',
+                $row_content
+            );
 
         endforeach;
 

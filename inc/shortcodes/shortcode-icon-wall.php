@@ -14,13 +14,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Shortcode zum Erzeugen einer "Mauer" mit den Logos der Kooperationspartner
  *
- * @since   2.3.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
+ * @since  2.3.0
+ * @param  array   $atts    die Attribute (Parameter) des Shorcodes
+ *         - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
  *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
- *          - link          (optional) Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ *         - link           (optional) Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
+ * @return string           die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_icon_wall( $atts, $content = null )
@@ -119,7 +118,7 @@ function cm_shortcode_icon_wall( $atts, $content = null )
             break;
 
             case 'external' :
-                if( !empty( $data[ 'website' ] ) ) :
+                if( ! empty( $data[ 'website' ] ) ) :
                     echo '</a>';
                 endif;
             break;
@@ -134,9 +133,9 @@ function cm_shortcode_icon_wall( $atts, $content = null )
 
 <?php
         // Ausgabenpufferung beenden und Puffer ausgeben
-        $output_buffer = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        return $output_buffer;
+        return $output;
     endif;
 
     return null;
