@@ -76,7 +76,7 @@ function cm_get_sessions( $args )
 
     // Behandlung von speaker/date
     // Fügt die Suche nach den Sessions eines bestimmten Speakers und/oder die Suche nach den Session, die an einem bestimmten Datum stattfinden, hinzu.
-    if( ! empty( $speaker ) or !empty( $date ) ) :
+    if( ! empty( $speaker ) or ! empty( $date ) ) :
         $query['meta_query'] = array();
 
         if( ! empty( $speaker ) and is_numeric( $speaker ) ) :

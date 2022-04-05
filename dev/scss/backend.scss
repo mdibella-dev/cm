@@ -37,6 +37,34 @@
         img {
             width: 80px;
             height: 80px;
+            line-height: 0;
+            font-size: 0;
+        }
+
+    }
+
+}
+
+
+/**
+ * Übersicht über die Programmpunkte
+ * wp-admin/edit.php?post_type=session
+ */
+
+.post-type-session .wp-list-table {
+
+    .column-speaker {
+
+        a {
+            display: inline-block;
+            margin: 8px;
+        }
+
+        a img {
+            width: 40px;
+            height: 40px;
+            line-height: 0;
+            font-size: 0;
         }
 
     }

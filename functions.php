@@ -90,6 +90,7 @@ require_once( get_template_directory() . '/inc/taxonomies/taxonomy-partnership.p
 require_once( get_template_directory() . '/inc/taxonomies/taxonomy-event.php' );
 
 require_once( get_template_directory() . '/inc/post-types/post-type-speaker.php' );
+require_once( get_template_directory() . '/inc/post-types/post-type-session.php' );
 
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );

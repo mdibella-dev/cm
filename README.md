@@ -14,6 +14,7 @@ __Tested up to:__ WordPress 5.9
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### main (2.x.x)
+**Hinzugefügt:** Ausführlichere Übersicht der Programmpunkte  
 **Hinzugefügt:** Inaktiv/Aktiv-Anzeige für Veranstaltungen (issue #9)  
 **Hinzugefügt:** Backend-CSS  
 **Geändert:** Code-Stil  

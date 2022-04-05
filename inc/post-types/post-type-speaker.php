@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Bestimmt die Spalten der Beitragsliste (Backend).
  *
- * @since  1.0.0
+ * @since  2.5.0
  * @param  array   $default    Die Standardvorgaben für Spalten.
  * @return $array              Ein assoziatives Array, in denen die zu verwendenden Spalten beschrieben werden.
  */
@@ -38,7 +38,7 @@ add_filter( 'manage_speaker_posts_columns', 'cm_post_type_speaker__manage_posts_
 /**
  * Erzeugt die Ausgabe der Spalten.
  *
- * @since 1.0.0
+ * @since 2.5.0
  * @param string $column_name    Bezeichnung der auszugebenden Spalte.
  * @param int    $post_id        ID des Beitrags (aka Datensatzes) den auszugeben gilt.
  */
@@ -91,7 +91,7 @@ add_action( 'manage_speaker_posts_custom_column', 'cm_post_type_speaker__manage_
 /**
  * Registriert sortierfähige Spalten (durch Zuordnung entsprechender orderby-Parameter).
  *
- * @since  1.0.0
+ * @since  2.5.0
  * @param  array  $columns   Die Spalten.
  * @return $array            Ein assoziatives Array.
  */
@@ -110,7 +110,7 @@ add_filter( 'manage_edit-speaker_sortable_columns', 'cm_post_type_speaker__manag
 /**
  * Erzeugt eine sortierte Ausgabe.
  *
- * @since 1.0.0
+ * @since 2.5.0
  * @param WP_Query $query   Ein Datenobjekt der zuletzt gemachten Abfrage.
  */
 
