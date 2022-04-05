@@ -14,6 +14,8 @@ __Tested up to:__ WordPress 5.9
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### main (2.x.x)
+**Hinzugefügt:** Inaktiv/Aktiv-Anzeige für Veranstaltungen (issue #9)  
+**Hinzugefügt:** Backend-CSS  
 **Geändert:** Code-Stil  
 **Geändert:** Textdomäne  
 **Geändert:** Package  

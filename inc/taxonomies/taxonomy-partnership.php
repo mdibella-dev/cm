@@ -19,14 +19,13 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_set_partnership_columns( $default )
 {
-    print_r( $default);
     $columns = array(
         'cb'            => $default['cb'],
         'id'            => 'ID',
         'name'          => $default['name'],
         'description'   => $default['description'],
         'slug'          => $default['slug'],
-        'posts'         => $default['posts'],
+        'posts'         => 'Anzahl',
     );
     return $columns;
 }

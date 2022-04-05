@@ -1,0 +1,110 @@
+/**
+ * Backend-Styles für dieses Thema
+ *
+* @author  Marco Di Bella <mdb@marcodibella.de>
+* @package mdb-theme
+*/
+
+
+
+
+.widefat {
+
+    td,
+    th,
+    th.sortable,
+    th.sorted  {
+        padding: 1rem;
+    }
+
+
+    th.sortable a,
+    th.sorted a {
+        padding: 0;
+    }
+
+}
+
+/**
+ * Übersicht über die Referenten
+ * wp-admin/edit.php?post_type=speaker
+ */
+
+.post-type-speaker .wp-list-table {
+
+    .column-image {
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+    }
+
+}
+
+
+/**
+ * Übersicht über die Veranstaltungen
+ * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
+ */
+
+.taxonomy-event .wp-list-table {
+
+    .column-id {
+        width: 5%;
+    }
+
+    .column-status {
+        width: 5%;
+        text-align: center;
+
+        .status-icon {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+
+            &.status-icon-active {
+                background-color: #7ad03a;
+            }
+
+            &.status-icon-inactive {
+                background-color: #dc3232;
+            }
+        }
+
+    }
+
+    .column-posts {
+        width: 15%;
+        text-align: left;
+    }
+}
+
+
+
+
+/*
+.post-type-publikation .wp-list-table {
+
+    .column-cover {
+        width: 150px;
+
+        a {
+            display: inline-block;
+            line-height: 0;
+
+            &:focus {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+            img {
+                box-shadow: 0 10px 15px -10px rgba(0,0,0,.2);
+                border: 2px solid #fff;
+            }
+        }
+    }
+}
+*/
