@@ -8,7 +8,7 @@
 
 
 
-/** Teaser-Liste **/
+// Teaser-Liste
 
 .teaser-list ul {
     list-style-type: none;
@@ -21,7 +21,7 @@
 }
 
 
-/** Einzelnes Element der Teaser-Liste (aka Teaser) **/
+// Einzelnes Element der Teaser-Liste (aka Teaser)
 
 .teaser-list-element,
 .teaser-list-element:hover,
@@ -41,7 +41,7 @@
 }
 
 
-/** Bildkomponente des Teaser-Elements **/
+// Bildkomponente des Teaser-Elements
 
 .teaser-list-element .teaser-image {
     // standardmäßig werden die Komponenten untereinander angezeigt
@@ -65,7 +65,7 @@
 }
 
 
-/** Textkomponente des Teaser-Elements **/
+// Textkomponente des Teaser-Elements
 
 .teaser-list-element .teaser-content {
     // standardmäßig werden die Komponenten untereinander angezeigt
@@ -108,7 +108,7 @@
 }
 
 
-/** Gemeinsame Einstellungen die Komponenten des Teaser-Elements **/
+// Gemeinsame Einstellungen die Komponenten des Teaser-Elements
 
 .teaser-list-element .teaser-image *,
 .teaser-list-element .teaser-content * {
@@ -116,8 +116,7 @@
 }
 
 
-/** Teaser-Navigation **/
-/** @TODO: Ersetzen durch AJAX **/
+// Teaser-Navigation
 
 .teaser-list.teaser-list-has-pagination {
     // die Liste verfügt explizit über eine eigene Navigation,

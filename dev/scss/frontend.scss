@@ -3,23 +3,23 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
 
-/* Normalize */
+/** Normalize */
 
 @import "vendors/_normalize";
 
 
-/* Mixins */
+/** Mixins */
 
 @import "mixins/_mixins";
 @import "mixins/_media-breakpoints";
 
 
-/* Seitenelemente / generelle Einstellungen */
+/** Seitenelemente / generelle Einstellungen */
 
 @import "site/_vars";
 @import "site/_basics";
@@ -27,13 +27,13 @@
 @import "site/_elements";
 
 
-/* Block-Editor (Gutenberg) */
+/** Block-Editor (Gutenberg) */
 
 @import "block-editor/_attributes";
 @import "block-editor/_color-palette";
 
 
-/* Blocks */
+/** Blocks */
 
 @import "blocks/_wp-block-button";
 @import "blocks/_wp-block-quote";
@@ -46,7 +46,7 @@
 @import "blocks/third-party/_wp-block-webfactory-map";
 
 
-/* Shortcodes */
+/** Shortcodes */
 
 @import "shortcodes/_exhibition-list";
 @import "shortcodes/_icon-wall";

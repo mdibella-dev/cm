@@ -3,16 +3,16 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
 /**
  * Beiträge
- **/
+ */
 
 
-/* Überschrift für Absätze */
+// Überschrift für Absätze
 
 .paragraph-header {
     @include h-tag-basic-settings();
@@ -34,7 +34,7 @@
 }
 
 
-/* Einleitender Absatz (lead, teaser) */
+// Einleitender Absatz (lead, teaser)
 
 .lead,
 .is-style-lead {
@@ -68,7 +68,7 @@
 }
 
 
-/* Textstile */
+// Textstile
 
 .uppercase {
     text-transform: uppercase;
@@ -82,7 +82,7 @@
 
 /**
  * Wrapper
- **/
+ */
 
 .article-wrapper,
 .section-wrapper,
@@ -112,7 +112,7 @@
 
 /**
  * Sektionen
- **/
+ */
 
 .section-title {
     font-size: 26px;
@@ -142,7 +142,7 @@
 
 /**
  * Stile für die Profilseite eines Referenten
- **/
+ */
 
 .single-speaker-profile {
     margin-bottom: 0;
@@ -184,7 +184,7 @@
     }
 
 
-    /* Einzelne Beschreibungsbestandteile */
+    // Einzelne Beschreibungsbestandteile
 
     .speaker-image {
         width: 100%;
@@ -256,7 +256,7 @@
 
 /**
  * Stile für die Detailseite eines Kooperationspartners
- **/
+ */
 
 .single-partner-details {
     margin: 2rem 0;
@@ -280,7 +280,7 @@
     }
 
 
-    /* Bereich für das Unternehmenslogo */
+    // Bereich für das Unternehmenslogo
 
     & > div:nth-child(1) {
         figure {
@@ -298,7 +298,7 @@
     }
 
 
-    /* Bereich für die Adresse */
+    // Bereich für die Adresse
 
     & > div:nth-child(2) {
         margin: 2rem 0;
@@ -309,7 +309,7 @@
     }
 
 
-    /* Bereich für die Kontaktmöglichkeiten */
+    // Bereich für die Kontaktmöglichkeiten
 
     & > div:nth-child(3) {
         ul {
@@ -342,10 +342,10 @@
 
 /**
  * Plugin: download-monitor
- **/
+ */
 
 
-/* Template: link, link-excerpt */
+// Template: link, link-excerpt
 
 .download-link {
     @include p-tag-basic-settings();
@@ -375,7 +375,7 @@
 }
 
 
-/* Template: image */
+// Template: image
 
 .download-image {
     a {
@@ -424,6 +424,6 @@
 
 /**
  * Weitere Stile
- **/
+ */
 
 @import "_accordion";

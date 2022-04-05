@@ -3,7 +3,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
@@ -39,8 +39,7 @@
     }
 
 
-    /* Bereich für Datums-, Zeit- und Ortsangaben */
-
+    // Bereich für Datums-, Zeit- und Ortsangaben
     & > div:nth-of-type(1) {
         white-space: nowrap;
         width: 100%;
@@ -53,8 +52,7 @@
     }
 
 
-    /* Bereich für Titel, Untertitel und Referentenbilder */
-
+    // Bereich für Titel, Untertitel und Referentenbilder
     & > div:nth-of-type(2) {
         flex-grow: 2;
         width: 75%;
@@ -65,16 +63,14 @@
     }
 
 
-    /* Bereich für Toggle */
-
+    // Bereich für Toggle
     & > div:nth-of-type(3) {
         text-align: right;
         width: auto;
     }
 
 
-    /* Bereich für Details */
-
+    // Bereich für Details
     & > div:nth-of-type(4) {
         width: 100%;
         display: none;
@@ -88,8 +84,7 @@
 }
 
 
-/* Toggle-Element */
-
+// Toggle-Element
 .event-table__session-toggle {
     display: inline-block;
 
@@ -127,8 +122,7 @@
 
 
 
-/* Datentypen */
-
+// Datentypen
 .event-table *[data-type='session-speaker'] {
     line-height: 1;
     white-space: nowrap;

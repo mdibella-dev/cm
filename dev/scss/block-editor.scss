@@ -3,33 +3,33 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
 /**
  * Einbindung von Bibliotheken
- **/
+ */
 
 
-/* Mixins */
+/** Mixins */
 
 @import "mixins/_mixins";
 @import "mixins/_media-breakpoints";
 
 
-/* Seitenelemente / generelle Einstellungen */
+/** Seitenelemente / generelle Einstellungen */
 
 @import "site/_vars";
 
 
-/* Block-Editor (Gutenberg) */
+/** Block-Editor (Gutenberg) */
 
 @import "block-editor/_attributes";
 @import "block-editor/_color-palette";
 
 
-/* Blocks */
+/** Blocks */
 
 @import "blocks/_wp-block-button";
 @import "blocks/_wp-block-quote";
@@ -45,10 +45,10 @@
 
 /**
  * Globale Einstellungen, themenunabhängig
- **/
+ */
 
 
-/*
+/**
  * Blöcke auf der ersten Ebene maximal verbreitern,
  * aber einen Puffer von 5% lassen, um nicht an den Rand stoßen
  */
@@ -61,7 +61,7 @@
 }
 
 
-/*
+/**
  * Verhindert, dass große Elemente (z.B. wp-block-cover) "aus den Rahmen fallen"
  * und nicht zentriert sind
  */
@@ -93,7 +93,7 @@
 
 /**
  * Themenspezifische Einstellungen
- **/
+ */
 
 .editor-post-title__block .editor-post-title__input,
 .editor-styles-wrapper {

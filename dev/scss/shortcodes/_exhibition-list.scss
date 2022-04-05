@@ -3,7 +3,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
@@ -85,8 +85,7 @@
     }
 
 
-    /* Bereich für die Adresse */
-
+    // Bereich für die Adresse
     div:nth-child(1) {
         margin-bottom: 1rem;
 
@@ -95,8 +94,8 @@
         }
     }
 
-    /* Bereich für die Standinformation */
 
+    // Bereich für die Standinformation
     div:nth-child(2) div {
         display: table;
 
@@ -115,8 +114,7 @@
     }
 
 
-    /* Bereich für die Schaltfläche */
-
+    // Bereich für die Schaltfläche
     div:nth-child(3) {
         display:none;
 

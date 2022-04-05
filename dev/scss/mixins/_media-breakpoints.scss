@@ -4,7 +4,7 @@
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
- **/
+ */
 
 
 
@@ -15,7 +15,7 @@
  * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
  * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
  * @param  int  $breakpoint  einer der folgenden Werte: mobile, small, medium, large, wide, huge
- **/
+ */
 
 @mixin respond-to($breakpoint) {
 
@@ -23,7 +23,7 @@
      * Liste der möglichen Breakpoints
      *
      * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
-     **/
+     */
 
     $breakpoints: (
         mobile: 30rem,      // = 480px
