@@ -13,12 +13,13 @@ __Tested up to:__ WordPress 5.9
 ## Changelog
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
-### 2.4.0  
+### main (2.x.x)
 **Geändert:** Code-Stil  
 **Geändert:** Textdomäne  
 **Geändert:** Package  
 **Geändert:** Menüreihenfolge  
 **Geändert:** Menüname und -symbol  
+**Geändert:** SCSS und CSS voneinander getrennt  
 
 ### 2.4.0  
 **Geändert:** Code-Stil  
