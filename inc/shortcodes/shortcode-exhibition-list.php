@@ -74,7 +74,20 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                     <div><?php echo $data[ 'address' ];?></div>
                     <div>
                     <?php
-                    if( ! empty( $data[ 'exhibition-spaces' ] ) ) :
+                    /**
+                     * Leere Eingaben herausfiltern
+                     *
+                     * @since 2.5.0
+                     */
+                    $spaces = array();
+
+                    foreach( $data[ 'exhibition-spaces' ] as $space ) :
+                        if( ! empty( $space[ 'location' ] ) and ! empty( $space[ 'signature' ] ) ) :
+                            $spaces[] = $space;
+                        endif;
+                    endforeach;
+
+                    if( ! empty( $spaces ) ) :
                     ?>
                         <div>
                             <div>
@@ -82,7 +95,7 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                                 <div><?php echo __( 'Stand', 'cm' ); ?></div>
                             </div>
                         <?php
-                        foreach( $data[ 'exhibition-spaces' ] as $space ) :
+                        foreach( $spaces as $space ) :
                         ?>
                             <div>
                                 <div><?php echo $space[ 'location' ];?></div>
