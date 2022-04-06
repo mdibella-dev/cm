@@ -19,7 +19,6 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_set_event_columns( $default )
 {
-    print_r( $default);
     $columns = array(
         'cb'            => $default['cb'],
         'id'            => 'ID',

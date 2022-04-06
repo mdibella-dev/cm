@@ -25,7 +25,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Menüreihenfolge  
 **Geändert:** Menüname und -symbol  
 **Geändert:** SCSS und CSS voneinander getrennt  
-**Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflchen  
+**Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
 
 ### 2.4.0  
 **Geändert:** Code-Stil  
