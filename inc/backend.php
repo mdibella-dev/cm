@@ -119,7 +119,6 @@ add_filter( 'menu_order', 'cm_admin_menu_order' );
 
 
 
-
 /**
  * Fügt ein JS-Script hinzu, um diverse Standard-Eingabefelder von WordPress in eine neue Maske (ACF) zu verschieben
  *
@@ -143,3 +142,35 @@ function cm_adjust_acf_dialog()
 }
 
 add_action( 'acf/input/admin_head', 'cm_adjust_acf_dialog' );
+
+
+
+/**
+ * Versteckt standardmäßig diverse Spalten in der Adminübersicht
+ *
+ * @since 2.5.0
+ */
+
+function cm_default_hidden_columns( $hidden, $screen )
+{
+    if( isset( $screen->id ) ) :
+        switch( $screen->id ) :
+
+            case 'edit-event' :
+                $hidden[] = 'slug' ;
+            break;
+
+            case 'edit-location' :
+            case 'edit-partnership' :
+            case 'edit-exhibition_package' :
+                $hidden[] = 'description';
+                $hidden[] = 'slug';
+            break;
+
+        endswitch;
+    endif;
+
+    return $hidden;
+}
+
+add_filter( 'default_hidden_columns', 'cm_default_hidden_columns', 10, 2 );
