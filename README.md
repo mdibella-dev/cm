@@ -26,6 +26,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Menüname und -symbol  
 **Geändert:** SCSS und CSS voneinander getrennt  
 **Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
+**Fixed:** Speaker: Wenn keine Programmpunkte vorhanden sind, wird auch nichts angezeigt  
 
 ### 2.4.0  
 **Geändert:** Code-Stil  

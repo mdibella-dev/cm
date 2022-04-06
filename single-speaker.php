@@ -20,9 +20,6 @@ get_header();
             <?php
             if( have_posts() ) :
 
-                // Ausgabenpufferung beginnen
-                ob_start();
-
                 while( have_posts() ) :
                     the_post();
 
@@ -97,18 +94,23 @@ get_header();
              * @since 1.0.0
              */
             ?>
+            <?php
+
+            $sessions = do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) );
+
+            if( ! empty( $sessions ) ) :
+            ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
-                    <h2 class="has-text-align-center section-title">
-                        <?php echo sprintf( __( 'Programmpunkte mit %1$s', 'cm' ), $data[ 'title_name' ] ); ?>
-                    </h2>
+                    <h2 class="has-text-align-center section-title"><?php echo sprintf( __( 'Programmpunkte mit %1$s', 'cm' ), $data[ 'title_name' ] ); ?></h2>
                     <div style="height:20px" aria-hidden="TRUE" class="wp-block-spacer"></div>
-                    <?php echo do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) ); ?>
+                    <?php echo $sessions; ?>
                 </div>
             </div>
-
-
             <?php
+            endif;
+
+
             /**
              * Weitere Referenten anzeigen
              *
@@ -117,9 +119,7 @@ get_header();
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
-                    <h2 class="has-text-align-center section-title">
-                        <?php echo __( 'Weitere Referenten', 'cm' ); ?>
-                    </h2>
+                    <h2 class="has-text-align-center section-title"><?php echo __( 'Weitere Referenten', 'cm' ); ?></h2>
                     <?php echo do_shortcode( sprintf( '[speaker-grid exclude=%1$s show=4 shuffle=1]', $data[ 'id' ] ) ); ?>
                 </div>
             </div>
@@ -127,10 +127,6 @@ get_header();
             <?php
             endwhile;
 
-            // Ausgabenpufferung beenden und Puffer ausgeben
-            $output = ob_get_contents();
-            ob_end_clean();
-            echo $output;
         endif;
         ?>
 
