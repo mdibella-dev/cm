@@ -25,6 +25,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Menüreihenfolge  
 **Geändert:** Menüname und -symbol  
 **Geändert:** SCSS und CSS voneinander getrennt  
+**Geändert:** Speaker: Set von 4 auf 1 bei Programmpunkte gestellt  
 **Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
 **Fixed:** Speaker: Wenn keine Programmpunkte vorhanden sind, wird auch nichts angezeigt  
 **Fixed:** Aussteller: Leere Ausstellungsflächen werden nicht mehr angezeigt  

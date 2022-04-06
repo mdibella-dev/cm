@@ -96,7 +96,7 @@ get_header();
             ?>
             <?php
 
-            $sessions = do_shortcode( sprintf( '[event-table set=4 speaker=%1$s]', $data[ 'id' ] ) );
+            $sessions = do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $data[ 'id' ] ) );
 
             if( ! empty( $sessions ) ) :
             ?>
