@@ -442,6 +442,7 @@ function cm_get_partner_dataset( $partner )
             'signature' => get_the_title( $space_post ),
             'location'  => $space_location->name,
             'package'   => $space_package->name,
+            'id'        => $space_post->ID,
         );
     endwhile;
 
