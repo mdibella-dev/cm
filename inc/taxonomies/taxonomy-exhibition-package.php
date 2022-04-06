@@ -1,6 +1,6 @@
 <?php
 /**
- * Taxonomy Partnership (Kooperationsformen)
+ * Taxonomy Exhibition_Package (Ausstellungspaket)
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  * @package cm
@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 2.5.0
  */
 
-function cm_set_partnership_columns( $default )
+function cm_set_exhibition_package_columns( $default )
 {
     $columns = array(
         'cb'            => $default['cb'],
@@ -29,7 +29,7 @@ function cm_set_partnership_columns( $default )
     );
     return $columns;
 }
-add_filter( 'manage_edit-partnership_columns', 'cm_set_partnership_columns' );
+add_filter( 'manage_edit-exhibition_package_columns', 'cm_set_exhibition_package_columns' );
 
 
 
@@ -39,7 +39,7 @@ add_filter( 'manage_edit-partnership_columns', 'cm_set_partnership_columns' );
  * @since 2.5.0
  */
 
-function cm_manage_partnership_custom_column( $content, $column_name, $term_id )
+function cm_manage_exhibition_package_custom_column( $content, $column_name, $term_id )
 {
     switch ($column_name) {
         case 'id':
@@ -51,4 +51,4 @@ function cm_manage_partnership_custom_column( $content, $column_name, $term_id )
     }
     return $content;
 }
-add_filter( 'manage_partnership_custom_column', 'cm_manage_partnership_custom_column', 10, 3 );
+add_filter( 'manage_exhibition_package_custom_column', 'cm_manage_exhibition_package_custom_column', 10, 3 );

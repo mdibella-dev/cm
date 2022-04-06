@@ -88,10 +88,13 @@ require_once( get_template_directory() . '/inc/core.php' );
 
 require_once( get_template_directory() . '/inc/taxonomies/taxonomy-partnership.php' );
 require_once( get_template_directory() . '/inc/taxonomies/taxonomy-event.php' );
+require_once( get_template_directory() . '/inc/taxonomies/taxonomy-exhibition-package.php' );
+require_once( get_template_directory() . '/inc/taxonomies/taxonomy-location.php' );
 
 require_once( get_template_directory() . '/inc/post-types/post-type-speaker.php' );
 require_once( get_template_directory() . '/inc/post-types/post-type-session.php' );
 require_once( get_template_directory() . '/inc/post-types/post-type-partner.php' );
+require_once( get_template_directory() . '/inc/post-types/post-type-exhibition-space.php' );
 
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );

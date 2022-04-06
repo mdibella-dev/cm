@@ -14,7 +14,9 @@ __Tested up to:__ WordPress 5.9
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 ### main (2.x.x)
-**Hinzugefügt:** Ausführlichere Übersicht der Programmpunkte  
+**Hinzugefügt:** Standardmäßige Ausschalten der Slugs- und Beschreibungsspalten  
+**Hinzugefügt:** Darstellung einer Abbildung bei Örtlichkeiten  
+**Hinzugefügt:** Ausführlichere Übersicht der Taxonomien und Beitragstypen   
 **Hinzugefügt:** Inaktiv/Aktiv-Anzeige für Veranstaltungen (issue #9)  
 **Hinzugefügt:** Backend-CSS  
 **Geändert:** Code-Stil  
@@ -23,6 +25,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Menüreihenfolge  
 **Geändert:** Menüname und -symbol  
 **Geändert:** SCSS und CSS voneinander getrennt  
+**Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflchen  
 
 ### 2.4.0  
 **Geändert:** Code-Stil  

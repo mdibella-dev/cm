@@ -26,8 +26,8 @@ function cm_set_event_columns( $default )
         'name'          => $default['name'],
         'description'   => $default['description'],
         'slug'          => $default['slug'],
-        'status'        => 'Status',
-        'posts'         => 'Programmpunkte',
+        'status'        => __( 'Status', 'cm' ),
+        'posts'         => __( 'Programmpunkte', 'cm' ),
     );
     return $columns;
 }

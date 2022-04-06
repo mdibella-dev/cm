@@ -23,7 +23,11 @@
         padding: 0;
     }
 
+    th.sorted a span:not(.sorting-indicator) {
+        font-weight: bold;
+    }
 }
+
 
 /**
  * Übersicht über die Referenten
@@ -103,16 +107,34 @@
 }
 
 
+/*
+ * Diverse Übersichten - gemeinsame Einstellungen
+ */
+
+.taxonomy-location .wp-list-table,
+.taxonomy-event .wp-list-table,
+.taxonomy-exhibition_package .wp-list-table,
+.taxonomy-partnership .wp-list-table {
+
+    .column-id {
+        width: 5%;
+    }
+
+    .column-posts {
+        width: 15%;
+        text-align: left;
+    }
+
+}
+
+
+
 /**
  * Übersicht über die Veranstaltungen
  * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
  */
 
 .taxonomy-event .wp-list-table {
-
-    .column-id {
-        width: 5%;
-    }
 
     .column-status {
         width: 5%;
@@ -132,38 +154,24 @@
                 background-color: #dc3232;
             }
         }
-
     }
 
-    .column-posts {
-        width: 15%;
-        text-align: left;
-    }
 }
 
 
+/**
+ * Übersicht über die Örtlichkeiten
+ * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
+ */
 
+.taxonomy-location .wp-list-table {
 
-/*
-.post-type-publikation .wp-list-table {
-
-    .column-cover {
+    .column-image {
         width: 150px;
 
-        a {
-            display: inline-block;
-            line-height: 0;
-
-            &:focus {
-                outline: none !important;
-                box-shadow: none !important;
-            }
-
-            img {
-                box-shadow: 0 10px 15px -10px rgba(0,0,0,.2);
-                border: 2px solid #fff;
-            }
+        img {
+            width: 150px;
+            height: auto;
         }
     }
 }
-*/

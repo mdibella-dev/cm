@@ -28,6 +28,7 @@ function cm_post_type_session__manage_posts_columns( $default )
     $columns['event-date']        = __( 'Datum', 'cm' );
     $columns['event-time']        = __( 'Zeitraum', 'cm' );
     $columns['speaker']           = __( 'Referenten', 'cm' );
+    $columns['update']            = __( 'Zuletzt aktualisiert', 'cm' );
 
     return $columns;
 }
@@ -88,6 +89,14 @@ function cm_post_type_session__manage_posts_custom_column( $column_name, $post_i
             echo $time;
         break;
 
+        case 'update':
+            echo sprintf(
+                '%1$s um %2$s Uhr',
+                get_the_modified_date( 'd.m.Y', $post_id ),
+                get_the_modified_date( 'H:i', $post_id ),
+            );
+        break;
+
     endswitch;
 }
 
@@ -109,6 +118,7 @@ function cm_post_type_session__manage_sortable_columns( $columns )
     $columns['taxonomy-event']    = 'taxonomy-event';
     $columns['taxonomy-location'] = 'taxonomy-location';
     $columns['event-date']        = 'event-date';
+    $columns['update']            = 'update';
     return $columns;
 }
 
@@ -134,6 +144,10 @@ function cm_post_type_session__pre_get_posts( $query )
             case 'event-date':
                 $query->set( 'orderby', 'meta_value' );
                 $query->set( 'meta_key', 'programmpunkt-datum' );
+            break;
+
+            case 'update':
+                $query->set( 'orderby', 'modified' );
             break;
 
         endswitch;
