@@ -26,7 +26,7 @@ function cm_set_location_columns( $default )
         'name'          => $default['name'],
         'description'   => $default['description'],
         'slug'          => $default['slug'],
-        'posts'         => __( 'Anzahl', 'cm' ),
+        //'posts'         => __( 'Anzahl', 'cm' ),
     );
     return $columns;
 }
