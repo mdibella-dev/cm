@@ -1,0 +1,1625 @@
+[
+    {
+        "key": "group_5f27d2d118cca",
+        "title": "Ausstellungsfläche",
+        "fields": [
+            {
+                "key": "field_5f27d3e020663",
+                "label": "Standort",
+                "name": "exhibition-space-location",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "taxonomy": "location",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_5f29038a154d0",
+                "label": "Ausstellungspaket",
+                "name": "exhibition-space-package",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "taxonomy": "exhibition_package",
+                "field_type": "radio",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "exhibition_space"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5f45570343574",
+        "title": "Panel",
+        "fields": [
+            {
+                "key": "field_5f45572146449",
+                "label": "Panels",
+                "name": "panels",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "layouts": {
+                    "layout_5f455e677bbc2": {
+                        "key": "layout_5f455e677bbc2",
+                        "name": "panel-type-html",
+                        "label": "HTML-Code",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6194df8feec15",
+                                "label": "Sichtbarkeit dieses Panels",
+                                "name": "panel-visibility",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "choices": {
+                                    "hidden": "nicht sichtbar",
+                                    "visible": "sichtbar"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "visible",
+                                "layout": "vertical",
+                                "return_format": "value",
+                                "save_other_choice": 0
+                            },
+                            {
+                                "key": "field_5f455e677bbc3",
+                                "label": "Titel dieses Panels",
+                                "name": "panel-title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "title",
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_619b78c007570",
+                                "label": "Hinweise zum Panel",
+                                "name": "panel-hint",
+                                "type": "wysiwyg",
+                                "instructions": "Dieser Inhalt wird nach dem Titel und vor dem eigentlichen Panel-Inhalt angezeigt.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "content",
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5f455e677bbc4",
+                                "label": "HTML",
+                                "name": "simple-panel-html",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "default_value": "",
+                                "placeholder": "",
+                                "maxlength": "",
+                                "rows": "",
+                                "new_lines": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_5fabf5b262cd2": {
+                        "key": "layout_5fabf5b262cd2",
+                        "name": "panel-type-zoom",
+                        "label": "Virtueller Kongress (ZOOM)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6194df1d2ade5",
+                                "label": "Sichtbarkeit dieses Panels",
+                                "name": "panel-visibility",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "choices": {
+                                    "hidden": "nicht sichtbar",
+                                    "visible": "sichtbar"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "save_other_choice": 0,
+                                "default_value": "visible",
+                                "layout": "vertical",
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_5fabf5b262cd3",
+                                "label": "Titel dieses Panels",
+                                "name": "panel-title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "title",
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_619b78fe07571",
+                                "label": "Hinweise zum Panel",
+                                "name": "panel-hint",
+                                "type": "wysiwyg",
+                                "instructions": "Dieser Inhalt wird nach dem Titel und vor dem eigentlichen Panel-Inhalt angezeigt.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "content",
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5fabf5b262cd4",
+                                "label": "Events (ZOOM-Meetings)",
+                                "name": "zoom-events",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Event hinzufügen",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5fabf78df7b0d",
+                                        "label": "Titel",
+                                        "name": "zoom-event-title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "title",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5fad14e441361",
+                                        "label": "Untertitel",
+                                        "name": "zoom-event-subtitle",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "title",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5fad155641362",
+                                        "label": "Zeit von",
+                                        "name": "zoom-event-time-start",
+                                        "type": "time_picker",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "display_format": "H:i",
+                                        "return_format": "H:i"
+                                    },
+                                    {
+                                        "key": "field_5fad15f341363",
+                                        "label": "Zeit bis",
+                                        "name": "zoom-event-time-end",
+                                        "type": "time_picker",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "display_format": "H:i",
+                                        "return_format": "H:i"
+                                    },
+                                    {
+                                        "key": "field_61978bd94e1f2",
+                                        "label": "Location",
+                                        "name": "zoom-event-location",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "title",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5fabf762f7b0c",
+                                        "label": "URL um Zoom-Meeting beizutreten",
+                                        "name": "zoom-event-url",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "default_value": "",
+                                        "placeholder": ""
+                                    },
+                                    {
+                                        "key": "field_5fac1868c7086",
+                                        "label": "Boxgröße",
+                                        "name": "zoom-event-box-size",
+                                        "type": "select",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "choices": {
+                                            "default": "Standard",
+                                            "big": "Volle Breite"
+                                        },
+                                        "default_value": "default",
+                                        "allow_null": 0,
+                                        "multiple": 0,
+                                        "ui": 0,
+                                        "return_format": "value",
+                                        "ajax": 0,
+                                        "placeholder": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_5fad329f75dcf": {
+                        "key": "layout_5fad329f75dcf",
+                        "name": "panel-type-zoom-exhibition",
+                        "label": "Virtuelle Industrieausstellung (ZOOM)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6194dfb7eec16",
+                                "label": "Sichtbarkeit dieses Panels",
+                                "name": "panel-visibility",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "choices": {
+                                    "hidden": "nicht sichtbar",
+                                    "visible": "sichtbar"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "visible",
+                                "layout": "vertical",
+                                "return_format": "value",
+                                "save_other_choice": 0
+                            },
+                            {
+                                "key": "field_5fad329f75dd0",
+                                "label": "Titel dieses Panels",
+                                "name": "panel-title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "title",
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_619b791d07572",
+                                "label": "Hinweise zum Panel",
+                                "name": "panel-hint",
+                                "type": "wysiwyg",
+                                "instructions": "Dieser Inhalt wird nach dem Titel und vor dem eigentlichen Panel-Inhalt angezeigt.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "content",
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5fad329f75dd1",
+                                "label": "Aussteller mit eigenen ZOOM-Meetings",
+                                "name": "zoom-exhibition",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Aussteller hinzufügen",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5fad329f75dd2",
+                                        "label": "Titel",
+                                        "name": "zoom-exhibitor-title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "title",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5fad40d275dd8",
+                                        "label": "Logo",
+                                        "name": "zoom-exhibitor-logo",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "25",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "return_format": "id",
+                                        "preview_size": "post-thumbnail",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    },
+                                    {
+                                        "key": "field_5fad329f75dd6",
+                                        "label": "URL um Zoom-Meeting beizutreten",
+                                        "name": "zoom-exhibitor-url",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "default_value": "",
+                                        "placeholder": ""
+                                    },
+                                    {
+                                        "key": "field_619b796f07574",
+                                        "label": "E-Mail-Adresse für Lead-Gewinnung",
+                                        "name": "zoom-exhibitor-lead-mail",
+                                        "type": "email",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_5fb274887ea6d": {
+                        "key": "layout_5fb274887ea6d",
+                        "name": "panel-type-digital-goodies",
+                        "label": "Digitale Kongresstasche (ICW)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6194dfd0eec17",
+                                "label": "Sichtbarkeit dieses Panels",
+                                "name": "panel-visibility",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "choices": {
+                                    "hidden": "nicht sichtbar",
+                                    "visible": "sichtbar"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "visible",
+                                "layout": "vertical",
+                                "return_format": "value",
+                                "save_other_choice": 0
+                            },
+                            {
+                                "key": "field_5fb274887ea6e",
+                                "label": "Titel dieses Panels",
+                                "name": "panel-title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "title",
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_619b795207573",
+                                "label": "Hinweise zum Panel",
+                                "name": "panel-hint",
+                                "type": "wysiwyg",
+                                "instructions": "Dieser Inhalt wird nach dem Titel und vor dem eigentlichen Panel-Inhalt angezeigt.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "content",
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5fb274887ea6f",
+                                "label": "Inhalte der digitalen Kongresstasche",
+                                "name": "digital-goodies",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "wp-typography": "none",
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Tascheninhalt hinzufügen",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5fb390384c62e",
+                                        "label": "Austeller",
+                                        "name": "dg-exhibitor",
+                                        "type": "post_object",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "post_type": [
+                                            "partner"
+                                        ],
+                                        "taxonomy": "",
+                                        "allow_null": 0,
+                                        "multiple": 0,
+                                        "return_format": "id",
+                                        "ui": 1
+                                    },
+                                    {
+                                        "key": "field_5fb276217ea73",
+                                        "label": "Ausstellerpaket",
+                                        "name": "dg-exhibitor-group",
+                                        "type": "select",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "choices": [
+                                            "0 - Sonstiges",
+                                            "1 - Standard (einschließlich Sonderstände)",
+                                            "2 - Bronze",
+                                            "3 - Silber",
+                                            "4 - Gold",
+                                            "5 - Platin"
+                                        ],
+                                        "default_value": 1,
+                                        "allow_null": 0,
+                                        "multiple": 0,
+                                        "ui": 0,
+                                        "return_format": "value",
+                                        "ajax": 0,
+                                        "placeholder": ""
+                                    },
+                                    {
+                                        "key": "field_5fb274887ea71",
+                                        "label": "Banner",
+                                        "name": "dg-exhibitor-banner",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "25",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "return_format": "id",
+                                        "preview_size": "post-thumbnail",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    },
+                                    {
+                                        "key": "field_5fb274887ea72",
+                                        "label": "URL zum Tascheninhalt",
+                                        "name": "dg-content-url",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "wp-typography": "none",
+                                        "default_value": "",
+                                        "placeholder": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                },
+                "button_label": "Panel hinzufügen",
+                "min": "",
+                "max": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/accordion-panels"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5c3472f9224b7",
+        "title": "Programmpunkt",
+        "fields": [
+            {
+                "key": "field_5d81eec13261d",
+                "label": "Titel",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_5d81ef65562f7",
+                "label": "Untertitel",
+                "name": "programmpunkt-untertitel",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e7cbe44aea98",
+                "label": "Beschreibung",
+                "name": "programmpunkt-beschreibung",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5c3474ff74052",
+                "label": "Datum",
+                "name": "programmpunkt-datum",
+                "type": "date_picker",
+                "instructions": "Datum dieses Programmpunktes.\r\n\r\nWichtig: Dieser Eintrag wird auch zur zeitlichen Einsortierung des Programmpunktes in den Veranstaltungsablauf verwendet.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "d.m.Y",
+                "return_format": "d.m.Y",
+                "first_day": 1
+            },
+            {
+                "key": "field_5c34736b74050",
+                "label": "Zeit von",
+                "name": "programmpunkt-von",
+                "type": "time_picker",
+                "instructions": "Zeitpunkt zu Beginn dieses Programmpunkts (z.B. 09:00). \r\n\r\nWichtig: Dieser Eintrag wird auch zur zeitlichen Einsortierung des Programmpunktes in den Veranstaltungsablauf verwendet.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i"
+            },
+            {
+                "key": "field_5c34748974051",
+                "label": "Zeit bis",
+                "name": "programmpunkt-bis",
+                "type": "time_picker",
+                "instructions": "Zeitpunkt zum Ende dieses Programmpunkts (z.B. 10:00)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i"
+            },
+            {
+                "key": "field_5e66423b041cf",
+                "label": "Alternative Zeitangabe",
+                "name": "programmpunkt-alternative-zeitangabe",
+                "type": "text",
+                "instructions": "Wenn von der üblichen Zeitdarstellung (hh:mm-hh:mm) abgewichen werden soll (z.B.  \"Vormittags\", \"ab 18:00\", \"bis 17:00\" etc.), kann hier ein alternativer Text eingegeben werden.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c3473057404f",
+                "label": "Örtlichkeit",
+                "name": "programmpunkt-location",
+                "type": "taxonomy",
+                "instructions": "Ort, an dem dieser Programmpunkt stattfindet.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "location",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_5c3475d474053",
+                "label": "Referent(en)",
+                "name": "programmpunkt-referenten",
+                "type": "post_object",
+                "instructions": "Der Referenten oder die Referenten dieses Programmpunkts.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "speaker"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "id",
+                "ui": 1
+            },
+            {
+                "key": "field_5c349feb7d829",
+                "label": "Veranstaltung(en)",
+                "name": "programmpunkt-event",
+                "type": "taxonomy",
+                "instructions": "Die Veranstaltung(en), deren Bestandteil dieser Programmpunkt ist.\r\n\r\nHinweis: Programmpunkte von parallel verlaufenden Veranstaltungen (z.B. Hauptprogramm nebst Satellitensymposien) sind auch jeweils nur diesen zuzuordnet. Programmpunkte von Veranstaltungen, die innerhalb einer Rahmenveranstaltung ablaufen (z.B. \"Innovationsforum\", \"Teilnehmer informieren Teilnehmer\"), sind sowohl der Rahmenveranstaltung als auch der Teilveranstaltung zuzuordnen.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "event",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "session"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5c335ed9c412e",
+        "title": "Referent",
+        "fields": [
+            {
+                "key": "field_5c335ef1fab39",
+                "label": "Vorname",
+                "name": "referent-vorname",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c335f33fab3a",
+                "label": "Nachname",
+                "name": "referent-nachname",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c34b20a3b5b7",
+                "label": "Anrede",
+                "name": "referent-anrede",
+                "type": "radio",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "1": "Herr",
+                    "2": "Frau",
+                    "0": "unbestimmt\/unklar"
+                },
+                "allow_null": 1,
+                "other_choice": 0,
+                "default_value": 0,
+                "layout": "horizontal",
+                "return_format": "label",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5c335f42fab3b",
+                "label": "Akademischer Grad oder Titel",
+                "name": "referent-titel",
+                "type": "text",
+                "instructions": "Beispiele: \"Dr.\", \"Prof. Dr.\" etc.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c3df8fb5a593",
+                "label": "Unternehmensposition oder Berufstitel",
+                "name": "referent-position",
+                "type": "text",
+                "instructions": "Beispiele: \"Bundesminister für Wirtschaft und Energie\", \"Vorsitzende der Geschäftsführung Stadtwerke Köln\", \"Rechtsanwalt\" etc.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c335f8afab3c",
+                "label": "Personenbeschreibung",
+                "name": "referent-beschreibung",
+                "type": "wysiwyg",
+                "instructions": "Eine kurze, prägnante Beschreibung der Person, ihrer Tätigkeitsfelder und ggf. Auszeichnungen. Jede Personenbeschreibung sollte mit dem Namen (ohne Titel) anfangen. Beispiele: \"Hans Meier ist Facharzt für...\", \"Frauke Müller ist Gründerin von...\" etc.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c3360c8fab41",
+                "label": "Soziale Medien",
+                "name": "referent-social-media",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5c3360d9fab42",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5c3360d9fab42",
+                        "label": "Soziales Netzwerk",
+                        "name": "referent-web-service",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "1": "Facebook",
+                            "2": "Twitter",
+                            "3": "Instagram",
+                            "4": "YouTube",
+                            "5": "XING",
+                            "6": "LinkedIn"
+                        },
+                        "default_value": 1,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5c3362823b198",
+                        "label": "Webadresse",
+                        "name": "referent-web-service-url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "speaker"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_624d6ca980a81",
+        "title": "Örtlichkeiten",
+        "fields": [
+            {
+                "key": "field_624d6cbe10506",
+                "label": "Bild",
+                "name": "location-image",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "return_format": "id",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "location"
+                }
+            ]
+        ],
+        "menu_order": 2,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5c5abe0511463",
+        "title": "Veranstaltung",
+        "fields": [
+            {
+                "key": "field_5c5abe220bd5f",
+                "label": "Status der Veranstaltung",
+                "name": "event-status",
+                "type": "radio",
+                "instructions": "Aktive Veranstaltungen werden zur Generierung der Referenten- und Programmübersichten herangezogen.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "1": "aktiv",
+                    "0": "nicht aktiv"
+                },
+                "allow_null": 1,
+                "other_choice": 0,
+                "default_value": 0,
+                "layout": "horizontal",
+                "return_format": "value",
+                "save_other_choice": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ]
+        ],
+        "menu_order": 3,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5c45b8906f884",
+        "title": "Kooperationspartner",
+        "fields": [
+            {
+                "key": "field_5c629c85a59fa",
+                "label": "Anschrift",
+                "name": "partner-anschrift",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "content",
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 5,
+                "new_lines": "br"
+            },
+            {
+                "key": "field_5c629c29a59f8",
+                "label": "Telefon",
+                "name": "partner-telefon",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "title",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c629c67a59f9",
+                "label": "Telefax",
+                "name": "partner-telefax",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "title",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f2d0c4aa54b0",
+                "label": "E-Mail",
+                "name": "partner-mail",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_5c45b9b381d47",
+                "label": "Webseite",
+                "name": "partner-webseite",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c62d3fc1a777",
+                "label": "Kooperationsform",
+                "name": "partner-kooperationsform",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "taxonomy": "partnership",
+                "field_type": "checkbox",
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0
+            },
+            {
+                "key": "field_5f32c5f3e79a5",
+                "label": "Ausstellungsflächen",
+                "name": "partner-exhibition-spaces",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "none",
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5f32c6bfe79a6",
+                        "label": "Ausstellungsfläche",
+                        "name": "partner-exhibition-space",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "wp-typography": "none",
+                        "post_type": [
+                            "exhibition_space"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "id",
+                        "ui": 1
+                    }
+                ]
+            },
+            {
+                "key": "field_5c6294fc74a56",
+                "label": "Beschreibung",
+                "name": "partner-beschreibung",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wp-typography": "content",
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "partner"
+                }
+            ]
+        ],
+        "menu_order": 4,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_5c934f24dcd65",
+        "title": "FAQ",
+        "fields": [
+            {
+                "key": "field_5c9350cdf5688",
+                "label": "FAQ",
+                "name": "faq",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5c934f5771dea",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Neue Fragestellung",
+                "sub_fields": [
+                    {
+                        "key": "field_5c934f5771dea",
+                        "label": "Fragestellung",
+                        "name": "question",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 2,
+                        "new_lines": ""
+                    },
+                    {
+                        "key": "field_5c934f9a71deb",
+                        "label": "Antwort",
+                        "name": "answer",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 1,
+                        "delay": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "faq"
+                }
+            ]
+        ],
+        "menu_order": 5,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "[2.5.0]",
+        "show_in_rest": 0
+    }
+]
