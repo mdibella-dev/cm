@@ -25,7 +25,7 @@ function cm_set_exhibition_package_columns( $default )
         'name'          => $default['name'],
         'description'   => $default['description'],
         'slug'          => $default['slug'],
-        'posts'         => __( 'Anzahl', 'cm' ),
+        'count'         => __( 'Anzahl', 'cm' ),
     );
     return $columns;
 }
@@ -44,6 +44,25 @@ function cm_manage_exhibition_package_custom_column( $content, $column_name, $te
     switch ($column_name) {
         case 'id':
             $content = $term_id;
+        break;
+
+        case 'count':
+            $posts = get_posts( array(
+                'post_type'   => 'exhibition_space',
+                'post_status' => 'any',
+                'numberposts' => -1,
+                'tax_query'   => array( array(
+                    'taxonomy' => 'exhibition_package',
+                    'terms'    => $term_id,
+                ) ),
+            ) );
+            $term    = get_term( $term_id, 'exhibition_package' );
+            $content = sprintf(
+                '<a href="/wp-admin/edit.php?exhibition_package=%2$s&post_type=exhibition_space" title="%3$s">%1$s</a>',
+                sizeof( $posts ),
+                $term->slug,
+                __( 'Alle Ausstellungsflächen mit diesem Austellungspaket anzeigen', 'cm' )
+            );
         break;
 
         default:
