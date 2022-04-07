@@ -135,44 +135,41 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
             update_option( 'large_size_h', 9999 );
         endif;
 
-        add_image_size ( 'mobile', 480, 9999 );
-        add_image_size ( 'small', 600, 9999 );
-        add_image_size ( 'wide', 1280, 9999 );
-        add_image_size ( 'huge', 1440, 9999 );
 
 
         // Navigationsmenüs registrieren
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'cm' ) );
 
+
         // Widget Areas registrieren
         register_sidebar( array(
-    	    'name'			=> __( 'Footer #1', 'cm' ),
-    	    'id'			=> 'footer-one',
-    	    'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 1 in der Fußzeile.', 'cm' ),
-    	    'before_widget'	=> '<div class="widget %2$s clr">',
-    	    'after_widget'	=> '</div>',
-    	    'before_title'	=> '<h6 class="widget-title">',
-    	    'after_title'	=> '</h6>',
+            'name'          => __( 'Footer #1', 'cm' ),
+            'id'            => 'footer-one',
+            'description'   => __( 'Die hier abgelegten Widgets erscheinen im Bereich 1 in der Fußzeile.', 'cm' ),
+            'before_widget' => '<div class="widget %2$s clr">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h6 class="widget-title">',
+            'after_title'   => '</h6>',
         ) );
 
         register_sidebar( array(
-        	'name'			=> __( 'Footer #2', 'cm' ),
-        	'id'			=> 'footer-two',
-        	'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 2 in der Fußzeile.', 'cm' ),
-        	'before_widget'	=> '<div class="widget %2$s clr">',
-        	'after_widget'	=> '</div>',
-        	'before_title'	=> '<h6 class="widget-title">',
-        	'after_title'	=> '</h6>',
+            'name'          => __( 'Footer #2', 'cm' ),
+            'id'            => 'footer-two',
+            'description'   => __( 'Die hier abgelegten Widgets erscheinen im Bereich 2 in der Fußzeile.', 'cm' ),
+            'before_widget' => '<div class="widget %2$s clr">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h6 class="widget-title">',
+            'after_title'   => '</h6>',
         ) );
 
         register_sidebar( array(
-        	'name'			=> __( 'Footer #3', 'cm' ),
-        	'id'			=> 'footer-three',
-        	'description'	=> __( 'Die hier abgelegten Widgets erscheinen im Bereich 3 in der Fußzeile.', 'cm' ),
-        	'before_widget'	=> '<div class="widget %2$s clr">',
-        	'after_widget'	=> '</div>',
-        	'before_title'	=> '<h6 class="widget-title">',
-        	'after_title'	=> '</h6>',
+            'name'          => __( 'Footer #3', 'cm' ),
+            'id'            => 'footer-three',
+            'description'   => __( 'Die hier abgelegten Widgets erscheinen im Bereich 3 in der Fußzeile.', 'cm' ),
+            'before_widget' => '<div class="widget %2$s clr">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h6 class="widget-title">',
+            'after_title'   => '</h6>',
         ) );
     }
 
@@ -191,14 +188,14 @@ endif;
 function cm_enqueue_scripts()
 {
     wp_enqueue_script(
-        'congressomat-script',
+        'cm-script',
         get_template_directory_uri() . '/assets/js/frontend.js',
         array( 'jquery' ),
         false,
         true
     );
     wp_enqueue_style(
-        'congressomat-style',
+        'cm-style',
         get_template_directory_uri() . '/assets/css/frontend.min.css',
         array(),
         '2.4.0'

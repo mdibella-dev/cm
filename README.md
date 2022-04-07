@@ -1,7 +1,7 @@
 # CM
 CM ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
 
-__Contributors:__ rdg-dibella
+__Contributors:__ rdg-dibella, mdibella-dev
 
 __Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-blocks, landing-pages, page-templates, shortcodes, child-theme-ready, gutenberg, custom-post-types, responsive
 
@@ -11,7 +11,7 @@ __Tested up to:__ WordPress 5.9
 
 
 ## Changelog
-*Geändert/Entfernt/Hinzugefügt/Fixed*
+*Hinzugefügt/Geändert/Entfernt/Fixed*
 
 ### main (2.x.x)
 **Hinzugefügt:** Standardmäßige Ausschalten der Slugs- und Beschreibungsspalten  
@@ -26,6 +26,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** Menüname und -symbol  
 **Geändert:** SCSS und CSS voneinander getrennt  
 **Geändert:** Speaker: Set von 4 auf 1 bei Programmpunkte gestellt  
+**Entfernt:** Unnötige Bildgrößen  
 **Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
 **Fixed:** Speaker: Wenn keine Programmpunkte vorhanden sind, wird auch nichts angezeigt  
 **Fixed:** Aussteller: Leere Ausstellungsflächen werden nicht mehr angezeigt  
