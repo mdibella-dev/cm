@@ -198,7 +198,7 @@ function cm_enqueue_scripts()
         'cm-style',
         get_template_directory_uri() . '/assets/css/frontend.min.css',
         array(),
-        '2.4.0'
+        '2.5.0'
     );
 }
 
