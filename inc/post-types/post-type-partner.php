@@ -67,15 +67,22 @@ function cm_post_type_partner__manage_posts_custom_column( $column_name, $post_i
             if( ! empty( $data['exhibition-spaces'] ) ) :
                 $spaces = array();
 
-                foreach( $data['exhibition-spaces'] as $space ) :
-                    $spaces[] = sprintf(
-                        '<a href="post.php?post=%1$s&action=edit">%2$s</a>%3$s',
-                        $space['id'],
-                        $space['signature'],
-                        ( ! empty( $space['package'] ) )? ' (' . $space['package'] . ')' : '',
-                    );
+                foreach( $data[ 'exhibition-spaces' ] as $space ) :
+                    if( ! empty( $space[ 'location' ] ) and ! empty( $space[ 'signature' ] ) ) :
+                        $spaces[] = sprintf(
+                            '<a href="post.php?post=%1$s&action=edit">%2$s</a>%3$s',
+                            $space['id'],
+                            $space['signature'],
+                            ( ! empty( $space['package'] ) )? ' (' . $space['package'] . ')' : '',
+                        );
+                    endif;
                 endforeach;
-                echo implode( ', ', $spaces );
+
+                if( ! empty( $spaces ) ) :
+                    echo implode( ', ', $spaces );
+                else :
+                    echo '&mdash;';
+                endif;
             else :
                 echo '&mdash;';
             endif;

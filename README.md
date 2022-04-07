@@ -13,7 +13,10 @@ __Tested up to:__ WordPress 5.9
 ## Changelog
 *Hinzugefügt/Geändert/Entfernt/Fixed*
 
-### main (2.5.0)
+### main
+**Fixed:** Aussteller (Backend): Leere Ausstellungsflächen werden nicht mehr angezeigt  
+
+### 2.5.0
 **Hinzugefügt:** Situationsspezifische Betitelung  
 **Hinzugefügt:** Örtlichkeiten zeigt Anzahl der Programmpunkte bzw. Ausstellungsflächen an  
 **Hinzugefügt:** Standardmäßige Ausschalten der Slugs- und Beschreibungsspalten  
