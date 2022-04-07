@@ -174,3 +174,78 @@ function cm_default_hidden_columns( $hidden, $screen )
 }
 
 add_filter( 'default_hidden_columns', 'cm_default_hidden_columns', 10, 2 );
+
+
+
+/**
+ * Erzeugt angepasste Seitentitel in der Adminübersicht.
+ *
+ * @since 2.5.0
+ * @see   https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
+ */
+
+function mdb_rewrite_header()
+{
+    $screen    = get_current_screen();
+    $do_modify = false;
+    $term      = false;
+
+    if( isset( $_GET['post_type'] ) and isset( $screen->id ) ) :
+        switch( $screen->id ) :
+            case 'edit-session':  // event // location
+                if( isset( $_GET['location'] ) ) :
+                    $term = get_term_by( 'slug', $_GET['location'], 'location' );
+                elseif( isset( $_GET['event'] ) ) :
+                    $term = get_term_by( 'slug', $_GET['event'], 'event' );
+                endif;
+
+                if( false !== $term ) :
+                    $do_modify = true;
+                    $title     = __( 'Programmpunkte', 'cm' );
+                    $subtitle  = $term->name;
+                endif;
+            break;
+
+            case 'edit-partner':
+                if( isset( $_GET['partnership'] ) ) :
+                    $term = get_term_by( 'slug', $_GET['partnership'], 'partnership' );
+                endif;
+
+                if( false !== $term ) :
+                    $do_modify = true;
+                    $title     = __( 'Kooperationspartner', 'cm' );
+                    $subtitle  = $term->name;
+                endif;
+            break;
+
+            case 'edit-exhibition_space':
+                if( isset( $_GET['location'] ) ) :
+                    $term = get_term_by( 'slug', $_GET['location'], 'location' );
+                elseif( isset( $_GET['exhibition_package'] ) ) :
+                    $term = get_term_by( 'slug', $_GET['exhibition_package'], 'exhibition_package' );
+                endif;
+
+                if( false !== $term ) :
+                    $do_modify = true;
+                    $title     = __( 'Ausstellungsflächen', 'cm' );
+                    $subtitle  = $term->name;
+                endif;
+            break;
+
+        endswitch;
+    endif;
+
+    if( $do_modify ) :
+     ?>
+<div class="wrap">
+    <h1 class="wp-heading-inline show" style="display:inline-block;"><?php echo $title . ' (' . $subtitle . ')';?></h1>
+     <a href="<?php echo admin_url( 'post-new.php?post_type=' . $_GET['post_type'] ); ?>" class="page-title-action show"><?php echo __( 'Erstellen', 'cm' );?></a>
+</div>
+<style id="modify">
+    .wp-heading-inline:not(.show), .page-title-action:not(.show) { display:none !important;}
+</style>
+<?php
+    endif;
+ }
+
+ add_action( 'admin_notices', 'mdb_rewrite_header' );
