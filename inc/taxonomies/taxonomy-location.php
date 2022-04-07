@@ -26,7 +26,8 @@ function cm_set_location_columns( $default )
         'name'          => $default['name'],
         'description'   => $default['description'],
         'slug'          => $default['slug'],
-        //'posts'         => __( 'Anzahl', 'cm' ),
+        'count-session' => __( 'Programmpunkte', 'cm' ),
+        'count-space'   => __( 'Ausstellungsflächen', 'cm' ),
     );
     return $columns;
 }
@@ -56,6 +57,44 @@ function cm_manage_location_custom_column( $content, $column_name, $term_id )
             else :
                 echo '&mdash;';
             endif;
+        break;
+
+        case 'count-session':
+            $posts = get_posts( array(
+                'post_type'   => 'session',
+                'post_status' => 'any',
+                'numberposts' => -1,
+                'tax_query'   => array( array(
+                    'taxonomy' => 'location',
+                    'terms'    => $term_id,
+                ) ),
+            ) );
+            $term    = get_term( $term_id, 'location' );
+            $content = sprintf(
+                '<a href="/wp-admin/edit.php?location=%2$s&post_type=session" title="%3$s">%1$s</a>',
+                sizeof( $posts ),
+                $term->slug,
+                __( 'Alle Programmpunkte an diesem Ort anzeigen', 'cm' )
+            );
+        break;
+
+        case 'count-space':
+            $posts = get_posts( array(
+                'post_type'   => 'exhibition_space',
+                'post_status' => 'any',
+                'numberposts' => -1,
+                'tax_query'   => array( array(
+                    'taxonomy' => 'location',
+                    'terms'    => $term_id,
+                ) ),
+            ) );
+            $term    = get_term( $term_id, 'location' );
+            $content = sprintf(
+                '<a href="/wp-admin/edit.php?location=%2$s&post_type=exhibition_space" title="%3$s">%1$s</a>',
+                sizeof( $posts ),
+                $term->slug,
+                __( 'Alle Ausstellungsflächen an diesem Ort anzeigen', 'cm' )
+            );
         break;
 
         default:

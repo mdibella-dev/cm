@@ -13,7 +13,8 @@ __Tested up to:__ WordPress 5.9
 ## Changelog
 *Hinzugefügt/Geändert/Entfernt/Fixed*
 
-### main (2.x.x)
+### main (2.5.0)
+**Hinzugefügt:** Örtlichkeiten zeigt Anzahl der Programmpunkte bzw. Ausstellungsflächen an  
 **Hinzugefügt:** Standardmäßige Ausschalten der Slugs- und Beschreibungsspalten  
 **Hinzugefügt:** Darstellung einer Abbildung bei Örtlichkeiten  
 **Hinzugefügt:** Ausführlichere Übersicht der Taxonomien und Beitragstypen   
@@ -27,6 +28,7 @@ __Tested up to:__ WordPress 5.9
 **Geändert:** SCSS und CSS voneinander getrennt  
 **Geändert:** Speaker: Set von 4 auf 1 bei Programmpunkte gestellt  
 **Entfernt:** Unnötige Bildgrößen  
+**Fixed:** Zahlen-Links bei den Übersichten arbeiten jetzt korrekt  
 **Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
 **Fixed:** Speaker: Wenn keine Programmpunkte vorhanden sind, wird auch nichts angezeigt  
 **Fixed:** Aussteller: Leere Ausstellungsflächen werden nicht mehr angezeigt  
