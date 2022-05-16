@@ -176,5 +176,5 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
     // Ausgabenpufferung beenden und Puffer ausgeben
     $output = ob_get_contents();
     ob_end_clean();
-    return $output;
+    echo $output;
 }
