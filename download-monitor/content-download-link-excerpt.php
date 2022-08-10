@@ -2,7 +2,7 @@
 /**
  * Custom Template für einfache Download-Links mit Beschreibung
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  * @uses    Plugin download-monitor
  */

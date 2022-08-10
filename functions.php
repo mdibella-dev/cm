@@ -2,7 +2,7 @@
 /**
  * Initialisiert das Thema und stellt eine Reihe von Zusatzfunktionen bereit
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella
  * @package cm
  */
 

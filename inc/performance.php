@@ -2,7 +2,7 @@
 /**
  * Funktionen zu Optimierung der Webseite
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  */
 

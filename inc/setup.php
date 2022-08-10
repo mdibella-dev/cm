@@ -2,7 +2,7 @@
 /**
  * Hauptfunktion zum Einrichten der von diesem Thema unterstützten Optionen
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  */
 

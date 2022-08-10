@@ -2,7 +2,7 @@
 /**
  * Post Type Session (Programmpunkte)
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella
  * @package cm
  */
 

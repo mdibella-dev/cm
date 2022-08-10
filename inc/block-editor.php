@@ -2,7 +2,7 @@
 /**
  * Block Editor (aka Gutenberg)
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  */
 

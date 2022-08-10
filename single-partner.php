@@ -2,7 +2,7 @@
 /**
  * Einzelseite eines Kooperationspartners
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  */
 

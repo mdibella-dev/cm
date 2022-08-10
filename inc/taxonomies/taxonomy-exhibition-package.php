@@ -2,7 +2,7 @@
 /**
  * Taxonomy Exhibition_Package (Ausstellungspaket)
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella 
  * @package cm
  */
 
