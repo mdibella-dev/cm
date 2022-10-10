@@ -2,12 +2,14 @@
 /**
  * Template für den Fußbereich einer Seite
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
 
- defined( 'ABSPATH' ) or exit;
+/** Prevent direct access */
+
+defined( 'ABSPATH' ) or exit;
 
 
 

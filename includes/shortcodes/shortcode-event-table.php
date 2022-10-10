@@ -2,10 +2,12 @@
 /**
  * Shortcode [event-table]
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 

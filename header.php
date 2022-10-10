@@ -2,10 +2,12 @@
 /**
  * Template für den Kopfbereich einer Seite
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 

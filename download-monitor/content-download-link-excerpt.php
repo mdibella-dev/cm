@@ -2,11 +2,13 @@
 /**
  * Custom Template für einfache Download-Links mit Beschreibung
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  * @uses    Plugin download-monitor
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
