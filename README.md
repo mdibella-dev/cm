@@ -1,13 +1,13 @@
 # CM
-CM ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt.Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
+CM is a WordPress theme tailored to the needs of an events site.
 
 __Contributors:__ rdg-dibella, mdibella-dev
 
-__Tags:__.footer-widgets, block-styles, translation-ready, mega-menu, wide-blocks, landing-pages, page-templates, shortcodes, child-theme-ready, gutenberg, custom-post-types, responsive
+__Tags:__ block-styles, block-editor, translation-ready, child-theme-ready, responsive, wide-blocks, landing-pages, page-templates, shortcodes, custom-post-types, custom-taxnomies
 
-__Requires at least:__ WordPress 5.3.
+__Requires at least:__ WordPress 5.3
 
-__Tested up to:__ WordPress 5.9.
+__Tested up to:__ WordPress 6.1
 
 ## Changelog
 *Added/Changed/Fixed/Removed*
