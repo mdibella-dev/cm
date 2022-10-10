@@ -110,7 +110,7 @@ get_header();
              * @since   2.3.0
              */
 
-            if( !empty( $data['address'] ) ) :
+            if( ! empty( $data['address'] ) ) :
 
                 $google_maps_query =
                 'https://www.google.com/maps/embed/v1/place?q='
