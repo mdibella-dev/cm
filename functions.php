@@ -13,16 +13,13 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * Notices ausschalten
- */
+/** Turn off notices */
 
 error_reporting( E_ALL ^ E_NOTICE );
 
 
-/**
- * Soziale Netze
- */
+
+/** Constants */
 
 define( 'SOCIAL_MEDIA', array(
     '1' => array(
@@ -52,11 +49,9 @@ define( 'SOCIAL_MEDIA', array(
 ) );
 
 
-/**
- * Vorkonfigurierte Sets für Eventtabellen;
- * a = linke Spalte mit Orts- und Zeitangaben;
- * b = mittlere Spalte mit Titel etc.
- */
+// Preconfigured sets for event tables;
+// a = left column with place and time information;
+// b = middle column with title etc.
 
 define( 'EVENT_TABLE_SETLIST', array(
     '1' => array(
@@ -78,30 +73,29 @@ define( 'EVENT_TABLE_SETLIST', array(
 ) );
 
 
-/**
- * Funktionsbibliothek einbinden
- */
 
-require_once( get_template_directory() . '/inc/setup.php' );
-require_once( get_template_directory() . '/inc/block-editor.php' );
-require_once( get_template_directory() . '/inc/backend.php' );
-require_once( get_template_directory() . '/inc/performance.php' );
-require_once( get_template_directory() . '/inc/core.php' );
+/** Include files */
 
-require_once( get_template_directory() . '/inc/taxonomies/taxonomy-partnership.php' );
-require_once( get_template_directory() . '/inc/taxonomies/taxonomy-event.php' );
-require_once( get_template_directory() . '/inc/taxonomies/taxonomy-exhibition-package.php' );
-require_once( get_template_directory() . '/inc/taxonomies/taxonomy-location.php' );
+require_once( get_template_directory() . '/includes/setup.php' );
+require_once( get_template_directory() . '/includes/block-editor.php' );
+require_once( get_template_directory() . '/includes/backend.php' );
+require_once( get_template_directory() . '/includes/performance.php' );
+require_once( get_template_directory() . '/includes/core.php' );
 
-require_once( get_template_directory() . '/inc/post-types/post-type-speaker.php' );
-require_once( get_template_directory() . '/inc/post-types/post-type-session.php' );
-require_once( get_template_directory() . '/inc/post-types/post-type-partner.php' );
-require_once( get_template_directory() . '/inc/post-types/post-type-exhibition-space.php' );
+require_once( get_template_directory() . '/includes/taxonomies/taxonomy-partnership.php' );
+require_once( get_template_directory() . '/includes/taxonomies/taxonomy-event.php' );
+require_once( get_template_directory() . '/includes/taxonomies/taxonomy-exhibition-package.php' );
+require_once( get_template_directory() . '/includes/taxonomies/taxonomy-location.php' );
 
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-event-table.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-speaker-grid.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-teaser-list.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-partner-table.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-icon-wall.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-exhibition-list.php' );
-require_once( get_template_directory() . '/inc/shortcodes/shortcode-faq.php' );
+require_once( get_template_directory() . '/includes/post-types/post-type-speaker.php' );
+require_once( get_template_directory() . '/includes/post-types/post-type-session.php' );
+require_once( get_template_directory() . '/includes/post-types/post-type-partner.php' );
+require_once( get_template_directory() . '/includes/post-types/post-type-exhibition-space.php' );
+
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-event-table.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-speaker-grid.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-teaser-list.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-partner-table.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-icon-wall.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-exhibition-list.php' );
+require_once( get_template_directory() . '/includes/shortcodes/shortcode-faq.php' );
