@@ -1,6 +1,6 @@
 <?php
 /**
- * Funktionen zu Optimierung der Webseite
+ * Functions to optimize the structure of the site.
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,23 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Entfernt Höhen- und Breiten-Angaben bei Thumbnails
- *
- * @since 1.0.0
- */
-
-function cm_remove_thumbnail_width_height( $html, $post_id, $post_thumbnail_id, $size, $attr )
-{
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
-}
-
-add_filter( 'post_thumbnail_html', 'cm_remove_thumbnail_width_height', 10, 5 );
-
-
-
-/**
- * Entfernt diversen Ballast
+ * Removes various ballast.
  *
  * @since 1.0.0
  */
@@ -50,9 +34,20 @@ add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
 
 
 /**
- * Entfernt unnötige Beitrags-Klassen
+ * Removes unnecessary post classes like
+ * - .has-post-thumbnail,
+ * - .sticky,
+ * - .category-,
+ * - .tags-,
+ * - .status
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  array $classes    An array of CSS classes applied to post types.
+ * @param  array $class      An array of additional CSS classes.
+ * @param  int   $post_id    The ID of the post.
+ * @return array             Modified class array.
+ *
+ * @see    https://developer.wordpress.org/reference/hooks/post_class/
  */
 
 function cm_remove_post_classes( $classes, $class, $post_id )
@@ -92,10 +87,11 @@ add_filter( 'post_class', 'cm_remove_post_classes', 10, 3 );
 
 
 /**
- * Setzt die Länge des Excerpts
+ * Set the excerpt's length.
  *
- * @since 1.0.0
- * @param int $length
+ * @since  1.0.0
+ * @param  int $length    The current length.
+ * @return int            The modified number of characters.
  */
 
 function cm_excerpt_length( $length )

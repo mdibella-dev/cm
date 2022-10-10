@@ -17,6 +17,7 @@ __Tested up to:__ WordPress 6.1
 * Changed: Directory structure.
 * Changed: Changelog style and laguage.
 * Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed.
+* Removed: cm_remove_thumbnail_width_height().
 
 
 ### 2.5.0

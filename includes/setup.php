@@ -1,6 +1,6 @@
 <?php
 /**
- * Hauptfunktion zum Einrichten der von diesem Thema unterstützten Optionen
+ * Main functions for setting up the theme.
  *
  * @author  Marco Di Bella
  * @package cm
@@ -16,18 +16,18 @@ defined( 'ABSPATH' ) or exit;
 if( ! function_exists( 'cm_theme_setup' ) ) :
 
     /**
-     * Führt grundlegende Einstellungen für das Thema durch.
+     * Performs basic settings for the theme.
      *
-     * @since   1.0.0
+     * @since 1.0.0
      */
 
      function cm_theme_setup()
      {
-        // Internationalisierung ermöglichen
+        // Enables internationalization.
         load_theme_textdomain( 'cm', get_template_directory() . '/lang' );
 
 
-        // HTML5-konformer Umgang von diversen WordPress-Core-Elementen ermöglichen
+        // Enables HTML5-compliant handling of various WordPress core elements.
         add_theme_support( 'html5', array(
             'comment-list',
             'comment-form',
@@ -39,27 +39,12 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
         ) );
 
 
-        // Responsiven Einbettung von Embeds ermöglichen
+        // Enables responsive embedding of media embeds.
         add_theme_support( 'responsive-embeds' );
 
 
-        // Unterstützung von Thumbnails für jeden Beitragstyp
-        add_theme_support( 'post-thumbnails' );
-        set_post_thumbnail_size( 240, 240, false );
-
-        if( ( 240 != get_option( 'thumbnail_size_w' ) ) ) :
-            update_option( 'thumbnail_size_w', 240 );
-            update_option( 'thumbnail_size_h', 240 );
-        endif;
-
-
-        /**
-         * Block-Editor (Gutenberg)
-         * - Benutzerdefinierte Farbpalette einrichten
-         * - "align full"/"align wide" ermöglichen
-         */
-
-        $palette = array(
+        // Sets the block-editor palette.
+        add_theme_support( 'editor-color-palette', array(
             array(
                 'name'  => __( 'Weiß', 'cm' ),
                 'slug'  => 'white',
@@ -120,13 +105,22 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
                 'slug'  => 'black',
                 'color' => '#000000',
             ),
-        );
+        ) );
 
-        add_theme_support( 'editor-color-palette', $palette );
+
+        // Enables 'wide' support for the block editor (Gutenberg).
         add_theme_support( 'align-wide' );
 
 
-        // Mediengrößen anpassen
+        // Sets media sizes.
+        add_theme_support( 'post-thumbnails' );
+        set_post_thumbnail_size( 240, 240, false );
+
+        if( ( 240 != get_option( 'thumbnail_size_w' ) ) ) :
+            update_option( 'thumbnail_size_w', 240 );
+            update_option( 'thumbnail_size_h', 240 );
+        endif;
+
         if( ( 782 != get_option( 'medium_size_w' ) ) ) :
             update_option( 'medium_size_w', 782 );
             update_option( 'medium_size_h', 9999 );
@@ -138,12 +132,11 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
         endif;
 
 
-
-        // Navigationsmenüs registrieren
+        // Registers the navigation menus.
         register_nav_menu( 'primary', __( 'Primäre Navigation', 'cm' ) );
 
 
-        // Widget Areas registrieren
+        // Registers the widget areas.
         register_sidebar( array(
             'name'          => __( 'Footer #1', 'cm' ),
             'id'            => 'footer-one',
@@ -182,23 +175,24 @@ endif;
 
 
 /**
- * (Ent-)Lädt eine Reihe von notwendigen JS-Scripts und Stylesheets.
+ * Loads a set of necessary JS scripts and stylesheets.
  *
- * @since   1.0.0
+ * @since 1.0.0
  */
 
 function cm_enqueue_scripts()
 {
     wp_enqueue_script(
         'cm-script',
-        get_template_directory_uri() . '/assets/js/frontend.js',
+        get_template_directory_uri() . '/assets/build/js/frontend.min.js',
         array( 'jquery' ),
         false,
         true
     );
+
     wp_enqueue_style(
         'cm-style',
-        get_template_directory_uri() . '/assets/css/frontend.min.css',
+        get_template_directory_uri() . '/assets/build/css/frontend.min.css',
         array(),
         '2.5.0'
     );
@@ -219,7 +213,7 @@ function cm_admin_enqueue_scripts( $hook )
 {
     wp_enqueue_style(
         'cm-backend-style',
-        get_template_directory_uri() . '/assets/css/backend.min.css'
+        get_template_directory_uri() . '/assets/build/css/backend.min.css'
     );
 }
 
