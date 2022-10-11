@@ -14,6 +14,25 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
+ * Lädt Scripts für den Admin-Bereich.
+ *
+ * @since 2.5.0
+ * @param string $hook    Die aktuelle Seite im Backend.
+ */
+
+function cm_admin_enqueue_scripts( $hook )
+{
+    wp_enqueue_style(
+        'cm-backend-style',
+        get_template_directory_uri() . '/assets/build/css/backend.min.css'
+    );
+}
+
+add_action( 'admin_enqueue_scripts', 'cm_admin_enqueue_scripts' );
+
+
+
+/**
  * Erstellt das CM-Menü
  * Hinweis: Menüpunkte für Posttypes werden bei deren Registrierung erzeugt
  *
