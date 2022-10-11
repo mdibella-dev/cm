@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Type Exhibition_Space (Ausstellungsfläche)
+ * Custom post type: exhibition_space ('Ausstellungsfläche').
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,11 +14,11 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Bestimmt die Spalten der Beitragsliste (Backend).
+ * Determines the columns of the post list (backend).
  *
  * @since  2.5.0
- * @param  array   $default    Die Standardvorgaben für Spalten.
- * @return $array              Ein assoziatives Array, in denen die zu verwendenden Spalten beschrieben werden.
+ * @param  array   $default    The defaults for columns.
+ * @return $array              An associative array describing the columns to use.
  */
 
 function cm_post_type_exhibition_space__manage_posts_columns( $default )
@@ -37,11 +37,11 @@ add_filter( 'manage_exhibition_space_posts_columns', 'cm_post_type_exhibition_sp
 
 
 /**
- * Erzeugt die Ausgabe der Spalten.
+ * Generates the column output.
  *
  * @since 2.5.0
- * @param string $column_name    Bezeichnung der auszugebenden Spalte.
- * @param int    $post_id        ID des Beitrags (aka Datensatzes) den auszugeben gilt.
+ * @param string $column_name    Designation of the column to be output.
+ * @param int    $post_id        ID of the post (aka record) to be output.
  */
 
 function cm_post_type_exhibition_space__manage_posts_custom_column( $column_name, $post_id )
@@ -64,10 +64,10 @@ add_action( 'manage_exhibition_space_posts_custom_column', 'cm_post_type_exhibit
 
 
 /**
- * Registriert sortierfähige Spalten (durch Zuordnung entsprechender orderby-Parameter).
+ * Registers sortable columns (by assigning appropriate orderby parameters).
  *
  * @since  2.5.0
- * @param  array  $columns   Die Spalten.
+ * @param  array  $columns   The columns.
  * @return $array            Ein assoziatives Array.
  */
 
@@ -85,10 +85,10 @@ add_filter( 'manage_edit-exhibition_space_sortable_columns', 'cm_post_type_exhib
 
 
 /**
- * Erzeugt eine sortierte Ausgabe.
+ * Produces sorted output.
  *
  * @since 2.5.0
- * @param WP_Query $query   Ein Datenobjekt der zuletzt gemachten Abfrage.
+ * @param WP_Query $query   A data object of the last query made.
  */
 
 function cm_post_type_exhibition_space__pre_get_posts( $query )
