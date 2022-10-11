@@ -23,7 +23,7 @@ get_header();
         <?php
         if( have_posts() ) :
 
-            ob_start(); // notwendig?
+            ob_start();
 
             while( have_posts() ) :
                 the_post();

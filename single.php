@@ -20,7 +20,6 @@ get_header();
         <?php
         if( have_posts() ) :
 
-            // Ausgabenpufferung beginnen
             ob_start();
 
             while( have_posts() ) :
@@ -39,7 +38,6 @@ get_header();
         <?php
             endwhile;
 
-            // Ausgabenpufferung beenden und Puffer ausgeben
             $output = ob_get_contents();
             ob_end_clean();
             echo $output;

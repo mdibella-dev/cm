@@ -25,7 +25,7 @@ get_header();
                 while( have_posts() ) :
                     the_post();
 
-                    // Datensatz holen
+                    // Get record
                     $data = cm_get_speaker_dataset( get_the_ID() );
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
@@ -33,7 +33,7 @@ get_header();
 
                     <?php
                     /**
-                     * Beschreibung des Referenten
+                     * Show description of the speaker.
                      *
                      * @since 1.1.0
                      */
@@ -75,14 +75,16 @@ get_header();
 
                         <div class="single-speaker-profile__column">
                             <h2 class="speaker-title-name"><?php echo $data[ 'title_name' ]; ?></h2>
+
                             <?php
-                            // Position oder Berufstitel bekannt?
-                            if( !empty( $data[ 'position' ] ) ) :
+                            // Position or job title known?
+                            if( ! empty( $data[ 'position' ] ) ) :
                             ?>
                             <h3 class="speaker-position"><?php echo $data[ 'position' ]; ?></h3>
                             <?php
                             endif;
                             ?>
+
                             <div class="article"><?php echo apply_filters( 'the_content', $data[ 'description' ] ); ?></div>
                         </div>
                     </div>
@@ -91,7 +93,7 @@ get_header();
 
             <?php
             /**
-             * Veranstaltungen mit diesem Referenten
+             * Events with this speaker.
              *
              * @since 1.0.0
              */
@@ -114,7 +116,7 @@ get_header();
 
 
             /**
-             * Weitere Referenten anzeigen
+             * Show more speakers.
              *
              * @since 1.0.0
              */
