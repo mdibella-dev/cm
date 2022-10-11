@@ -24,7 +24,9 @@ function cm_admin_enqueue_scripts( $hook )
 {
     wp_enqueue_style(
         'cm-backend-style',
-        get_template_directory_uri() . '/assets/build/css/backend.min.css'
+        get_template_directory_uri() . '/assets/build/css/backend.min.css',
+        array(),
+        THEME_VERSION
     );
 }
 
