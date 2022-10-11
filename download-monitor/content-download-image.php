@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom Template für bildbasierte Downloads
+ * Custom template for image-based downloads.
  *
  * @author  Marco Di Bella
  * @package cm

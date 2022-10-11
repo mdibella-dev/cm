@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom Template für einfache Download-Links mit Beschreibung
+ * Custom template for simple download links with description.
  *
  * @author  Marco Di Bella
  * @package cm
