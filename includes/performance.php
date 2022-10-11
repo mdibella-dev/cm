@@ -54,7 +54,7 @@ function cm_remove_post_classes( $classes, $class, $post_id )
 {
     $checked_classes = array();
 
-    if( !is_admin() ) :
+    if( ! is_admin() ) :
 
         foreach( $classes as $check ) :
 
