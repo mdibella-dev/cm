@@ -19,7 +19,9 @@ error_reporting( E_ALL ^ E_NOTICE );
 
 
 
-/** Constants */
+/** Set global constants */
+
+define( 'THEME_VERSION', '3.0.0' );
 
 define( 'SOCIAL_MEDIA', array(
     '1' => array(

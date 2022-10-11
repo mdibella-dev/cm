@@ -186,7 +186,7 @@ function cm_enqueue_scripts()
         'cm-script',
         get_template_directory_uri() . '/assets/build/js/frontend.min.js',
         array( 'jquery' ),
-        false,
+        THEME_VERSION,
         true
     );
 
@@ -194,7 +194,7 @@ function cm_enqueue_scripts()
         'cm-style',
         get_template_directory_uri() . '/assets/build/css/frontend.min.css',
         array(),
-        '2.5.0'
+        THEME_VERSION
     );
 }
 
