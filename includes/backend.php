@@ -1,6 +1,6 @@
 <?php
 /**
- * Backend
+ * Backend (admin area) related settings.
  *
  * @author  Marco Di Bella
  * @package cm

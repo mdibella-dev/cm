@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Editor (aka Gutenberg)
+ * Block Editor (aka Gutenberg).
  *
  * @author  Marco Di Bella
  * @package cm
@@ -59,7 +59,7 @@ function cm_add_block_editor_assets()
         'block-editor',
         get_template_directory_uri() . '/assets/build/js/block-editor.js',
         array( 'wp-blocks', 'wp-dom' ),
-        THEME_VERSION, 
+        THEME_VERSION,
         true
     );
 }

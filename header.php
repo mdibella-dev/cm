@@ -1,6 +1,6 @@
 <?php
 /**
- * Template für den Kopfbereich einer Seite
+ * The template to display the header section of a page/post.
  *
  * @author  Marco Di Bella
  * @package cm

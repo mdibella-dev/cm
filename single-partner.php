@@ -1,6 +1,6 @@
 <?php
 /**
- * Einzelseite eines Kooperationspartners
+ * The template for displaying a single partner.
  *
  * @author  Marco Di Bella
  * @package cm

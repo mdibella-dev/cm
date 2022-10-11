@@ -1,6 +1,6 @@
 <?php
 /**
- * Initialisiert das Thema und stellt eine Reihe von Zusatzfunktionen bereit
+ * The theme's core file.
  *
  * @author  Marco Di Bella
  * @package cm

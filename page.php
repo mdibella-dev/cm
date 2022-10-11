@@ -1,6 +1,6 @@
 <?php
 /**
- * Seite
+ * The template for displaying a single page.
  *
  * @author  Marco Di Bella
  * @package cm

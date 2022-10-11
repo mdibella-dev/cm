@@ -1,6 +1,6 @@
 <?php
 /**
- * Template für Seiten/Beträge aller Art (Fallback)
+ * The generic template.
  *
  * @author  Marco Di Bella
  * @package cm

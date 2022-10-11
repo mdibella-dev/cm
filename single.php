@@ -1,6 +1,6 @@
 <?php
 /**
- * Template für Beiträge
+ * The template for displaying a single post.
  *
  * @author  Marco Di Bella
  * @package cm

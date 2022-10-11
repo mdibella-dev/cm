@@ -1,6 +1,6 @@
 <?php
 /**
- * Zentrale Funktionen des Themes
+ * CM core API.
  *
  * @author  Marco Di Bella
  * @package cm

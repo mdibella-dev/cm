@@ -1,6 +1,6 @@
 <?php
 /**
- * Einzelseite eines Referenten
+ * The template for displaying a single speaker.
  *
  * @author  Marco Di Bella
  * @package cm

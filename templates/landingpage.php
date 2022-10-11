@@ -1,5 +1,7 @@
 <?php
 /**
+ * The template to display a landing page.
+ *
  * Template Name: Landingpage
  *
  * @author  Marco Di Bella
