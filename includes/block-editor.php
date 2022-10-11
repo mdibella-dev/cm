@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Block Editor für diverse Post Types deaktivieren
+ * Disable block editor for various post types.
  *
  * @since 1.0.0
  * @see   https://digwp.com/2018/04/how-to-disable-gutenberg/
@@ -39,7 +39,7 @@ add_filter( 'use_block_editor_for_post_type', 'cm_disable_block_editor', 10, 2);
 
 
 /**
- * Script- und Stil-Modifikationen für den Block Editor
+ * Script and style modifications for the block editor.
  *
  * @since 1.0.0
  * @see   https://die-netzialisten.de/wordpress/gutenberg-breite-des-editors-anpassen/

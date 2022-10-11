@@ -14,10 +14,10 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Lädt Scripts für den Admin-Bereich.
+ * Loads scripts for the admin area.
  *
  * @since 2.5.0
- * @param string $hook    Die aktuelle Seite im Backend.
+ * @param string $hook    The current page in the backend.
  */
 
 function cm_admin_enqueue_scripts( $hook )
@@ -35,8 +35,8 @@ add_action( 'admin_enqueue_scripts', 'cm_admin_enqueue_scripts' );
 
 
 /**
- * Erstellt das CM-Menü
- * Hinweis: Menüpunkte für Posttypes werden bei deren Registrierung erzeugt
+ * Creates the CM menu.
+ * Note: Menu items for posttypes are created when they are registered.
  *
  * @since 2.3.0
  */
@@ -101,7 +101,7 @@ add_action( 'admin_menu', 'cm_admin_menu', 999 );
 
 
 /**
- * Sortiert das Congressomat-Menü
+ * Sorts the Congressomat menu.
  *
  * @since 2.3.0
  */
@@ -143,7 +143,8 @@ add_filter( 'menu_order', 'cm_admin_menu_order' );
 
 
 /**
- * Fügt ein JS-Script hinzu, um diverse Standard-Eingabefelder von WordPress in eine neue Maske (ACF) zu verschieben
+ * Adds a JS script to:
+ * - move various standard WordPress input fields to a new mask (created with ACF),
  *
  * @since 2.0.0
  * @see   http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
@@ -169,7 +170,7 @@ add_action( 'acf/input/admin_head', 'cm_adjust_acf_dialog' );
 
 
 /**
- * Versteckt standardmäßig diverse Spalten in der Adminübersicht
+ * Hides various columns in the admin overview by default.
  *
  * @since 2.5.0
  */
@@ -201,7 +202,7 @@ add_filter( 'default_hidden_columns', 'cm_default_hidden_columns', 10, 2 );
 
 
 /**
- * Erzeugt angepasste Seitentitel in der Adminübersicht.
+ * Generates customized page titles in the admin overview.
  *
  * @since 2.5.0
  * @see   https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
