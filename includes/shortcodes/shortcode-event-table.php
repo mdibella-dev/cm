@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [event-table]
+ * Shortcode [event-table].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,21 +14,22 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen einer Tabelle mit dem Zeitplan eines bestimmten Events
+ * Generates a table with the schedule of a specific event.
  *
  * @since   2.1.0
  *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - set           die gewählte Set-Vorlage
- *          - event         die Identifikationsnummer des Events
- *          - speaker       die Identfikationsnummer eines Referenten; dient zur Filterung der Beiträge dieses Referenten
- *          - show_details  Anzeige der Details ermöglichen (TRUE, FALSE)
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @param   array   $atts   The attributes (parameters) of the shorcode.
+ *          - set           The selected setlist.
+ *          - event         The identification number of the event.
+ *          - speaker       The identification number of a speaker; is used to filter the contributions of this speaker.
+ *          - show_details  Allow details to be displayed (TRUE, FALSE).
+ * @return  string          The output produced by the shortcode.
  */
 
 function cm_shortcode_event_table( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'set'          => '1',
         'speaker'      => '',
@@ -39,11 +40,13 @@ function cm_shortcode_event_table( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Bei valider Setlist fortfahren */
+    /** Continue if setlist is valid */
+
     if( ( 1 <= $set ) and ( $set <= sizeof( EVENT_TABLE_SETLIST ) ) ) :
 
-        // Daten holen
-        // Entweder nach (aktiven) Sessions des angegebenen Speakers suchen (Variante 1) oder nach den Sessions des angegebenen Events suchen (Variante 2)
+        /** Retrieve and prepare data. */
+
+        // Either search for (active) sessions of the specified speaker (variant 1) or search for the sessions of the specified event (variant 2)
         if( !empty( $speaker) ) :
             $sessions = cm_get_sessions_by_speaker( $speaker );
         elseif( !empty( $event ) ) :
@@ -53,19 +56,19 @@ function cm_shortcode_event_table( $atts, $content = null )
         endif;
 
 
-        // Jede Session entlang der Setlist abarbeiten
+        // Loop through each session along the setlist
         if( $sessions ) :
-            $a_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['a'] );
-            $b_set = explode( ',', EVENT_TABLE_SETLIST[ $set ]['b'] );
+            $a_set  = explode( ',', EVENT_TABLE_SETLIST[ $set ]['a'] );
+            $b_set  = explode( ',', EVENT_TABLE_SETLIST[ $set ]['b'] );
 
-            // Ausgabe vorbereiten
             $output = sprintf( '<div class="event-table has-set-%1$s">', $set );
 
             foreach( $sessions as $session ) :
                 $output .= '<div class="event-table__session">';
 
 
-                // Die durch a_set konfigurierten Elemente abarbeiten
+                /** Process the elements configured by a_set. */
+
                 $output .= '<div class="event-table__session-schedule">';
 
                 foreach( $a_set as $data_key ) :
@@ -119,7 +122,8 @@ function cm_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                // Die durch b_set konfigurierten Elemente abarbeiten
+                /** Process the elements configured by b_set. */
+
                 $output .= '<div class="event-table__session-overview">';
 
                 foreach( $b_set as $data_key ) :
@@ -176,7 +180,8 @@ function cm_shortcode_event_table( $atts, $content = null )
                 $output .= '</div>';
 
 
-                // Anzeige der Detailinformationen (wenn vorhanden) ermöglichen
+                /** Enable display of detailed information (if available). */
+
                 $details = apply_filters( 'the_content', get_field( 'programmpunkt-beschreibung', $session->ID ) );
 
                 if( ( $show_details == true ) and !empty( $details ) ):

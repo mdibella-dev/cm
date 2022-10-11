@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [faq]
+ * Shortcode [faq].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,24 +14,26 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen eines Akkordion-Elements für FAQ
+ * Erzeugt ein Akkordion-Elements für FAQ
  *
  * @since  1.0.0
- * @param  array   $atts    die Attribute (Parameter) des Shorcodes
+ * @param  array   $atts    The attributes (parameters) of the shorcode.
  *         - faq            der gewählte FAQ-Satz
- * @return string           die vom Shortcode erzeugte Ausgabe
+ * @return string           The output produced by the shortcode.
  */
 
 function cm_shortcode_faq( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'faq' => '',
     );
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Daten abrufen und aufbereiten
+    /** Do the shortcode stuff and start the output. */
+
     if( have_rows( 'faq', $faq ) ) :
         ob_start();
 ?>
@@ -58,7 +60,6 @@ function cm_shortcode_faq( $atts, $content = null )
     </ul>
 </div>
 <?php
-        // Ausgabenpufferung beenden und Puffer ausgeben
         $output = ob_get_contents();
         ob_end_clean();
         return $output;

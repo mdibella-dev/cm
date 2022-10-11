@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [exhibition-list]
+ * Shortcode [exhibition-list].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,27 +14,28 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen einer (Aussteller-)Liste mit den Kooperationspartnern
+* Generates an (exhibitor) list with the cooperation partners.
  *
  * @since   2.3.0
  *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- *          - partnership   (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen.
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @param   array   $atts   The attributes (parameters) of the shorcode..
+ *         - partnership    (optional) The cooperation form(s) to be filtered by.
+ *                          The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
+ * @return  string          The output produced by the shortcode.
  */
 
 function cm_shortcode_exhibition_list( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'partnership' => '',
     );
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Daten abrufen und aufbereiten
-    // Optional kann hierbei nach Kooperationsform gefiltert werden
+    /** Retrieve and prepare data. */
+
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -43,6 +44,7 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
         'orderby'        => 'title',
     );
 
+    // Optionally, you can filter by type of partnership.
     if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
@@ -54,14 +56,14 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
     $partners = get_posts( $query );
 
 
-    // Ausgabe
+    /** Do the shortcode stuff and start the output */
+
     if( $partners ) :
         ob_start();
 ?>
 <ul class="exhibition-list">
     <?php
     foreach( $partners as $partner ) :
-        // Datensatz holen
         $data = cm_get_partner_dataset( $partner->ID );
     ?>
 
@@ -75,9 +77,10 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
                 <div class="exhibition-list-layout">
                     <div><?php echo $data[ 'address' ];?></div>
                     <div>
+
                     <?php
                     /**
-                     * Leere Eingaben herausfiltern
+                     * Filter out empty entries
                      *
                      * @since 2.5.0
                      */
@@ -125,7 +128,6 @@ function cm_shortcode_exhibition_list( $atts, $content = null )
     <?php endforeach; ?>
 </ul>
 <?php
-        // Ausgabenpufferung beenden und Puffer
         $output = ob_get_contents();
         ob_end_clean();
         return $output;

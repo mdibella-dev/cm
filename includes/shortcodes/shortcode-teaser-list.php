@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [teaser-list]
+ * Shortcode [teaser-list].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Erzeugt eine Teaserliste mit den zuletzt veröffentlichten Artikeln.
+ * Generates a teaser list with the most recently published articles.
  *
  * @since  1.0.0
  * @param  array $atts    die Attribute (Parameter) des Shorcodes
@@ -28,7 +28,8 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_shortcode_teaser_list( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'show'      => '',
         'paged'     => '0',
@@ -39,7 +40,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Variablen setzen
+    /** Retrieve and prepare data. */
 
     global $post;
            $exclude_ids = explode( ',', str_replace( " ", "", $exclude ) );
@@ -47,7 +48,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
            $orderby     = 'date';
 
 
-    // In Abhängigkeit des Anzeige-Modus (paged/non-paged) die jeweils benötigten Werte ermitteln
+    // Determine the required values depending on the display mode (paged/non-paged)
     if( 1 == $paged ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = array(
@@ -68,7 +69,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
             $current_page = $get_prt;
         endif;
 
-        $offset = ($current_page - 1) * $show; // Startpunkt
+        $offset = ($current_page - 1) * $show; // starting point
     else :
         $show = empty ( $show )? 4 : $show;
 
@@ -77,8 +78,6 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         endif;
     endif;
 
-
-    // Daten abrufen und aufbereiten
     $query = array(
         'exclude'        => $exclude_ids,
         'post_type'      => 'post',
@@ -92,7 +91,8 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     $articles = get_posts( $query );
 
 
-    // Ausgabe vorbereiten
+    /** Do the shortcode stuff and start the output. */
+
     if( $articles ) :
         ob_start();
 ?>
@@ -140,7 +140,6 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 </div>
 
 <?php
-        // Ausgabenpufferung beenden und Puffer ausgeben
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
@@ -154,7 +153,7 @@ add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
 
 
 /**
- * Hilfsfunktion für die Teaserliste zur Ausgabe einer Pagination
+ * Helper function for the teaser list to output a pagination.
  *
  * @since 1.0.0
  */
@@ -175,7 +174,6 @@ function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
     </div>
 </nav>
 <?php
-    // Ausgabenpufferung beenden und Puffer ausgeben
     $output = ob_get_contents();
     ob_end_clean();
     echo $output;

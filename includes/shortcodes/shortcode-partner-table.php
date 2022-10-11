@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [partner-table]
+ * Shortcode [partner-table].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,20 +14,21 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen einer Tabelle mit den Kooperationspartnern
+ * Generates a table with the cooperation partners.
  *
  * @since  1.0.0
- * @param  array   $atts    die Attribute (Parameter) des Shorcodes
- *         - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
- *         - fieldset       Eine kommaseparierte Liste mit Feldschlüsseln, mit denen die Auswahl sowie die Sortierung der Tabellenzeilen vorgenommen wird.
- *                          Folgende Werte sind derzeit möglich: LOGO, BESCHREIBUNG, MESSESTAND
- * @return string           die vom Shortcode erzeugte Ausgabe
+ * @param  array   $atts    The attributes (parameters) of the shorcode.
+ *         - partnership    (optional) The cooperation form(s) to be filtered by.
+ *                          The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
+ *         - fieldset       A comma-separated list of field keys used to select and sort table rows.
+ *                          The following values are currently possible: LOGO, BESCHREIBUNG, MESSESTAND
+ * @return string           The output produced by the shortcode.
  */
 
 function cm_shortcode_partner_table( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'partnership' => '',
         'fieldset'    => '',
@@ -35,8 +36,8 @@ function cm_shortcode_partner_table( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Daten abrufen und aufbereiten
-    // Optional kann hierbei nach Kooperationsform gefiltert werden
+    /** Retrieve and prepare data. */
+
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -45,6 +46,7 @@ function cm_shortcode_partner_table( $atts, $content = null )
         'orderby'        => 'title'
     );
 
+    // Optionally, you can filter by type of partnership
     if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
@@ -56,7 +58,8 @@ function cm_shortcode_partner_table( $atts, $content = null )
     $partners = get_posts( $query );
 
 
-    // Ausgabe
+    /** Do the shortcode stuff and start the output */
+
     $output = '';
 
     if( $partners ) :
@@ -64,7 +67,8 @@ function cm_shortcode_partner_table( $atts, $content = null )
         $field_keys = explode( ',', strtoupper( str_replace(" ", "", $fieldset ) ) );
 
 
-        // Alle gefundenen Partner durchlaufen und entsprechende Tabellenzeilen generieren
+        /** Loop through all partners found and generate corresponding table rows. */
+
         foreach( $partners as $partner ) :
             unset( $cells );
 
@@ -157,7 +161,8 @@ function cm_shortcode_partner_table( $atts, $content = null )
             endforeach;
 
 
-            // Alle Tabellenzellen zu einer Tabellenreihe zusammenbauen
+            /** Assemble all table cells into a table row. */
+
             $row_content = '';
 
             foreach( $cells as $class => $cell ) :
@@ -176,7 +181,8 @@ function cm_shortcode_partner_table( $atts, $content = null )
         endforeach;
 
 
-        // Ausgabe vorbereiten
+        /** Prepare output. */
+
         $output .= '<table class="partner-table">';
         $output .= '<tbody>';
 

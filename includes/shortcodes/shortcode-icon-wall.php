@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [icon-wall]
+ * Shortcode [icon-wall].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,19 +14,20 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen einer "Mauer" mit den Logos der Kooperationspartner
+ * Creates a "wall" with the logos of the cooperation partners.
  *
  * @since  2.3.0
- * @param  array   $atts    die Attribute (Parameter) des Shorcodes
- *         - partnership    (optional) Die Kooperationsform(en) nach der gefiltert werden soll.
- *                          Die Kooperationsformen müssen in Form einer kommaseparierten Liste ihrer Identifikationsnummern vorliegen
+ * @param  array   $atts    The attributes (parameters) of the shorcode.
+ *         - partnership    (optional) The cooperation form(s) to be filtered by.
+ *                          The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
  *         - link           (optional) Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
- * @return string           die vom Shortcode erzeugte Ausgabe
+ * @return string           The output produced by the shortcode.
  */
 
 function cm_shortcode_icon_wall( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
         'partnership' => '',
         'link'        => 'none',
@@ -40,13 +41,13 @@ function cm_shortcode_icon_wall( $atts, $content = null )
         'external',
     );
 
-    if( !in_array( $link, $link_options ) ) :
+    if( ! in_array( $link, $link_options ) ) :
         $link = 'none';
     endif;
 
 
-    // Daten abrufen und aufbereiten
-    // Optional kann hierbei nach Kooperationsform gefiltert werden
+    /** Retrieve and prepare data. */
+
     $query = array(
         'post_type'      => 'partner',
         'post_status'    => 'publish',
@@ -55,6 +56,7 @@ function cm_shortcode_icon_wall( $atts, $content = null )
         'orderby'        => 'title',
     );
 
+    // Optionally, you can filter by type of partnership.
     if( ! empty( $partnership ) ) :
         $query[ 'tax_query' ] = array( array(
             'taxonomy' => 'partnership',
@@ -66,7 +68,8 @@ function cm_shortcode_icon_wall( $atts, $content = null )
     $partners = get_posts( $query );
 
 
-    // Ausgabe
+    /** Do the shortcode stuff and start the output. */
+
     if( $partners ) :
         ob_start();
 ?>
@@ -75,11 +78,10 @@ function cm_shortcode_icon_wall( $atts, $content = null )
     <?php
     foreach( $partners as $partner ) :
 
-        // Datensatz holen
         $data = cm_get_partner_dataset( $partner->ID );
 
 
-        // Quadratische Logos?
+        // Squared logos?
         $li_class = '';
         $thumb    = wp_get_attachment_metadata( get_post_thumbnail_id( $data[ 'id' ] ) );
 
@@ -134,7 +136,6 @@ function cm_shortcode_icon_wall( $atts, $content = null )
 </ul>
 
 <?php
-        // Ausgabenpufferung beenden und Puffer ausgeben
         $output = ob_get_contents();
         ob_end_clean();
         return $output;

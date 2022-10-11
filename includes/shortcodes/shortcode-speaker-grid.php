@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [speaker-grid]
+ * Shortcode [speaker-grid].
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,23 +14,24 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Shortcode zum Erzeugen einer Grid-Ansicht mit den Bildern, Namen und Positionsbeschreibungen der Referenten eines oder mehrerer Events.
- * Wird keine Angaben zu den Events gemacht, so werden die im Backend als aktiv gekennzeichneten Events zur Grundlage gemacht.
+ * Generates a grid view with the images, names and position descriptions of the speakers of one or more events
+ * If no information is given about the events, the events marked as active in the backend are used as a basis.
  *
  * @since  1.0.0
- * @param  array   $atts    die Attribute (Parameter) des Shorcodes
- *         - event          (optional) Kommaseparierte Liste von Events, aus denen die Referenten bestimmt werden sollen.
- *         - exclude        (optional) Kommaseparierte Liste von Referenten, die nicht angezeigt werden sollen.
- *         - show           (optional) Die Anzahl der anzuzeigenden Referenten. Wenn nichts angegeben wird, werden alle gefundenen Referenten angezeigt.
- *         - shuffle        (optional, nur in Verbindung mir show) Randomisiert die Referentenauswahl vor der Auswahl durch show.
- * @return string           die vom Shortcode erzeugte Ausgabe
+ * @param  array   $atts    The attributes (parameters) of the shorcode.
+ *         - event          (optional) Comma-separated list of events from which to select speakers.
+ *         - exclude        (optional) Comma-separated list of speakers not to be displayed.
+ *         - show           (optional) The number of sepakers to display. If nothing is specified, all speakers found are displayed.
+ *         - shuffle        (optional, only in connection with show) Randomizes the speaker selection before the selection by show.
+ * @return string           The output produced by the shortcode.
  */
 
 function cm_shortcode_speaker_grid( $atts, $content = null )
 {
-    // Übergebene Parameter ermitteln
+    /** Determine passed parameters. */
+
     $default_atts = array(
-        'event'   => '-1', // nur aktive Events
+        'event'   => '-1', // only active events
         'exclude' => '',
         'show'    => 0,
         'shuffle' => 0,
@@ -38,12 +39,13 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
-    // Daten abrufen und aufbereiten
+    /** Retrieve and prepare data. */
+
     $speakers = cm_get_speaker_datasets( ( $event == '-1' )? implode( ',', cm_get_active_events() ) : $event );
 
     if( $speakers ) :
 
-        // Optional: Ausschluss bestimmtet Speaker
+        // Optional: exclusion of certain speakers
         $exclude_ids = explode( ',', str_replace(" ", "", $exclude ) );
 
         foreach( $speakers as $speaker ) :
@@ -53,10 +55,10 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         endforeach;
 
 
-        // Optional: Beschnitt der Ausgabe */
+        // Optional: limit the output
         if( ( true == is_numeric( $show ) ) and ( $show > 0 ) and ( $show < sizeof( $speaker_list ) ) ) :
 
-            // Optional: Ausgabe durchmischen
+            // Optional: Shuffle output
             if( 1 == $shuffle ) :
                 shuffle( $speaker_list );
                 $speaker_list = array_slice( $speaker_list, 0, $show );
@@ -68,7 +70,8 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
         endif;
 
 
-        // Ausgabe
+        /** Do the shortcode stuff and start the output */
+
         ob_start();
 ?>
 <div class="speaker-grid">
@@ -95,7 +98,6 @@ function cm_shortcode_speaker_grid( $atts, $content = null )
 </div>
 
 <?php
-        // Ausgabenpufferung beenden und Puffer ausgeben
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
