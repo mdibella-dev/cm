@@ -1,6 +1,6 @@
 <?php
 /**
- * Taxonomy Partnership (Kooperationsformen)
+ * Custom taxonomy: partnership ('Kooperationsformen').
  *
  * @author  Marco Di Bella
  * @package cm
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Bestimmt die Spalten in der Taxonomy-Liste
+ * Specifies the columns in the taxonomy list.
  *
  * @since 2.5.0
  */
@@ -36,7 +36,7 @@ add_filter( 'manage_edit-partnership_columns', 'cm_set_partnership_columns' );
 
 
 /**
- * Bestimmt den Inhalt der Spalten in der Taxonomy-Liste
+ * Determines the content of the columns in the taxonomy list.
  *
  * @since 2.5.0
  */
