@@ -1,7 +1,7 @@
 /**
  * Block Editor (aka Gutenberg) Assets
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
@@ -31,15 +31,7 @@
 
 /** Blocks */
 
-@import "blocks/_wp-block-button";
-@import "blocks/_wp-block-quote";
-@import "blocks/_wp-block-table";
-@import "blocks/_wp-block-image";
-@import "blocks/_wp-block-cover";
-@import "blocks/_wp-block-embed";
-@import "blocks/_wp-block-spacer";
-@import "blocks/_wp-block-media-text";
-@import "blocks/third-party/_wp-block-webfactory-map";
+@import "blocks/_index";
 
 
 
@@ -53,7 +45,6 @@
  * aber einen Puffer von 5% lassen, um nicht an den Rand stoßen
  */
 
-  Maximale Arbeitsbreite
 .is-root-container > .wp-block {
     @include respond-to(large) {
         max-width: 95% !important;

@@ -1,0 +1,24 @@
+/**
+ * Blocks
+ *
+ * @author  Marco Di Bella
+ * @package mdb-rechtsdepesche
+ */
+
+
+
+/** Core blocks */
+
+@import "core/_block-button";
+@import "core/_block-cover";
+@import "core/_block-embed";
+@import "core/_block-image";
+@import "core/_block-media-text";
+@import "core/_block-quote";
+@import "core/_block-spacer";
+@import "core/_block-table";
+
+
+/** Webfactory blocks */
+
+@import "webfactory/_block-webfactory-map";
