@@ -1,5 +1,5 @@
 # CM
-CM is a WordPress theme tailored to the needs of an events site.
+CM is a WordPress theme build for the needs of an events site.
 
 __Contributors:__ rdg-dibella, mdibella-dev
 
