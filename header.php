@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) or exit;
 
     <?php
     /**
-     * FontAwesome5 CDN integration
+     * FontAwesome5 CDN integration.
      * Domain must have been previously registered in fontawesome-account.
      *
      * @used-by FontAwesome Plugin (https://wordpress.org/plugins/font-awesome/)
