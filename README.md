@@ -14,6 +14,7 @@ __Tested up to:__ WordPress 6.1
 
 
 ### main
+* Added: Separator lines in admin menu.
 * Changed: Directory structure.
 * Changed: Changelog style and laguage.
 * Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed.
