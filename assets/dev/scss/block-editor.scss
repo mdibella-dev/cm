@@ -15,7 +15,7 @@
 /** Mixins */
 
 @import "mixins/_mixins";
-@import "mixins/_media-breakpoints";
+@import "mixins/_breakpoints";
 
 
 /** Seitenelemente / generelle Einstellungen */
@@ -61,8 +61,6 @@
     margin-left: auto !important;
     margin-right: auto !important;
 }
-
-
 
 
 .edit-post-text-editor {
