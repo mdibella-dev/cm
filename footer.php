@@ -1,13 +1,15 @@
 <?php
 /**
- * Template für den Fußbereich einer Seite
+ * The template to display the footer section of a page/post.
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
 
- defined( 'ABSPATH' ) or exit;
+/** Prevent direct access */
+
+defined( 'ABSPATH' ) or exit;
 
 
 

@@ -1,12 +1,14 @@
 <?php
 /**
- * Custom Template für bildbasierte Downloads
+ * Custom template for image-based downloads.
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  * @uses    Plugin download-monitor
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 

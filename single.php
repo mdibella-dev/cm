@@ -1,11 +1,13 @@
 <?php
 /**
- * Template für Beiträge
+ * The template for displaying a single post.
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
@@ -18,7 +20,6 @@ get_header();
         <?php
         if( have_posts() ) :
 
-            // Ausgabenpufferung beginnen
             ob_start();
 
             while( have_posts() ) :
@@ -37,7 +38,6 @@ get_header();
         <?php
             endwhile;
 
-            // Ausgabenpufferung beenden und Puffer ausgeben
             $output = ob_get_contents();
             ob_end_clean();
             echo $output;

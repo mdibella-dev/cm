@@ -1,11 +1,13 @@
 <?php
 /**
- * Template für den Kopfbereich einer Seite
+ * The template to display the header section of a page/post.
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
@@ -29,8 +31,8 @@ defined( 'ABSPATH' ) or exit;
 
     <?php
     /**
-     * Integration von FontAwesome5 CDN
-     * Domäne muss zuvor im fontawesome-account registriert worden sein
+     * FontAwesome5 CDN integration.
+     * Domain must have been previously registered in fontawesome-account.
      *
      * @used-by FontAwesome Plugin (https://wordpress.org/plugins/font-awesome/)
      */

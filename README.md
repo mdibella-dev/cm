@@ -1,96 +1,107 @@
 # CM
-CM ist ein WordPress-Theme, das auf die Bedürfnisse einer Veranstaltungsseite abstellt. Neben der Bereitstellung der hierfür notwendigen Grundfunktionalität, orientiert sich die Gestaltung an den Möglichkeiten des neuen Block-Editors Gutenberg.
+CM is a WordPress theme build for the needs of an events site.
 
 __Contributors:__ rdg-dibella, mdibella-dev
 
-__Tags:__  footer-widgets, block-styles, translation-ready, mega-menu, wide-blocks, landing-pages, page-templates, shortcodes, child-theme-ready, gutenberg, custom-post-types, responsive
+__Tags:__ block-styles, block-editor, translation-ready, child-theme-ready, responsive, wide-blocks, landing-pages, page-templates, shortcodes, custom-post-types, custom-taxnomies
 
-__Requires at least:__ WordPress 5.3  
+__Requires at least:__ WordPress 5.3
 
-__Tested up to:__ WordPress 5.9  
-
+__Tested up to:__ WordPress 6.1
 
 ## Changelog
-*Hinzugefügt/Geändert/Entfernt/Fixed*
+*Added/Changed/Fixed/Removed*
+
 
 ### main
-**Fixed:** Aussteller (Backend): Leere Ausstellungsflächen werden nicht mehr angezeigt  
+* Added: Separator lines in admin menu.
+* Changed: Directory structure.
+* Changed: Changelog style and laguage.
+* Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed.
+* Removed: cm_remove_thumbnail_width_height().
+
 
 ### 2.5.0
-**Hinzugefügt:** Situationsspezifische Betitelung  
-**Hinzugefügt:** Örtlichkeiten zeigt Anzahl der Programmpunkte bzw. Ausstellungsflächen an  
-**Hinzugefügt:** Standardmäßige Ausschalten der Slugs- und Beschreibungsspalten  
-**Hinzugefügt:** Darstellung einer Abbildung bei Örtlichkeiten  
-**Hinzugefügt:** Ausführlichere Übersicht der Taxonomien und Beitragstypen   
-**Hinzugefügt:** Inaktiv/Aktiv-Anzeige für Veranstaltungen (issue #9)  
-**Hinzugefügt:** Backend-CSS  
-**Geändert:** Code-Stil  
-**Geändert:** Textdomäne  
-**Geändert:** Package  
-**Geändert:** Menüreihenfolge  
-**Geändert:** Menüname und -symbol  
-**Geändert:** SCSS und CSS voneinander getrennt  
-**Geändert:** Speaker: Set von 4 auf 1 bei Programmpunkte gestellt  
-**Entfernt:** Unnötige Bildgrößen  
-**Fixed:** Zahlen-Links bei den Übersichten arbeiten jetzt korrekt  
-**Fixed:** Korrektur der Standard-Sortierung bei den Ausstellungsflächen  
-**Fixed:** Speaker: Wenn keine Programmpunkte vorhanden sind, wird auch nichts angezeigt  
-**Fixed:** Aussteller: Leere Ausstellungsflächen werden nicht mehr angezeigt  
+* Added: Situation specific titling.
+* Added: Localities shows the number of program items or exhibition areas.
+* Added: Turning off the slugs and description columns by default.
+* Added: Displaying an image for locations.
+* Added: More detailed overview of taxonomies and post types.
+* Added: Inactive/Active display for events (issue #9).
+* Added: Backend CSS.
+* Changed: Code style.
+* Changed: Text domain.
+* Changed: Package info.
+* Changed: Menu order.
+* Changed: Menu name and icon.
+* Changed: SCSS and CSS separated from each other.
+* Changed: Speaker: Set from 4 to 1 for program items.
+* Fixed: Number links in the overviews now work correctly.
+* Fixed: Correction of the standard sorting for the exhibition areas.
+* Fixed: Speaker: If there are no program items, nothing is displayed.
+* Fixed: Exhibitors: Empty exhibition spaces are no longer displayed.
+* Removed: Unnecessary image sizes.
 
-### 2.4.0  
-**Geändert:** Code-Stil  
 
-### 2.3.0  
-**Hinzugefügt:** Versionierung des Stylesheets   
-**Hinzugefügt:** Detail-Seite für Kooperationspartner    
-**Hinzugefügt:** Posttype für Ausstellungsflächen  
-**Hinzugefügt:** Taxonomie für Ausstellerpakete  
-**Hinzugefügt:** Gemeinsames Admin-Menü für alle CM-Komponenten (ausgenommen FAQ)  
-**Hinzugefügt:** Mixin für figcaption (betrifft Embeds, Bilder)  
-**Hinzugefügt:** Button-Stil Grau-Schattiert  
-**Hinzugefügt:** Shortcode [icon-wall]  
-**Hinzugefügt:** Shortcode [exhibition-list]  
-**Hinzugefügt:** Darstellung von Blocks im Block-Editor  
-**Fixed:** Line-Height bei wp-block-image  
-**Fixed:** Farbpalette  
-**Fixed:** Darstellung von .wp-block-cover im Block-Editor  
-**Fixed:** Breite von Blocks nach Root-Element im Block-Editor   
-**Geändert:** Abstände bei Embeds, Bildern  
-**Geändert:** speaker-grid  
-**Geändert:** single-speaker.php + Klassen  
-**Geändert:** Button-Stile  
-**Entfernt:** .is-style-with-caption  
-**Entfernt:** Shortcode [partner-list]  
+### 2.4.0.
+* Changed: Code style.
+
+
+### 2.3.0.
+* Added: Style sheet versioning.
+* Added: Detail page for cooperation partners..
+* Added: Posttype for exhibition space.
+* Added: Taxonomy for exhibitor packages.
+* Added: Common admin menu for all CM components (except FAQ).
+* Added: Mixin for figcaption (affects embeds, images).
+* Added: Button style Gray-Shaded.
+* Added: Shortcode [icon-wall].
+* Added: Shortcode [exhibition-list].
+* Added: Display of blocks in the block editor.
+* Fixed: Line height on wp-block-image.
+* Changed: Spacing for embeds, images.
+* Changed: speaker grid.
+* Changed: single-speaker.php + classes.
+* Changed: Button styles.
+* Fixed: Color palette.
+* Fixed: rendering of .wp-block-cover in block editor.
+* Fixed: Width of blocks by root element in block editor.
+* Removed: .is-style-with-caption.
+* Removed: Shortcode [partner-list].
+
 
 ### 2.2.0
-**Hinzugefügt:** .post-title, .page-title  
-**Hinzugefügt:** Spacer-Block   
-**Fixed:** Extrafreiraum bei .teaser-image  
-**Fixed:** Breite des Blockeditors (Codeview)  
-**Geändert:** Verzeichnisstruktur  
-**Geändert:** Teaser ohne 'Mehr'-Schalter  
-**Geändert:** Referenten-Seite (Backport von Winterakademie)  
+* Added: .post-title, .page-title.
+* Added: Spacer Block.
+* Changed: Directory structure.
+* Changed: Teaser without 'More' button.
+* Changed: Presenters page (Backport from Winter Academy).
+* Fixed: Extra space on .teaser-image.
+* Fixed: Width of block editor (codeview).
+
 
 ### 2.1.0
-**Geändert:** Kommentierung und Code-Refaktorierung   
-**Geändert:** Templates für Download-Monitor  
-**Geändert:** Shortcode Event-Table  
-**Geändert:** FontAwesome5-Integration  
-**Geändert:** Hauptnavigation (QuadMenu-Integration)  
-**Hinzugefügt:** Unterstützung für multiple Programmpunktzuweisungen  
-**Hinzugefügt:** Beschreibung für Programmpunke  
-**Hinzugefügt:** .accordion  
-**Entfernt:** cm_excerpt_more()  
-**Entfernt:** cm_remove_script_version()  
-**Entfernt:** cm_special_replacements()  
+* Added: Support for multiple program item assignments.
+* Added: Description for program items.
+* Added: .accordion.
+* Changed: Commenting and code refactoring.
+* Changed: Templates for Download Monitor.
+* Changed: Shortcode event table.
+* Changed: FontAwesome5 integration.
+* Changed: Main Navigation (QuadMenu integration).
+* Removed: cm_excerpt_more().
+* Removed: cm_remove_script_version().
+* Removed: cm_special_replacements().
+
 
 ### 2.0.0
-**Geändert:** Verzeichnisstruktur des Themes  
-**Geändert:** Changelog und Readme miteinander verschmolzen  
-**Geändert:** Menüs im Backend  
-**Fixed:** Eingabedialog für einen Programmpunkt  
-**Fixed:** Anzeige aller Sessions eines Speakers  
-**Geändert:** Registrierung der Widget-Areas  
+* Changed: Directory structure of the theme.
+* Changed: Merged changelog and readme.
+* Changed: Backend menus.
+* Changed: Registration of widget areas.
+* Fixed: Input dialog for a program point.
+* Fixed: Display of all sessions of a speaker.
+
 
 ### 1.0.0
-Erstveröffentlichung
+* Initial commit

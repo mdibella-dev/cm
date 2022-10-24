@@ -1,11 +1,13 @@
 <?php
 /**
- * Einzelseite eines Kooperationspartners
+ * The template for displaying a single partner.
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
@@ -21,14 +23,14 @@ get_header();
                 while( have_posts() ) :
                     the_post();
 
-                    // Datensatz holen
+                    // Get record
                     $data = cm_get_partner_dataset( get_the_ID() );
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
                     <h2 class="section-title has-text-align-center"><?php echo $data[ 'title' ]; ?></h2>
                     <?php
-                    if( !empty( $data['description'] ) ) :
+                    if( ! empty( $data['description'] ) ) :
                         echo $data['description'];
                     else :
                     ?>
@@ -38,9 +40,10 @@ get_header();
                     ?>
                 </div>
             </div>
+
             <?php
             /**
-             * Kontaktdaten etc
+             * Show contact details.
              *
              * @since   2.3.0
              */
@@ -101,14 +104,15 @@ get_header();
                         </div>
 
                     </div>
+
             <?php
             /**
-             * Unternehmensadresse in Google Maps anzeigen
+             * Show company address in Google Maps.
              *
              * @since   2.3.0
              */
 
-            if( !empty( $data['address'] ) ) :
+            if( ! empty( $data['address'] ) ) :
 
                 $google_maps_query =
                 'https://www.google.com/maps/embed/v1/place?q='
@@ -125,6 +129,7 @@ get_header();
             <?php
             endif;
             ?>
+            
             <?php
             endwhile;
         endif;
