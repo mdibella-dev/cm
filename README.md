@@ -21,6 +21,7 @@ __Tested up to:__ WordPress 6.1
 * Changed: Changelog style and laguage.
 * Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed.
 * Removed: cm_remove_thumbnail_width_height().
+* Removed: ICBM meta tag.
 
 
 ### 2.5.0
