@@ -1,0 +1,16 @@
+/**
+ * Fonts
+ *
+ * @author  Marco Di Bella
+ * @package mdb-theme-fse
+ */
+
+
+
+@font-face {
+    font-family: 'Roboto Flex';
+    src: url('../../fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('woff2 supports variations'),
+         url('../../fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('woff2-variations');
+    font-weight: 100 1000;
+    font-display: swap;
+}
