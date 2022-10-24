@@ -3,7 +3,7 @@
  * The template to display the header section of the live page.
  *
  * @author  Marco Di Bella
- * @package cm-iwc
+ * @package cm
  */
 
 
