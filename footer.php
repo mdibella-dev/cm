@@ -16,9 +16,9 @@ defined( 'ABSPATH' ) or exit;
 ?>
         <footer id="footer">
 
-            <section class="footer-widgets-wrapper">
+            <section id="footer-widget-wrapper" class="footer-wrapper">
 
-                <div class="footer-widgets-wrapper__inner-container">
+                <div class="footer-wrapper__inner-container">
 
                     <div class="widget-area">
                         <?php dynamic_sidebar( 'footer-one' ); ?>

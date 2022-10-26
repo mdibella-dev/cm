@@ -1,7 +1,7 @@
 /**
  * Seitenelemente
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm
  */
 
@@ -27,10 +27,11 @@
     color: #555;
 }
 
+
 .footer-wrapper {
     width: 100%;
 
-    & > div[class*="__inner-container"] {
+    .footer-wrapper__inner-container {
         margin: 0 auto;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -43,6 +44,7 @@
         }
     }
 }
+
 
 #footer-widget-wrapper {
     .footer-wrapper__inner-container {
