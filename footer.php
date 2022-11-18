@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or exit;
 ?>
         <footer id="footer">
 
-            <section id="footer-widget-wrapper" class="footer-wrapper">
+            <section id="footer-widgets" class="footer-wrapper">
 
                 <div class="footer-wrapper__inner-container">
 
