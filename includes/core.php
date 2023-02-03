@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Returns an array with sessions
+ * Returns an array with sessions.
  *
  * @since 1.0.0
  *
@@ -121,8 +121,10 @@ function cm_get_sessions( $args )
 /**
  * Returns the sessions belonging to a specific event.
  *
- * @since  1.0.0
- * @param  int    $event
+ * @since 1.0.0
+ *
+ * @param int $event
+ *
  * @return array
  */
 
@@ -140,9 +142,11 @@ function cm_get_sessions_by_event( $event, $date = '' )
  * Delivers the sessions belonging to a specific speaker.
  * It can be filtered by active, inactive or all sessions.
  *
- * @since  1.0.0
- * @param  int    $speaker
- * @param  string $event_filter
+ * @since 1.0.0
+ *
+ * @param int    $speaker
+ * @param string $event_filter
+ *
  * @return array
  */
 
@@ -159,8 +163,10 @@ function cm_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' )
 /**
  * Sorts an array of sessions in ascending order by timestamp.
  *
- * @since  1.0.0
+ * @since 1.0.0
+ *
  * @param  array $sessions
+ *
  * @return array
  */
 
@@ -246,8 +252,11 @@ function cm_get_active_events()
 
 /**
  * Determines the speakers from all sessions from one or more events.
- * @since  1.0.0
- * @param  string $event_list_string    A comma-separated list of events (IDs)
+ *
+ * @since 1.0.0
+ *
+ * @param string $event_list_string A comma-separated list of events (IDs)
+ *
  * @return array
  */
 
@@ -315,9 +324,10 @@ function cm_get_speaker_datasets( $event_list_string = '' )
 /**
  * Returns the dataset of a specific speaker.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  int   $speaker
+ * @param int $speaker
+ *
  * @return array
  */
 
@@ -342,10 +352,11 @@ function cm_get_speaker_dataset( $speaker )
 /**
  * Sorts a list of speaker datasets by first and last name.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  array  $speaker_list    Die unsortierte Liste
- * @return array                   Die sortierte List
+ * @param array $speaker_list The unsorted list.
+ *
+ * @return array The sorted list.
  */
 
 function cm_sort_speaker_datasets( $speaker_list )
@@ -365,9 +376,10 @@ function cm_sort_speaker_datasets( $speaker_list )
 /**
  * Determines the name of a location.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  int    $location
+ * @param int $location
+ *
  * @return string
  */
 
@@ -390,9 +402,10 @@ function cm_get_location( $location )
 /**
  * Determines the name of an event.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  int      $event
+ * @param int $event
+ *
  * @return string
  */
 
@@ -414,9 +427,10 @@ function cm_get_event( $event )
 /**
  * Returns the record of a specific partner.
  *
- * @since  2.3.0
+ * @since 2.3.0
  *
- * @param  int    $partner_id
+ * @param int $partner_id
+ *
  * @return array
  */
 
