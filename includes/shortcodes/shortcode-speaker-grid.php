@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) or exit;
  *         - shuffle (optional, only in connection with show)
  *           Randomizes the speaker selection before the selection by show.
  *
- * @return string           The output produced by the shortcode.
+ * @return string The output produced by the shortcode.
  */
 
 function cm_shortcode_speaker_grid( $atts, $content = null )
