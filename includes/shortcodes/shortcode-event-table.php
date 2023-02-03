@@ -51,7 +51,8 @@ function cm_shortcode_event_table( $atts, $content = null )
 
         /** Retrieve and prepare data. */
 
-        // Either search for (active) sessions of the specified speaker (variant 1) or search for the sessions of the specified event (variant 2)
+        // Either search for (active) sessions of the specified speaker (variant 1)
+        // or search for the sessions of the specified event (variant 2)
         if( !empty( $speaker) ) :
             $sessions = cm_get_sessions_by_speaker( $speaker );
         elseif( !empty( $event ) ) :

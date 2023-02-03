@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or exit;
  *                      The cooperation form(s) to be filtered by.
  *                      The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
  *                    - link (optional)
- *                      Legt fest, ob und wie das Logo verlinkt werden soll (none, internal, external)
+ *                      Defines if and how the logo should be linked (none, internal, external).
  *
  * @return string The output produced by the shortcode.
  */

@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Liefert ein Array mit Sessions
+ * Returns an array with sessions
  *
  * @since 1.0.0
  *
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) or exit;
 
 function cm_get_sessions( $args )
 {
-    // Ermittelung der übergebenen Parameter
+    // Determination of the passed parameters
     $default_args = array(
         'event'          => '',
         'event_filter'   => 'ACTIVE',
@@ -36,7 +36,7 @@ function cm_get_sessions( $args )
     extract( wp_parse_args( $args, $default_args ) );
 
 
-    // Konstruktion der Datenabfrage
+    // Data query construction
     $query = array(
         'posts_per_page' => $posts_per_page,
         'post_status'    => 'publish',
@@ -44,8 +44,9 @@ function cm_get_sessions( $args )
     );
 
 
-    // Behandlung von event/event_filter
-    // Fügt entweder die Suche nach den Sessions eines bestimmenten Events hinzu (Variante 1) bzw. eine Filterung nach aktiven oder inaktiven Sessions (Variante 2) hinzu.
+    // Handling event/event_filter
+    // Adds either the search for the sessions of a specific event (variant 1)
+    // or filtering by active or inactive sessions (variant 2).
     if( null !== cm_get_event( $event ) ) :
 
         $query[ 'tax_query' ] = array( array(
@@ -78,8 +79,8 @@ function cm_get_sessions( $args )
     endif;
 
 
-    // Behandlung von speaker/date
-    // Fügt die Suche nach den Sessions eines bestimmten Speakers und/oder die Suche nach den Session, die an einem bestimmten Datum stattfinden, hinzu.
+    // Handling of speaker/date
+    // Adds the search for the sessions of a specific speaker and/or the search for the session taking place on a specific date.
     if( ! empty( $speaker ) or ! empty( $date ) ) :
         $query['meta_query'] = array();
 
@@ -110,7 +111,7 @@ function cm_get_sessions( $args )
     endif;
 
 
-    // Durchführung der Datenabfrage und Rückgabe des sortierten Ergebnisses
+    // Execution of the data query and return of the sorted result
     $sessions = get_posts( $query );
     return cm_sort_sessions_by_timestamp( $sessions );
 }
@@ -118,7 +119,7 @@ function cm_get_sessions( $args )
 
 
 /**
- * Liefert die zu einem bestimmten Event gehörenden Sessions
+ * Returns the sessions belonging to a specific event.
  *
  * @since  1.0.0
  * @param  int    $event
@@ -136,8 +137,8 @@ function cm_get_sessions_by_event( $event, $date = '' )
 
 
 /**
- * Liefert die zu einem bestimmten Speaker gehörenden Sessions
- * Dabei kann nach aktiven, inaktiven oder allen Sessions gefiltert werden
+ * Delivers the sessions belonging to a specific speaker.
+ * It can be filtered by active, inactive or all sessions.
  *
  * @since  1.0.0
  * @param  int    $speaker
@@ -156,7 +157,7 @@ function cm_get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' )
 
 
 /**
- * Sortiert ein Array mit Sessions aufsteigend nach Zeitstempel
+ * Sorts an array of sessions in ascending order by timestamp.
  *
  * @since  1.0.0
  * @param  array $sessions
@@ -169,10 +170,10 @@ function cm_sort_sessions_by_timestamp( $sessions )
         $unable_to_sort = false;
         $sort           = array();
 
-        // Bildung eines sortierfähigen Arrays
+        // Creation of a sortable array
         foreach( $sessions as $session ) :
 
-            // Erzeugung der notwendigen Zeitstempel ('von', bis')
+            // Generation of the necessary time stamps ('from', to')
             $timestamp_from = strtotime(
                 get_field( 'programmpunkt-datum', $session->ID )
                 . ' ' .
@@ -186,8 +187,8 @@ function cm_sort_sessions_by_timestamp( $sessions )
             );
 
 
-            // Hinzufügung der Session zum Sortier-Array sofern 'von'-Zeitstempel (1. Priorität) oder 'bis'-Zeitstempel (2. Priorität) vorhanden sind.
-            // Andernfalls Abbruch, da eine Sortierung nicht möglich ist.
+            // Add the session to the sort array if 'from' timestamps (1st priority) or 'to' timestamps (2nd priority) are present.
+            // Otherwise abort, because sorting is not possible.
             if( false !== $timestamp_from ) :
                 $sort[ $timestamp_from ] = $session;
             elseif ( false !== $timestamp_to ) :
@@ -200,7 +201,7 @@ function cm_sort_sessions_by_timestamp( $sessions )
         endforeach;
 
 
-        // Durchführung der Sortierung (wenn möglich)
+        // Implementation of the sorting (if possible)
         if( false === $unable_to_sort ) :
             ksort( $sort );
             $sessions = array_values( $sort );
@@ -214,7 +215,7 @@ function cm_sort_sessions_by_timestamp( $sessions )
 
 
 /**
- * Ermittelt die derzeit aktiven Events
+ * Determines the currently active events.
  *
  * @since  1.0.0
  * @return array
@@ -244,16 +245,16 @@ function cm_get_active_events()
 
 
 /**
- * Ermittelt die Speaker aus allen Sessions von einem oder mehreren Events
+ * Determines the speakers from all sessions from one or more events.
  * @since  1.0.0
- * @param  string $event_list_string    eine kommaseparierte Liste mit Events (IDs)
+ * @param  string $event_list_string    A comma-separated list of events (IDs)
  * @return array
  */
 
 function cm_get_speaker_datasets( $event_list_string = '' )
 {
-    // Konstruktion und Durchführung der Datenabfrage
-    // Sollten keine Events angegeben worden sein (d.h. $event_list_string ist leer), werden die aktiven Events zur Grundlage genommen
+    // Construction and implementation of the data query.
+    // If no events have been specified (i.e. $event_list_string is empty), the active events will be used as a basis.
     $query = array(
         'posts_per_page' => -1,
         'post_status'    => 'publish',
@@ -282,7 +283,7 @@ function cm_get_speaker_datasets( $event_list_string = '' )
     $sessions = get_posts( $query );
 
 
-    // Ermittelung der betroffenen Speaker
+    // Identification of the affected speakers.
     if( $sessions ) :
         $finds_list   = array();
         $speaker_list = array();
@@ -292,7 +293,7 @@ function cm_get_speaker_datasets( $event_list_string = '' )
 
             if( null != $speakers ) :
                 foreach( $speakers as $speaker ) :
-                    // Nicht hinzufügen, wenn bereits in der Liste
+                    // Do not add if already in the list.
                     if( false == in_array( $speaker, $finds_list ) ) :
                         $finds_list[]   = $speaker;
                         $speaker_list[] = cm_get_speaker_dataset( $speaker );
@@ -302,7 +303,7 @@ function cm_get_speaker_datasets( $event_list_string = '' )
         endforeach;
 
 
-        // Sortierung der gefundenen Speaker nach Vor- und Nachnamen
+        // Sorting the found speakers by first and last name.
         return cm_sort_speaker_datasets( $speaker_list );
     endif;
 
@@ -312,7 +313,7 @@ function cm_get_speaker_datasets( $event_list_string = '' )
 
 
 /**
- * Liefert den Datensatz eines bestimmten Speakers
+ * Returns the dataset of a specific speaker.
  *
  * @since  1.0.0
  *
@@ -339,7 +340,7 @@ function cm_get_speaker_dataset( $speaker )
 
 
 /**
- * Sortiert eine Liste von Speaker-Datensätzen nach Vor- und Nachnamen
+ * Sorts a list of speaker datasets by first and last name.
  *
  * @since  1.0.0
  *
@@ -362,7 +363,7 @@ function cm_sort_speaker_datasets( $speaker_list )
 
 
 /**
- * Ermittelt den Namen einer Location
+ * Determines the name of a location.
  *
  * @since  1.0.0
  *
@@ -387,7 +388,7 @@ function cm_get_location( $location )
 
 
 /**
- * Ermittelt den Namen eines Events
+ * Determines the name of an event.
  *
  * @since  1.0.0
  *
@@ -411,7 +412,7 @@ function cm_get_event( $event )
 
 
 /**
- * Liefert den Datensatz eines bestimmten Partners
+ * Returns the record of a specific partner.
  *
  * @since  2.3.0
  *

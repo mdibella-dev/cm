@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) or exit;
  *
  * @param array $atts The attributes (parameters) of the shorcode.
  *                    - faq
- *                      der gewählte FAQ-Satz
+ *                      The selected FAQ set.
  *
  * @return string The output produced by the shortcode.
  */

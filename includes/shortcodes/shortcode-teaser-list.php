@@ -18,18 +18,18 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.0.0
  *
- * @param array $atts die Attribute (Parameter) des Shorcodes
+ * @param array $atts The attributes (parameters) of the shorcode.
  *                    - paged (optional)
- *                      Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ *                      Determines whether a teaser list should be displayed with (1) or without (0) pagination.
  *                    - show (optional)
- *                      Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *                      Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
+ *                      Specifies the number of teasers to be displayed either in total (non-paged) or per page (paged).
+ *                      Default values are 4 (non-paged) or the number stored in the backend for archive pages.
  *                    - exclude (optional)
- *                      Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ *                      Comma-separated list of posts (IDs) that should not be displayed.
  *                    - shuffle (optional)
- *                      Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ *                      Shuffles the output teasers (1, only for non-paged) instead of listing them chronologically in descending order (0).
  *
- * @return string die vom Shortcode erzeugte Ausgabe
+ * @return string The output produced by the shortcode.
  */
 
 function cm_shortcode_teaser_list( $atts, $content = null )

@@ -73,7 +73,7 @@ add_action( 'manage_exhibition_space_posts_custom_column', 'cm_post_type_exhibit
  *
  * @param array columns The columns.
  *
- * @return $array Ein assoziatives Array.
+ * @return $array An associative array.
  */
 
 function cm_post_type_exhibition_space__manage_sortable_columns( $columns )
