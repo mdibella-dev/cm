@@ -43,8 +43,8 @@ add_filter( 'manage_speaker_posts_columns', 'cm_post_type_speaker__manage_posts_
  *
  * @since 2.5.0
  *
- * @param string  $column_name  Designation of the column to be output.
- * @param int     $post_id      ID of the post (aka record) to be output.
+ * @param string $column_name Designation of the column to be output.
+ * @param int    $post_id     ID of the post (aka record) to be output.
  */
 
 function cm_post_type_speaker__manage_posts_custom_column( $column_name, $post_id )
