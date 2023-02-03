@@ -16,13 +16,19 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Generates a teaser list with the most recently published articles.
  *
- * @since  1.0.0
- * @param  array $atts    die Attribute (Parameter) des Shorcodes
- *         - paged        (optional) Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
- *         - show         (optional) Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
- *                        Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
- *         - exclude      (optional) Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
- *         - shuffle      (optional) Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ * @since 1.0.0
+ *
+ * @param array $atts die Attribute (Parameter) des Shorcodes
+ *                    - paged (optional)
+ *                      Bestimmt, ob eine Teaserliste mit (1) oder ohne (0) Pagination angezeigt werden soll.
+ *                    - show (optional)
+ *                      Bestimmt die Anzahl der Teaser, die entweder insgesamt (non-paged) oder pro Seite (paged) angezeigt werden sollen.
+ *                      Standardwerte sind 4 (non-paged) oder die im Backend hinterlegte Angabe für Archivseiten
+ *                    - exclude (optional)
+ *                      Kommaseparierte Liste von Beiträgen (IDs), die nicht angezeigte werden sollen
+ *                    - shuffle (optional)
+ *                      Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
+ *
  * @return string         die vom Shortcode erzeugte Ausgabe
  */
 

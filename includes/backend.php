@@ -17,7 +17,8 @@ defined( 'ABSPATH' ) or exit;
  * Loads scripts for the admin area.
  *
  * @since 2.5.0
- * @param string $hook    The current page in the backend.
+ *
+ * @param string $hook The current page in the backend.
  */
 
 function cm_admin_enqueue_scripts( $hook )
@@ -147,7 +148,8 @@ add_filter( 'menu_order', 'cm_admin_menu_order' );
  * - move various standard WordPress input fields to a new mask (created with ACF),
  *
  * @since 2.0.0
- * @see   http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ *
+ * @see http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
  */
 
 function cm_adjust_acf_dialog()
@@ -205,7 +207,8 @@ add_filter( 'default_hidden_columns', 'cm_default_hidden_columns', 10, 2 );
  * Generates customized page titles in the admin overview.
  *
  * @since 2.5.0
- * @see   https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
+ *
+ * @see https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
  */
 
 function mdb_rewrite_header()

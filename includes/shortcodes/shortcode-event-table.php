@@ -16,14 +16,19 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Generates a table with the schedule of a specific event.
  *
- * @since   2.1.0
+ * @since 2.1.0
  *
- * @param   array   $atts   The attributes (parameters) of the shorcode.
- *          - set           The selected setlist.
- *          - event         The identification number of the event.
- *          - speaker       The identification number of a speaker; is used to filter the contributions of this speaker.
- *          - show_details  Allow details to be displayed (TRUE, FALSE).
- * @return  string          The output produced by the shortcode.
+ * @param array $atts The attributes (parameters) of the shorcode.
+ *                     - set
+ *                       The selected setlist.
+ *                     - event
+ *                       The identification number of the event.
+ *                     - speaker
+ *                       The identification number of a speaker; is used to filter the contributions of this speaker.
+ *                     - show_details
+ *                       Allow details to be displayed (TRUE, FALSE).
+ *
+ * @return string The output produced by the shortcode.
  */
 
 function cm_shortcode_event_table( $atts, $content = null )

@@ -17,12 +17,18 @@ defined( 'ABSPATH' ) or exit;
  * Generates a grid view with the images, names and position descriptions of the speakers of one or more events
  * If no information is given about the events, the events marked as active in the backend are used as a basis.
  *
- * @since  1.0.0
- * @param  array   $atts    The attributes (parameters) of the shorcode.
- *         - event          (optional) Comma-separated list of events from which to select speakers.
- *         - exclude        (optional) Comma-separated list of speakers not to be displayed.
- *         - show           (optional) The number of sepakers to display. If nothing is specified, all speakers found are displayed.
- *         - shuffle        (optional, only in connection with show) Randomizes the speaker selection before the selection by show.
+ * @since 1.0.0
+ *
+ * @param array $atts The attributes (parameters) of the shorcode.
+ *         - event (optional)
+ *           Comma-separated list of events from which to select speakers.
+ *         - exclude (optional)
+ *           Comma-separated list of speakers not to be displayed.
+ *         - show (optional)
+ *           The number of sepakers to display. If nothing is specified, all speakers found are displayed.
+ *         - shuffle (optional, only in connection with show)
+ *           Randomizes the speaker selection before the selection by show.
+ *
  * @return string           The output produced by the shortcode.
  */
 

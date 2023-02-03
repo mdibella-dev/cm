@@ -16,12 +16,14 @@ defined( 'ABSPATH' ) or exit;
 /**
 * Generates an (exhibitor) list with the cooperation partners.
  *
- * @since   2.3.0
+ * @since 2.3.0
  *
- * @param   array   $atts   The attributes (parameters) of the shorcode..
- *         - partnership    (optional) The cooperation form(s) to be filtered by.
- *                          The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
- * @return  string          The output produced by the shortcode.
+ * @param array $atts The attributes (parameters) of the shorcode..
+ *                    - partnership (optional)
+ *                      The cooperation form(s) to be filtered by.
+ *                      The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
+ *
+ * @return string The output produced by the shortcode.
  */
 
 function cm_shortcode_exhibition_list( $atts, $content = null )

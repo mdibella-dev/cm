@@ -41,13 +41,15 @@ add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
  * - .tags-,
  * - .status
  *
- * @since  1.0.0
- * @param  array $classes    An array of CSS classes applied to post types.
- * @param  array $class      An array of additional CSS classes.
- * @param  int   $post_id    The ID of the post.
- * @return array             Modified class array.
+ * @since 1.0.0
  *
- * @see    https://developer.wordpress.org/reference/hooks/post_class/
+ * @see https://developer.wordpress.org/reference/hooks/post_class/
+ *
+ * @param array $classes An array of CSS classes applied to post types.
+ * @param array $class   An array of additional CSS classes.
+ * @param int   $post_id The ID of the post.
+ *
+ * @return array Modified class array.
  */
 
 function cm_remove_post_classes( $classes, $class, $post_id )
@@ -89,9 +91,11 @@ add_filter( 'post_class', 'cm_remove_post_classes', 10, 3 );
 /**
  * Set the excerpt's length.
  *
- * @since  1.0.0
- * @param  int $length    The current length.
- * @return int            The modified number of characters.
+ * @since 1.0.0
+ *
+ * @param int $length The current length.
+ *
+ * @return int The modified number of characters.
  */
 
 function cm_excerpt_length( $length )

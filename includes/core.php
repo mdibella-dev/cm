@@ -16,10 +16,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Liefert ein Array mit Sessions
  *
- * @since  1.0.0
- * @param  array $args
+ * @since 1.0.0
+ *
+ * @param array $args
+ *
  * @return array
- **/
+ */
 
 function cm_get_sessions( $args )
 {

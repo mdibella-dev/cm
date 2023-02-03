@@ -16,10 +16,13 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Erzeugt ein Akkordion-Elements für FAQ
  *
- * @since  1.0.0
- * @param  array   $atts    The attributes (parameters) of the shorcode.
- *         - faq            der gewählte FAQ-Satz
- * @return string           The output produced by the shortcode.
+ * @since 1.0.0
+ *
+ * @param array $atts The attributes (parameters) of the shorcode.
+ *                    - faq
+ *                      der gewählte FAQ-Satz
+ *
+ * @return string The output produced by the shortcode.
  */
 
 function cm_shortcode_faq( $atts, $content = null )
