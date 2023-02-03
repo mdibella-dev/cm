@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) or exit;
  *                    - shuffle (optional)
  *                      Durchmischt die ausgegebenen Teaser (1, nur bei non-paged), statt sie chronologisch absteigend aufzulisten (0)
  *
- * @return string         die vom Shortcode erzeugte Ausgabe
+ * @return string die vom Shortcode erzeugte Ausgabe
  */
 
 function cm_shortcode_teaser_list( $atts, $content = null )
