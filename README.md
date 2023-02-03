@@ -15,10 +15,14 @@ __Tested up to:__ WordPress 6.1
 
 
 ### main
+
+
+### 2.6.0
 * Added: Separator lines in admin menu.
 * Added: Natural support of Roboto Flex.
 * Added: Support of plugin cmkk (backport from cm-iwc).
 * Added: Default header template file for live page.
+* Changed: Split core.php in separate files.
 * Changed: Directory structure.
 * Changed: Include strategy.
 * Changed: Changelog style and laguage.
