@@ -20,7 +20,9 @@ __Tested up to:__ WordPress 6.1
 * Added: Support of plugin cmkk (backport from cm-iwc).
 * Added: Default header template file for live page.
 * Changed: Directory structure.
+* Changed: Include strategy.
 * Changed: Changelog style and laguage.
+* Changed: Documentation style and language.
 * Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed.
 * Removed: cm_remove_thumbnail_width_height().
 * Removed: ICBM meta tag.

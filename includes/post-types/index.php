@@ -4,7 +4,7 @@
 defined( 'ABSPATH' ) or exit;
 
 
-require_once( 'taxonomy-partnership.php' );
-require_once( 'taxonomy-event.php' );
-require_once( 'taxonomy-exhibition-package.php' );
-require_once( 'taxonomy-location.php' );
+require_once( 'post-type-speaker.php' );
+require_once( 'post-type-session.php' );
+require_once( 'post-type-partner.php' );
+require_once( 'post-type-exhibition-space.php' );
