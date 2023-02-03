@@ -84,20 +84,6 @@ require_once( get_template_directory() . '/includes/backend.php' );
 require_once( get_template_directory() . '/includes/performance.php' );
 require_once( get_template_directory() . '/includes/core.php' );
 
-require_once( get_template_directory() . '/includes/taxonomies/taxonomy-partnership.php' );
-require_once( get_template_directory() . '/includes/taxonomies/taxonomy-event.php' );
-require_once( get_template_directory() . '/includes/taxonomies/taxonomy-exhibition-package.php' );
-require_once( get_template_directory() . '/includes/taxonomies/taxonomy-location.php' );
-
-require_once( get_template_directory() . '/includes/post-types/post-type-speaker.php' );
-require_once( get_template_directory() . '/includes/post-types/post-type-session.php' );
-require_once( get_template_directory() . '/includes/post-types/post-type-partner.php' );
-require_once( get_template_directory() . '/includes/post-types/post-type-exhibition-space.php' );
-
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-event-table.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-speaker-grid.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-teaser-list.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-partner-table.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-icon-wall.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-exhibition-list.php' );
-require_once( get_template_directory() . '/includes/shortcodes/shortcode-faq.php' );
+require_once( get_template_directory() . '/includes/taxonomies/index.php' );
+require_once( get_template_directory() . '/includes/post-types/index.php' );
+require_once( get_template_directory() . '/includes/shortcodes/index.php' );
