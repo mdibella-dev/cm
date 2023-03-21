@@ -2,6 +2,7 @@
 
 *Added / Changed / Fixed / Removed*
 
+<br>
 
 ### 2.6.0
 
