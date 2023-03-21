@@ -21,7 +21,6 @@ Released: 03-02-2023
 * Removed: cm_remove_thumbnail_width_height()
 * Removed: ICBM meta tag
 
-<br>
 
 ### 2.5.0
 
@@ -47,14 +46,12 @@ Released: 07-04-2022
 * Fixed: Exhibitors: Empty exhibition spaces are no longer displayed
 * Removed: Unnecessary image sizes
 
-<br>
 
 ### 2.4.0
 Released: 06-11-2020
 
 * Changed: Code style
 
-<br>
 
 ### 2.3.0
 Released: 06-08-2020
@@ -80,7 +77,6 @@ Released: 06-08-2020
 * Removed: .is-style-with-caption
 * Removed: Shortcode [partner-list]
 
-<br>
 
 ### 2.2.0
 Released: 14-05-2020
@@ -93,7 +89,6 @@ Released: 14-05-2020
 * Fixed: Extra space on .teaser-image
 * Fixed: Width of block editor (codeview)
 
-<br>
 
 ### 2.1.0
 * Added: Support for multiple program item assignments
@@ -108,7 +103,6 @@ Released: 14-05-2020
 * Removed: cm_remove_script_version()
 * Removed: cm_special_replacements()
 
-<br>
 
 ### 2.0.0
 * Changed: Directory structure of the theme
@@ -118,7 +112,6 @@ Released: 14-05-2020
 * Fixed: Input dialog for a program point
 * Fixed: Display of all sessions of a speaker
 
-<br>
 
 ### 1.0.0
 Released: 01-01-2019
