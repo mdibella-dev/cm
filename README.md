@@ -10,7 +10,6 @@ __Requires at least:__ WordPress 5.3
 __Tested up to:__ WordPress 6.1
 
 
-
 ---
 
 ## Changelog
@@ -23,4 +22,4 @@ __Tested up to:__ WordPress 6.1
 
 ### Previous changes
 
-See [CHANGELOG.md](https://github.com/dibella-rdg/cm/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/rdg-dibella/cm/blob/main/CHANGELOG.md).
