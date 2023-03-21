@@ -13,11 +13,12 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Requires at least
 
-WordPress 5.3
+* WordPress 5.3
+* ACF 5.0
 
 ### Tested up to
 
-WordPress 6.1
+* WordPress 6.1
 
 <br>
 
