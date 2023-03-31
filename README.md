@@ -5,7 +5,7 @@ CM is a WordPress theme build for the needs of an event site.
 
 ## Development Info
 
-### Contributors 
+### Contributors
 Marco Di Bella ([rdg-dibella](https://github.com/rdg-dibella), [mdibella-dev](https://github.com/mdibella-dev))
 
 ### Tags
@@ -18,7 +18,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Tested up to
 
-* WordPress 6.1
+* WordPress 6.2
 
 <br>
 
