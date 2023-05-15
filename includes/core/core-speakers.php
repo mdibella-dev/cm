@@ -54,7 +54,7 @@ function cm_get_speaker_dataset( $speaker )
 function cm_sort_speaker_datasets( $speaker_list )
 {
     foreach( $speaker_list as $key => $row ) :
-        $forename[ $key ] = $row['forename'];
+        $forename[ $key ] = $row['firstname'];
         $lastname[ $key ] = $row['lastname'];
     endforeach;
 

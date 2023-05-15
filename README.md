@@ -28,6 +28,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 ### Latest changes to the main branch
 
 * Changed: Extract changelog from README.md.
+* Bugfix: Fix undefined array key "forename" in core-speakers.php
 
 
 
