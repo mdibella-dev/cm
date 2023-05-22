@@ -1,0 +1,15 @@
+/**
+ * Modifications for plugin cm-faq.
+ *
+ * @author  Marco Di Bella
+ * @package cm
+ */
+
+
+.faq-answer {
+    
+    a {
+        @include a-tag-basic-settings;
+    }
+
+}
