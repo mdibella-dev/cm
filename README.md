@@ -27,9 +27,10 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Latest changes to the main branch
 
+* New: Add support for plugin cm-faq
 * Changed: Extract changelog from README.md.
-* Bugfix: Fix undefined array key "forename" in core-speakers.php
-
+* Fixed: Fix undefined array key "forename" in core-speakers.php
+* Remove: Shortcode FAQ
 
 
 ### Previous changes
