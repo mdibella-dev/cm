@@ -1,0 +1,18 @@
+{
+    "name": "cm-theme",
+    "version": "1.0.0",
+    "description": "Development Scripts",
+    "config" : {
+        "SASS_SRC": "./assets/src/css",
+        "SASS_BLD": "./assets/build/css"
+    },
+    "scripts": {
+        "sass:front": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/frontend.scss $npm_package_config_SASS_BLD/frontend.min.css",
+        "sass:back": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/backend.scss $npm_package_config_SASS_BLD/backend.min.css",
+        "sass:edit": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/block-editor.scss $npm_package_config_SASS_BLD/block-editor.min.css",
+        "sass:all": "npm run sass:front && npm run sass:back && npm run sass:edit"
+    },
+    "devDependecies": {
+        "sass": "^1.59.3"
+    }
+}
