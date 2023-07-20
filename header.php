@@ -27,17 +27,7 @@ defined( 'ABSPATH' ) or exit;
     <meta name="author" content="G&amp;S Verlag GbR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <?php
-    /**
-     * FontAwesome5 CDN integration.
-     * Domain must have been previously registered in fontawesome-account.
-     *
-     * @used-by FontAwesome Plugin (https://wordpress.org/plugins/font-awesome/)
-     */
-     ?>
-     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-TxKWSXbsweFt0o2WqfkfJRRNVaPdzXJ/YLqgStggBVRREXkwU7OKz+xXtqOU4u8+" crossorigin="anonymous">
-
-     <?php wp_head(); ?>
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
     <header id="header">
