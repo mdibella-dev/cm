@@ -84,6 +84,4 @@ require_once( get_template_directory() . '/includes/backend.php' );
 require_once( get_template_directory() . '/includes/performance.php' );
 
 require_once( get_template_directory() . '/includes/core/index.php' );
-require_once( get_template_directory() . '/includes/taxonomies/index.php' );
-require_once( get_template_directory() . '/includes/post-types/index.php' );
 require_once( get_template_directory() . '/includes/shortcodes/index.php' );
