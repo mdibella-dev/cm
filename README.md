@@ -37,6 +37,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 * Improve: Update changelog notation
 * Improve: Change package designation from **cm** to **cm-theme**
 * Bugfix: Fix undefined array key "forename" in core-speakers.php
+* Bugfix: Fix language path
 
 
 
