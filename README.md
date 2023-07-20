@@ -29,7 +29,9 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 * Improve: Extract changelog from README.md.
 * Improve: Outsource FAQ code into plugin [CM Theme — FAQ](https://github.com/mdibella-dev/cm-theme-addon-faq)
-* Improve: Outsource CM core functions, taxonomies, post-types etc. into plugin [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core) 
+* Improve: Outsource CM core functions, taxonomies, post-types etc. into plugin [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
+* Improve: Change array notation
+* Improve: Update changelog notation
 * Bugfix: Fix undefined array key "forename" in core-speakers.php
 
 

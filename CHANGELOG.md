@@ -1,6 +1,6 @@
 # Changelog
 
-*Added / Changed / Fixed / Removed*
+*New / Improve / Bugfix *
 
 <br>
 
@@ -8,109 +8,109 @@
 
 Released: 03-02-2023
 
-* Added: Separator lines in admin menu
-* Added: Support of Roboto Flex
-* Added: Support of plugin cmkk (backport from cm-iwc)
-* Added: Default header template file for live page
-* Changed: Split core.php in separate files
-* Changed: Directory structure
-* Changed: Include strategy
-* Changed: Changelog style and laguage
-* Changed: Documentation style and language
-* Fixed: Exhibitor (backend): Empty exhibition areas are no longer displayed
-* Removed: cm_remove_thumbnail_width_height()
-* Removed: ICBM meta tag
+* New: Separator lines in admin menu
+* New: Support of Roboto Flex
+* New: Support of plugin cmkk (backport from cm-iwc)
+* New: Default header template file for live page
+* Improve: Split core.php in separate files
+* Improve: Directory structure
+* Improve: Include strategy
+* Improve: Changelog style and laguage
+* Improve: Documentation style and language
+* Improve: Remove cm_remove_thumbnail_width_height()
+* Improve: Remove ICBM meta tag
+* Bugfix: Exhibitor (backend): Empty exhibition areas are no longer displayed
 
 
 ### 2.5.0
 
 Released: 07-04-2022
 
-* Added: Situation specific titling
-* Added: Localities shows the number of program items or exhibition areas
-* Added: Turning off the slugs and description columns by default
-* Added: Displaying an image for locations
-* Added: More detailed overview of taxonomies and post types
-* Added: Inactive/Active display for events (issue #9)
-* Added: Backend CSS
-* Changed: Code style
-* Changed: Text domain
-* Changed: Package info
-* Changed: Menu order
-* Changed: Menu name and icon
-* Changed: SCSS and CSS separated from each other
-* Changed: Speaker: Set from 4 to 1 for program items
-* Fixed: Number links in the overviews now work correctly
-* Fixed: Correction of the standard sorting for the exhibition areas
-* Fixed: Speaker: If there are no program items, nothing is displayed
-* Fixed: Exhibitors: Empty exhibition spaces are no longer displayed
-* Removed: Unnecessary image sizes
+* New: Situation specific titling
+* New: Localities shows the number of program items or exhibition areas
+* New: Turning off the slugs and description columns by default
+* New: Displaying an image for locations
+* New: More detailed overview of taxonomies and post types
+* New: Inactive/Active display for events (issue #9)
+* New: Backend CSS
+* Improve: Code style
+* Improve: Text domain
+* Improve: Package info
+* Improve: Menu order
+* Improve: Menu name and icon
+* Improve: SCSS and CSS separated from each other
+* Improve: Speaker: Set from 4 to 1 for program items
+* Improve: Remove Unnecessary image sizes
+* Bugfix: Number links in the overviews now work correctly
+* Bugfix: Correction of the standard sorting for the exhibition areas
+* Bugfix: Speaker: If there are no program items, nothing is displayed
+* Bugfix: Exhibitors: Empty exhibition spaces are no longer displayed
 
 
 ### 2.4.0
 Released: 06-11-2020
 
-* Changed: Code style
+* Improve: Code style
 
 
 ### 2.3.0
 Released: 06-08-2020
 
-* Added: Style sheet versioning
-* Added: Detail page for cooperation partners
-* Added: Posttype for exhibition space
-* Added: Taxonomy for exhibitor packages
-* Added: Common admin menu for all CM components (except FAQ)
-* Added: Mixin for figcaption (affects embeds, images)
-* Added: Button style Gray-Shaded
-* Added: Shortcode [icon-wall]
-* Added: Shortcode [exhibition-list]
-* Added: Display of blocks in the block editor
-* Fixed: Line height on wp-block-image
-* Changed: Spacing for embeds, images
-* Changed: speaker grid
-* Changed: single-speaker.php + classes
-* Changed: Button styles
-* Fixed: Color palette
-* Fixed: rendering of .wp-block-cover in block editor
-* Fixed: Width of blocks by root element in block editor
-* Removed: .is-style-with-caption
-* Removed: Shortcode [partner-list]
+* New: Style sheet versioning
+* New: Detail page for cooperation partners
+* New: Posttype for exhibition space
+* New: Taxonomy for exhibitor packages
+* New: Common admin menu for all CM components (except FAQ)
+* New: Mixin for figcaption (affects embeds, images)
+* New: Button style Gray-Shaded
+* New: Shortcode [icon-wall]
+* New: Shortcode [exhibition-list]
+* New: Display of blocks in the block editor
+* Improve: Spacing for embeds, images
+* Improve: speaker grid
+* Improve: single-speaker.php + classes
+* Improve: Button styles
+* Improve: Remove .is-style-with-caption
+* Improve: Remove Shortcode [partner-list]
+* Bugfix: Color palette
+* Bugfix: rendering of .wp-block-cover in block editor
+* Bugfix: Width of blocks by root element in block editor
+* Bugfix: Line height on wp-block-image
 
 
 ### 2.2.0
 Released: 14-05-2020
 
-* Added: .post-title, .page-title
-* Added: Spacer Block
-* Changed: Directory structure
-* Changed: Teaser without 'More' button
-* Changed: Presenters page (Backport from 'Winterakademie')
-* Fixed: Extra space on .teaser-image
-* Fixed: Width of block editor (codeview)
+* New: .post-title, .page-title
+* New: Spacer Block
+* Improve: Directory structure
+* Improve: Teaser without 'More' button
+* Improve: Presenters page (Backport from 'Winterakademie')
+* Bugfix: Extra space on .teaser-image
+* Bugfix: Width of block editor (codeview)
 
 
 ### 2.1.0
-* Added: Support for multiple program item assignments
-* Added: Description for program items
-* Added: .accordion
-* Changed: Commenting and code refactoring
-* Changed: Templates for Download Monitor
-* Changed: Shortcode event table
-* Changed: FontAwesome5 integration
-* Changed: Main Navigation (QuadMenu integration)
-* Removed: cm_excerpt_more()
-* Removed: cm_remove_script_version()
-* Removed: cm_special_replacements()
+* New: Support for multiple program item assignments
+* New: Description for program items
+* New: .accordion
+* Improve: Commenting and code refactoring
+* Improve: Templates for Download Monitor
+* Improve: Shortcode event table
+* Improve: FontAwesome5 integration
+* Improve: Main Navigation (QuadMenu integration)
+* Improve: Remove cm_excerpt_more()
+* Improve: Remove cm_remove_script_version()
+* Improve: Remove cm_special_replacements()
 
 
 ### 2.0.0
-* Changed: Directory structure of the theme
-* Changed: Merged changelog and readme
-* Changed: Backend menus
-* Changed: Registration of widget areas
-* Fixed: Input dialog for a program point
-* Fixed: Display of all sessions of a speaker
+* Improve: Directory structure of the theme
+* Improve: Merged changelog and readme
+* Improve: Backend menus
+* Improve: Registration of widget areas
+* Bugfix: Input dialog for a program point
+* Bugfix: Display of all sessions of a speaker
 
 
 ### 1.0.0
