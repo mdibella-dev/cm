@@ -23,56 +23,32 @@ error_reporting( E_ALL ^ E_NOTICE );
 
 define( 'THEME_VERSION', '2.6.0' );
 
-define( 'SOCIAL_MEDIA', array(
-    '1' => array(
+define( 'SOCIAL_MEDIA', [
+    '1' => [
         'name' => 'Facebook',
         'icon' => 'fab fa-facebook-f',
-    ),
-    '2' => array(
+    ],
+    '2' => [
         'name' => 'Twitter',
         'icon' =>'fab fa-twitter',
-    ),
-    '3' => array(
+    ],
+    '3' => [
         'name' => 'Instagram',
         'icon' => 'fab fa-instagram',
-    ),
-    '4' => array(
+    ],
+    '4' => [
         'name' => 'YouTube',
         'icon' => 'fab fa-youtube',
-    ),
-    '5' => array(
+    ],
+    '5' => [
         'name' => 'XING',
         'icon' => 'fab fa-xing',
-    ),
-    '6' => array(
+    ],
+    '6' => [
         'name' => 'LinkedIn',
         'icon' => 'fab fa-linkedin-in',
-    ),
-) );
-
-
-// Preconfigured sets for event tables;
-// a = left column with place and time information;
-// b = middle column with title etc.
-
-define( 'EVENT_TABLE_SETLIST', array(
-    '1' => array(
-        'a' => 'session-date,session-time-range,session-location',
-        'b' => 'session-title,session-subtitle',
-    ),
-    '2' => array(
-        'a' => 'session-time-begin,session-location',
-        'b' => 'session-title,session-subtitle,session-speaker',
-    ),
-    '3' => array(
-        'a' => 'session-time-range',
-        'b' => 'session-title,session-subtitle,session-speaker',
-    ),
-    '4' => array(
-        'a' => 'session-date,session-time-range',
-        'b' => 'session-title,session-subtitle',
-    ),
-) );
+    ],
+] );
 
 
 
