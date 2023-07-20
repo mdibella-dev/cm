@@ -8,6 +8,8 @@
  * @package cm-theme
  */
 
+namespace cm_theme;
+
 
 /** Prevent direct access */
 
