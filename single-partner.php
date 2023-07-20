@@ -8,6 +8,8 @@
 
 namespace cm_theme;
 
+use cm_theme_core\core__get_partner_dataset as get_dataset;
+
 
 /** Prevent direct access */
 
@@ -26,7 +28,7 @@ get_header();
                     the_post();
 
                     // Get record
-                    $data = cm_get_partner_dataset( get_the_ID() );
+                    $data = get_dataset( get_the_ID() );
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
