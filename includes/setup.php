@@ -26,7 +26,7 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
      function cm_theme_setup()
      {
         // Enables internationalization.
-        load_theme_textdomain( 'cm', THEME_DIR . '/lang' );
+        load_theme_textdomain( 'cm', THEME_DIR . 'languages' );
 
 
         // Enables HTML5-compliant handling of various WordPress core elements.
