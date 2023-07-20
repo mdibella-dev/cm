@@ -37,6 +37,8 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 * Improve: Update changelog notation
 * Improve: Change package designation from **cm** to **cm-theme**
 * Improve: Remove FontAwesome CDN support (use plugin instead)
+* Improve: Remove obsolete ACF file
+* Improve: Rename assets/dev to assets/src and assets/src/scss to assets/src/css
 * Bugfix: Fix undefined array key "forename" in core-speakers.php
 * Bugfix: Fix language path
 
