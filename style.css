@@ -1,15 +1,19 @@
-/*
-Theme Name: cm
-Theme URI: https://github.com/rdg-dibella/cm
-Author: Marco Di Bella
-Author URI: https://www.marcodibella.de
-Description: CM is a WordPress theme build for the needs of an events site.
-Requires at least: 5.3
-Tested up to: 6.2
-Requires PHP: 7
-Version: 2.6.0
-Text Domain: cm
-Tags: block-styles, block-editor, translation-ready, child-theme-ready, responsive, wide-blocks, landing-pages, page-templates, shortcodes, custom-post-types, custom-taxnomies
-*/
+/**
+ * Theme Name:          cm
+ * Plugin URI:          https://github.com/mdibella-dev/cm
+ * Description:         CM is a WordPress theme build for the needs of an events site.
+ * Author:              Marco Di Bella
+ * Author URI:          https://www.marcodibella.de
+ * Requires at least:   5.3
+ * Tested up to:        6.2
+ * Requires PHP:        7
+ * Version:             2.6.0
+ * Text Domain:         cm
+ * Domain Path:         /languages
+ * Tags:                gutenberg, block-editor, full-site-editing, translation-ready, responsive
+ *
+ * @author  Marco Di Bella
+ * @package cm_theme
+ */
 
 /* Note: The CSS files are loaded from assets/build/css/ folder. */
