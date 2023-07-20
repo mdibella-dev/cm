@@ -12,6 +12,33 @@
 defined( 'ABSPATH' ) or exit;
 
 
+define( 'SOCIAL_MEDIA', [
+    '1' => [
+        'name' => 'Facebook',
+        'icon' => 'fab fa-facebook-f',
+    ],
+    '2' => [
+        'name' => 'Twitter',
+        'icon' =>'fab fa-twitter',
+    ],
+    '3' => [
+        'name' => 'Instagram',
+        'icon' => 'fab fa-instagram',
+    ],
+    '4' => [
+        'name' => 'YouTube',
+        'icon' => 'fab fa-youtube',
+    ],
+    '5' => [
+        'name' => 'XING',
+        'icon' => 'fab fa-xing',
+    ],
+    '6' => [
+        'name' => 'LinkedIn',
+        'icon' => 'fab fa-linkedin-in',
+    ],
+] );
+
 
 get_header();
 ?>
