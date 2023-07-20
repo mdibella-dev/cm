@@ -59,13 +59,13 @@ function shortcode_teaser_list( $atts, $content = null )
     // Determine the required values depending on the display mode (paged/non-paged)
     if( 1 == $paged ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
-        $haystack = array(
+        $haystack = [
             'exclude'        => $exclude_ids,
             'category'       => $category,
             'post_type'      => 'post',
             'post_status'    => 'publish',
             'posts_per_page' => -1,
-        );
+        ];
         $max_page = ceil( sizeof( get_posts( $haystack ) ) / $show ) ;
         $get_prt  = isset( $_GET['prt'] )? $_GET['prt'] : 1;
 
@@ -86,7 +86,7 @@ function shortcode_teaser_list( $atts, $content = null )
         endif;
     endif;
 
-    $query = array(
+    $query = [
         'exclude'        => $exclude_ids,
         'post_type'      => 'post',
         'post_status'    => 'publish',
@@ -95,7 +95,7 @@ function shortcode_teaser_list( $atts, $content = null )
         'orderby'        => $orderby,
         'posts_per_page' => $show,
         'offset'         => $offset,
-    );
+    ];
     $articles = get_posts( $query );
 
 
