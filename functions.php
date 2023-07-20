@@ -80,7 +80,6 @@ define( 'EVENT_TABLE_SETLIST', array(
 
 require_once( get_template_directory() . '/includes/setup.php' );
 require_once( get_template_directory() . '/includes/block-editor.php' );
-require_once( get_template_directory() . '/includes/backend.php' );
 require_once( get_template_directory() . '/includes/performance.php' );
 
 require_once( get_template_directory() . '/includes/shortcodes/index.php' );
