@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) or exit;
  * @return string The output produced by the shortcode.
  */
 
-function cm_shortcode_teaser_list( $atts, $content = null )
+function shortcode_teaser_list( $atts, $content = null )
 {
     /** Determine passed parameters. */
 
@@ -156,7 +156,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     return null;
 }
 
-add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
+add_shortcode( 'teaser-list', 'shortcode_teaser_list' );
 
 
 
@@ -166,7 +166,7 @@ add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
  * @since 1.0.0
  */
 
-function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
+function shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
     ob_start();
 ?>
