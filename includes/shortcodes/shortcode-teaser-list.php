@@ -39,11 +39,11 @@ function shortcode_teaser_list( $atts, $content = null )
     /** Determine passed parameters. */
 
     $default_atts = [
-        'show'      => '',
-        'paged'     => '0',
-        'exclude'   => '',
-        'shuffle'   => '0',
-        'category'  => '0',
+        'show'     => '',
+        'paged'    => '0',
+        'exclude'  => '',
+        'shuffle'  => '0',
+        'category' => '0',
     ];
     extract( shortcode_atts( $default_atts, $atts ) );
 
