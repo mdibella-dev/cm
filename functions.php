@@ -19,9 +19,11 @@ error_reporting( E_ALL ^ E_NOTICE );
 
 
 
-/** Set global constants */
+/** Variables and definitions **/
 
-define( 'THEME_VERSION', '2.6.0' );
+define( __NAMESPACE__ . "\THEME_VERSION", '2.6.0' );                          // The theme's version
+define( __NAMESPACE__ . "\THEME_DIR", get_template_directory() . '/' );       // The theme's directory
+define( __NAMESPACE__ . "\THEME_URI", get_template_directory_uri() .'/' );    // The theme's uri
 
 
 
