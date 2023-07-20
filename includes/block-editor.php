@@ -56,14 +56,17 @@ function cm_add_block_editor_assets()
     wp_enqueue_style(
         'block-editor',
         get_template_directory_uri() . '/assets/build/css/block-editor.min.css',
-        array(),
+        [],
         THEME_VERSION,
         'all'
     );
     wp_enqueue_script(
         'block-editor',
         get_template_directory_uri() . '/assets/build/js/block-editor.js',
-        array( 'wp-blocks', 'wp-dom' ),
+        [
+            'wp-blocks',
+            'wp-dom'
+        ],
         THEME_VERSION,
         true
     );
