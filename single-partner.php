@@ -28,7 +28,7 @@ get_header();
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
-                    <h2 class="section-title has-text-align-center"><?php echo $data[ 'title' ]; ?></h2>
+                    <h2 class="section-title has-text-align-center"><?php echo $data['title']; ?></h2>
                     <?php
                     if( ! empty( $data['description'] ) ) :
                         echo $data['description'];
@@ -129,7 +129,7 @@ get_header();
             <?php
             endif;
             ?>
-            
+
             <?php
             endwhile;
         endif;
