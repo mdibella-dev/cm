@@ -24,7 +24,7 @@ if( ! function_exists( 'cm_theme_setup' ) ) :
      function cm_theme_setup()
      {
         // Enables internationalization.
-        load_theme_textdomain( 'cm', get_template_directory() . '/lang' );
+        load_theme_textdomain( 'cm', THEME_DIR . '/lang' );
 
 
         // Enables HTML5-compliant handling of various WordPress core elements.
@@ -184,7 +184,7 @@ function cm_enqueue_scripts()
 {
     wp_enqueue_script(
         'cm-script',
-        get_template_directory_uri() . '/assets/build/js/frontend.min.js',
+        THEME_URI . '/assets/build/js/frontend.min.js',
         [
             'jquery'
         ],
@@ -194,7 +194,7 @@ function cm_enqueue_scripts()
 
     wp_enqueue_style(
         'cm-style',
-        get_template_directory_uri() . '/assets/build/css/frontend.min.css',
+        THEME_URI . '/assets/build/css/frontend.min.css',
         array(),
         THEME_VERSION
     );
