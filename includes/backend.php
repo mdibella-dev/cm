@@ -111,7 +111,7 @@ function cm_admin_menu_order( $menu_order )
 {
     global $submenu;
            $admin_menu_slug = 'edit.php?post_type=session';
-           $sorted          = array();
+           $sorted          = [];
 
     $sort_order = array(
         'Veranstaltungen',
@@ -180,8 +180,8 @@ add_action( 'acf/input/admin_head', 'cm_adjust_acf_dialog' );
 function cm_default_hidden_columns( $hidden, $screen )
 {
     if( isset( $screen->id ) ) :
+        
         switch( $screen->id ) :
-
             case 'edit-event' :
                 $hidden[] = 'slug' ;
             break;
@@ -192,8 +192,8 @@ function cm_default_hidden_columns( $hidden, $screen )
                 $hidden[] = 'description';
                 $hidden[] = 'slug';
             break;
-
         endswitch;
+
     endif;
 
     return $hidden;
