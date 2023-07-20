@@ -13,7 +13,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Requires at least
 
-* WordPress 5.3
+* WordPress 6
 * ACF 5.0
 * [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
 
