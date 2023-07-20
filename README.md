@@ -15,6 +15,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 * WordPress 5.3
 * ACF 5.0
+* [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
 
 ### Tested up to
 
