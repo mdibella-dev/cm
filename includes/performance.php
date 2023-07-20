@@ -54,7 +54,7 @@ add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
 
 function cm_remove_post_classes( $classes, $class, $post_id )
 {
-    $checked_classes = array();
+    $checked_classes = [];
 
     if( ! is_admin() ) :
 
