@@ -27,7 +27,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Latest changes to the main branch
 
-* New: Use namespace based theme vars (backport from (theme template)[https://github.com/mdibella-dev/theme-template])
+* New: Use namespace based theme vars (backport from [theme template](https://github.com/mdibella-dev/theme-template))
 * New: Add namespace cm_theme
 * Improve: Extract changelog from README.md.
 * Improve: Outsource FAQ code into plugin [CM Theme — FAQ](https://github.com/mdibella-dev/cm-theme-addon-faq)
