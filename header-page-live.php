@@ -45,10 +45,10 @@ defined( 'ABSPATH' ) or exit;
     <header id="header">
     <?php
     if( has_nav_menu( 'primary' ) ) :
-        wp_nav_menu( array(
+        wp_nav_menu( [
             'theme_location' => 'primary',
             'container'      => false,
-        ) );
+        ] );
     endif;
     ?>
     </header>

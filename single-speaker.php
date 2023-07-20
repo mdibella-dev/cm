@@ -43,7 +43,7 @@ get_header();
                         <div class="single-speaker-profile__column">
 
                             <figure class="speaker-image">
-                                <?php echo get_the_post_thumbnail( $data[ 'id' ], 'full', array( 'alt' => $data[ 'title_name' ] ) ); ?>
+                                <?php echo get_the_post_thumbnail( $data[ 'id' ], 'full', [ 'alt' => $data[ 'title_name' ] ] ); ?>
                             </figure>
 
                             <div class="speaker-social-media">
