@@ -3,7 +3,7 @@
  * The theme's core file.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

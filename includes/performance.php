@@ -3,7 +3,7 @@
  * Functions to optimize the structure of the site.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

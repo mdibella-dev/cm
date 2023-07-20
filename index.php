@@ -3,7 +3,7 @@
  * The generic template.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

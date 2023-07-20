@@ -3,7 +3,7 @@
  * The template to display the footer section of a page/post.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

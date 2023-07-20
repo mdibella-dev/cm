@@ -3,7 +3,7 @@
  * The template for displaying a single post.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

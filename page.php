@@ -3,7 +3,7 @@
  * The template for displaying a single page.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 

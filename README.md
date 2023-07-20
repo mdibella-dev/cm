@@ -33,6 +33,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 * Improve: Outsource CM core functions, taxonomies, post-types etc. into plugin [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
 * Improve: Change array notation
 * Improve: Update changelog notation
+* Improve: Change package designation from cm to cm-theme
 * Bugfix: Fix undefined array key "forename" in core-speakers.php
 
 

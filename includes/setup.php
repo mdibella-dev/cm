@@ -3,7 +3,7 @@
  * Main functions for setting up the theme.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
 
 
