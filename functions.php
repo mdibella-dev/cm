@@ -29,6 +29,6 @@ define( __NAMESPACE__ . "\THEME_URI", get_template_directory_uri() .'/' );    //
 
 /** Include files */
 
-require_once( get_template_directory() . '/includes/setup.php' );
-require_once( get_template_directory() . '/includes/performance.php' );
-require_once( get_template_directory() . '/includes/shortcodes/index.php' );
+require_once( THEME_DIR . 'includes/setup.php' );
+require_once( THEME_DIR . 'includes/performance.php' );
+require_once( THEME_DIR . 'includes/shortcodes/index.php' );
