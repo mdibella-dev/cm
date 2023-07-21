@@ -31,7 +31,7 @@ function remove_styles_scripts()
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\'remove_styles_scripts', 9985 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_styles_scripts', 9985 );
 
 
 
