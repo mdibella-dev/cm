@@ -8,7 +8,7 @@
 
 namespace cm_theme;
 
-use cm_theme_core\core__get_partner_dataset as get_dataset;
+use function \cm_theme_core\core__get_partner_dataset as get_dataset;
 
 
 /** Prevent direct access */
