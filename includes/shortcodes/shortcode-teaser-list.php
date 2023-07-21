@@ -108,7 +108,7 @@ function shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( 1 == $paged ) :
-        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
@@ -141,7 +141,7 @@ function shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( 1 == $paged ) :
-        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
