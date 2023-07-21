@@ -4,6 +4,25 @@
 
 <br>
 
+### 3.0.0
+
+Released: 21-07-2023
+
+* New: Use namespace based theme vars (backport from [theme template](https://github.com/mdibella-dev/theme-template))
+* New: Add namespace **cm_theme**
+* Improve: Extract changelog from README.md.
+* Improve: Outsource FAQ code into plugin [CM Theme — FAQ](https://github.com/mdibella-dev/cm-theme-addon-faq)
+* Improve: Outsource CM core functions, taxonomies, post-types etc. into plugin [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
+* Improve: Change array notation
+* Improve: Update changelog notation
+* Improve: Change package designation from **cm** to **cm-theme**
+* Improve: Remove FontAwesome CDN support (use plugin instead)
+* Improve: Remove obsolete ACF file
+* Improve: Rename assets/dev to assets/src and assets/src/scss to assets/src/css
+* Bugfix: Fix undefined array key "forename" in core-speakers.php
+* Bugfix: Fix language path
+
+
 ### 2.6.0
 
 Released: 03-02-2023
