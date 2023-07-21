@@ -168,7 +168,7 @@ function theme_setup()
     ] );
 }
 
-add_action( 'after_setup_theme', __NAMESPACE__ . '\'theme_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
 
 
 
