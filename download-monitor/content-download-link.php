@@ -3,7 +3,7 @@
  * Custom Template für einfache Download-Links
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  * @uses    Plugin download-monitor
  */
 

@@ -1,0 +1,129 @@
+/**
+ * Custom Styles für wp-block-table
+ *
+ * @author  Marco Di Bella 
+ * @package cm-theme
+ */
+
+
+
+.wp-block-table {
+    // Abstand wie bei <p>
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        margin-bottom: 1.5rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // Einzelne Komponenten
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1rem; // noch nötig?
+
+        @include respond-to(medium) { // noch nötig?
+            font-size: 1.125rem;
+            line-height: 1.4;
+        }
+    }
+
+    tr {
+        border-bottom: 1px solid #eee;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+    td {
+        margin-bottom: 0;
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @include respond-to(medium) {
+            display: table-cell;
+            width: auto;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        // Gutter bei horizontaler Ausrichtung
+        &:not(:first-of-type) {
+            @include respond-to(medium) {
+                padding-left: 1rem;
+            }
+
+            @include respond-to(large) {
+                padding-left: 2rem;
+            }
+        }
+
+        &:not(:last-of-type) {
+            @include respond-to(medium) {
+                padding-right: 1rem;
+            }
+
+            @include respond-to(large) {
+                padding-right: 2rem;
+            }
+        }
+    }
+}
+
+
+/* Stil: Default mit Beschreibungszeile */
+
+.wp-block-table.is-style-default-with-header-column {
+    td:first-of-type {
+        padding-bottom: 0;
+
+        @include respond-to(medium) {
+            padding-bottom: 1.25rem;
+        }
+
+        p {
+            -webkit-hyphens: none;
+                -ms-hyphens: none;
+                    hyphens: none;
+            font-weight: normal;
+        }
+    }
+}
+
+
+/* Stil: Default mit Beschreibungsspalte */
+
+.wp-block-table.is-style-default-with-header-row {
+    tr:first-of-type {
+        p {
+            -webkit-hyphens: none;
+                -ms-hyphens: none;
+                    hyphens: none;
+            font-weight: normal;
+        }
+    }
+}
+
+
+/* Sonderform für zweispaltige Tabellen (Verhältnis 30/70) */
+
+.wp-block-table.two-columns-30-70 {
+    td:first-of-type {
+        @include respond-to(medium) {
+            width: 30%;
+        }
+    }
+
+    td:last-of-type {
+        @include respond-to(medium) {
+            width: 70%;
+        }
+    }
+}

@@ -3,8 +3,10 @@
  * The generic template.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
+
+namespace cm_theme;
 
 
 /** Prevent direct access */

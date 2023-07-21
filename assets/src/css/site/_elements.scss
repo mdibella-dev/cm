@@ -1,0 +1,161 @@
+/**
+ * Seitenelemente
+ *
+ * @author  Marco Di Bella
+ * @package cm-theme
+ */
+
+
+
+// Site header
+
+#header {
+    z-index: 400;
+    display: block;
+    width: 100%;
+}
+
+
+// Site footer
+
+#footer {
+    z-index: 200;
+    display: block;
+    width: 100%;
+    box-sizing: content-box;
+    background: #999;
+    color: #555;
+}
+
+
+.footer-wrapper {
+    width: 100%;
+
+    .footer-wrapper__inner-container {
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+
+        // ab 960px (large)
+
+        @include respond-to(large) {
+            max-width: 64rem;
+        }
+    }
+}
+
+
+#footer-widgets {
+    .footer-wrapper__inner-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include respond-to(large) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .widget-title {
+        margin-bottom: .4rem !important;
+        padding: 0 2px;
+        font-size: 1.125rem !important;
+    }
+
+    .widget-area {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        @include respond-to(large) {
+            width: 33%;
+
+            &:not(:last-child) {
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+
+            &:not(:first-child) {
+                margin-left: 1rem;
+            }
+        }
+
+        @include respond-to(wide) {
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+
+            &:not(:first-child) {
+                margin-left: 2rem;
+            }
+        }
+    }
+
+    .widget_nav_menu ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+
+        & > li {
+            line-height: 2.5em;
+            color: #ddd;
+            padding: 1px 0;
+            font-size: 90%;
+            font-weight: 400;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #bbb;
+            }
+
+            a {
+                @include a-tag-basic-settings();
+                border-bottom: none !important;
+                color: inherit;
+
+                &:hover,
+                &:focus {
+                    color: #fff !important;
+                    background-color: rgba(255,255,255,0.5) !important;
+                }
+            }
+        }
+    }
+}
+
+
+#footer-social {
+    display: block;
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    li {
+        padding: 0 5px;
+    }
+}
+
+
+
+// Unterstützung für QuadMenu Megamenü
+
+#quadmenu {
+    box-shadow: $menu-boxshadow;
+
+    .quadmenu-dropdown-menu {
+        @include respond-to(large) {
+            box-shadow: $menu-boxshadow;
+        }
+    }
+
+    a.quadmenu-navbar-brand {
+        border-bottom-color: transparent;
+    }
+}

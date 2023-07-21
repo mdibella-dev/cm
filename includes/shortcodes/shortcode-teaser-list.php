@@ -3,8 +3,10 @@
  * Shortcode [teaser-list].
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
+
+namespace cm_theme;
 
 
 /** Prevent direct access */
@@ -32,17 +34,17 @@ defined( 'ABSPATH' ) or exit;
  * @return string The output produced by the shortcode.
  */
 
-function cm_shortcode_teaser_list( $atts, $content = null )
+function shortcode_teaser_list( $atts, $content = null )
 {
     /** Determine passed parameters. */
 
-    $default_atts = array(
-        'show'      => '',
-        'paged'     => '0',
-        'exclude'   => '',
-        'shuffle'   => '0',
-        'category'  => '0',
-    );
+    $default_atts = [
+        'show'     => '',
+        'paged'    => '0',
+        'exclude'  => '',
+        'shuffle'  => '0',
+        'category' => '0',
+    ];
     extract( shortcode_atts( $default_atts, $atts ) );
 
 
@@ -57,13 +59,13 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     // Determine the required values depending on the display mode (paged/non-paged)
     if( 1 == $paged ) :
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
-        $haystack = array(
+        $haystack = [
             'exclude'        => $exclude_ids,
             'category'       => $category,
             'post_type'      => 'post',
             'post_status'    => 'publish',
             'posts_per_page' => -1,
-        );
+        ];
         $max_page = ceil( sizeof( get_posts( $haystack ) ) / $show ) ;
         $get_prt  = isset( $_GET['prt'] )? $_GET['prt'] : 1;
 
@@ -84,7 +86,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         endif;
     endif;
 
-    $query = array(
+    $query = [
         'exclude'        => $exclude_ids,
         'post_type'      => 'post',
         'post_status'    => 'publish',
@@ -93,7 +95,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
         'orderby'        => $orderby,
         'posts_per_page' => $show,
         'offset'         => $offset,
-    );
+    ];
     $articles = get_posts( $query );
 
 
@@ -106,7 +108,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( 1 == $paged ) :
-        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
@@ -139,7 +141,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
 
     <?php
     if( 1 == $paged ) :
-        cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page );
+        shortcode_teaser_list__echo_pagination( $current_page, $max_page );
     endif;
     ?>
 
@@ -154,7 +156,7 @@ function cm_shortcode_teaser_list( $atts, $content = null )
     return null;
 }
 
-add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
+add_shortcode( 'teaser-list', __NAMESPACE__ . '\shortcode_teaser_list' );
 
 
 
@@ -164,7 +166,7 @@ add_shortcode( 'teaser-list', 'cm_shortcode_teaser_list' );
  * @since 1.0.0
  */
 
-function cm_shortcode_teaser_list__echo_pagination( $current_page, $max_page )
+function shortcode_teaser_list__echo_pagination( $current_page, $max_page )
 {
     ob_start();
 ?>

@@ -3,8 +3,12 @@
  * The template for displaying a single partner.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
+
+namespace cm_theme;
+
+use function \cm_theme_core\api\get_partner_dataset as get_dataset;
 
 
 /** Prevent direct access */
@@ -24,11 +28,11 @@ get_header();
                     the_post();
 
                     // Get record
-                    $data = cm_get_partner_dataset( get_the_ID() );
+                    $data = get_dataset( get_the_ID() );
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0 has-black-10-background-color has-background">
                 <div class="wp-block-group__inner-container">
-                    <h2 class="section-title has-text-align-center"><?php echo $data[ 'title' ]; ?></h2>
+                    <h2 class="section-title has-text-align-center"><?php echo $data['title']; ?></h2>
                     <?php
                     if( ! empty( $data['description'] ) ) :
                         echo $data['description'];
@@ -129,7 +133,7 @@ get_header();
             <?php
             endif;
             ?>
-            
+
             <?php
             endwhile;
         endif;

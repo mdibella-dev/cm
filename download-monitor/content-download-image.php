@@ -3,7 +3,7 @@
  * Custom template for image-based downloads.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  * @uses    Plugin download-monitor
  */
 

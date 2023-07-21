@@ -1,0 +1,60 @@
+/**
+ * Custom Styles für wp-block-quote
+ *
+ * @author  Marco Di Bella 
+ * @package cm-theme
+ */
+
+
+
+.wp-block-quote {
+    position: relative;
+    width: calc(100% - 1.5em);
+    margin-left: 1.5em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &:before {
+        content: '\201C';
+        position: absolute;
+        top: 0.25em;
+        left: -0.65em;
+        color: #555;
+        font-size: 3em;
+        z-index: -1;
+    }
+}
+
+
+.wp-block-quote,
+.wp-block-quote p {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+}
+
+
+.wp-block-quote p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+
+.wp-block-quote cite {
+    position: relative;
+    left: 0;
+    top: -1em;
+    font-family: $font-sans;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.875rem !important;
+
+    @include respond-to(medium) {
+       font-size: 1rem !important;
+    }
+}

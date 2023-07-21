@@ -3,8 +3,10 @@
  * Functions to optimize the structure of the site.
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
+
+namespace cm_theme;
 
 
 /** Prevent direct access */
@@ -19,7 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function cm_remove_styles_scripts()
+function remove_styles_scripts()
 {
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'rsd_link' );
@@ -29,7 +31,7 @@ function cm_remove_styles_scripts()
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }
 
-add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_styles_scripts', 9985 );
 
 
 
@@ -52,9 +54,9 @@ add_action( 'wp_enqueue_scripts', 'cm_remove_styles_scripts', 9985 );
  * @return array Modified class array.
  */
 
-function cm_remove_post_classes( $classes, $class, $post_id )
+function remove_post_classes( $classes, $class, $post_id )
 {
-    $checked_classes = array();
+    $checked_classes = [];
 
     if( ! is_admin() ) :
 
@@ -84,7 +86,7 @@ function cm_remove_post_classes( $classes, $class, $post_id )
     return $classes;
 }
 
-add_filter( 'post_class', 'cm_remove_post_classes', 10, 3 );
+add_filter( 'post_class', __NAMESPACE__ . '\remove_post_classes', 10, 3 );
 
 
 
@@ -98,9 +100,9 @@ add_filter( 'post_class', 'cm_remove_post_classes', 10, 3 );
  * @return int The modified number of characters.
  */
 
-function cm_excerpt_length( $length )
+function set_excerpt_length( $length )
 {
     return 30;
 }
 
-add_filter( 'excerpt_length', 'cm_excerpt_length', 999 );
+add_filter( 'excerpt_length', __NAMESPACE__ . '\set_excerpt_length', 999 );

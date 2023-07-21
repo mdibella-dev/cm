@@ -1,0 +1,49 @@
+/**
+ * Custom Styles für wp-block-image
+ *
+ * @author  Marco Di Bella 
+ * @package cm-theme
+ */
+
+
+.wp-block-image {
+    margin: 0;
+    line-height: 0;
+}
+
+
+.wp-block-image.is-style-with-caption {
+
+    figcaption {
+        @include figcaption-tag-basic-settings();
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    &:not(:first-child) {
+        margin-top: 1rem;
+
+        @include respond-to(medium) {
+            margin-top: 2rem;
+        }
+
+        @include respond-to(large) {
+            margin-top: 3rem;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include respond-to(medium) {
+            margin-bottom: 2rem;
+        }
+
+        @include respond-to(large) {
+            margin-bottom: 3rem;
+        }
+    }
+}

@@ -1,0 +1,429 @@
+/**
+ * Styles für dieses Thema
+ *
+ * @author  Marco Di Bella 
+ * @package cm-theme
+ */
+
+
+
+/**
+ * Beiträge
+ */
+
+
+// Überschrift für Absätze
+
+.paragraph-header {
+    @include h-tag-basic-settings();
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    @include respond-to(medium) {
+        font-size: 1.375rem;
+        margin-bottom: 1.25rem;
+    }
+
+    @include respond-to(large) {
+        font-size: 1.5rem;
+        margin-top: 4rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+
+// Einleitender Absatz (lead, teaser)
+
+.lead,
+.is-style-lead {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    font-weight: 300 !important;
+    font-size: 1.325em !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.5px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    @include respond-to(medium) {
+        line-height: 1.5 !important;
+        font-size: 1.5rem !important;
+    }
+}
+
+
+/* Fußnoten */
+
+.footnote,
+.is-style-footnote {
+    font-size: 0.875rem !important;
+    font-weight: 300;
+
+    sup {
+        padding-right: 0.5*$unit;
+    }
+}
+
+
+// Textstile
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+
+
+/**
+ * Wrapper
+ */
+
+.article-wrapper,
+.section-wrapper,
+.footer-widgets-wrapper {
+    width: 100%;
+
+    & > div[class*="__inner-container"] {
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
+
+        /* ab 960px (large) */
+
+        @include respond-to(large) {
+            max-width: 64rem;
+        }
+
+        /* ab 1280px (wide) */
+
+        @include respond-to(wide) {
+            padding: 4rem 1rem;
+        }
+    }
+}
+
+
+
+/**
+ * Sektionen
+ */
+
+.section-title {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    @include respond-to(medium) {
+        font-size: 34px;
+    }
+}
+
+.section-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    @include respond-to(medium) {
+        font-size: 24px;
+    }
+}
+
+.section-title + .section-subtitle {
+    margin-top: -1.5rem;
+}
+
+
+
+/**
+ * Stile für die Profilseite eines Referenten
+ */
+
+.single-speaker-profile {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include respond-to(small) {
+        flex-wrap: nowrap;
+    }
+
+    .single-speaker-profile__column {
+        flex-grow: 0;
+        flex-basis: 100%;
+
+        &:first-child {
+            @include respond-to(small) {
+                flex-basis: 25%;
+                flex-grow: 0;
+            }
+        }
+
+        &:last-child {
+            margin-top: 1rem;
+
+            @include respond-to(small) {
+                margin-top: 0;
+                flex-grow: 1;
+                padding-left: 2rem;
+            }
+
+            @include respond-to(large) {
+                padding-left: 4rem;
+            }
+
+            @include respond-to(wide) {
+                padding-left: 6rem;
+            }
+        }
+    }
+
+
+    // Einzelne Beschreibungsbestandteile
+
+    .speaker-image {
+        width: 100%;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background: #fafafa;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+        }
+    }
+
+    .speaker-social-media {
+        ul {
+            all: initial;
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            all: initial;
+            padding: 0;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .is-fa-button {
+            color: #888;
+        }
+    }
+
+    .speaker-title-name {
+        font-size: 26px;
+        font-weight: 300;
+        margin-bottom: 2rem;
+
+        @include respond-to(medium) {
+            font-size: 34px;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .speaker-position {
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 2rem;
+
+        @include respond-to(medium) {
+            font-size: 24px;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .speaker-title-name + .speaker-position {
+        margin-top: -1.5rem;
+
+        @include respond-to(medium) {
+            margin-top: -2.75rem;
+        }
+    }
+}
+
+
+
+/**
+ * Stile für die Detailseite eines Kooperationspartners
+ */
+
+.single-partner-details {
+    margin: 2rem 0;
+
+    @include respond-to(medium) {
+        margin: 3rem 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    & > div {
+        padding: 0 1rem;
+    }
+
+    p, ul, ol, li {
+        line-height: 1.4;
+        font-size: 1rem;
+    }
+
+
+    // Bereich für das Unternehmenslogo
+
+    & > div:nth-child(1) {
+        figure {
+            width: 200px;
+            margin: 2rem 0;
+
+            @include respond-to(medium) {
+                margin: 0 auto;
+            }
+        }
+
+        figure img {
+            width: 100%;
+        }
+    }
+
+
+    // Bereich für die Adresse
+
+    & > div:nth-child(2) {
+        margin: 2rem 0;
+
+        @include respond-to(medium) {
+            margin: 0;
+        }
+    }
+
+
+    // Bereich für die Kontaktmöglichkeiten
+
+    & > div:nth-child(3) {
+        ul {
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+            display: table;
+
+            li {
+                padding: 0;
+                display: table-row;
+            }
+
+            li > span {
+                display: table-cell;
+                -webkit-hyphens: none;
+                    -ms-hyphens: none;
+                        hyphens: none;
+
+                &:first-of-type::after {
+                    content: ':';
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+/**
+ * Plugin: download-monitor
+ */
+
+
+// Template: link, link-excerpt
+
+.download-link {
+    @include p-tag-basic-settings();
+    display: flex;
+    align-items: baseline;
+    padding: .5rem 0;
+
+
+    i {
+        color: #555;
+    }
+
+
+    div {
+        flex-grow: 2;
+        margin-left: 1rem;
+    }
+
+
+    p.description {
+        font-size: 95%;
+
+        @include respond-to(medium) {
+            font-size: 85%;
+        }
+    }
+}
+
+
+// Template: image
+
+.download-image {
+    a {
+        display: block;
+        padding: 0;
+        transition: all 0.3s 0s ease-in-out;
+        box-shadow: 0 5px 40px -5px rgba(0,0,0,0.5);
+        border: 5px solid #fff;
+        line-height: 0;
+
+        &:hover,
+        &:focus {
+            border: 5px solid #fff;
+            transform: scale(1.5, 1.5) rotate(5deg);
+            box-shadow: 15px 15px 20px -5px rgba(0,0,0,0.5);
+        }
+    }
+}
+
+
+
+
+
+
+.box {
+    background: #fff;
+    box-shadow: 0 0 18px -5px rgba(0,0,0,0.2);
+    padding: 30px 20px;
+    margin: 2rem auto;
+
+    @include respond-to(medium) {
+        padding: 40px;
+    }
+
+    h2 {
+        font-weight: 200;
+        font-size: 36px;
+        text-align: center;
+
+        @include respond-to(medium) {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+
+/**
+ * Weitere Stile
+ */
+
+@import "_accordion";

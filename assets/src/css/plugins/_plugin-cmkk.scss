@@ -1,0 +1,115 @@
+/**
+ * Modifications for cmkk.
+ *
+ * @author  Marco Di Bella
+ * @package cm-themekk
+ **/
+
+
+
+.cmkk-notice {
+    border: 1px solid #fafafa;
+    background-color: #fbfbfb;
+    border-left-width: 4px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 90%;
+    line-height: 90%;
+
+    * {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    &.cmkk-notice-sucess {
+        border-left-color: #54be64;     // grün
+    }
+
+    &.cmkk-notice-error {
+        border-left-color: #e64940;     // rot
+    }
+
+    &.cmkk-notice-warning {
+        border-left-color: #ffc501;     // gelb
+    }
+
+    &.cmkk-notice-info {
+        border-left-color: #17b0da;     // blau
+    }
+}
+
+
+.cmkk-form {
+    line-height: 1.5;
+    font-size: 1rem;
+
+    @include respond-to(medium) {
+        line-height: 1.2;
+        font-size: 1.2rem;
+    }
+
+    table {
+        th,
+        td {
+            text-align: left;
+            display: block;
+
+            @include respond-to(medium) {
+                display: inline-block;
+            }
+        }
+
+        th {
+            font-weight: 200;
+            padding: 1rem .5rem 0;
+
+            @include respond-to(medium) {
+                width: 30%;
+                padding: 1rem .5rem;
+            }
+        }
+
+        td {
+            padding: 1rem .5rem;
+            width: 100%;
+
+            @include respond-to(medium) {
+                width: 60%;
+            }
+
+            input[type='email'],
+            input[type='text'],
+            textarea {
+                width: 100%;
+                font-size: inherit;
+                font-weight: 200;
+                line-height: inherit;
+                padding: 5px;
+            }
+        }
+    }
+
+    .wp-block-button > .wp-block-button__link:disabled {
+        color: #213a8f !important;
+        background: transparent !important;
+    }
+}
+
+
+.cmkk-gdpr {
+    display: flex;
+    align-items: flex-start;
+
+    label {
+        margin-left: 20px;
+        display: inline-block;
+        font-size: 80%;
+        font-weight: 200;
+        line-height: 1.3rem;
+    }
+}
+
+
+.cm-notice + .cmkk-form {
+    margin-top: 2rem;
+}

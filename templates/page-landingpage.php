@@ -5,8 +5,10 @@
  * Template Name: Landingpage
  *
  * @author  Marco Di Bella
- * @package cm
+ * @package cm-theme
  */
+
+namespace cm_theme;
 
 
 /** Prevent direct access */

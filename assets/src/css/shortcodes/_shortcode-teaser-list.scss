@@ -1,0 +1,171 @@
+/**
+ * Shortcode [teaser-list]
+ *
+ * @author  Marco Di Bella 
+ * @package cm-theme
+ **/
+
+
+
+
+// Teaser-Liste
+
+.teaser-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 0;
+    }
+}
+
+
+// Einzelnes Element der Teaser-Liste (aka Teaser)
+
+.teaser-list-element,
+.teaser-list-element:hover,
+.teaser-list-element:focus {
+    all: unset;
+    line-height: 0;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+
+    @include respond-to(medium) {
+        flex-wrap: nowrap;
+        padding: 2rem 0;
+    }
+}
+
+
+// Bildkomponente des Teaser-Elements
+
+.teaser-list-element .teaser-image {
+    // standardmäßig werden die Komponenten untereinander angezeigt
+    display: block;
+    overflow: hidden;
+
+    @include respond-to(small) {
+        // ab small: Komponente nebeneinander anzeigen
+        display: inline-block;
+        flex-basis: 25%;
+    }
+
+    @include respond-to(wide) {
+        flex-basis: 30%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+// Textkomponente des Teaser-Elements
+
+.teaser-list-element .teaser-content {
+    // standardmäßig werden die Komponenten untereinander angezeigt
+    display: block;
+    padding-top: 2*$unit;
+
+    @include respond-to(small) {
+        // ab small: Komponente nebeneinander anzeigen
+        display: inline-block;
+        flex-basis: 75%;
+        padding-top: 0;
+        padding-left: 2*$unit;
+    }
+
+    @include respond-to(wide) {
+        flex-basis: 70%;
+        padding-left: 4*$unit;
+    }
+
+    h2 {
+        @include h-tag-basic-settings();
+        font-size: 1.213rem;
+        margin-bottom: 0.35rem;
+    }
+
+    p {
+        @include p-tag-basic-settings();
+        font-size: .925rem;
+
+        @include respond-to(medium) {
+            line-height: 1.5;
+            font-size: 1rem
+        }
+        margin-bottom: 0.35rem;
+    }
+
+    *:last-child  {
+        margin-bottom: 0;
+    }
+}
+
+
+// Gemeinsame Einstellungen die Komponenten des Teaser-Elements
+
+.teaser-list-element .teaser-image *,
+.teaser-list-element .teaser-content * {
+    cursor: pointer;
+}
+
+
+// Teaser-Navigation
+
+.teaser-list.teaser-list-has-pagination {
+    // die Liste verfügt explizit über eine eigene Navigation,
+    // jeweils eine überhalb und eine unterhalb der Liste
+    nav {
+        text-align: center;
+        display: flex;
+        width: auto;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:first-of-type {
+            // Abstand der oberen Navigation zur Liste
+            margin-bottom: 1.5rem;
+
+            @include respond-to(medium) {
+                margin-bottom: 2rem;
+            }
+        }
+
+        &:last-of-type {
+            // Abstand der unteren Navigation zur Liste
+            margin-top: 1.5rem;
+
+            @include respond-to(medium) {
+                margin-top: 2rem;
+            }
+        }
+
+        .pageinfo {
+            padding: 0 2*$unit;
+            display: flex;
+            flex-grow: 2;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                @include p-tag-basic-settings();
+                @include respond-to(medium) {
+                    line-height: 1.5;
+                    font-size: 1.15rem;
+                }
+                margin: 0;
+            }
+        }
+
+        .wp-block-button {
+            margin-bottom: 0;
+        }
+    }
+}
