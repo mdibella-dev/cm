@@ -1,5 +1,5 @@
-# CM theme
-CM theme is a WordPress theme build for the needs of an event site.
+# CM Theme
+CM Theme is a WordPress theme build for the needs of an event site.
 
 <br>
 
@@ -15,7 +15,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 * WordPress 6
 * ACF 5.0
-* [CM theme — Core](https://github.com/mdibella-dev/cm-theme-core)
+* [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
 
 ### Tested up to
 
