@@ -54,6 +54,7 @@ function shortcode_teaser_list( $atts, $content = null )
            $exclude_ids = explode( ',', str_replace( " ", "", $exclude ) );
            $offset      = 0;
            $orderby     = 'date';
+           $output      = '';
 
 
     // Determine the required values depending on the display mode (paged/non-paged)
