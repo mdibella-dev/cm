@@ -21,10 +21,9 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function remove_styles_scripts()
-{
-	remove_action( 'wp_head', 'wlwmanifest_link' );
-	remove_action( 'wp_head', 'rsd_link' );
+function remove_styles_scripts() {
+    remove_action( 'wp_head', 'wlwmanifest_link' );
+    remove_action( 'wp_head', 'rsd_link' );
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -54,8 +53,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_styles_scripts', 9985
  * @return array Modified class array.
  */
 
-function remove_post_classes( $classes, $class, $post_id )
-{
+function remove_post_classes( $classes, $class, $post_id ) {
     $checked_classes = [];
 
     if( ! is_admin() ) :
@@ -100,8 +98,7 @@ add_filter( 'post_class', __NAMESPACE__ . '\remove_post_classes', 10, 3 );
  * @return int The modified number of characters.
  */
 
-function set_excerpt_length( $length )
-{
+function set_excerpt_length( $length ) {
     return 30;
 }
 

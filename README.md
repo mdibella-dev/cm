@@ -29,6 +29,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Latest changes to the main branch
 
+* Improve: Change clamping style
 
 
 ### Previous changes
