@@ -194,7 +194,7 @@ function enqueue_scripts()
     wp_enqueue_style(
         'cm-style',
         THEME_URI . '/assets/build/css/frontend.min.css',
-        array(),
+        [],
         THEME_VERSION
     );
 }
