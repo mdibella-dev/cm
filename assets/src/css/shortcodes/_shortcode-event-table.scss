@@ -1,7 +1,7 @@
 /**
  * Tabelle mit dem Programm eines Events (Hauptprogramm, Workshop etc.)
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -46,7 +46,7 @@
         padding-bottom: 1.25rem;
 
         @include respond-to(medium) {
-            width: 20%;
+            width: 30%;
             padding-bottom: 0;
         }
     }
@@ -58,7 +58,7 @@
         width: 75%;
 
         @include respond-to(medium) {
-            width: 70%;
+            width: 65%;
         }
     }
 
