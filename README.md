@@ -13,14 +13,14 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Requires at least
 
-* WordPress 6
-* ACF 5.0
-* FontAwesome 5
-* [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
+- WordPress 6
+- ACF 5.0
+- FontAwesome 5
+- [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
 
 ### Tested up to
 
-* WordPress 6.2
+- WordPress 6.2
 
 <br>
 
@@ -29,7 +29,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Latest changes to the main branch
 
-* Improve: Change clamping style
+- Improve: Change clamping style
 
 
 ### Previous changes
