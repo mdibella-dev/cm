@@ -35,7 +35,6 @@ get_header();
             $output = ob_get_contents();
             ob_end_clean();
             echo $output;
-
         }
         ?>
         </article>
