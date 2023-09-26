@@ -30,6 +30,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 ### Latest changes to the main branch
 
 - Improve: Change clamping style
+- Improve: Modernize control structure
 
 
 ### Previous changes

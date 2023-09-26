@@ -51,9 +51,9 @@ get_header();
         <article>
 
             <?php
-            if( have_posts() ) :
+            if ( have_posts() ) {
 
-                while( have_posts() ) :
+                while ( have_posts() ) {
                     the_post();
 
                     // Get record
@@ -80,7 +80,7 @@ get_header();
                             <div class="speaker-social-media">
                                 <ul>
                                     <?php
-                                    while( have_rows( 'referent-social-media' ) ) :
+                                    while ( have_rows( 'referent-social-media' ) ) {
                                         the_row();
 
                                         $service = get_sub_field( 'referent-web-service' );
@@ -97,7 +97,7 @@ get_header();
                                         </div>
                                     </li>
                                     <?php
-                                    endwhile;
+                                    }
                                     ?>
                                 </ul>
                             </div>
@@ -109,11 +109,11 @@ get_header();
 
                             <?php
                             // Position or job title known?
-                            if( ! empty( $data[ 'position' ] ) ) :
+                            if ( ! empty( $data[ 'position' ] ) ) {
                             ?>
                             <h3 class="speaker-position"><?php echo $data['position']; ?></h3>
                             <?php
-                            endif;
+                            }
                             ?>
 
                             <div class="article"><?php echo apply_filters( 'the_content', $data['description'] ); ?></div>
@@ -133,7 +133,7 @@ get_header();
 
             $sessions = do_shortcode( sprintf( '[event-table set=1 speaker=%1$s]', $data['id'] ) );
 
-            if( ! empty( $sessions ) ) :
+            if ( ! empty( $sessions ) ) {
             ?>
             <div class="wp-block-group section-wrapper mb-0 mt-0">
                 <div class="wp-block-group__inner-container">
@@ -143,7 +143,7 @@ get_header();
                 </div>
             </div>
             <?php
-            endif;
+            }
 
 
             /**
@@ -160,9 +160,9 @@ get_header();
             </div>
 
             <?php
-            endwhile;
+            }
 
-        endif;
+        }
         ?>
 
         </article>

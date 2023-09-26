@@ -21,8 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function theme_setup()
-{
+function theme_setup() {
     // Enables internationalization.
     load_theme_textdomain( 'cm', THEME_DIR . 'languages' );
 
@@ -116,20 +115,20 @@ function theme_setup()
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 240, 240, false );
 
-    if( ( 240 != get_option( 'thumbnail_size_w' ) ) ) :
+    if ( ( 240 != get_option( 'thumbnail_size_w' ) ) ) {
         update_option( 'thumbnail_size_w', 240 );
         update_option( 'thumbnail_size_h', 240 );
-    endif;
+    }
 
-    if( ( 782 != get_option( 'medium_size_w' ) ) ) :
+    if ( ( 782 != get_option( 'medium_size_w' ) ) ) {
         update_option( 'medium_size_w', 782 );
         update_option( 'medium_size_h', 9999 );
-    endif;
+    }
 
-    if( ( 960 != get_option( 'large_size_w' ) ) ) :
+    if ( ( 960 != get_option( 'large_size_w' ) ) ) {
         update_option( 'large_size_w', 960 );
         update_option( 'large_size_h', 9999 );
-    endif;
+    }
 
 
     // Registers the navigation menus.
@@ -179,8 +178,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
  * @since 1.0.0
  */
 
-function enqueue_scripts()
-{
+function enqueue_scripts() {
     wp_enqueue_script(
         'cm-script',
         THEME_URI . '/assets/build/js/frontend.min.js',

@@ -56,10 +56,9 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\remove_styles_scripts', 9985
 function remove_post_classes( $classes, $class, $post_id ) {
     $checked_classes = [];
 
-    if( ! is_admin() ) :
+    if ( ! is_admin() ) {
 
-        foreach( $classes as $check ) :
-
+        foreach( $classes as $check ) {
             if( ( false !== strpos( $check, 'has-post-thumbnail' ) )
                 or ( false !== strpos( $check, 'sticky' ) )
                 or ( false !== strpos( $check, 'status-' ) )
@@ -68,18 +67,16 @@ function remove_post_classes( $classes, $class, $post_id ) {
                 or ( false !== strpos( $check, 'post_format-' ) )
                 or ( false !== strpos( $check, 'hentry' ) )
                 or ( false !== strpos( $check, 'type-' ) )
-              ) :
+            ) {
                 // nicht übernehmen
-            else :
+            } else {
                 // ansonsten hinzufügen
                 $checked_classes[] = $check;
-            endif;
-
-        endforeach;
+            }
+        }
 
         $classes = $checked_classes;
-
-    endif;
+    }
 
     return $classes;
 }

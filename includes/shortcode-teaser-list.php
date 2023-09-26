@@ -57,7 +57,7 @@ function shortcode_teaser_list( $atts, $content = null ) {
 
 
     // Determine the required values depending on the display mode (paged/non-paged)
-    if( 1 == $paged ) :
+    if ( 1 == $paged ) {
         $show     = empty ( $show )? get_option( 'posts_per_page' ) : $show;
         $haystack = [
             'exclude'        => $exclude_ids,
@@ -69,22 +69,22 @@ function shortcode_teaser_list( $atts, $content = null ) {
         $max_page = ceil( sizeof( get_posts( $haystack ) ) / $show ) ;
         $get_prt  = isset( $_GET['prt'] )? $_GET['prt'] : 1;
 
-        if( $get_prt <= 1 ) :
+        if ( $get_prt <= 1 ) {
             $current_page = 1;
-        elseif( $get_prt >= $max_page ) :
+        } elseif( $get_prt >= $max_page ) {
             $current_page = $max_page;
-        else :
+        } else {
             $current_page = $get_prt;
-        endif;
+        }
 
         $offset = ($current_page - 1) * $show; // starting point
-    else :
+    } else {
         $show = empty ( $show )? 4 : $show;
 
-        if( 1 == $shuffle ) :
+        if ( 1 == $shuffle ) {
             $orderby = 'rand';
-        endif;
-    endif;
+        }
+    }
 
     $query = [
         'exclude'        => $exclude_ids,
@@ -101,20 +101,20 @@ function shortcode_teaser_list( $atts, $content = null ) {
 
     /** Do the shortcode stuff and start the output. */
 
-    if( $articles ) :
+    if ( $articles ) {
         ob_start();
 ?>
 <div class="teaser-list<?php echo ( 1 == $paged )? ' teaser-list-has-pagination' : ''; ?>">
 
     <?php
-    if( 1 == $paged ) :
+    if ( 1 == $paged ) {
         shortcode_teaser_list__echo_pagination( $current_page, $max_page );
-    endif;
+    }
     ?>
 
     <ul>
         <?php
-        foreach( $articles as $post ) :
+        foreach ( $articles as $post ) {
             setup_postdata( $post );
         ?>
 
@@ -133,16 +133,16 @@ function shortcode_teaser_list( $atts, $content = null ) {
         </li>
 
         <?php
-        endforeach;
+        }
         wp_reset_postdata();
         ?>
 
     </ul>
 
     <?php
-    if( 1 == $paged ) :
+    if ( 1 == $paged ) {
         shortcode_teaser_list__echo_pagination( $current_page, $max_page );
-    endif;
+    }
     ?>
 
 </div>
@@ -151,7 +151,7 @@ function shortcode_teaser_list( $atts, $content = null ) {
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
-    endif;
+    }
 
     return null;
 }
@@ -166,8 +166,7 @@ add_shortcode( 'teaser-list', __NAMESPACE__ . '\shortcode_teaser_list' );
  * @since 1.0.0
  */
 
-function shortcode_teaser_list__echo_pagination( $current_page, $max_page )
-{
+function shortcode_teaser_list__echo_pagination( $current_page, $max_page ) {
     ob_start();
 ?>
 <nav>

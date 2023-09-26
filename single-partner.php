@@ -23,8 +23,8 @@ get_header();
     <main id="main">
         <article>
             <?php
-            if( have_posts() ) :
-                while( have_posts() ) :
+            if ( have_posts() ) {
+                while ( have_posts() ) {
                     the_post();
 
                     // Get record
@@ -34,13 +34,13 @@ get_header();
                 <div class="wp-block-group__inner-container">
                     <h2 class="section-title has-text-align-center"><?php echo $data['title']; ?></h2>
                     <?php
-                    if( ! empty( $data['description'] ) ) :
+                    if ( ! empty( $data['description'] ) ) {
                         echo $data['description'];
-                    else :
+                    } else {
                     ?>
                     <p style="text-align: center;"><?php echo __( 'Keine Beschreibung verfügbar.', 'cm'); ?></p>
                     <?php
-                    endif;
+                    }
                     ?>
                 </div>
             </div>
@@ -67,31 +67,31 @@ get_header();
                         <div>
                             <ul>
                             <?php
-                            if( $data['phone'] ) :
+                            if ( $data['phone'] ) {
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'phone',
                                     __( 'Telefon', 'cm' ),
                                     $data['phone'],
                                     );
-                            endif;
+                            }
 
-                            if( $data['fax'] ) :
+                            if ( $data['fax'] ) {
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'fax',
                                     __( 'Telefax', 'cm' ),
                                     $data['fax'],
                                     );
-                            endif;
+                            }
 
-                            if( $data['mail'] ) :
+                            if ( $data['mail'] ) {
                                 echo sprintf( '<li data-type="%1$s"><span>%2$s</span><span>%3$s</span></li>',
                                     'mail',
                                     __( 'E-Mail', 'cm' ),
                                     $data['mail'],
                                     );
-                            endif;
+                            }
 
-                            if( $data['website'] ) :
+                            if ( $data['website'] ) {
 
                                 $url = parse_url( $data['website'] );
 
@@ -102,7 +102,7 @@ get_header();
                                     $url['host'],
                                     __( 'Webseite besuchen', 'cm' ),
                                     );
-                            endif;
+                            }
                             ?>
                             </ul>
                         </div>
@@ -116,7 +116,7 @@ get_header();
              * @since   2.3.0
              */
 
-            if( ! empty( $data['address'] ) ) :
+            if ( ! empty( $data['address'] ) ) {
 
                 $google_maps_query =
                 'https://www.google.com/maps/embed/v1/place?q='
@@ -131,12 +131,12 @@ get_header();
                 </div>
             </div>
             <?php
-            endif;
+            }
             ?>
 
             <?php
-            endwhile;
-        endif;
+            }
+        }
         ?>
         </article>
     </main>

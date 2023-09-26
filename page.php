@@ -20,11 +20,11 @@ get_header();
 
     <main id="main">
         <?php
-        if( have_posts() ) :
+        if ( have_posts() ) {
 
             ob_start();
 
-            while( have_posts() ) :
+            while ( have_posts() ) {
                 the_post();
         ?>
         <article>
@@ -38,12 +38,12 @@ get_header();
             </div>
         </article>
         <?php
-            endwhile;
+            }
 
             $output = ob_get_contents();
             ob_end_clean();
             echo $output;
-        endif;
+        }
         ?>
     </main>
 

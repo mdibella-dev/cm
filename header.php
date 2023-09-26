@@ -32,11 +32,11 @@ defined( 'ABSPATH' ) or exit;
 <body <?php body_class(); ?>>
     <header id="header">
     <?php
-    if( has_nav_menu( 'primary' ) ) :
+    if ( has_nav_menu( 'primary' ) ) {
         wp_nav_menu( [
             'theme_location' => 'primary',
             'container'      => false,
         ] );
-    endif;
+    }
     ?>
     </header>
