@@ -1,7 +1,7 @@
 /**
  * Styles für dieses Thema
  *
- * @author  Marco Di Bella
+ * @author  Marco Di Bella 
  * @package cm-theme
  */
 
@@ -88,21 +88,25 @@
 .section-wrapper,
 .footer-widgets-wrapper {
     width: 100%;
-    margin: 0 auto;
 
-    padding-left: max( 1rem, calc( (100% - var(--wp--custom--layout--maxwidth) ) / 2 ) );
-    padding-right: max( 1rem, calc( (100% - var(--wp--custom--layout--maxwidth) ) / 2 ) );
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    & > div[class*="__inner-container"] {
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 100%;
 
-    @include respond-to(wide) {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+        /* ab 960px (large) */
+
+        @include respond-to(large) {
+            max-width: 64rem;
+        }
+
+        /* ab 1280px (wide) */
+
+        @include respond-to(wide) {
+            padding: 4rem 1rem;
+        }
     }
 }
-
-
-
 
 
 
