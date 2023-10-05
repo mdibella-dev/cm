@@ -1,5 +1,5 @@
 /**
- * Seitenelemente
+ * Site components
  *
  * @author  Marco Di Bella
  * @package cm-theme
@@ -20,26 +20,27 @@
 
 #footer {
     z-index: 200;
-    display: block;
     width: 100%;
     box-sizing: content-box;
     background: #999;
     color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 3rem 0;
 }
 
 
 .footer-wrapper {
     width: 100%;
+    padding: 1rem 2rem;
 
     .footer-wrapper__inner-container {
         margin: 0 auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
         width: 100%;
 
         // ab 960px (large)
-
-        @include respond-to(large) {
+        @include breakpoint(large) {
             max-width: 64rem;
         }
     }
@@ -50,17 +51,20 @@
     .footer-wrapper__inner-container {
         display: flex;
         flex-wrap: wrap;
+        gap: 2rem;
 
-        @include respond-to(large) {
+        @include breakpoint(large) {
             flex-wrap: nowrap;
         }
     }
+
 
     .widget-title {
         margin-bottom: .4rem !important;
         padding: 0 2px;
         font-size: 1.125rem !important;
     }
+
 
     .widget-area {
         width: 100%;
@@ -69,7 +73,7 @@
             margin-bottom: 2rem;
         }
 
-        @include respond-to(large) {
+        @include breakpoint(large) {
             width: 33%;
 
             &:not(:last-child) {
@@ -82,7 +86,7 @@
             }
         }
 
-        @include respond-to(wide) {
+        @include breakpoint(wide) {
             &:not(:last-child) {
                 margin-right: 2rem;
             }
@@ -92,6 +96,7 @@
             }
         }
     }
+
 
     .widget_nav_menu ul {
         list-style-type: none;
@@ -150,7 +155,7 @@
     box-shadow: $menu-boxshadow;
 
     .quadmenu-dropdown-menu {
-        @include respond-to(large) {
+        @include breakpoint(large) {
             box-shadow: $menu-boxshadow;
         }
     }
