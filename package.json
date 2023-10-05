@@ -1,6 +1,5 @@
 {
     "name": "cm-theme",
-    "version": "1.0.0",
     "description": "Development Scripts",
     "config" : {
         "SASS_SRC": "./assets/src/css",
