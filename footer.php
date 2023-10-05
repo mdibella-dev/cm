@@ -13,11 +13,24 @@ namespace cm_theme;
 
 defined( 'ABSPATH' ) or exit;
 
-
-
 ?>
         <footer id="footer">
 
+            <?php if ( is_active_sidebar( 'footer-four' ) ) { ?>
+            <section id="footer-social" class="footer-wrapper">
+
+                <div class="footer-wrapper__inner-container">
+
+                    <div class="widget-area">
+                        <?php dynamic_sidebar( 'footer-four' ); ?>
+                    </div>
+
+                </div>
+
+            </section>
+            <?php } ?>
+
+            <?php if ( is_active_sidebar( 'footer-one' ) and is_active_sidebar( 'footer-two' ) and is_active_sidebar( 'footer-three' ) ) { ?>
             <section id="footer-widgets" class="footer-wrapper">
 
                 <div class="footer-wrapper__inner-container">
@@ -37,6 +50,7 @@ defined( 'ABSPATH' ) or exit;
                 </div>
 
             </section>
+            <?php } ?>
 
         </footer>
 

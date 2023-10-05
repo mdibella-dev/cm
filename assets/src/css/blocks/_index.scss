@@ -2,23 +2,23 @@
  * Blocks
  *
  * @author  Marco Di Bella
- * @package mdb-rechtsdepesche
+ * @package cm-theme
  */
 
 
 
 /** Core blocks */
 
-@import "core/_block-button";
-@import "core/_block-cover";
-@import "core/_block-embed";
-@import "core/_block-image";
-@import "core/_block-media-text";
-@import "core/_block-quote";
-@import "core/_block-spacer";
-@import "core/_block-table";
+@import "core/_button";
+@import "core/_cover";
+@import "core/_embed";
+@import "core/_image";
+@import "core/_media-text";
+@import "core/_quote";
+@import "core/_spacer";
+@import "core/_table";
 
 
 /** Webfactory blocks */
 
-@import "webfactory/_block-webfactory-map";
+@import "webfactory/_webfactory-map";

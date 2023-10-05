@@ -1,0 +1,128 @@
+/**
+ * Block: core/table
+ * Theme support and custom styles
+ *
+ * @author  Marco Di Bella
+ * @package cm-theme
+ */
+
+
+
+.wp-block-table {
+    margin-bottom: 1rem;        // Spacing as for <p>
+
+    @include breakpoint(medium) {
+        margin-bottom: 1.5rem;
+    }
+
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+    // Single component
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1rem; // still necessary?
+
+        @include breakpoint(medium) { // still necessary?
+            font-size: 1.125rem;
+            line-height: 1.4;
+        }
+    }
+
+
+    tr {
+        border-bottom: 1px solid #eee;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+
+    td {
+        margin-bottom: 0;
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @include breakpoint(medium) {
+            display: table-cell;
+            width: auto;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+
+        // Gutter at horizontal alignment
+        &:not(:first-of-type) {
+            @include breakpoint(medium) {
+                padding-left: 1rem;
+            }
+
+            @include breakpoint(large) {
+                padding-left: 2rem;
+            }
+        }
+
+        &:not(:last-of-type) {
+            @include breakpoint(medium) {
+                padding-right: 1rem;
+            }
+
+            @include breakpoint(large) {
+                padding-right: 2rem;
+            }
+        }
+    }
+}
+
+
+
+/**
+ * .is-style-default-with-header-column,
+ * .is-style-default-with-header-row
+ */
+
+.wp-block-table.is-style-default-with-header-column td:first-of-type {
+    padding-bottom: 0;
+
+    @include breakpoint(medium) {
+        padding-bottom: 1.25rem;
+    }
+}
+
+
+.wp-block-table.is-style-default-with-header-column td:first-of-type p,
+.wp-block-table.is-style-default-with-header-row tr:first-of-type p {
+    -webkit-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none;
+    font-weight: normal;
+}
+
+
+
+/**
+ * .two-columns-30-70
+ */
+
+.wp-block-table.two-columns-30-70 {
+    td:first-of-type {
+        @include breakpoint(medium) {
+            width: 30%;
+        }
+    }
+
+
+    td:last-of-type {
+        @include breakpoint(medium) {
+            width: 70%;
+        }
+    }
+}

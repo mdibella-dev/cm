@@ -1,8 +1,10 @@
 /**
- * Setzt eine Reihe von Blockattribute.
+ * Several block editor related attributes (deprecated) 
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
+ *
+ * @deprecated
  */
 
 
@@ -20,7 +22,8 @@
     padding: $unit;
 }
 
-@include respond-to(small) {
+
+@include breakpoint(small) {
     .has-medium-padding,
     .has-large-padding {
         padding: 2*$unit;
@@ -31,7 +34,8 @@
     }
 }
 
-@include respond-to(large) {
+
+@include breakpoint(large) {
     .has-large-padding {
         padding: 3*$unit;
     }
@@ -41,7 +45,8 @@
     }
 }
 
-@include respond-to(huge) {
+
+@include breakpoint(huge) {
     .has-large-padding {
         padding: 5*$unit 3*$unit;
     }
@@ -63,6 +68,7 @@
     margin-bottom: 0 !important;
 }
 
+
 .mt-0 {
     margin-top: 0 !important;
 }
@@ -79,9 +85,11 @@
     text-align: left !important;
 }
 
+
 .has-text-align-center {
     text-align: center !important;
 }
+
 
 .has-text-align-right {
     text-align: right !important;

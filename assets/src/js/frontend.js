@@ -5,14 +5,7 @@ jQuery(function($) {
         $( this ).toggleClass( 'on' );
         $( this ).next().slideToggle( 'medium' );
     } );
-
-
-    // Akkordion
-    $( '.accordion > ul > .accordion-element > .accordion-caption' ).click(function() {
-        $( this ).toggleClass( 'open' );
-        $( this ).next().slideToggle( 'medium' );
-    } );
-
+    
 
     // Event-Table
     $( '.event-table > .event-table__session > .event-table__session-toggle' ).click(function() {

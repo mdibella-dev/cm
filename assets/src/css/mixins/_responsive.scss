@@ -1,5 +1,5 @@
 /**
- * Mixins zur Realisierung von responsiven Websites
+ * Mixins for the realization of responsive websites.
  *
  * @author  Marco Di Bella
  * @package cm-theme
@@ -8,33 +8,33 @@
 
 
 /**
- *  Media-Breakpoints
+ *  Media breakpoints.
  *
  * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
  */
 
 $breakpoints: (
-    mobile: 30rem,      // = 480px
-    small:  35.5rem,    // = 600px,
-    medium: 48.875rem,  // = 782px,
-    large:  60rem,      // = 960px,
-    wide:   80rem,      // = 1280px,
-    huge:   90rem,      // = 1440px,
+    mobile: 460px,
+    small:  600px,
+    medium: 782px,
+    large:  960px,
+    wide:   1280px,
+    huge:   1440px,
 ) !default;
 
 
 
 /**
- * Erzeugt einen Media-Breakpoint
+ * Creates a media breakpoint.
  *
  * @source https://davidwalsh.name/write-media-queries-sass
  * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
  * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
  *
- * @param  $breakpoint  einer der folgenden Werte: mobile, small, medium, large, wide, huge
+ * @param $breakpoint one of the following values: mobile, small, medium, large, wide, huge
  */
 
-@mixin respond-to( $breakpoint) {
+@mixin breakpoint( $breakpoint) {
 
     @if map-has-key( $breakpoints, $breakpoint ) {
         $value: map-get( $breakpoints, $breakpoint );

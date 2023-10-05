@@ -1,7 +1,8 @@
 /**
- * Custom Styles für wp-block-cover
+ * Block: core/cover
+ * Theme support and custom styles
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -11,34 +12,38 @@
 .wp-block-cover-image {
     min-height: 530px;
 
+
     .wp-block-cover-image-text,
     .wp-block-cover-text,
     h2,
     p {
-        // Größenbeschränkung aufheben
+        // Remove size restriction
         max-width: unset !important;
 
-        // Innenabstand korrigieren
+        // Correct internal spacing
         padding-left: $unit;
         padding-right: $unit;
     }
+}
 
-    .wp-block-cover__inner-container {
-        margin: 0;
 
-        & > *:last-child {
-            margin-bottom: unset !important;
-        }
+.wp-block-cover__inner-container {
+    margin: 0;
+
+    & > *:last-child {
+        margin-bottom: unset !important;
     }
 }
 
 
 
-/* Stil: Mit Overlay */
+/**
+ * .is-style-with-overlay
+ */
 
 .wp-block-cover.is-style-with-overlay > .wp-block-cover__inner-container {
     width: auto;
     padding: 2rem;
     background: rgba(128,128,128,.9);
-    border-radius: 3px;
+    border-radius: var(--wp--custom--border-radius--big);
 }

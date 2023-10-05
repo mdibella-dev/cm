@@ -1,0 +1,70 @@
+/**
+ * Styles related to the plugin: Download Monitor by WPChill
+ *
+ * @author  Marco Di Bella
+ * @package cm-theme
+ */
+
+
+
+*[class^="dlm-xhr-"] {
+    display: none !important;
+}
+
+
+
+/**
+ * Template: link, link-excerpt
+ */
+
+.download-link {
+    @include p-tag-basic-settings();
+    display: flex;
+    align-items: baseline;
+    padding: .5rem 0;
+
+
+    i {
+        color: #555;
+    }
+
+
+    div {
+        flex-grow: 2;
+        margin-left: 1rem;
+    }
+
+
+    p.description {
+        font-size: 95%;
+
+        @include breakpoint(medium) {
+            font-size: 85%;
+        }
+    }
+}
+
+
+
+/**
+ * Template: image
+ */
+
+.download-image {
+    a {
+        display: block;
+        padding: 0;
+        transition: all 0.3s 0s ease-in-out;
+        box-shadow: 0 5px 40px -5px rgba(0,0,0,.5);
+        border: 5px solid var(--wp--preset--color--white);
+        line-height: 0;
+
+
+        &:hover,
+        &:focus {
+            border: 5px solid var(--wp--preset--color--white);
+            transform: scale(1.5, 1.5) rotate(5deg);
+            box-shadow: 15px 15px 20px -5px rgba(0,0,0,.5);
+        }
+    }
+}
