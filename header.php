@@ -13,6 +13,8 @@ namespace cm_theme;
 
 defined( 'ABSPATH' ) or exit;
 
+
+
 ?>
 <!DOCTYPE html>
 
