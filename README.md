@@ -39,7 +39,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Replace respond-to() with breakpoint() to make code more interchangeable
 - Improve: Remove obsolete SCSS variables
 - Improve: Remove obsolete accordion code
-
+- Improve: Better spacing in footer
 
 ### Previous changes
 
