@@ -57,6 +57,7 @@
     // by default the components are displayed one below the other
     display: block;
     overflow: hidden;
+    box-shadow: 0 5px 5px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.12);
 
 
     // as of small: Display component side by side
@@ -70,6 +71,7 @@
         width: 100%;
         height: auto;
         border-radius: var(--wp--custom--border-radius--small);
+        aspect-ratio: 16/9;
     }
 }
 
