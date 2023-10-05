@@ -121,9 +121,9 @@ function shortcode_teaser_list( $atts, $content = null ) {
         <li>
             <article class="<?php echo implode( ' ', get_post_class( $post->ID ) ); ?>">
                 <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php echo __( 'Mehr erfahren', 'cm' ); ?>" rel="prev">
-                    <div class="teaser-image">
+                    <figure class="teaser-image">
                         <?php the_post_thumbnail( $post->ID, 'full' ); ?>
-                    </div>
+                    </figure>
                     <div class="teaser-content">
                         <h2><?php the_title(); ?></h2>
                         <?php the_excerpt(); ?>
