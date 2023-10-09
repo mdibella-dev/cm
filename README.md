@@ -43,6 +43,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Better spacing in teaser list
 - Improve: Remove .lowercase, .uppercase (obsolete)
 - Improve: Remove text alignment style settings (is set by Gutenberg)
+- Improve: Add round corners, shadows and hover action to speaker-grid-elements
 
 
 ### Previous changes
