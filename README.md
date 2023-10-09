@@ -42,6 +42,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Better spacing in footer
 - Improve: Better spacing in teaser list
 - Improve: Remove .lowercase, .uppercase (obsolete)
+- Improve: Remove text alignment style settings (is set by Gutenberg)
 
 
 ### Previous changes
