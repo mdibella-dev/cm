@@ -34,9 +34,7 @@
  * Single Teaser
  */
 
-.teaser-list-element,
-.teaser-list-element:hover,
-.teaser-list-element:focus {
+.teaser-list-element {
     all: unset;
     line-height: 0;
     text-align: left;
@@ -44,11 +42,25 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
+    transition: all .3s ease-out;
+    padding: 2rem 1rem;
 
 
     @include breakpoint(large) {
         flex-wrap: nowrap;
         gap: 3rem;
+        padding: 3rem 2rem;
+    }
+
+
+    &:hover,
+    &:focus {
+        border-color: transparent;
+        border-radius: var(--wp--custom--border-radius--big);
+        background: var(--wp--preset--color--white);
+        transform: scale(1.075, 1.075);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.12);
+        color: #333;
     }
 }
 
