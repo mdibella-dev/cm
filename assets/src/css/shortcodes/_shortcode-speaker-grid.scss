@@ -52,7 +52,7 @@
     outline: none;
     z-index: 100;
     position: relative;
-    border: unset;
+    border: none;
     transition: all .3s ease-out;
 
 
@@ -87,6 +87,8 @@
         transform: scale(1.075, 1.075);
         box-shadow: 0 10px 15px -3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.12);
         color: #333;
+        border: none;
+        outline: none;
 
         img {
             box-shadow: none;
