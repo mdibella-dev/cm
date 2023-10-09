@@ -19,7 +19,7 @@
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 1rem;
         margin: 3rem 0;
     }
 
@@ -47,9 +47,8 @@
 
 
     @include breakpoint(large) {
-        flex-wrap: nowrap;
         gap: 3rem;
-        padding: 3rem 2rem;
+        flex-wrap: nowrap;
     }
 
 
@@ -60,7 +59,6 @@
         background: var(--wp--preset--color--white);
         transform: scale(1.075, 1.075);
         box-shadow: 0 10px 15px -3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.12);
-        color: #333;
     }
 }
 
@@ -123,6 +121,15 @@
 
     *:last-child  {
         margin-bottom: 0;
+    }
+}
+
+
+.teaser-list-element:hover .teaser-content,
+.teaser-list-element:focus .teaser-content {
+    h2,
+    p {
+        color: #333;
     }
 }
 
