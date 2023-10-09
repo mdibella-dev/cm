@@ -121,7 +121,7 @@
 
                 &:hover,
                 &:focus {
-                    color: #fff !important;
+                    color: var(--wp--preset--color--white) !important;
                     background-color: rgba(255,255,255,0.5) !important;
                 }
             }
@@ -140,10 +140,15 @@
         padding: 0;
         display: flex;
         justify-content: center;
+        gap: 1rem;
     }
 
     li {
-        padding: 0 5px;
+        padding: 0;
+    }
+
+    .wp-block-button.is-fa-button > .wp-block-button__link {
+        font-size: 20px;
     }
 }
 
@@ -152,11 +157,11 @@
 // Unterstützung für QuadMenu Megamenü
 
 #quadmenu {
-    box-shadow: $menu-boxshadow;
+    box-shadow: 0 1em 2em -1em rgba(0,0,0,.3);;
 
     .quadmenu-dropdown-menu {
         @include breakpoint(large) {
-            box-shadow: $menu-boxshadow;
+            box-shadow: 0 1em 2em -1em rgba(0,0,0,.3);;
         }
     }
 

@@ -1,7 +1,7 @@
 /**
  * Mixins
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -30,7 +30,7 @@
     line-height: 1.5;
     font-size: 1rem;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         line-height: 1.65;
         font-size: 1.2rem;
     }
@@ -43,7 +43,7 @@
             hyphens: auto;
     line-height: 1.3;
 
-    @include respond-to(large) {
+    @include breakpoint(large) {
         -webkit-hyphens: none;
             -ms-hyphens: none;
                 hyphens: none;
@@ -61,7 +61,7 @@
     font-weight: 300 !important;
     text-align: left;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         font-size: 1rem !important;
     }
 

@@ -1,9 +1,10 @@
 /**
- * Basic variables
+ * Mixins
  *
  * @author  Marco Di Bella
  * @package cm-theme
  */
 
 
-$unit:              .625rem;
+@import "_responsive";
+@import "_mixins";

@@ -1,7 +1,7 @@
 /**
- * Grundlegende Einstellungen für Tags
+ * HTML tags
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -10,9 +10,9 @@
 html,
 body {
     height: 100%;
-    font-family: $font-sans;
-   	font-size: $font-size;
-	font-weight: normal;
+    font-family: var(--wp--preset--font-family--primary);
+       font-size: 16px;
+    font-weight: normal;
     -moz-osx-font-smoothing: grayscale;
      -webkit-font-smoothing: antialiased;
              text-rendering: geometricPrecision;
@@ -27,7 +27,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: var(--wp--preset--color--white);
     color: #555;
 }
 
@@ -77,7 +77,7 @@ ol,
 ul {
     margin-bottom: 1rem;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         margin-bottom: 1.5rem;
     }
 
@@ -121,7 +121,7 @@ h1 {
     @include h-tag-basic-settings();
     font-size: 1.625rem; // 26px
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         font-size: 2rem; // 32 px
     }
 }

@@ -1,11 +1,18 @@
 /**
- * Erzeugt eine "Mauer" mit den Logos der Kooperationspartner
+ * Shortcode [icon-wall]
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
+ *
+ * @see  https://github.com/mdibella-dev/cm-theme-core
+ * @todo Outsource this code to the plugin repository on GitHub
  */
 
 
+
+/**
+ * Icon Wall
+ */
 
 .icon-wall {
     list-style: none;
@@ -24,17 +31,13 @@
         padding: 1rem 2rem;
         width: calc(50%);
 
-        @include respond-to(medium) {
+        @include breakpoint(medium) {
             width: calc(25%);
         }
 
-        @include respond-to(large) {
+        @include breakpoint(large) {
             width: calc(20%);
         }
-    }
-
-    .is-squared img {
-        max-width: 85px;
     }
 
     img {
@@ -53,4 +56,9 @@
             border-bottom: none;
         }
     }
+}
+
+
+.icon-wall li.is-squared img {
+    max-width: 85px;
 }

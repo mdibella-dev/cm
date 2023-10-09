@@ -1,5 +1,5 @@
 /**
- * Frontend-Styles für dieses Thema
+ * Frontend styles for this theme
  *
  * @author  Marco Di Bella
  * @package cm-theme
@@ -8,33 +8,21 @@
 
 
 
-/** Normalize */
-
-@import "vendors/_normalize";
-
-
 /** Mixins */
 
-@import "mixins/_mixins";
-@import "mixins/_breakpoints";
+@import "mixins/_index";
 
 
-/** Seitenelemente / generelle Einstellungen */
+/** Basic framework */
 
 @import "site/_vars";
-@import "site/_fonts";
 @import "site/_basics";
 @import "site/_styles";
 @import "site/_elements";
+@import "site/_attributes";
 
 
-/** Block-Editor (Gutenberg) */
-
-@import "block-editor/_attributes";
-@import "block-editor/_color-palette";
-
-
-/** Blocks */
+/** Block elements */
 
 @import "blocks/_index";
 
@@ -46,4 +34,4 @@
 
 /** Plugins */
 
-@import "plugins/_plugin-cmkk";
+@import "plugins/_index";

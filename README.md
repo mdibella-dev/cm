@@ -20,7 +20,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Tested up to
 
-- WordPress 6.2
+- WordPress 6.3
 
 <br>
 
@@ -29,8 +29,23 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Latest changes to the main branch
 
+- New: Add theme.json
+- New: Add true block editor styles support
+- New: Add support of fourth footer section (backported from cm-iwc)
 - Improve: Change clamping style
 - Improve: Modernize control structure
+- Improve: Remove normalize.scss
+- Improve: Shorten the name of block related style files
+- Improve: Replace respond-to() with breakpoint() to make code more interchangeable
+- Improve: Remove obsolete SCSS variables
+- Improve: Remove obsolete accordion code
+- Improve: Better spacing in footer
+- Improve: Better spacing in teaser list
+- Improve: Remove .lowercase, .uppercase (obsolete)
+- Improve: Remove text alignment style settings (is set by Gutenberg)
+- Improve: Add round corners, shadows and hover action to speaker-grid-elements
+- Improve: Add better hover action to even-table speaker-images
+- Improve: Add better hover action to teaser-list
 
 
 ### Previous changes

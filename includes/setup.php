@@ -26,89 +26,17 @@ function theme_setup() {
     load_theme_textdomain( 'cm', THEME_DIR . 'languages' );
 
 
-    // Enables HTML5-compliant handling of various WordPress core elements.
-    add_theme_support( 'html5', [
-        'comment-list',
-        'comment-form',
-        'search-form',
-        'gallery',
-        'caption',
-        'script',
-        'style',
-    ] );
-
-
     // Enables responsive embedding of media embeds.
     add_theme_support( 'responsive-embeds' );
 
 
-    // Sets the block-editor palette.
-    add_theme_support( 'editor-color-palette', [
-        [
-            'name'  => __( 'Weiß', 'cm' ),
-            'slug'  => 'white',
-            'color' => '#ffffff',
-        ],
-        [
-            'name'  => __( 'Schwarz 5%', 'cm' ),
-            'slug'  => 'black-05',
-            'color' => '#fafafa',
-        ],
-        [
-            'name'  => __( 'Schwarz 10%', 'cm' ),
-            'slug'  => 'black-10',
-            'color' => '#e5e5e5',
-        ],
-        [
-            'name'  => __( 'Schwarz 20%', 'cm' ),
-            'slug'  => 'black-20',
-            'color' => '#cccccc',
-        ],
-        [
-            'name'  => __( 'Schwarz 30%', 'cm' ),
-            'slug'  => 'black-30',
-            'color' => '#b2b2b2',
-        ],
-        [
-            'name'  => __( 'Schwarz 40%', 'cm' ),
-            'slug'  => 'black-40',
-            'color' => '#999999',
-        ],
-        [
-            'name'  => __( 'Schwarz 50%', 'cm' ),
-            'slug'  => 'black-50',
-            'color' => '#7f7f7f',
-        ],
-        [
-            'name'  => __( 'Schwarz 60%', 'cm' ),
-            'slug'  => 'black-60',
-            'color' => '#666666',
-        ],
-        [
-            'name'  => __( 'Schwarz 70%', 'cm' ),
-            'slug'  => 'black-70',
-            'color' => '#4c4c4c',
-        ],
-        [
-            'name'  => __( 'Schwarz 80%', 'cm' ),
-            'slug'  => 'black-80',
-            'color' => '#333333',
-        ],
-        [
-            'name'  => __( 'Schwarz 90%', 'cm' ),
-            'slug'  => 'black-90',
-            'color' => '#191919',
-        ],
-        [
-            'name'  => __( 'Schwarz', 'cm' ),
-            'slug'  => 'black',
-            'color' => '#000000',
-        ],
-    ] );
-
-
     // Enables 'wide' support for the block editor (Gutenberg).
     add_theme_support( 'align-wide' );
+
+
+    // Adds editor styles.
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'assets/build/css/frontend.min.css' );
 
 
     // Sets media sizes.
@@ -165,6 +93,16 @@ function theme_setup() {
         'before_title'  => '<h6 class="widget-title">',
         'after_title'   => '</h6>',
     ] );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Social Media', 'cm' ),
+        'id'            => 'footer-four',
+        'description'   => __( 'Hier soll das Social-Media-Menü definiert werden.', 'cm' ),
+        'before_widget' => '<div class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h6 class="widget-title">',
+        'after_title'   => '</h6>',
+    ) );
 }
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
@@ -178,7 +116,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
  * @since 1.0.0
  */
 
-function enqueue_scripts() {
+function theme_scripts() {
     wp_enqueue_script(
         'cm-script',
         THEME_URI . '/assets/build/js/frontend.min.js',
@@ -197,4 +135,4 @@ function enqueue_scripts() {
     );
 }
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts', 9990 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\theme_scripts' );

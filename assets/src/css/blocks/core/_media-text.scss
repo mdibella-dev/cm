@@ -1,7 +1,8 @@
 /**
- * Custom Styles für wp-block-media-text
+ * Block: core/media-text
+ * Theme support and custom styles
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -9,7 +10,7 @@
 
 .wp-block-media-text__media img,
 .wp-block-media-text__media video {
-    height: auto; /* Bugfix: Seit WP 5.5 wird das Medium gestretcht */
+    height: auto; /* Bugfix: Since WP 5.5 the medium is stretched */
 }
 
 
@@ -28,6 +29,7 @@
         padding: 2rem 0 0;
     }
 
+
     .wp-block-media-text.is-stacked-on-mobile.has-media-on-the-right .wp-block-media-text__content {
         padding: 0 0 2rem;
     }
@@ -37,11 +39,11 @@
 .wp-block-media-text + .wp-block-media-text {
     margin-top: 2rem;
 
-    @include respond-to(large) {
+    @include breakpoint(large) {
         margin-top: 4rem;
     }
 
-    @include respond-to(wide) {
+    @include breakpoint(wide) {
         margin-top: 6rem;
     }
 }

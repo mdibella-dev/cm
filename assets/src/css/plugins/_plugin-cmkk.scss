@@ -1,9 +1,12 @@
 /**
- * Modifications for cmkk.
+ * Styles related to the plugin: CM Theme — Addon: Ticketpool.
  *
  * @author  Marco Di Bella
- * @package cm-themekk
- **/
+ * @package cm-theme
+ *
+ * @see  https://github.com/mdibella-dev/cm-theme-addon-ticketpool
+ * @todo Outsource this code to the plugin repository on GitHub.
+ */
 
 
 
@@ -16,22 +19,27 @@
     font-size: 90%;
     line-height: 90%;
 
+
     * {
         font-size: inherit;
         line-height: inherit;
     }
 
+
     &.cmkk-notice-sucess {
         border-left-color: #54be64;     // grün
     }
+
 
     &.cmkk-notice-error {
         border-left-color: #e64940;     // rot
     }
 
+
     &.cmkk-notice-warning {
         border-left-color: #ffc501;     // gelb
     }
+
 
     &.cmkk-notice-info {
         border-left-color: #17b0da;     // blau
@@ -43,10 +51,11 @@
     line-height: 1.5;
     font-size: 1rem;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         line-height: 1.2;
         font-size: 1.2rem;
     }
+
 
     table {
         th,
@@ -54,7 +63,7 @@
             text-align: left;
             display: block;
 
-            @include respond-to(medium) {
+            @include breakpoint(medium) {
                 display: inline-block;
             }
         }
@@ -63,7 +72,7 @@
             font-weight: 200;
             padding: 1rem .5rem 0;
 
-            @include respond-to(medium) {
+            @include breakpoint(medium) {
                 width: 30%;
                 padding: 1rem .5rem;
             }
@@ -73,7 +82,7 @@
             padding: 1rem .5rem;
             width: 100%;
 
-            @include respond-to(medium) {
+            @include breakpoint(medium) {
                 width: 60%;
             }
 
@@ -89,6 +98,7 @@
         }
     }
 
+
     .wp-block-button > .wp-block-button__link:disabled {
         color: #213a8f !important;
         background: transparent !important;
@@ -99,6 +109,7 @@
 .cmkk-gdpr {
     display: flex;
     align-items: flex-start;
+
 
     label {
         margin-left: 20px;

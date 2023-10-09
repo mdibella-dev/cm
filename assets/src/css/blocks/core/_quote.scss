@@ -1,7 +1,8 @@
 /**
- * Custom Styles für wp-block-quote
+ * Block: core/quote
+ * Theme support and custom styles
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
  */
 
@@ -14,16 +15,17 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
 
+
     &:before {
         content: '\201C';
         position: absolute;
-        top: 0.25em;
-        left: -0.65em;
+        top: .25em;
+        left: -.65em;
         color: #555;
         font-size: 3em;
         z-index: -1;
@@ -33,7 +35,7 @@
 
 .wp-block-quote,
 .wp-block-quote p {
-    font-family: $font-serif;
+    font-family: "Times";
     font-style: italic;
     font-size: 1.5rem;
     line-height: 1.5em;
@@ -49,12 +51,12 @@
     position: relative;
     left: 0;
     top: -1em;
-    font-family: $font-sans;
+    font-family: var(--wp--preset--font-family--primary);
     font-style: normal;
     font-weight: 300;
-    font-size: 0.875rem !important;
+    font-size: .875rem !important;
 
-    @include respond-to(medium) {
+    @include breakpoint(medium) {
        font-size: 1rem !important;
     }
 }

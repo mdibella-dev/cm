@@ -121,9 +121,9 @@ function shortcode_teaser_list( $atts, $content = null ) {
         <li>
             <article class="<?php echo implode( ' ', get_post_class( $post->ID ) ); ?>">
                 <a class="teaser-list-element" href="<?php the_permalink(); ?>" title="<?php echo __( 'Mehr erfahren', 'cm' ); ?>" rel="prev">
-                    <div class="teaser-image">
+                    <figure class="teaser-image">
                         <?php the_post_thumbnail( $post->ID, 'full' ); ?>
-                    </div>
+                    </figure>
                     <div class="teaser-content">
                         <h2><?php the_title(); ?></h2>
                         <?php the_excerpt(); ?>
@@ -174,7 +174,7 @@ function shortcode_teaser_list__echo_pagination( $current_page, $max_page ) {
         <a href="<?php echo add_query_arg( 'prt', $current_page - 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Vorhergehende Seite', 'cm' ); ?>" rel="prev"><i class="fas fa-chevron-left"></i></a>
     </div>
     <div class="pageinfo">
-        <span><?php echo sprintf( __( 'Seite %1$s/%2$s', 'cm' ), $current_page, $max_page ); ?></span>
+        <span><?php echo sprintf( __( '%1$s von %2$s', 'cm' ), $current_page, $max_page ); ?></span>
     </div>
     <div class="wp-block-button is-fa-button<?php echo ( $max_page != $current_page )? '' : ' disabled'; ?>">
         <a href="<?php echo add_query_arg( 'prt', $current_page + 1 ); ?>" class="wp-block-button__link" title="<?php echo __( 'Nächste Seite', 'cm' ); ?>" rel="next"><i class="fas fa-chevron-right"></i></a>

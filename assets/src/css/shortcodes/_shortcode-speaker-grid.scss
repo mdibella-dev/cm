@@ -1,11 +1,18 @@
 /**
- * Shortcode [speaker-grid]
+ * Shortcode [speaker-grid].
  *
- * @author  Marco Di Bella 
+ * @author  Marco Di Bella
  * @package cm-theme
+ *
+ * @see  https://github.com/mdibella-dev/cm-theme-core
+ * @todo Outsource this code to the plugin repository on GitHub.
  */
 
 
+
+/**
+ * Speaker Grid
+ */
 
 .speaker-grid {
     ul {
@@ -20,17 +27,24 @@
         justify-content: flex-start;
     }
 
+
     li {
         padding: 0;
         margin: 0.5rem 1rem;
         height: auto;
         width: calc(50% - 2rem);
 
-        @include respond-to(small) {
+        @include breakpoint(small) {
             width: calc(25% - 2rem);
         }
     }
 }
+
+
+
+/**
+ * Single Speaker Grid Element
+ */
 
 .speaker-grid-element {
     display: block;
@@ -38,68 +52,76 @@
     outline: none;
     z-index: 100;
     position: relative;
-    border: unset;
+    border: none;
+    transition: all .3s ease-out;
+
 
     figure {
-        transition: all 0.3s 0s ease-in-out;
         border: none;
-
-        img {
-            width: 100%;
-            height: 100%;
-            background: #fafafa;
-            box-shadow: 0 5px 5px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
-        }
     }
 
-    &:hover,
-    &:focus {
-        border: unset;
-        color: #333;
-
-        figure {
-            background: #fff;
-            transform: scale(1.075, 1.075);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4),0 1px 2px rgba(0,0,0,0.12);
-
-            img {
-                box-shadow: none;
-            }
-        }
-    }
 
     figcaption {
         padding: $unit;
         width: 100%;
     }
 
-    .speaker-title-name {
-        margin-bottom: 0 !important;
-        text-align: left;
-        font-weight: 500;
-        font-size: 0.85rem;
-        line-height: 1.25 !important;
-        -webkit-hyphens: none;
-            -ms-hyphens: none;
-                hyphens: none;
 
-        @include respond-to(medium) {
-            font-size: 1rem;
-        }
+    img {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 5px 5px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.12);
     }
 
+
+    img,
+    &:hover,
+    &:focus {
+        border-radius: var(--wp--custom--border-radius--big);
+        background: var(--wp--preset--color--white);
+    }
+
+
+    &:hover,
+    &:focus {
+        transform: scale(1.075, 1.075);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.12);
+        color: #333;
+        border: none;
+        outline: none;
+
+        img {
+            box-shadow: none;
+            border-bottom-right-radius: unset;
+            border-bottom-left-radius: unset;
+        }
+    }
+}
+
+
+.speaker-grid-element {
+    .speaker-title-name,
     .speaker-position {
         margin-bottom: 0 !important;
         text-align: left;
-        font-weight: 300;
-        font-size: 0.85rem;
+        font-size: .85rem;
         line-height: 1.25 !important;
         -webkit-hyphens: auto;
             -ms-hyphens: auto;
                 hyphens: auto;
 
-        @include respond-to(medium) {
+        @include breakpoint(medium) {
             font-size: 1rem;
         }
+    }
+
+
+    .speaker-title-name {
+        font-weight: 500;
+    }
+
+
+    .speaker-position {
+        font-weight: 300;
     }
 }
