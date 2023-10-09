@@ -30,6 +30,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 ### Latest changes to the main branch
 
 - Improve: Fix shadow, background and border-radius settings on speaker-image (profile page)
+- Improve: Add more gap between speaker-grid-elements
 
 
 ### Previous changes
