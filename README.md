@@ -44,6 +44,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Remove .lowercase, .uppercase (obsolete)
 - Improve: Remove text alignment style settings (is set by Gutenberg)
 - Improve: Add round corners, shadows and hover action to speaker-grid-elements
+- Improve: Add better hover action to even-table speaker-images
 
 
 ### Previous changes

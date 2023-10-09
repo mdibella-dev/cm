@@ -156,24 +156,24 @@
         display: inline-block;
         margin: 2px;
         padding: 0;
-        border: none;
+        outline: none;
+        border: unset;
 
-        & > img {
-            width: 100%;
-            height: 100%;
-            background: #eee;
-            box-shadow: 0 0 0.25rem 0 rgba(0,0,0,.1);
-            transition: all .5s 0s ease-in-out;
-        }
-    }
-
-    a:hover,
-    a:focus {
-        padding: 0;
-        border: none;
 
         img {
-            transform: scale(1.5, 1.5);
+            width: 100%;
+            height: 100%;
+            border-radius: var(--wp--custom--border-radius--small);
+            background: var(--wp--preset--color--white);
+            box-shadow: 0 5px 5px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.12);
+            transition: all .5s 0s ease-in-out;
+        }
+
+
+        &:hover img,
+        &:focus img {
+            transform: scale(1.3, 1.3);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.12);
         }
     }
 }
