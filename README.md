@@ -41,6 +41,8 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Remove obsolete accordion code
 - Improve: Better spacing in footer
 - Improve: Better spacing in teaser list
+- Improve: Remove .lowercase, .uppercase (obsolete)
+
 
 ### Previous changes
 
