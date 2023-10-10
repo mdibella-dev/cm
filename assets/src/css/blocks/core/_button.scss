@@ -119,14 +119,15 @@
     padding:0;
     color: #999;
 
+
     @include breakpoint(medium) {
         padding: 0;
     }
-}
 
-.wp-block-button.is-fa-button > .wp-block-button__link:hover,
-.wp-block-button.is-fa-button > .wp-block-button__link:focus {
-    border-color: transparent !important;
-    background-color: rgba(0,0,0,.1) !important;
-    color: #fff !important;
+    &:hover,
+    &:focus {
+        border-color: transparent !important;
+        background-color: rgba(0,0,0,.1) !important;
+        color: var(--wp--preset--color--white) !important;
+    }
 }
