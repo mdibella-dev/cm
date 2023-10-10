@@ -32,7 +32,8 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - Improve: Fix shadow, background and border-radius settings on speaker-image (profile page)
 - Improve: Add more gap between speaker-grid-elements
 - Improve: Remove border decoration from a-tag
-- Fix: Remove code duplicate from JS
+- Fix: Remove code duplicate from CSS (FAQ)
+- Fix: Remove code duplicate from JS (FAQ)
 
 
 ### Previous changes
