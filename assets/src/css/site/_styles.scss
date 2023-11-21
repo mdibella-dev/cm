@@ -319,10 +319,13 @@
 
 /**
  * Box style
+ *
+ * @todo: convert to style variant of block/group
  */
 
 .box {
     background: var(--wp--preset--color--white);
+    border-radius: var(--wp--custom--border-radius--big);
     box-shadow: 0 0 18px -5px rgba(0,0,0,.2);
     padding: 30px 20px;
     margin: 2rem auto;
