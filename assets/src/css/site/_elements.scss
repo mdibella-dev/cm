@@ -16,6 +16,13 @@
 }
 
 
+body.logged-in.admin-bar #header {
+    position: relative;
+    top: var(--wp-admin--admin-bar--height);
+    left: 0;
+}
+
+
 // Site footer
 
 #footer {
