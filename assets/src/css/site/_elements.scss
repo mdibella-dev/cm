@@ -16,11 +16,17 @@
 }
 
 
-body.logged-in.admin-bar #header {
-    position: relative;
-    top: var(--wp-admin--admin-bar--height);
-    left: 0;
+body.logged-in.admin-bar {
+
+    #header,
+    #main {
+        position: relative;
+        top: var(--wp-admin--admin-bar--height);
+        left: 0;
+    }
+
 }
+
 
 
 // Site footer
