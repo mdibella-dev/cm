@@ -26,18 +26,4 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ## Changelog
 
-
-### Latest changes to the main branch
-
-- Improve: Fix shadow, background and border-radius settings on speaker-image (profile page)
-- Improve: Add more gap between speaker-grid-elements
-- Improve: Remove border decoration from a-tag
-- Fix: Presentation of h2-, h3- and h4-tags
-- Fix: Remove margin-bottom from last child element in blockquote
-- Fix: Remove code duplicate from CSS (FAQ)
-- Fix: Remove code duplicate from JS (FAQ)
-
-
-### Previous changes
-
 See [CHANGELOG.md](https://github.com/rdg-dibella/cm/blob/main/CHANGELOG.md).
