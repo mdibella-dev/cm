@@ -26,4 +26,4 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/rdg-dibella/cm/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/mdibella-dev/cm/blob/main/CHANGELOG.md).
