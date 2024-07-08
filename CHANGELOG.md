@@ -8,6 +8,7 @@ _New / Improve / Bugfix_
 
 - Fix package info
 - Fix upper margin on first child in cover block
+- Fix WP adminbar support
 
 
 <br>
