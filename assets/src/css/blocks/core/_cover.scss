@@ -33,6 +33,10 @@
     & > *:last-child {
         margin-bottom: unset !important;
     }
+
+    & > *:first-child {
+        margin-top: unset !important;
+    }
 }
 
 
