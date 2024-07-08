@@ -6,7 +6,7 @@
         "SASS_BLD": "./assets/build/css"
     },
     "scripts": {
-        "sass:front": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/frontend.scss $npm_package_config_SASS_BLD/frontend.min.css"
+        "sass:frontend": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/frontend.scss $npm_package_config_SASS_BLD/frontend.min.css"
     },
     "devDependecies": {
         "sass": "^1.59.3"
