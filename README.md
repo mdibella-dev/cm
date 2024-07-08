@@ -20,7 +20,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 
 ### Tested up to
 
-- WordPress 6.3
+- WordPress 6.5.5
 
 <br>
 
