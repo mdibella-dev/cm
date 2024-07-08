@@ -6,6 +6,15 @@ _New / Improve / Bugfix_
 
 ### Latest changes to the main branch
 
+- Fix package info
+- Fix upper margin on first child in cover block
+
+
+<br>
+
+### 3.1.1
+Released: 10-10-2023
+
 - Improve: Fix shadow, background and border-radius settings on speaker-image (profile page)
 - Improve: Add more gap between speaker-grid-elements
 - Improve: Remove border decoration from a-tag
@@ -14,10 +23,8 @@ _New / Improve / Bugfix_
 - Fix: Remove code duplicate from CSS (FAQ)
 - Fix: Remove code duplicate from JS (FAQ)
 
-<br>
 
 ### 3.1.0
-
 Released: 09-10-2023
 
 - New: Add theme.json
@@ -40,7 +47,6 @@ Released: 09-10-2023
 
 
 ### 3.0.0
-
 Released: 21-07-2023
 
 - New: Use namespace based theme vars (backport from [theme template](https://github.com/mdibella-dev/theme-template))
@@ -59,7 +65,6 @@ Released: 21-07-2023
 
 
 ### 2.6.0
-
 Released: 03-02-2023
 
 - New: Separator lines in admin menu
@@ -77,7 +82,6 @@ Released: 03-02-2023
 
 
 ### 2.5.0
-
 Released: 07-04-2022
 
 - New: Situation specific titling
@@ -145,6 +149,7 @@ Released: 14-05-2020
 
 
 ### 2.1.0
+
 - New: Support for multiple program item assignments
 - New: Description for program items
 - New: .accordion
@@ -159,6 +164,7 @@ Released: 14-05-2020
 
 
 ### 2.0.0
+
 - Improve: Directory structure of the theme
 - Improve: Merged changelog and readme
 - Improve: Backend menus
