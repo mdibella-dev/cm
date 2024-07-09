@@ -110,7 +110,7 @@ get_header();
 
                             <?php
                             // Position or job title known?
-                            if ( ! empty( $data[ 'position' ] ) ) {
+                            if ( ! empty( $data['position'] ) ) {
                             ?>
                             <h3 class="speaker-position"><?php echo $data['position']; ?></h3>
                             <?php
