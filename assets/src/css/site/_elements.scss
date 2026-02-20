@@ -170,11 +170,11 @@ body.logged-in.admin-bar {
 // Unterstützung für QuadMenu Megamenü
 
 #quadmenu {
-    box-shadow: 0 1em 2em -1em rgba(0,0,0,.3);;
+    filter: drop-shadow(0 1px 12px rgba(0, 0, 0, 0.3));
 
     .quadmenu-dropdown-menu {
         @include breakpoint(large) {
-            box-shadow: 0 1em 2em -1em rgba(0,0,0,.3);;
+            box-shadow: 0 1em 2em -1em rgba(0,0,0,.3);
         }
     }
 
