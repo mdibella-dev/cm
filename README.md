@@ -16,7 +16,7 @@ block-styles, block-editor, gutenberg, translation-ready, child-theme-ready, res
 - WordPress 6
 - ACF 5.0
 - FontAwesome 5
-- [CM Theme — Core](https://github.com/mdibella-dev/cm-theme-core)
+- [Congressomat 3](https://github.com/mdibella-dev/congressomat)
 
 ### Tested up to
 
